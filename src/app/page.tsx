@@ -1,103 +1,193 @@
-import Image from "next/image";
+"use client"
+
+// Layout Components
+import Header from "@/components/layouts/Header";
+import Footer from "@/components/layouts/Footer";
+
+// Section Components
+import HeroSection from "@/components/sections/HeroSection";
+import AboutUsSection from "@/components/sections/AboutUsSection";
+import WhatWeDoSection from "@/components/sections/WhatWeDoSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import PartnersSection from "@/components/sections/PartnersSection";
+import ProtocolsSection from "@/components/sections/ProtocolsSection";
+import WeAreHereSection from "@/components/sections/WeAreHereSection";
+import FAQSection from "@/components/sections/FAQSection";
+import ImpactSection from "@/components/sections/ImpactSection";
+
+// Types
+import { Service, FAQ, ContactPerson, PartnerLogo, Protocol } from "@/types";
+
+const services: Service[] = [
+  {
+    icon: "House",
+    title: "Crédito habitação",
+    description: "Análise e planejamento para crescimento sustentável do seu negócio."
+  },
+  {
+    icon: "RefreshCw",
+    title: "Transferência de crédito",
+    description: "Otimização de recursos e planejamento financeiro eficiente."
+  },
+  {
+    icon: "PiggyBank",
+    title: "Crédito pessoal",
+    description: "Desenvolvimento de liderança e otimização de desempenho."
+  },
+  {
+    icon: "Car",
+    title: "Crédito automóvel",
+    description: "Pesquisa e identificação de oportunidades no seu setor."
+  },
+  {
+    icon: "HandCoins",
+    title: "Crédito consolidado",
+    description: "Implementação de soluções inovadoras para o seu negócio."
+  },
+  {
+    icon: "HardHat",
+    title: "Crédito para obras",
+    description: "Estratégias de comunicação e posicionamento de marca."
+  },
+  {
+    icon: "Hammer",
+    title: "Autoconstrução",
+    description: "Planejamento e execução eficiente de projetos empresariais."
+  }
+];
+
+const partners: PartnerLogo[] = [
+  {
+    name: "4Finance",
+    logo: "/img/partners/logo-4finance.png"
+  },
+  {
+    name: "Abanca",
+    logo: "/img/partners/logo-abanca.png"
+  },
+  {
+    name: "Banco CTT",
+    logo: "/img/partners/logo-bancoctt.png"
+  },
+  {
+    name: "Bankinter",
+    logo: "/img/partners/logo-bankinter.png"
+  },
+  {
+    name: "BP",
+    logo: "/img/partners/logo-bp.png"
+  },
+  {
+    name: "BPI",
+    logo: "/img/partners/logo-bpi.png"
+  },
+  {
+    name: "CGD",
+    logo: "/img/partners/logo-cgd.png"
+  },
+  {
+    name: "Cofidis",
+    logo: "/img/partners/logo-cofidis.png"
+  },
+  {
+    name: "Credibom",
+    logo: "/img/partners/logo-credibom.png"
+  },
+  {
+    name: "Eurobic Abanca",
+    logo: "/img/partners/logo-eurobic_abanca.png"
+  },
+  {
+    name: "MDS",
+    logo: "/img/partners/logo-mds.png"
+  },
+  {
+    name: "Novo Banco",
+    logo: "/img/partners/logo-novobanco.png"
+  },
+  {
+    name: "Santander",
+    logo: "/img/partners/logo-santander.png"
+  },
+  {
+    name: "UCI",
+    logo: "/img/partners/logo-uci.png"
+  },
+  {
+    name: "Unicre",
+    logo: "/img/partners/logo-unicre.png"
+  }
+];
+
+const protocols: Protocol[] = [
+  {
+    name: "Protocol 1",
+    logo: "/img/protocols/1.webp"
+  },
+  {
+    name: "Protocol 2",
+    logo: "/img/protocols/2.png"
+  },
+  {
+    name: "Protocol 3",
+    logo: "/img/protocols/3.png"
+  }
+];
+
+const contacts: ContactPerson[] = [
+  {
+    name: "John Doe",
+    role: "CEO",
+    email: "john@example.com",
+    phone: "+123456789"
+  },
+  {
+    name: "Jane Smith",
+    role: "Operations Manager",
+    email: "jane@example.com",
+    phone: "+987654321"
+  }
+];
+
+const faqs: FAQ[] = [
+  {
+    question: "What is this website about?",
+    answer: "This website is about something amazing."
+  },
+  {
+    question: "How does it work?",
+    answer: "It works by doing something magical."
+  },
+  {
+    question: "Why should I use it?",
+    answer: "Because it's awesome and you'll love it!"
+  }
+];
+
+const handleNewsletterSubmit = async () => {
+  try {
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    return { success: true };
+  } catch {
+    return { success: false, error: "Failed to submit newsletter" };
+  }
+};
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <main className="min-h-screen">
+      <Header />
+      <HeroSection />
+      <AboutUsSection />
+      <WhatWeDoSection />
+      <ServicesSection services={services} />
+      <PartnersSection partners={partners} />
+      <ProtocolsSection protocols={protocols} />
+      <WeAreHereSection contacts={contacts} onNewsletterSubmit={handleNewsletterSubmit} />
+      <FAQSection faqs={faqs} />
+      <ImpactSection />
+      <Footer />
+    </main>
   );
 }
