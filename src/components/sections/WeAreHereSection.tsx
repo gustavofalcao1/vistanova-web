@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ContactPerson, NewsletterSubscription } from "@/lib/types";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-interface EstamosAquiSectionProps {
+interface WeAreHereSectionProps {
   contacts: ContactPerson[];
-  onNewsletterSubmit: (data: NewsletterSubscription) => Promise<{ success: boolean; error?: any }>;
+  onNewsletterSubmit: (data: NewsletterSubscription) => Promise<{ success: boolean; error?: unknown }>;
 }
 
-export default function EstamosAquiSection({ contacts, onNewsletterSubmit }: EstamosAquiSectionProps) {
+export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAreHereSectionProps) {
   const { ref, isVisible } = useScrollReveal();
   const { toast } = useToast();
   
@@ -65,7 +66,7 @@ export default function EstamosAquiSection({ contacts, onNewsletterSubmit }: Est
           variant: "destructive"
         });
       }
-    } catch (error) {
+    } catch {
       toast({
         title: "Erro ao enviar",
         description: "Ocorreu um erro ao processar sua inscrição. Tente novamente.",
@@ -79,34 +80,18 @@ export default function EstamosAquiSection({ contacts, onNewsletterSubmit }: Est
   return (
     <section 
       id="estamos-aqui" 
-      className="py-20 px-14 bg-white"
+      className={`py-20 px-4 sm:px-6 lg:px-14 bg-white ${isVisible ? 'section-visible' : 'section-hidden'}`}
       ref={ref}
     >
-      <motion.div
-        className="max-w-7xl mx-auto"
-        initial="hidden"
-        animate={isVisible ? "visible" : "hidden"}
-        variants={{
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.1
-            }
-          }
-        }}
-      >
-        <motion.div 
-          className="text-center mb-16"
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: { opacity: 1, y: 0 }
-          }}
+      <div className="max-w-7xl mx-auto">
+        <div 
+          className="text-center mb-16 animate-fade-in-up"
+          style={isVisible ? { animationPlayState: 'running' } : { animationPlayState: 'paused' }}
         >
           <span className="text-secondary font-semibold">Contacte-nos</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 text-primary">Estamos Aqui</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
-        </motion.div>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {contacts.map((contact, index) => (
@@ -132,9 +117,11 @@ export default function EstamosAquiSection({ contacts, onNewsletterSubmit }: Est
             >
               <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden bg-primary/10">
                 {contact.photo ? (
-                  <img 
+                  <Image 
                     src={contact.photo} 
-                    alt={contact.name} 
+                    alt={contact.name}
+                    width={80}
+                    height={80}
                     className="w-full h-full object-cover" 
                   />
                 ) : (
@@ -251,7 +238,7 @@ export default function EstamosAquiSection({ contacts, onNewsletterSubmit }: Est
             </form>
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

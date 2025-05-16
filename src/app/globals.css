@@ -5,53 +5,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom styles */
 :root {
-  --radius: 0.375rem;
-  --background: #ffffff;
-  --foreground: #1e293b;
-  --muted: #e2e8f0;
-  --muted-foreground: #64748b;
-  --popover: #ffffff;
-  --popover-foreground: #1e293b;
-  --card: #ffffff;
-  --card-foreground: #1e293b;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --primary: #2563eb;
-  --primary-foreground: #ffffff;
-  --secondary: #64748b;
-  --secondary-foreground: #ffffff;
-  --accent: #e2e8f0;
-  --accent-foreground: #1e293b;
-  --destructive: #dc2626;
-  --destructive-foreground: #ffffff;
-  --ring: #2563eb;
+  /* Border radius */
+  --radius: 0.75rem;
+  
+  /* Base colors */
+  --background: 0 0% 100%; /* #FFFFFF */
+  --foreground: 222.2 84% 4.9%; /* #1F2C40 - Primary color */
+  
+  /* Component colors */
+  --muted: 210 40% 96.1%;
+  --muted-foreground: 215.4 16.3% 46.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222.2 84% 4.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 222.2 84% 4.9%;
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  
+  /* Brand colors */
+  --primary: 215 31% 18%; /* #1F2C40 - Azul escuro */
+  --primary-foreground: 210 40% 98%;
+  --secondary: 84 100% 50%; /* #B4FF00 - Verde neon */
+  --secondary-foreground: 215 31% 18%; /* #1F2C40 */
+  
+  /* Accent and feedback colors */
+  --accent: 210 40% 96.1%;
+  --accent-foreground: 215 31% 18%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 215 31% 18%;
+  
+  /* Section specific colors */
+  --header-bg: 0 0% 100%; /* #FFFFFF */
+  --footer-bg: 222.2 84% 4.9%; /* #1F2C40 */
+  --section-alt-bg: 210 40% 98%; /* Light blue-gray */
 }
 
 .dark {
-  --radius: 0.375rem;
-  --background: #1e293b;
-  --foreground: #ffffff;
-  --muted: #334155;
-  --muted-foreground: #94a3b8;
-  --popover: #1e293b;
-  --popover-foreground: #ffffff;
-  --card: #1e293b;
-  --card-foreground: #ffffff;
-  --border: #334155;
-  --input: #334155;
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
-  --secondary: #94a3b8;
-  --secondary-foreground: #ffffff;
-  --accent: #334155;
-  --accent-foreground: #ffffff;
-  --neutral: #334155;
-  --neutral-foreground: #ffffff;
-  --destructive: #f87171;
-  --destructive-foreground: #ffffff;
-  --ring: #3b82f6;
+  /* Border radius */
+  --radius: 0.75rem;
+  
+  /* Base colors */
+  --background: 215 31% 18%; /* #1F2C40 - Primary color */
+  --foreground: 0 0% 100%; /* #FFFFFF */
+  
+  /* Component colors */
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 75%;
+  --popover: 215 31% 18%; /* #1F2C40 */
+  --popover-foreground: 0 0% 100%; /* #FFFFFF */
+  --card: 215 31% 18%; /* #1F2C40 */
+  --card-foreground: 0 0% 100%; /* #FFFFFF */
+  --border: 217.2 32.6% 25%;
+  --input: 217.2 32.6% 25%;
+  
+  /* Brand colors - Mantém as mesmas cores da marca */
+  --primary: 215 31% 18%; /* #1F2C40 - Azul escuro */
+  --primary-foreground: 0 0% 100%; /* #FFFFFF */
+  --secondary: 84 100% 50%; /* #B4FF00 - Verde neon */
+  --secondary-foreground: 215 31% 18%; /* #1F2C40 */
+  
+  /* Accent and feedback colors */
+  --accent: 217.2 32.6% 25%;
+  --accent-foreground: 0 0% 100%; /* #FFFFFF */
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+  --ring: 84 100% 50%; /* #B4FF00 - Verde neon */
+  
+  /* Section specific colors */
+  --header-bg: 215 31% 18%; /* #1F2C40 */
+  --footer-bg: 215 31% 12%; /* #14202F - Primary Dark */
+  --section-alt-bg: 215 31% 22%; /* #2D3F5A - Primary Light */
 }
 
 @layer base {
@@ -74,14 +99,99 @@
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
   }
+  
+  /* Color classes */
+  .bg-primary-gradient {
+    background: linear-gradient(135deg, hsl(215, 31%, 18%) 0%, hsl(215, 31%, 12%) 100%);
+  }
+  
+  .bg-secondary-gradient {
+    background: linear-gradient(135deg, hsl(84, 100%, 50%) 0%, hsl(84, 100%, 45%) 100%);
+  }
+  
+  .bg-section-alt {
+    background-color: hsl(var(--section-alt-bg));
+  }
+  
+  .text-primary-dark {
+    color: hsl(215, 31%, 12%);
+  }
+  
+  .text-primary-light {
+    color: hsl(215, 31%, 30%);
+  }
+  
+  .border-primary-light {
+    border-color: hsl(215, 31%, 30%);
+  }
+  
+  .border-secondary {
+    border-color: hsl(84, 100%, 50%);
+  }
 }
 
-/* Animation classes */
+/* Animation classes - Optimized for performance */
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
 }
 
 .animate-scroll {
   animation: scroll 25s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes fadeInUp {
+  0% { 
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  100% { 
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Optimized Section Animations */
+.section-hidden {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Accordion styles */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+}
+
+/* Service Card styles */
+.service-card {
+  transition: all 0.3s ease-out;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
 }

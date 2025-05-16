@@ -11,7 +11,12 @@ export default function HeroSection() {
             className="lg:w-1/2 space-y-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ 
+              duration: 0.8,
+              ease: [0.16, 1, 0.3, 1],
+              willChange: 'transform, opacity'
+            }}
+            style={{ backfaceVisibility: 'hidden' }}
           >
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
               Especialista em<br />
@@ -44,22 +49,35 @@ export default function HeroSection() {
             className="lg:w-1/2 relative flex lg:block justify-center lg:justify-normal items-end lg:items-baseline"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ 
+              duration: 0.8, 
+              delay: 0.2,
+              ease: [0.16, 1, 0.3, 1],
+              willChange: 'transform, opacity'
+            }}
+            style={{ backfaceVisibility: 'hidden' }}
           >
-            <div className="rounded-2xl shadow-2xl w-full aspect-[4/3] overflow-hidden">
+            <div className="relative rounded-2xl shadow-2xl w-full aspect-[4/3] overflow-hidden">
               <Image 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
                 alt="Especialista em Intermediação de Crédito"
-                width={800}
-                height={600}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
                 priority
               />
             </div>
             <motion.div 
-              className="absolute lg:-bottom-6 lg:-left-6 -bottom-6  bg-white rounded-2xl p-4 shadow-lg"
+              className="absolute lg:-bottom-4 lg:left-4 -bottom-4 left-2 bg-white rounded-2xl p-3 shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              transition={{ 
+                duration: 0.5, 
+                delay: 0.6,
+                ease: [0.16, 1, 0.3, 1],
+                willChange: 'transform, opacity'
+              }}
+              style={{ backfaceVisibility: 'hidden' }}
             >
               <div className="flex items-center gap-3">
                 <div className="bg-green-500 h-3 w-3 rounded-full"></div>

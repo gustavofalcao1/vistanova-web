@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const { colors } = require('./src/styles/tokens/colors');
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -14,6 +16,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        // Usando as variáveis CSS para temas claro/escuro
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -47,6 +50,21 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
+        
+        // Cores diretas do token para uso sem variáveis CSS
+        vn: {
+          primary: colors.primary,
+          'primary-light': colors.primaryLight,
+          'primary-dark': colors.primaryDark,
+          secondary: colors.secondary,
+          'secondary-light': colors.secondaryLight,
+          'secondary-dark': colors.secondaryDark,
+          text: colors.text,
+          'text-light': colors.textLight,
+          'text-dark': colors.textDark,
+          'text-on-dark': colors.textOnDark,
+          'text-muted': colors.textMuted,
+        },
       },
       keyframes: {
         "accordion-down": {
@@ -70,4 +88,4 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('tailwindcss-animate'),
   ],
-}
+};

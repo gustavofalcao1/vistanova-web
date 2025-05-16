@@ -1,14 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Zap } from "lucide-react";
 
-export default function OQueFazemosSection() {
+export default function WhatWeDoSection() {
   const { ref, isVisible } = useScrollReveal();
 
   return (
     <section 
-      id="o-que-fazemos" 
+      id="what-we-do" 
       className="py-20 px-14 bg-white"
       ref={ref}
     >
@@ -61,11 +62,11 @@ export default function OQueFazemosSection() {
               }}
             >
               <span className="text-secondary font-semibold">Nossa Abordagem</span>
-              <h2 className="text-3xl md:text-4xl font-bold mt-2 text-primary">O Que Fazemos</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mt-2 text-primary">O que fazemos</h2>
             </motion.div>
             
             <motion.p 
-              className="text-lg"
+              className="text-lg text-neutral-700"
               variants={{
                 hidden: { opacity: 0, y: 10 },
                 visible: { opacity: 1, y: 0 }
@@ -150,7 +151,7 @@ export default function OQueFazemosSection() {
               <div className="flex items-start gap-3">
                 <Zap className="h-6 w-6 text-secondary flex-shrink-0" />
                 <div>
-                  <h4 className="font-semibold">Parece bom demais para ser verdade?</h4>
+                  <h4 className="font-semibold text-primary">Parece bom demais para ser verdade?</h4>
                   <p className="text-sm text-neutral-700 mt-1">Nós chamamos-lhe… transparência.</p>
                 </div>
               </div>
