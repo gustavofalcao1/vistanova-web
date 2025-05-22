@@ -1,118 +1,104 @@
-## Estrutura Técnica do Website Vista Nova
+# Plano de Ação - Website Vista Nova
 
-### 🔧 1. Stack de Desenvolvimento
+## 📋 Visão Geral
 
-#### 🧠 Frontend Framework
+Este documento consolida a análise técnica e o plano de desenvolvimento para o website da Vista Nova, integrando recomendações técnicas, prioridades e próximos passos.
 
-*   **Next.js (v14 ou superior)** com App Router (`/app`)
-*   Suporte a renderização híbrida (**SSR, SSG, ISR**).
-*   Roteamento por pastas preparado para `/politica`, `/rgpd` e páginas futuras.
-*   Ideal para **deploy na Vercel** com otimizações automáticas.
-*   Suporte a `middleware.ts` para SEO, RGPD ou segurança futura.
+## 🚀 Stack Técnica (Implementada)
 
-#### 🎨 Estilização
+### Frontend
+- **Framework**: Next.js 15 com App Router
+- **Estilização**: Tailwind CSS com plugins otimizados
+- **Tipagem**: TypeScript
+- **Animações**: Framer Motion
+- **Formulários**: React Hook Form
 
-*   **Tailwind CSS** (leve, utility-first, altamente customizável)
-*   Plugins sugeridos:
-    *   `@tailwindcss/typography` (texto institucional)
-    *   `@tailwindcss/forms` (formulário de contato)
-    *   `tailwindcss-animate` ou **Framer Motion** para animações suaves
+### Infraestrutura
+- **Hospedagem**: Vercel
+- **CI/CD**: GitHub Actions
+- **Monitoramento**: Configuração básica do Next.js
 
-#### 🧩 Animações
+## ✅ Melhorias Implementadas
 
-*   **Framer Motion** (animações declarativas e suaves)
-    *   Aplicações:
-        *   Slides da Hero Section
-        *   Accordions (Missão, Visão, Valores)
-        *   Transições entre blocos e cards
-*   Alternativa leve: Tailwind com `transition` e `transform`
+1. **Estrutura de Arquivos**
+   - Organização de componentes por funcionalidade
+   - Separação de lógica de negócios e UI
+   - Criação de diretórios específicos (hooks, utils, types)
 
-* * *
+2. **Performance**
+   - Otimização de imagens com Next/Image
+   - Correção de problemas de animação
+   - Melhorias no carregamento
 
-### 📦 2. Estrutura de Pastas Recomendada
+## 🎯 Próximos Passos (Prioritários)
 
-```plain
-/app
-  layout.tsx          # Layout global
-  page.tsx            # Página principal (landing)
-  politica/page.tsx   # Política de privacidade
-  rgpd/page.tsx       # Termos de RGPD
-/components           # Componentes reutilizáveis
-/constants            # Textos fixos, nomes de seção
-/lib                  # Utilitários e serviços (ex: envio de email)
-/styles               # Tailwind config e estilos globais
-/public               # Imagens e ícones
-```
+### 1. Segurança (Alta Prioridade)
+- [ ] Configurar headers de segurança
+- [ ] Implementar rate limiting
+- [ ] Revisar políticas de CORS
 
-* * *
+### 2. Testes (Alta Prioridade)
+- [ ] Configurar Jest e React Testing Library
+- [ ] Criar testes para componentes críticos
+- [ ] Implementar testes de integração
 
-### ✉️ 3. Formulário de Contato (sem redirecionar)
+### 3. Documentação (Média Prioridade)
+- [ ] Atualizar README com guia de contribuição
+- [ ] Documentar componentes com Storybook
+- [ ] Adicionar comentários em código complexo
 
-#### Integração recomendada:
+### 4. Performance (Contínuo)
+- [ ] Implementar lazy loading para componentes
+- [ ] Configurar estratégias de cache
+- [ ] Otimizar assets estáticos
 
-*   **Resend** (backend integrado no projeto)
-    *   Via rota `/api/send-email` usando Serverless API route
-    *   Feedback inline via `react-hook-form` + `react-hot-toast`
+## 🛠️ Ferramentas Recomendadas
 
-#### Alternativas:
+### Desenvolvimento
+- **Linting**: ESLint + Prettier
+- **Git Hooks**: Husky + lint-staged
+- **Editor**: Configuração VSCode recomendada
 
-*   **EmailJS** (API-only, gratuito até 200 emails/mês)
-*   **Formspree** (free limitado, simples)
-*   **Nodemailer** + Vercel Functions (requer SMTP confiável)
+### Qualidade
+- **Testes**: Jest + React Testing Library
+- **Análise**: Lighthouse CI
+- **Monitoramento**: Vercel Analytics
 
-#### Funcionalidade do Componente:
+## 📅 Cronograma Sugerido
 
-*   Validação com `react-hook-form`
-*   Toasts de sucesso/erro
-*   Honeypot anti-bot opcional
-*   UX fluida sem redirecionamento
+### Fase 1: Segurança e Estabilidade (1-2 semanas)
+- Implementar headers de segurança
+- Configurar rate limiting
+- Revisar políticas de CORS
 
-* * *
+### Fase 2: Testes (2-3 semanas)
+- Configurar ambiente de testes
+- Criar testes para componentes críticos
+- Implementar CI/CD básica
 
-### 🧪 4. Testes e Qualidade
+### Fase 3: Otimização (Contínuo)
+- Melhorias de performance
+- Otimização de imagens
+- Ajustes de acessibilidade
 
-#### 🧼 Testes de Código
+## 📊 Métricas de Sucesso
 
-*   **Jest + React Testing Library**
-    *   Foco em testes de:
-        *   Formulário de contato
-        *   Componente de header e menu
-        *   Lógica de escolha de perfil
+- **Performance**: Score > 90 no Lighthouse
+- **Acessibilidade**: WCAG 2.1 AA
+- **SEO**: Boas práticas implementadas
+- **Tempo de Carregamento**: < 2s em conexão 4G
 
-#### 🧯 Segurança e Qualidade
+## 🔄 Manutenção Contínua
 
-*   Headers HTTP via `middleware.ts` ou `next.config.js`
-    *   CSP, `X-Frame-Options`, `X-XSS-Protection`
-*   Lighthouse audit local:
-    *   Performance
-    *   Acessibilidade
-    *   Boas práticas
-    *   SEO
+1. Atualizações mensais de dependências
+2. Revisão trimestral de segurança
+3. Análise de métricas de performance
+4. Ajustes baseados em feedback de usuários
 
-#### ✅ Check pré-deploy
+---
 
-*   `next lint` + `eslint-config-next`
-*   `npm run build` sem warnings
-*   `npm run test` com sucesso
-*   `npm run analyze` (opcional)
-*   Testes manuais em:
-    *   Mobile: iOS Safari, Android Chrome
-    *   Desktop: Chrome, Firefox, Edge
+**Última Atualização**: 22/05/2025
 
-* * *
+---
 
-### 🚀 5. Deploy e Escalabilidade
-
-#### 🔗 Deploy
-
-*   **Vercel**
-    *   Deploy automático via GitHub
-    *   Previews por branch
-    *   Edge caching e performance tracking
-    *   Edge Functions futuras para localização ou RGPD
-
-#### 🧠 Pronto para escalar
-
-*   Internacionalização via `next-intl`
-*   Middleware para segmentação de perfis ou tracking
-*   CMS integrável: Notion API, Sanity, Headless WordPress, etc.
+Este documento deve ser revisado e atualizado a cada sprint ou conforme necessário para refletir as mudanças no projeto.
