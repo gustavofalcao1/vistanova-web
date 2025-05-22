@@ -6,37 +6,37 @@ import { execSync } from 'child_process';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Primeiro, compilamos o arquivo TypeScript para JavaScript
+// First, we compile the TypeScript file to JavaScript
 try {
   execSync('npx tsc src/app/globals.css.ts --outDir dist/temp --module commonjs --esModuleInterop true', { stdio: 'inherit' });
-  console.log('TypeScript compilado com sucesso.');
+  console.log('TypeScript compiled successfully.');
 } catch (error) {
-  console.error('Erro ao compilar TypeScript:', error);
+  console.error('Error compiling TypeScript:', error);
   process.exit(1);
 }
 
-// Agora importamos o arquivo compilado e geramos o CSS
+// Now we import the compiled file and generate the CSS
 try {
   // Use dynamic import for the compiled file
   const { globalStyles } = await import('../dist/temp/app/globals.css.js');
   
-  // Escrevemos o CSS gerado no arquivo globals.css
+  // We write the generated CSS to the globals.css file
   writeFileSync(
     join(__dirname, 'globals.css'),
     globalStyles,
     'utf8'
   );
   
-  console.log('Arquivo globals.css gerado com sucesso!');
+  console.log('globals.css file generated successfully!');
 } catch (error) {
-  console.error('Erro ao gerar CSS:', error);
+  console.error('Error generating CSS:', error);
   process.exit(1);
 }
 
-// Limpamos os arquivos temporários
+// Clean up temporary files
 try {
   execSync('rm -rf dist/temp', { stdio: 'inherit' });
-  console.log('Arquivos temporários removidos.');
+  console.log('Temporary files removed.');
 } catch (error) {
-  console.error('Erro ao remover arquivos temporários:', error);
+  console.error('Error removing temporary files:', error);
 }

@@ -27,7 +27,7 @@ export default function HeroSection() {
             </p>
             <div className="flex flex-wrap gap-4">
               <motion.a 
-                href="#o-que-fazemos" 
+                href="#what-we-do" 
                 className="bg-secondary hover:bg-secondary/90 text-primary font-bold py-3 px-8 rounded-full text-sm md:text-base transition-all shadow-lg hover:shadow-xl"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -35,7 +35,7 @@ export default function HeroSection() {
                 Conheça Nossos Serviços
               </motion.a>
               <motion.a 
-                href="#estamos-aqui" 
+                href="#where-we-are" 
                 className="bg-white/10 hover:bg-white/20 backdrop-blur text-white font-bold py-3 px-8 rounded-full text-sm md:text-base transition-all border border-white/30"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -59,7 +59,7 @@ export default function HeroSection() {
           >
             <div className="relative rounded-2xl shadow-2xl w-full aspect-[4/3] overflow-hidden">
               <Image 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                src="/img/hero.avif"
                 alt="Especialista em Intermediação de Crédito"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -68,7 +68,7 @@ export default function HeroSection() {
               />
             </div>
             <motion.div 
-              className="absolute lg:-bottom-4 lg:left-4 -bottom-4 left-2 bg-white rounded-2xl p-3 shadow-lg"
+              className="absolute lg:-bottom-4 lg:-left-4 -bottom-4 left-2 bg-white rounded-2xl p-3 shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 

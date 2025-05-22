@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-const { colors } = require('./src/styles/tokens/colors');
+import colors from './src/styles/tokens/colors';
 
-module.exports = {
+const config = {
   darkMode: ["class"],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -16,7 +16,7 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        // Usando as variáveis CSS para temas claro/escuro
+        // Using CSS variables for light/dark themes
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -51,7 +51,7 @@ module.exports = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         
-        // Cores diretas do token para uso sem variáveis CSS
+        // Direct token colors for use without CSS variables
         vn: {
           primary: colors.primary,
           'primary-light': colors.primaryLight,
@@ -89,3 +89,5 @@ module.exports = {
     require('tailwindcss-animate'),
   ],
 };
+
+export default config;

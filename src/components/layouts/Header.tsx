@@ -34,23 +34,23 @@ export default function Header() {
           </div>
           
           <div className="hidden lg:flex items-center justify-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
-            <a href="#quem-somos" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
+            <a href="#about-us" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
               Quem Somos
             </a>
-            <a href="#o-que-fazemos" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
+            <a href="#what-we-do" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
               O Que Fazemos
             </a>
-            <a href="#servicos" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
+            <a href="#services" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
               Serviços
             </a>
-            <a href="#parceiros" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
+            <a href="#partners" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
               Parceiros
             </a>
           </div>
           
           <div className="flex items-center space-x-4">
             <motion.a 
-              href="#estamos-aqui" 
+              href="#where-we-are" 
               className="bg-secondary hover:bg-secondary/90 text-primary font-bold text-sm py-2 px-4 rounded-full transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -80,35 +80,35 @@ export default function Header() {
           >
             <div className="flex flex-col space-y-3">
               <a 
-                href="#quem-somos" 
+                href="#about-us" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Quem Somos
               </a>
               <a 
-                href="#o-que-fazemos" 
+                href="#what-we-do" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 O Que Fazemos
               </a>
               <a 
-                href="#servicos" 
+                href="#services" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Serviços
               </a>
               <a 
-                href="#parceiros" 
+                href="#partners" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Parceiros
               </a>
               <a 
-                href="#estamos-aqui" 
+                href="#where-we-are" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
                 onClick={() => setMobileMenuOpen(false)}
               >

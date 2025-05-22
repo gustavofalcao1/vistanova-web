@@ -59,8 +59,8 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
                 }
               }}
             >
-              <AccordionItem value={`faq-${index}`} className="border border-neutral-200 rounded-xl overflow-hidden bg-white">
-                <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold">
+              <AccordionItem value={`faq-${index}`} className="border border-neutral-200 rounded-xl overflow-hidden bg-white text-neutral-700">
+                <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold text-primary">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 border-t border-neutral-100">

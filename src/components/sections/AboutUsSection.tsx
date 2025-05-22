@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { ChevronDown, Check } from "lucide-react";
+import { Check } from "lucide-react";
 
 export default function QuemSomosSection() {
   const { ref, isVisible } = useScrollReveal();
@@ -53,7 +53,7 @@ export default function QuemSomosSection() {
             Ajudamos os nossos clientes a decidirem melhor.
           </p>
 
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-4 text-neutral-700">
             <motion.div
               variants={{
                 hidden: { opacity: 0, y: 10 },
@@ -61,7 +61,7 @@ export default function QuemSomosSection() {
               }}
             >
               <AccordionItem value="missao" className="border border-neutral-200 rounded-xl overflow-hidden bg-white">
-                <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold">
+                <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold text-primary">
                   Nossa Missão
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 border-t border-neutral-100">
@@ -80,7 +80,7 @@ export default function QuemSomosSection() {
               }}
             >
               <AccordionItem value="visao" className="border border-neutral-200 rounded-xl overflow-hidden bg-white">
-                <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold">
+                <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold text-primary">
                   Nossa Visão
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 border-t border-neutral-100">
@@ -99,7 +99,7 @@ export default function QuemSomosSection() {
               }}
             >
               <AccordionItem value="valores" className="border border-neutral-200 rounded-xl overflow-hidden bg-white">
-                <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold">
+                <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold text-primary">
                   Nossos Valores
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 border-t border-neutral-100">

@@ -39,7 +39,7 @@ export default function ParceirosSection({ partners }: ParceirosSectionProps) {
           }}
         >
           <span className="text-secondary font-semibold">Colaboradores</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-3 text-primary">Nossos Parceiros</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white">Nossos Parceiros</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
         </motion.div>
         

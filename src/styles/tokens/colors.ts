@@ -1,4 +1,4 @@
-export const colors = {
+const colors = {
   // Primary - Azul escuro
   primary: '#1F2C40',
   primaryLight: '#2D3F5A',
@@ -55,3 +55,5 @@ export const colors = {
   neutral800: '#1F2937',
   neutral900: '#111827',
 };
+
+export default colors;

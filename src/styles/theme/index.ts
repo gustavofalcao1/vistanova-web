@@ -1,4 +1,4 @@
-import { colors } from '../tokens/colors';
+import colors from '../tokens/colors';
 import { space } from '../tokens/space';
 
 export const theme = {

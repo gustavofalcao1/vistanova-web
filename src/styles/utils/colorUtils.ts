@@ -1,20 +1,20 @@
-import { colors } from '../tokens/colors';
+import colors from '../tokens/colors';
 
 /**
- * Converte uma cor hexadecimal para HSL (Hue, Saturation, Lightness)
- * @param hex Cor hexadecimal (ex: #1F2C40)
- * @returns String no formato "H S% L%" (ex: "215 31% 18%")
+ * Converts a hexadecimal color to HSL (Hue, Saturation, Lightness)
+ * @param hex Hexadecimal color (e.g., #1F2C40)
+ * @returns String in the format "H S% L%" (e.g., "215 31% 18%")
  */
 export function hexToHSL(hex: string): string {
-  // Remove o # se existir
+  // Remove # if it exists
   hex = hex.replace(/^#/, '');
   
-  // Converte hex para RGB
-  let r = parseInt(hex.substring(0, 2), 16) / 255;
-  let g = parseInt(hex.substring(2, 4), 16) / 255;
-  let b = parseInt(hex.substring(4, 6), 16) / 255;
+  // Convert hex to RGB
+  const r = parseInt(hex.substring(0, 2), 16) / 255;
+  const g = parseInt(hex.substring(2, 4), 16) / 255;
+  const b = parseInt(hex.substring(4, 6), 16) / 255;
   
-  // Encontra os valores máximo e mínimo para calcular a luminosidade
+  // Find max and min values to calculate lightness
   const max = Math.max(r, g, b);
   const min = Math.min(r, g, b);
   
@@ -40,7 +40,7 @@ export function hexToHSL(hex: string): string {
 }
 
 /**
- * Gera um objeto com todas as cores em formato HSL para uso com Tailwind CSS
+ * Generates an object with all colors in HSL format for use with Tailwind CSS
  */
 export function generateHSLColors() {
   const hslColors: Record<string, string> = {};
@@ -55,14 +55,14 @@ export function generateHSLColors() {
 }
 
 /**
- * Obtém uma cor do token em formato hexadecimal
+ * Gets a color from the token in hexadecimal format
  */
 export function getColor(colorName: keyof typeof colors): string {
   return colors[colorName];
 }
 
 /**
- * Obtém uma cor do token em formato HSL
+ * Gets a color from the token in HSL format
  */
 export function getColorHSL(colorName: keyof typeof colors): string {
   const color = colors[colorName];
@@ -73,7 +73,7 @@ export function getColorHSL(colorName: keyof typeof colors): string {
 }
 
 /**
- * Cores principais em formato HSL para uso com CSS variables
+ * Main colors in HSL format for use with CSS variables
  */
 export const hslColorTokens = {
   primary: hexToHSL(colors.primary),

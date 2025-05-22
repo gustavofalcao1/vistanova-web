@@ -8,7 +8,14 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["tailwind.config.js"],
+      files: ["tailwind.config.js", "tailwind.config.cjs"],
+      rules: {
+        "@typescript-eslint/no-var-requires": "off",
+        "import/no-commonjs": "off"
+      }
+    },
+    {
+      files: ["*.cjs"],
       rules: {
         "@typescript-eslint/no-var-requires": "off",
         "import/no-commonjs": "off"

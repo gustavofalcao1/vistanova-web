@@ -11,15 +11,20 @@
 
 ### Pontos de Melhoria:
 
-1. **Estrutura de Arquivos**
-   - Organizar melhor os componentes por funcionalidade
-   - Criar diretórios específicos para hooks, utilitários e tipos
-   - Separar lógica de negócios dos componentes de UI
+1. ✅ **Estrutura de Arquivos**
+   - ✅ Organizar melhor os componentes por funcionalidade
+   - ✅ Criar diretórios específicos para hooks, utilitários e tipos
+   - ✅ Separar lógica de negócios dos componentes de UI
 
-2. **Performance**
-   - Implementar otimizações de imagens
-   - Configurar cache de dados
-   - Implementar lazy loading para componentes
+2. 🔄 **Performance**
+   - Otimização de imagens com Next.js Image e atributos fill/sizes
+   - Problemas identificados:
+     - Flash de conteúdo azul durante animações (corrigido com background-color: transparent)
+     - Lentidão no carregamento (otimizado com propriedades de animação mais eficientes)
+     - Animações não fluidas (melhorado com transform-style: preserve-3d e will-change)
+   - Próximos passos:
+     - Implementar lazy loading para componentes não críticos
+     - Configurar estratégias de cache para dados estáticos
 
 3. **Segurança**
    - Implementar rate limiting

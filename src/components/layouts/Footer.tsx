@@ -29,11 +29,11 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Páginas</h4>
             <ul className="space-y-2">
-              <li><a href="#quem-somos" className="text-white/80 hover:text-secondary transition-colors">Quem Somos</a></li>
-              <li><a href="#o-que-fazemos" className="text-white/80 hover:text-secondary transition-colors">O Que Fazemos</a></li>
-              <li><a href="#servicos" className="text-white/80 hover:text-secondary transition-colors">Serviços</a></li>
-              <li><a href="#parceiros" className="text-white/80 hover:text-secondary transition-colors">Parceiros</a></li>
-              <li><a href="#estamos-aqui" className="text-white/80 hover:text-secondary transition-colors">Contacto</a></li>
+              <li><a href="#about-us" className="text-white/80 hover:text-secondary transition-colors">Quem Somos</a></li>
+              <li><a href="#what-we-do" className="text-white/80 hover:text-secondary transition-colors">O Que Fazemos</a></li>
+              <li><a href="#services" className="text-white/80 hover:text-secondary transition-colors">Serviços</a></li>
+              <li><a href="#partners" className="text-white/80 hover:text-secondary transition-colors">Parceiros</a></li>
+              <li><a href="#where-we-are" className="text-white/80 hover:text-secondary transition-colors">Contacto</a></li>
             </ul>
           </div>
           
