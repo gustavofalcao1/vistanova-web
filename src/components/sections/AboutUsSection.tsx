@@ -46,11 +46,14 @@ export default function QuemSomosSection() {
             visible: { opacity: 1, y: 0 }
           }}
         >
-          <p className="text-lg text-neutral-800 text-center mb-2">
-            Somos a Vista Nova, uma empresa de Intermediação de Crédito, registada no Banco de Portugal com o n.º 2543, e com 15 anos de experiência.
+          <p className="text-lg text-neutral-800 text-center mb-2 font-bold">
+            Somos a Vista Nova.
           </p>
-          <p className="text-lg text-neutral-800 text-center mb-12">
-            Ajudamos os nossos clientes a decidirem melhor.
+          <p className="text-lg text-neutral-800 text-center mb-2">
+            Durante 15 anos, ajudámos centenas de pessoas a tomar decisões com mais clareza. Somos Intermediários de Crédito Vinculados, registados no Banco de Portugal, com o n.º 0002543.
+          </p>
+          <p className="text-lg text-neutral-800 text-center mb-12 font-semibold">
+            Ajudamos os nossos clientes a decidirem melhor… e a viver melhor!
           </p>
 
           <Accordion type="single" collapsible className="space-y-4 text-neutral-700">
@@ -66,8 +69,10 @@ export default function QuemSomosSection() {
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 border-t border-neutral-100">
                   <p className="py-4">
-                    A nossa missão é com os nossos clientes:
-                    garantir que contratem e gerem o seu crédito de forma consciente, com apoio em cada passo, acesso a informações claras e literacia financeira que transforma decisões e vidas.
+                    A nossa missão é para contigo. Garantir que contrates e giras o teu crédito de forma mais consciente, com apoio em cada passo, com acesso a informações claras e de literacia financeira, que ajudam a transformar decisões e vidas.
+                  </p>
+                  <p className="pb-4 font-semibold">
+                    A literacia financeira não pode continuar a ser um privilégio só de alguns, tem de ser uma base para todos.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -85,8 +90,9 @@ export default function QuemSomosSection() {
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 border-t border-neutral-100">
                   <p className="py-4">
-                    Queremos que cada cliente veja o crédito como um recurso consciente, e não como um problema.<br /> 
-                    E queremos que o mercado olhe para a intermediação de crédito com mais exigência, mais transparência e mais impacto real.
+                    Queremos que deixes de ver o Crédito, como um problema e que passes a vê-lo como uma ferramenta. Um recurso. Um caminho.
+                    <br /> <br />
+                    Queremos que o mercado olhe para a Intermediação de Crédito com mais exigência, mais transparência e mais impacto real.
                   </p>
                 </AccordionContent>
               </AccordionItem>
@@ -106,23 +112,27 @@ export default function QuemSomosSection() {
                   <ul className="py-4 space-y-2">
                     <li className="flex items-start gap-2">
                       <Check size={20} className="text-secondary flex-shrink-0 mt-0.5" />
-                      <span><strong>Ética:</strong> Algum texto</span>
+                      <span><strong>Ética:</strong> sempre</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check size={20} className="text-secondary flex-shrink-0 mt-0.5" />
-                      <span><strong>Clareza:</strong> Algum texto</span>
+                      <span><strong>Clareza:</strong> sem rodeios</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check size={20} className="text-secondary flex-shrink-0 mt-0.5" />
-                      <span><strong>Proximidade:</strong> Algum texto</span>
+                      <span><strong>Proximidade:</strong> verdadeira e constante</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check size={20} className="text-secondary flex-shrink-0 mt-0.5" />
-                      <span><strong>Compromisso:</strong> Algum texto</span>
+                      <span><strong>Compromisso:</strong> inabalável</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Check size={20} className="text-secondary flex-shrink-0 mt-0.5" />
-                      <span><strong>Formação:</strong> Algum texto</span>
+                      <span><strong>Formação:</strong> contínua</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Check size={20} className="text-secondary flex-shrink-0 mt-0.5" />
+                      <span><strong>Segurança:</strong> imprescindível</span>
                     </li>
                   </ul>
                 </AccordionContent>

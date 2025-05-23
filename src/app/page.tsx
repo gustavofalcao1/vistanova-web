@@ -22,7 +22,7 @@ const services: Service[] = [
   {
     icon: "House",
     title: "Crédito habitação",
-    description: "Análise e planejamento para crescimento sustentável do seu negócio."
+    description: "Análise e "
   },
   {
     icon: "RefreshCw",
@@ -53,7 +53,17 @@ const services: Service[] = [
     icon: "Hammer",
     title: "Autoconstrução",
     description: "Planejamento e execução eficiente de projetos empresariais."
-  }
+  },
+  {
+    icon: "MapPinned",
+    title: "Aquisição de terreno",
+    description: "Implementação de soluções inovadoras para o seu negócio."
+  },
+  {
+    icon: "CreditCard",
+    title: "Cartões de crédito",
+    description: "Implementação de soluções inovadoras para o seu negócio."
+  },
 ];
 
 const partners: PartnerLogo[] = [
@@ -151,16 +161,28 @@ const contacts: ContactPerson[] = [
 
 const faqs: FAQ[] = [
   {
-    question: "What is this website about?",
-    answer: "This website is about something amazing."
+    question: "Tenho de pagar pelo vosso serviço?",
+    answer: "Não. O nosso serviço é totalmente gratuito para ti. Atuamos segundo o artigo 46.º do Decreto-Lei 81-C/2017."
   },
   {
-    question: "How does it work?",
-    answer: "It works by doing something magical."
+    question: "A Vista Nova é um banco?",
+    answer: "Não. Somos uma empresa de intermediação de crédito, registada e autorizada pelo Banco de Portugal com o nº 2543."
   },
   {
-    question: "Why should I use it?",
-    answer: "Because it's awesome and you'll love it!"
+    question: "Posso confiar nas propostas que me apresentam?",
+    answer: "Sim. A nossa missão é aconselhar de forma clara e isenta, com base no teu perfil e nos nossos 13 parceiros."
+  },
+  {
+    question: "Sou obrigado a aceitar a proposta que me apresentarem?",
+    answer: "Não. A decisão é sempre tua. A Vista Nova apresenta, compara e aconselha, mas nunca pressiona."
+  },
+  {
+    question: "Ajudam mesmo depois da contratação do crédito?",
+    answer: "Sim. Fazemos acompanhamento pós-escritura. Estamos contigo até depois do contrato assinado."
+  },
+  {
+    question: "Com que bancos e instituições trabalham?",
+    answer: "Trabalhamos com 13 bancos e financeiras reconhecidas em Portugal. Podes ver todos na secção 'Parceiros'."
   }
 ];
 

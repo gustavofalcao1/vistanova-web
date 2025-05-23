@@ -72,9 +72,9 @@ export default function WhatWeDoSection() {
                 visible: { opacity: 1, y: 0 }
               }}
             >
-              Comparamos, aconselhamos e negociamos por ti.<br />
-              Mas mais do que isso: acompanhamos-te em cada passo, desde o primeiro contacto até muito depois da escritura.<br />
-              O nosso compromisso é contigo!
+              Estamos aqui para te ouvir, analisar o teu perfil financeiro, perceber a tua capacidade de endividamento, e encontrar, junto dos nossos parceiros bancários, a melhor solução para ti, adaptada às tuas necessidades e condições.
+              <br /> <br />
+              Comparamos, aconselhamos e negociamos por ti. Mas mais do que isso: acompanhamos-te em cada passo, desde o primeiro contacto até muito depois da escritura.
 
             </motion.p>
             
@@ -118,8 +118,9 @@ export default function WhatWeDoSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-primary">E sabe o melhor?</h3>
-                  <p className="mt-2 text-neutral-700">Todo este serviço, apoio e dedicação é totalmente gratuito para ti.<br />
-                  Sim, leste bem: não pagas nada.</p>
+                  <p className="mt-2 text-neutral-700">
+                    Todo este nosso serviço, apoio e dedicação é totalmente gratuito para ti. Sim, leste bem: não pagas nada.
+                  </p>
                 </div>
               </motion.div>
               
@@ -135,7 +136,9 @@ export default function WhatWeDoSection() {
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-primary">Como é possível?</h3>
-                  <p className="mt-2 text-neutral-700">Atuamos ao abrigo do artigo 46.º do Decreto-Lei n.º 81-C/2017, de 7 de julho, que define o regime jurídico dos intermediários de crédito.</p>
+                  <p className="mt-2 text-neutral-700">
+                    Atuamos ao abrigo do artigo 46.º do Decreto-Lei n.º 81-C/2017, de 7 de julho, que define o regime jurídico dos intermediários de crédito.
+                  </p>
                 </div>
               </motion.div>
             </motion.div>

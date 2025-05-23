@@ -26,15 +26,15 @@ export default function ImpactSection() {
         }}
       >
         <motion.h2 
-          className="text-3xl md:text-5xl font-bold text-primary leading-tight relative inline-block"
+          className="text-2xl md:text-4xl font-bold text-primary leading-tight relative inline-block"
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 }
           }}
         >
-          <span className="relative z-10">Quem nos conhece hoje,</span>
+          <span className="relative z-10">“Quem nos vê como uma opção…</span>
           <br />
-          <span className="relative z-10">recomenda-nos amanhã.</span>
+          <span className="relative z-10">acaba a ver-nos como referência.”</span>
           <motion.div 
             className="absolute inset-0 bg-secondary/20 -rotate-1 rounded-lg"
             initial={{ opacity: 0, scale: 0.9 }}
