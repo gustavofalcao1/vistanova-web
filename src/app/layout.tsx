@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
 import WebVitals from "@/components/analytics/web-vitals";
+import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,6 +15,8 @@ export const metadata: Metadata = {
   description: "Especialista em intermediação de crédito",
 };
 
+console.log('RootLayout está sendo renderizado');
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,10 +24,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt" className={inter.className}>
-      <body className="antialiased">
-        <Providers>{children}</Providers>
-        {/* Performance monitoring - only active in production */}
-        <WebVitals />
+      <body className="antialiased relative">
+        {/* Removendo temporariamente os providers para isolar o problema */}
+        <div style={{ minHeight: '100vh' }}>
+          {children}
+          <WhatsAppButton />
+          {/* Performance monitoring - only active in production */}
+          <WebVitals />
+        </div>
       </body>
     </html>
   );

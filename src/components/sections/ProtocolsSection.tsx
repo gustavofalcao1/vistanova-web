@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Protocol } from "@/types";
-import ProtocolItem from "./ProtocolItem";
+import ProtocolItem from "../layouts/Protocol";
 
 interface ProtocolosSectionProps {
   protocols: Protocol[];

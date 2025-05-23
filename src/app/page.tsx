@@ -146,16 +146,16 @@ const protocols: Protocol[] = [
 
 const contacts: ContactPerson[] = [
   {
-    name: "John Doe",
+    name: "Jorge Verissimo",
     role: "CEO",
-    email: "john@example.com",
-    phone: "+123456789"
+    email: "jverissimo@vistanova.pt",
+    phone: "+351912345678"
   },
   {
-    name: "Jane Smith",
+    name: "Ágatha Batista",
     role: "Operations Manager",
-    email: "jane@example.com",
-    phone: "+987654321"
+    email: "agathabatista@vistanova.pt",
+    phone: "+351912345678"
   }
 ];
 

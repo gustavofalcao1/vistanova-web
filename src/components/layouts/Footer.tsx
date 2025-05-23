@@ -33,7 +33,6 @@ export default function Footer() {
               <li><a href="#what-we-do" className="text-white/80 hover:text-secondary transition-colors">O Que Fazemos</a></li>
               <li><a href="#services" className="text-white/80 hover:text-secondary transition-colors">Serviços</a></li>
               <li><a href="#partners" className="text-white/80 hover:text-secondary transition-colors">Parceiros</a></li>
-              <li><a href="#where-we-are" className="text-white/80 hover:text-secondary transition-colors">Contacto</a></li>
             </ul>
           </div>
           

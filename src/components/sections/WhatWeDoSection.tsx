@@ -29,7 +29,7 @@ export default function WhatWeDoSection() {
       >
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <motion.div 
-            className="lg:w-[35%]"
+            className="lg:w-[45%]"
             variants={{
               hidden: { opacity: 0, x: 0 },
               visible: { opacity: 1, x: 0 }
@@ -49,7 +49,7 @@ export default function WhatWeDoSection() {
           </motion.div>
           
           <motion.div 
-            className="lg:w-[65%] space-y-8"
+            className="lg:w-[55%] space-y-8"
             variants={{
               hidden: { opacity: 0, x: 20 },
               visible: { opacity: 1, x: 0 }
