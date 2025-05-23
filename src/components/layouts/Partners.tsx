@@ -80,7 +80,7 @@ export default function Partners({ partners }: PartnersProps) {
           {partners.map((partner, index) => (
             <motion.div 
               key={index}
-              className="flex items-center justify-center p-5 bg-gray-100 shadow-sm rounded-lg h-24 transition-all duration-200 hover:bg-gray-200"
+              className="flex items-center justify-center p-5 bg-gray-100 shadow-sm rounded-lg h-24 transition-all duration-300 hover:bg-gray-200"
               variants={{
                 hidden: { opacity: 0, scale: 0.9 },
                 visible: { 

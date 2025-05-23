@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import WebVitals from "@/components/analytics/web-vitals";
-import WhatsAppButton from "@/components/ui/WhatsAppButton";
+import WhatsAppButton from "@/components/ui/whatsapp-button";
 
 const inter = Inter({
   subsets: ["latin"],

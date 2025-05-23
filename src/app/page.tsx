@@ -131,16 +131,24 @@ const partners: PartnerLogo[] = [
 
 const protocols: Protocol[] = [
   {
-    name: "Protocol 1",
-    logo: "/img/protocols/1.webp"
+    name: "Ordem dos Contabilistas Certificados",
+    logo: "/img/protocols/logo_occ.png"
   },
   {
-    name: "Protocol 2",
-    logo: "/img/protocols/2.png"
+    name: "Ordem dos Enfermeiros",
+    logo: "/img/protocols/logo_oe.webp"
   },
   {
-    name: "Protocol 3",
-    logo: "/img/protocols/3.png"
+    name: "Jerónimo Martins",
+    logo: "/img/protocols/logo_jm.png"
+  },
+  {
+    name: "Amuto",
+    logo: "/img/protocols/logo_amg.png"
+  },
+  {
+    name: "Salvador Caetano",
+    logo: "/img/protocols/logo_sc.png"
   }
 ];
 
@@ -149,13 +157,13 @@ const contacts: ContactPerson[] = [
     name: "Jorge Verissimo",
     role: "CEO",
     email: "jverissimo@vistanova.pt",
-    phone: "+351912345678"
+    phone: "+351965091853"
   },
   {
     name: "Ágatha Batista",
     role: "Operations Manager",
     email: "agathabatista@vistanova.pt",
-    phone: "+351912345678"
+    phone: "+351924967148"
   }
 ];
 

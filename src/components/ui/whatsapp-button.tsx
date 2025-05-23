@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { MessageCircle } from 'lucide-react';
 
 // Array of messages that will be displayed in the floating bubble
 const MESSAGES = [
@@ -69,7 +70,7 @@ export default function WhatsAppButton() {
   }, [isHovered]);
 
   const handleClick = () => {
-    const phoneNumber = '351912345678';
+    const phoneNumber = '351924967148';
     const message = 'Olá, gostaria de mais informações sobre os serviços da Vista Nova.';
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
@@ -165,7 +166,7 @@ export default function WhatsAppButton() {
         aria-label="Fale conosco pelo WhatsApp"
         title="Fale conosco pelo WhatsApp"
       >
-        <span style={{ marginTop: '4px' }}>💬</span>
+        <MessageCircle size={32}/>
         
         {/* Pulsing notification dot */}
         <motion.div 
