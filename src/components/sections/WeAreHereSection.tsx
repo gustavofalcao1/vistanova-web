@@ -93,7 +93,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {contacts.map((contact, index) => (
             <motion.div 
               key={index}

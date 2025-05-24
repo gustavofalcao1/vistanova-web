@@ -64,6 +64,7 @@ export interface ContactPerson {
   role: string;
   email: string;
   phone: string;
+  photo?: string;
 }
 
 export interface PartnerLogo {

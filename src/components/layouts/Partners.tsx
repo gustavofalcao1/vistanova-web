@@ -18,27 +18,49 @@ export default function Partners({ partners }: PartnersProps) {
     setMounted(true);
   }, []);
   
-  // Function to determine the appropriate style based on the logo filename
-  const getLogoStyle = (logoPath: string) => {
-    // Default styling for logos
-    let styles = "w-auto h-auto max-h-12 max-w-[98%] object-contain";
+  // Function to determine the appropriate dimensions and style based on the logo filename
+  const getLogoConfig = (logoPath: string) => {
+    // Default configuration
+    const config = {
+      containerClass: "relative w-full h-full",
+      imageClass: "object-contain w-auto h-auto",
+      width: 200,
+      height: 48,
+      priority: false,
+    };
     
-    // Check if it's a wide logo
-    if (logoPath.includes("4finance") || logoPath.includes("bp") || logoPath.includes("cofidis") || logoPath.includes("credibom")) {
-      styles = cn(styles, "max-w-[98%] max-h-10");
+    // Wide logos
+    if (logoPath.includes("4finance") || logoPath.includes("bp") || 
+        logoPath.includes("cofidis") || logoPath.includes("credibom")) {
+      return {
+        ...config,
+        containerClass: cn(config.containerClass, "max-h-10"),
+        width: 160,
+        height: 40,
+        priority: logoPath.includes("4finance")
+      };
     }
     
-    // Check if it's a tall logo
-    if (logoPath.includes("cgd") || logoPath.includes("santander") || logoPath.includes("novobanco")) {
-      styles = cn(styles, "max-h-14 max-w-[98%]");
+    // Tall logos
+    if (logoPath.includes("cgd") || logoPath.includes("santander") || 
+        logoPath.includes("novobanco")) {
+      return {
+        ...config,
+        containerClass: cn(config.containerClass, "max-h-14"),
+        height: 56
+      };
     }
     
-    // Check if it's a small logo that needs to be larger
-    if (logoPath.includes("bancoctt") || logoPath.includes("uci") || logoPath.includes("mds")) {
-      styles = cn(styles, "max-h-12 max-w-[98%]");
+    // Small logos that need to be larger
+    if (logoPath.includes("bancoctt") || logoPath.includes("uci") || 
+        logoPath.includes("mds") || logoPath.includes("unicre")) {
+      return {
+        ...config,
+        containerClass: cn(config.containerClass, "max-h-12")
+      };
     }
     
-    return styles;
+    return config;
   };
 
   if (!mounted) {
@@ -98,18 +120,23 @@ export default function Partners({ partners }: PartnersProps) {
                 transition: { duration: 0.3 }
               }}
             >
-              <div className="w-full h-full flex items-center justify-center">
+              <div className="w-full h-full flex items-center justify-center p-2">
                 {partner.logo ? (
-                  <Image 
-                    src={partner.logo} 
-                    alt={partner.name} 
-                    width={200}
-                    height={48}
-                    className={getLogoStyle(partner.logo)}
-                    quality={85} // Better quality for logos
-                  />
+                  <div className={getLogoConfig(partner.logo).containerClass}>
+                    <Image 
+                      src={partner.logo} 
+                      alt={partner.name} 
+                      fill
+                      sizes="(max-width: 768px) 160px, 200px"
+                      className={getLogoConfig(partner.logo).imageClass}
+                      quality={90}
+                      priority={getLogoConfig(partner.logo).priority}
+                    />
+                  </div>
                 ) : (
-                  <span className="text-neutral-400 font-medium">{partner.name}</span>
+                  <span className="text-neutral-400 font-medium text-center">
+                    {partner.name}
+                  </span>
                 )}
               </div>
             </motion.div>

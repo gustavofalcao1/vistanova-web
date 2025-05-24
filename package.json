@@ -1,6 +1,6 @@
 {
   "name": "vistanova-web",
-  "version": "0.1.2",
+  "version": "2.1.4",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -17,6 +17,7 @@
     "postbuild": "next-sitemap --config next-sitemap.config.js"
   },
   "dependencies": {
+    "@hookform/devtools": "^4.4.0",
     "@hookform/resolvers": "^5.0.1",
     "@radix-ui/react-accordion": "^1.2.10",
     "@radix-ui/react-alert-dialog": "^1.1.13",
@@ -55,14 +56,17 @@
     "framer-motion": "^12.12.1",
     "lucide-react": "^0.510.0",
     "next": "15.3.2",
+    "nodemailer": "^7.0.3",
     "react": "^19.0.0",
     "react-day-picker": "^9.7.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.56.4",
+    "react-hot-toast": "^2.5.2",
+    "react-icons": "^5.5.0",
     "recharts": "^2.15.3",
     "tailwind-merge": "^3.3.0",
     "vaul": "^1.1.2",
-    "zod": "^3.25.20"
+    "zod": "^3.25.28"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -71,6 +75,7 @@
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@typescript-eslint/eslint-plugin": "^7.3.1",

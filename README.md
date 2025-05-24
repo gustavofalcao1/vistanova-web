@@ -1,74 +1,70 @@
 # Vista Nova - Website
 
-Professional website for Vista Nova, built with modern web technologies to ensure performance, accessibility, and maintainability.
+Website institucional profissional para a Vista Nova, construído com tecnologias modernas para garantir desempenho, acessibilidade e manutenibilidade.
 
-## 🚀 Technologies
+## 📌 Status do Projeto
+
+**Versão Atual:** 2.1.3  
+**Status:** Em desenvolvimento ativo  
+**Próxima Versão Estável:** 2.2.X (Planejada para produção)
+
+### Versionamento
+- **2.x.x**: Melhorias e manutenção do site atual
+- **x.1.x**: Versão em produção (MVP validado)
+- **x.x.3**: Terceira iteração de desenvolvimento
+
+## 🚀 Tecnologias Principais
 
 - **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) with CSS variables for theming
-- **UI Components**: Custom components built with [shadcn/ui](https://ui.shadcn.com/)
-- **Type Safety**: [TypeScript](https://www.typescriptlang.org/)
-- **Animation**: [Framer Motion](https://www.framer.com/motion/)
-- **Icons**: [Lucide Icons](https://lucide.dev/)
-- **Form Handling**: [React Hook Form](https://react-hook-form.com/)
-- **State Management**: React Context API
+- **Estilização**: [Tailwind CSS](https://tailwindcss.com/) com variáveis CSS
+- **Componentes UI**: [shadcn/ui](https://ui.shadcn.com/)
+- **Tipagem**: [TypeScript](https://www.typescriptlang.org/)
+- **Animações**: [Framer Motion](https://www.framer.com/motion/)
+- **Ícones**: [Lucide Icons](https://lucide.dev/)
+- **Formulários**: [React Hook Form](https://react-hook-form.com/)
+- **Gerenciamento de Estado**: Context API
 
-## 🛠️ Development
+## 🛠️ Desenvolvimento
 
-### Prerequisites
+### Pré-requisitos
 
 - Node.js 18+
-- npm or yarn
+- npm ou yarn
 
-### Getting Started
+### Primeiros Passos
 
-1. Clone the repository
-2. Install dependencies:
-
+1. Clone o repositório
+2. Instale as dependências:
    ```bash
-   npm install
-   # or
    yarn install
    ```
-
-3. Start the development server:
-
+3. Inicie o servidor de desenvolvimento:
    ```bash
-   npm run dev
-   # or
    yarn dev
    ```
+4. Acesse [http://localhost:3000](http://localhost:3000)
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+### Scripts Úteis
 
-### Scripts
+- `dev`: Inicia o servidor de desenvolvimento
+- `build`: Cria uma build de produção
+- `start`: Inicia o servidor de produção
+- `lint`: Executa o ESLint
+- `check-types`: Verifica os tipos TypeScript
+- `format`: Formata o código com Prettier
 
-- `dev`: Start development server
-- `build`: Create production build
-- `start`: Start production server
-- `lint`: Run ESLint
-- `type-check`: Check TypeScript types
+## 📂 Estrutura do Projeto
 
-## 🏗️ Project Structure
+- `/src/app`: Rotas e páginas do Next.js
+- `/src/components`: Componentes reutilizáveis
+- `/src/styles`: Estilos globais e temas
+- `/src/lib`: Funções e utilitários
+- `/public`: Arquivos estáticos (imagens, fonts, etc.)
 
-- `/src/app`: Next.js app directory with page routes
-- `/src/components`: Reusable UI components
-- `/src/styles`: Global styles and theme configuration
-- `/src/lib`: Utility functions and helpers
-- `/public`: Static assets
+## 📝 Documentação Adicional
 
-## 📦 Dependencies
-
-- `next`: 14.x
-- `react`: 18.x
-- `tailwindcss`: 3.x
-- `typescript`: 5.x
-- `@types/node`, `@types/react`, `@types/react-dom`
-
-## 📝 License
-
-This project is proprietary and confidential. All rights reserved.
+- [Otimizações e Features](./FEATURES.md)
 
 ---
 
-Built with ❤️ for Vista Nova
+Desenvolvido com ❤️ por [Seu Nome] para Vista Nova

@@ -157,13 +157,15 @@ const contacts: ContactPerson[] = [
     name: "Jorge Verissimo",
     role: "CEO",
     email: "jverissimo@vistanova.pt",
-    phone: "+351965091853"
+    phone: "+351965091853",
+    photo: "/img/jv.jpg"
   },
   {
     name: "Ágatha Batista",
     role: "Operations Manager",
     email: "agathabatista@vistanova.pt",
-    phone: "+351924967148"
+    phone: "+351924967148",
+    photo: "/img/ab.jpg"
   }
 ];
 

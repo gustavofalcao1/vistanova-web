@@ -35,15 +35,20 @@ export default function WhatWeDoSection() {
               visible: { opacity: 1, x: 0 }
             }}
           >
-            <img 
+            <img
               src="/img/do.avif" 
               alt="Nossa equipe em ação" 
               className="
-                rounded-2xl shadow-lg
-                lg:w-full
+                hidden
+                lg:block
+                rounded-2xl 
+                shadow-lg
                 w-[500px]
-                h-[250px] object-cover         // default: corta e fixa a altura
-                lg:h-auto lg:object-contain    // em telas grandes, mostra natural
+                lg:w-full
+                h-[250px] 
+                object-cover
+                lg:h-auto 
+                lg:object-contain
               "
             />
           </motion.div>

@@ -47,7 +47,7 @@ export default function HeroSection() {
     <LazyMotion features={domAnimation}>
       <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-primary to-primary/90 text-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-10 lg:gap-12">
             <motion.div 
               className="lg:w-1/2 space-y-8"
               initial="hidden"
@@ -66,7 +66,7 @@ export default function HeroSection() {
               <p className="text-lg text-white/80 max-w-lg">
                 Ajudamos a decidir de maneira estratégica, e tornar a literacia financeira um conhecimento acessível, não um privilégio de alguns.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3 md:gap-4">
                 <motion.a 
                   href="#what-we-do" 
                   className="bg-secondary hover:bg-secondary/90 text-primary font-bold py-3 px-8 rounded-full text-sm md:text-base transition-colors shadow-lg hover:shadow-xl"
@@ -89,14 +89,15 @@ export default function HeroSection() {
             </motion.div>
             
             <motion.div 
-              className="lg:w-1/2 relative flex lg:block justify-center lg:justify-normal items-end lg:items-baseline"
+              className="lg:w-1/2 relative flex lg:block justify-center lg:justify-normal items-center w-full max-w-md mx-auto lg:max-w-none lg:mx-0"
               initial="hidden"
               animate="visible"
               variants={imageVariants}
               style={{ 
                 willChange: 'transform, opacity',
                 backfaceVisibility: 'hidden',
-                transform: 'translateZ(0)' // Force GPU acceleration
+                transform: 'translateZ(0)', // Force GPU acceleration
+                position: 'relative'
               }}
             >
               <div className="relative rounded-2xl shadow-2xl w-full aspect-[4/3] overflow-hidden bg-primary/40">
@@ -111,7 +112,7 @@ export default function HeroSection() {
                 />
               </div>
               <motion.div 
-                className="absolute lg:-bottom-4 lg:-left-4 -bottom-4 left-2 bg-white rounded-2xl p-3 shadow-lg"
+                className="absolute lg:-bottom-4 lg:-left-4 -bottom-4 left-2 right-0 mx-auto lg:mx-0 lg:-left-8 lg:right-auto bg-white rounded-2xl p-3 shadow-lg w-max max-w-full"
                 variants={badgeVariants}
                 style={{ 
                   willChange: 'transform, opacity',
@@ -119,9 +120,9 @@ export default function HeroSection() {
                   transform: 'translateZ(0)' // Force GPU acceleration
                 }}
               >
-                <div className="flex items-center gap-3">
-                  <div className="bg-green-500 h-3 w-3 rounded-full"></div>
-                  <span className="text-primary font-medium">98% de satisfação dos clientes</span>
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div className="bg-green-500 h-2.5 w-2.5 md:h-3 md:w-3 rounded-full flex-shrink-0"></div>
+                  <span className="text-primary font-medium text-sm md:text-base">98% de satisfação dos clientes</span>
                 </div>
               </motion.div>
             </motion.div>
