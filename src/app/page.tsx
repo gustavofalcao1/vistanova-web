@@ -68,87 +68,79 @@ const services: Service[] = [
 
 const partners: PartnerLogo[] = [
   {
-    name: "4Finance",
-    logo: "/img/partners/logo-4finance.png"
-  },
-  {
     name: "Abanca",
-    logo: "/img/partners/logo-abanca.png"
+    logo: "/assets/partners/logo-abanca.png"
   },
   {
     name: "Banco CTT",
-    logo: "/img/partners/logo-bancoctt.png"
+    logo: "/assets/partners/logo-bancoctt.png"
   },
   {
     name: "Bankinter",
-    logo: "/img/partners/logo-bankinter.png"
+    logo: "/assets/partners/logo-bankinter.png"
   },
   {
-    name: "BP",
-    logo: "/img/partners/logo-bp.png"
+    name: "BBVA",
+    logo: "/assets/partners/logo-bbva.png"
   },
   {
     name: "BPI",
-    logo: "/img/partners/logo-bpi.png"
+    logo: "/assets/partners/logo-bpi.png"
   },
   {
     name: "CGD",
-    logo: "/img/partners/logo-cgd.png"
+    logo: "/assets/partners/logo-cgd.png"
   },
   {
     name: "Cofidis",
-    logo: "/img/partners/logo-cofidis.png"
+    logo: "/assets/partners/logo-cofidis.png"
   },
   {
     name: "Credibom",
-    logo: "/img/partners/logo-credibom.png"
+    logo: "/assets/partners/logo-credibom.png"
   },
   {
-    name: "Eurobic Abanca",
-    logo: "/img/partners/logo-eurobic_abanca.png"
-  },
-  {
-    name: "MDS",
-    logo: "/img/partners/logo-mds.png"
+    name: "Eurobic",
+    logo: "/assets/partners/logo-eurobic.png"
   },
   {
     name: "Novo Banco",
-    logo: "/img/partners/logo-novobanco.png"
+    logo: "/assets/partners/logo-novobanco.png"
   },
   {
     name: "Santander",
-    logo: "/img/partners/logo-santander.png"
+    logo: "/assets/partners/logo-santander.png"
   },
   {
     name: "UCI",
-    logo: "/img/partners/logo-uci.png"
+    logo: "/assets/partners/logo-uci.png"
   },
   {
     name: "Unicre",
-    logo: "/img/partners/logo-unicre.png"
+    logo: "/assets/partners/logo-unicre.png"
   }
 ];
 
 const protocols: Protocol[] = [
   {
     name: "Ordem dos Contabilistas Certificados",
-    logo: "/img/protocols/logo_occ.png"
+    logo: "/assets/protocols/logo_occ.png"
   },
   {
     name: "Ordem dos Enfermeiros",
-    logo: "/img/protocols/logo_oe.webp"
+    logo: "/assets/protocols/logo_oe.webp"
   },
   {
     name: "Jerónimo Martins",
-    logo: "/img/protocols/logo_jm.png"
+    logo: "/assets/protocols/logo_jm.png"
   },
   {
     name: "Amuto",
-    logo: "/img/protocols/logo_amg.png"
+    logo: "/assets/protocols/logo_amg.png"
   },
   {
     name: "Salvador Caetano",
-    logo: "/img/protocols/logo_sc.png"
+    logo: "/assets/protocols/logo_sc.png"
   }
 ];
 
@@ -158,14 +150,14 @@ const contacts: ContactPerson[] = [
     role: "CEO",
     email: "jverissimo@vistanova.pt",
     phone: "+351965091853",
-    photo: "/img/jv.jpg"
+    photo: "/assets/images/jv.jpg"
   },
   {
     name: "Ágatha Batista",
     role: "Operations Manager",
     email: "agathabatista@vistanova.pt",
     phone: "+351924967148",
-    photo: "/img/ab.jpg"
+    photo: "/assets/images/ab.jpg"
   }
 ];
 

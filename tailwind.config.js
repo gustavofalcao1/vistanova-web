@@ -15,6 +15,9 @@ const config = {
     purgeLayersByDefault: true,
   },
   theme: {
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+    },
     extend: {
       borderRadius: {
         lg: "var(--radius)",

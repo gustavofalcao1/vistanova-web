@@ -13,8 +13,16 @@
     "check-types": "tsc --noEmit",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
-    "prebuild": "yarn lint && yarn check-types",
-    "postbuild": "next-sitemap --config next-sitemap.config.js"
+    "prebuild": "yarn lint && yarn check-types && yarn generate-favicons",
+    "postbuild": "next-sitemap --config next-sitemap.config.js",
+    "download-fonts": "node scripts/download-fonts.js",
+    "generate-favicons": "tsx scripts/generate-favicon.ts",
+    "organize-assets": "node scripts/organize-assets.js",
+    "migrate-images": "node scripts/migrate-images.js",
+    "move-partners": "node scripts/move-partners.js",
+    "update-references": "node scripts/update-references.js",
+    "optimize-svgs": "node scripts/optimize-svgs-cmd.js",
+    "test-svgs": "node scripts/test-svgs.js"
   },
   "dependencies": {
     "@hookform/devtools": "^4.4.0",
@@ -71,10 +79,11 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@next/bundle-analyzer": "^15.3.2",
+    "@sindresorhus/slugify": "^2.2.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
-    "@types/node": "^20",
+    "@types/node": "^22.15.21",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -92,7 +101,9 @@
     "sharp": "^0.34.2",
     "tailwindcss": "^3.4.17",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
   },
   "eslintConfig": {
     "overrides": [

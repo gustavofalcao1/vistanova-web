@@ -1,0 +1,20 @@
+/* TEAM */
+  Site: https://vistanova.pt
+  Twitter: @vistanovapt
+  Location: Portugal
+
+/* THANKS */
+  - Next.js Team
+  - React Team
+  - Tailwind CSS Team
+  - TypeScript Team
+  - Vercel
+
+/* SITE */
+  Last update: 2025/05/25
+  Language: Portuguese
+  Standards: HTML5, CSS3, JavaScript (ES6+)
+  Components: React, Next.js, Tailwind CSS
+  Software: Visual Studio Code, Git, Yarn
+
+/* NOTE: This file was generated automatically. */

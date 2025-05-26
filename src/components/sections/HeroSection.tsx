@@ -102,7 +102,7 @@ export default function HeroSection() {
             >
               <div className="relative rounded-2xl shadow-2xl w-full aspect-[4/3] overflow-hidden bg-primary/40">
                 <OptimizedImage 
-                  src="/img/hero.avif"
+                  src="/assets/images/hero.avif"
                   alt="Especialista em Intermediação de Crédito"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
