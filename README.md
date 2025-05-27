@@ -49,6 +49,38 @@ Website institucional profissional para a Vista Nova, construído com tecnologia
 
 ### Scripts Úteis
 
+#### Processamento de Imagens
+
+1. **Verificar transparência de uma imagem**:
+   ```bash
+   node scripts/check-transparency.js
+   ```
+
+2. **Remover fundo branco da logo principal**:
+   ```bash
+   node scripts/remove-background.js
+   ```
+   A imagem processada será salva em `public/assets/brand/processed/logo-transparent.png`.
+
+3. **Gerar favicons a partir da imagem 5.png**:
+   ```bash
+   node scripts/generate-favicons.js
+   ```
+   Os favicons serão gerados no diretório `public/favicon/`.
+
+4. **Processar a logo principal (3_2.png)**:
+   ```bash
+   node scripts/process-logo.js
+   ```
+   A imagem processada será salva em `public/assets/brand/processed/logo-default.png`.
+
+#### Notas Importantes
+
+- A logo principal (3_2.png) deve ser usada para o cabeçalho do site.
+- A imagem 5.png é usada para gerar os favicons e ícones do site.
+- Sempre execute os scripts de geração de favicons após alterar a imagem de origem.
+- Os diretórios `public/favicon/` e `public/assets/brand/processed/` são gerados automaticamente e não devem ser versionados.
+
 - `dev`: Inicia o servidor de desenvolvimento
 - `build`: Cria uma build de produção
 - `start`: Inicia o servidor de produção

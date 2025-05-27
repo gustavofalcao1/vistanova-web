@@ -42,3 +42,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Generated assets
+/public/favicon/
+/public/assets/brand/processed/
+/public/assets/brand/logos/
+
+# Backup directories
+/public/assets/brand/backup/
