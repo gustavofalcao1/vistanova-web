@@ -5,6 +5,7 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ContactPerson, NewsletterSubscription } from "@/lib/types";
 import { Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useRecaptcha } from "@/hooks/useRecaptcha";
 
 interface WeAreHereSectionProps {
   contacts: ContactPerson[];
@@ -24,6 +25,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { getRecaptchaToken } = useRecaptcha();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value, type } = e.target as HTMLInputElement;
@@ -55,7 +57,21 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
     setIsSubmitting(true);
     
     try {
-      const result = await onNewsletterSubmit(submissionData);
+      // Obter token do reCAPTCHA
+      const recaptchaToken = await getRecaptchaToken('contact_form');
+      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...submissionData,
+          recaptchaToken,
+        }),
+      });
+      
+      const result = await response.json();
       
       if (result.success) {
         toast({
@@ -76,14 +92,15 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
       } else {
         toast({
           title: "Erro ao enviar",
-          description: "Ocorreu um erro ao processar sua inscrição. Tente novamente.",
+          description: result.error || "Ocorreu um erro ao processar sua mensagem. Tente novamente.",
           variant: "destructive"
         });
       }
-    } catch {
+    } catch (error) {
+      console.error('Erro ao enviar mensagem:', error);
       toast({
         title: "Erro ao enviar",
-        description: "Ocorreu um erro ao processar sua inscrição. Tente novamente.",
+        description: "Não foi possível enviar sua mensagem. Por favor, tente novamente mais tarde.",
         variant: "destructive"
       });
     } finally {
@@ -183,7 +200,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                 allowFullScreen
                 referrerPolicy="no-referrer-when-downgrade"
                 style={{ border: 0 }}
-                className="w-full h-[550px] rounded-xl shadow-lg"
+                className="w-full h-[750px] rounded-xl shadow-lg"
               />
             </div>
           </motion.div>
@@ -284,7 +301,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                 <motion.button 
                   type="button"
                   onClick={(e) => handleSubmit(e, false)}
-                  className="w-full bg-white text-primary border-2 border-primary hover:bg-gray-50 font-medium py-2.5 px-4 rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="w-full bg-white text-primary border-1 border-primary hover:bg-gray-50 font-medium py-2.5 px-4 rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

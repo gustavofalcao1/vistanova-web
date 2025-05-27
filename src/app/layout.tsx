@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import WebVitals from "@/components/analytics/web-vitals";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
-import { FontProvider } from "@/components/providers/FontProvider";
+import Providers from "@/components/providers/Providers";
 
 export const metadata: Metadata = {
   title: "Vista Nova - Especialista em intermediação de crédito",
@@ -101,14 +101,14 @@ export default function RootLayout({
         <link rel="author" href="/humans.txt" type="text/plain" />
       </head>
       <body className="antialiased relative">
-        <FontProvider>
+        <Providers>
           <div style={{ minHeight: '100vh' }}>
             {children}
             <WhatsAppButton />
             {/* Performance monitoring - only active in production */}
             <WebVitals />
           </div>
-        </FontProvider>
+        </Providers>
       </body>
     </html>
   );

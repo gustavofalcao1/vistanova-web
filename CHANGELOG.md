@@ -5,10 +5,16 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
-## [Próxima Versão] - Unreleased
+## [2.2.0] - 2025-05-27
 
 ### Adicionado
-- [ ] Sistema de contato integrado
+- ✅ Sistema de contato integrado
+  - Formulário com validação em tempo real
+  - Integração com Nodemailer
+  - Proteção com reCAPTCHA v3
+  - Limitação de taxa de requisições
+  - Template de e-mail profissional
+  - Documentação detalhada
 - [ ] Suporte a temas claros/escuros
 - [ ] Melhorias de acessibilidade
 

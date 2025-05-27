@@ -22,6 +22,9 @@ Website institucional profissional para a Vista Nova, construído com tecnologia
 - **Animações**: [Framer Motion](https://www.framer.com/motion/)
 - **Ícones**: [Lucide Icons](https://lucide.dev/)
 - **Formulários**: [React Hook Form](https://react-hook-form.com/)
+- **Validação**: [Zod](https://zod.dev/)
+- **E-mails**: [Nodemailer](https://nodemailer.com/)
+- **Segurança**: [reCAPTCHA v3](https://www.google.com/recaptcha/intro/)
 - **Gerenciamento de Estado**: Context API
 
 ## 🛠️ Desenvolvimento

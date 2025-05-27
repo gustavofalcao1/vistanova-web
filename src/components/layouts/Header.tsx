@@ -46,6 +46,9 @@ export default function Header() {
             <a href="#partners" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
               Parceiros
             </a>
+            <a href="#partners" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
+              Trabalhe Conosco
+            </a>
           </div>
           
           <div className="flex items-center space-x-4">
@@ -113,6 +116,13 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contacto
+              </a>
+              <a 
+                href="#where-we-are" 
+                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Trabalhe Conosco
               </a>
             </div>
           </motion.div>

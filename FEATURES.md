@@ -3,11 +3,21 @@
 ## 📌 Tarefas Pendentes
 
 ### 🚀 Melhorias Planejadas
-- [ ] **Sistema de Contato**
-  - Formulário com validação em tempo real
-  - Integração com Nodemailer
-  - Feedback visual para o usuário
-  - Proteção contra spam
+- [x] **Sistema de Contato** ✅
+  - [x] Formulário com validação em tempo real
+    - [x] Campos: Nome, E-mail, Mensagem (obrigatórios)
+    - [x] Opção para assinar newsletter
+    - [x] Aceitação dos termos de privacidade
+    - [x] Feedback visual durante o envio
+    - [x] Mensagens de sucesso/erro
+  - [x] Integração com Nodemailer
+    - [x] Configuração do servidor de e-mail
+    - [x] Template de e-mail para notificação
+    - [x] Tratamento de erros e retentativas
+  - [x] Proteção contra spam
+    - [x] Implementação de reCAPTCHA v3
+    - [x] Limitação de taxa de envio (5 requisições a cada 15 minutos por IP)
+  - [x] Documentação detalhada
 
 - [ ] **Temas e Acessibilidade**
   - Suporte a tema claro/escuro
@@ -36,6 +46,23 @@
 - [ ] Suporte a navegadores antigos
 - [ ] Internacionalização (i18n)
 
+## 🔄 Próximos Passos para o Sistema de Contato
+
+1. **Configuração do Backend**
+   - Criar rota de API para processar o formulário
+   - Implementar validação no servidor
+   - Configurar serviço de e-mail (Nodemailer)
+
+2. **Melhorias de Segurança**
+   - Adicionar proteção contra CSRF
+   - Implementar rate limiting
+   - Adicionar validação de domínio de e-mail
+
+3. **Feedback e Monitoramento**
+   - Adicionar métricas de uso do formulário
+   - Configurar alertas para falhas no envio
+   - Implementar log de atividades
+
 ---
-*📅 Última atualização: 25/05/2025*
+*📅 Última atualização: 27/05/2025*
 *📚 Histórico de alterações: [CHANGELOG.md](CHANGELOG.md)*

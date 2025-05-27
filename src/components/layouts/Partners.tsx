@@ -96,6 +96,13 @@ export default function Partners({ partners }: PartnersProps) {
           <span className="text-secondary font-semibold">Colaboradores</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 text-primary/90">Nossos Parceiros</h2>
           <div className="w-24 h-1 bg-secondary mx-auto mt-4"></div>
+          <div className="mt-6 text-center">
+            <p className="text-md lg:text-sm text-neutral-500">
+              Não somos um banco, mas trabalhamos com os principais bancos e instituições financeiras a operar em Portugal.
+              <br />
+              A Vista Nova é independente e analisa cada caso com isenção, para encontrar a melhor solução de crédito para ti, dentro das condições e ofertas dos nossos parceiros.
+            </p>
+          </div>
         </motion.div>
         
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8 mt-12">
