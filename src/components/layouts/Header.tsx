@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Logo } from "@/components/ui/Logo";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,9 +29,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto">
         <nav className={`backdrop-blur ${scrolled ? 'bg-white/80' : 'bg-white/70'} rounded-full py-3 px-6 shadow-lg flex items-center justify-between transition-all duration-300`}>
           <div className="flex items-center">
-            <a href="#" className="font-bold md:text-xl text-xs sm:text-[0.5rem] text-primary mr-8">
-              <span className="text-secondary">me </span>VISTA NOVA
-            </a>
+            <Logo className="h-10 w-auto" />
           </div>
           
           <div className="hidden lg:flex items-center justify-center space-x-6 absolute left-1/2 transform -translate-x-1/2">

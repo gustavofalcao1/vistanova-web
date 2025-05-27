@@ -16,30 +16,18 @@ function ensureSharp() {
 // Create favicons in different sizes and formats
 async function generateFavicons() {
   try {
-    // Try to find the logo file
-    const logosDir = path.join(process.cwd(), 'public', 'img', 'LOGO VISTA NOVA');
-    console.log(`Looking for files in: ${logosDir}`);
+    // Use the new logo from the branding package
+    const sourceLogo = path.join(process.cwd(), 'public', 'assets', 'brand', 'VISTA NOVA', '1. LOGOS', '5.png');
     
-    // List all files in the directory
-    const files = fs.readdirSync(logosDir);
-    console.log('Files found:', files);
-    
-    // Try to find a suitable logo file
-    const logoFile = files.find(file => {
-      const lowerFile = file.toLowerCase();
-      return (lowerFile.includes('logo') || lowerFile.includes('vista') || lowerFile.includes('nova')) && 
-             (lowerFile.endsWith('.svg') || lowerFile.endsWith('.png') || lowerFile.endsWith('.jpg'));
-    });
-
-    if (!logoFile) {
-      throw new Error('No logo file found in directory.');
+    // Check if the file exists
+    if (!fs.existsSync(sourceLogo)) {
+      throw new Error(`Logo file not found at: ${sourceLogo}`);
     }
     
-    const sourceLogo = path.join(logosDir, logoFile);
     console.log(`✅ Using logo file: ${sourceLogo}`);
     
     // Define output directory
-    const outputDir = path.join(process.cwd(), 'public', 'assets', 'icons');
+    const outputDir = path.join(process.cwd(), 'public', 'favicon');
     
     // Create output directory if it doesn't exist
     if (!fs.existsSync(outputDir)) {
@@ -47,34 +35,40 @@ async function generateFavicons() {
     }
 
     // Favicon sizes and names
-    const faviconSizes = [
-      { size: 16, name: 'favicon-16x16.png' },
-      { size: 32, name: 'favicon-32x32.png' },
-      { size: 48, name: 'favicon.ico' }, // .ico format
-      { size: 192, name: 'android-chrome-192x192.png' },
-      { size: 512, name: 'android-chrome-512x512.png' },
-      { size: 180, name: 'apple-touch-icon.png' },
-      { size: 16, name: 'favicon-16x16.ico' },
-      { size: 32, name: 'favicon-32x32.ico' },
-    ];
+    const sizes = [16, 32, 48, 96, 128, 192, 256, 384, 512];
 
-    // Generate each favicon
-    for (const { size, name } of faviconSizes) {
-      const outputPath = path.join(outputDir, name);
-      
-      try {
-        await sharp(sourceLogo)
-          .resize(size, size)
-          .png()
-          .toFile(size === 48 || name.endsWith('.ico') ? 
-            outputPath.replace(/\.png$/, '.ico') : 
-            outputPath
-          );
-        console.log(`✅ Generated: ${name}`);
-      } catch (error) {
-        console.error(`❌ Error generating ${name}:`, error.message);
-      }
+    // Generate favicon.ico (16x16, 32x32, 48x48)
+    await sharp(sourceLogo)
+      .resize(64, 64, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+      .toFile(path.join(outputDir, 'favicon.ico'));
+    console.log('✅ favicon.ico gerado com sucesso');
+
+    // Generate favicons in different sizes
+    for (const size of sizes) {
+      const outputFile = path.join(outputDir, `favicon-${size}x${size}.png`);
+      await sharp(sourceLogo)
+        .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+        .toFile(outputFile);
+      console.log(`✅ ${outputFile} gerado com sucesso`);
     }
+
+    // Generate apple-touch-icon.png (180x180)
+    await sharp(sourceLogo)
+      .resize(180, 180, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+      .toFile(path.join(outputDir, 'apple-touch-icon.png'));
+    console.log('✅ apple-touch-icon.png gerado com sucesso');
+
+    // Generate icon-192.png for Android Chrome
+    await sharp(sourceLogo)
+      .resize(192, 192, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+      .toFile(path.join(outputDir, 'icon-192.png'));
+    console.log('✅ icon-192.png gerado com sucesso');
+
+    // Generate icon-512.png for Android Chrome
+    await sharp(sourceLogo)
+      .resize(512, 512, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+      .toFile(path.join(outputDir, 'icon-512.png'));
+    console.log('✅ icon-512.png gerado com sucesso');
 
     // Generate site.webmanifest
     const manifest = {

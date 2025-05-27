@@ -1,5 +1,6 @@
 import React from "react";
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 
 export default function Footer() {
   return (
@@ -7,9 +8,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="font-bold text-xl mb-4">
-              <span className="text-secondary">me </span>VISTA NOVA
-            </h3>
+            <div className="mb-4">
+              <Logo variant="white" className="h-10 w-auto" />
+            </div>
             <p className="text-white/80 mb-4">
               Especialista em Intermediação de Crédito.
             </p>

@@ -9,6 +9,13 @@ const createConfig = async () => ({
     minimumCacheTTL: 60 * 60 * 24 * 7, // 1 week
     dangerouslyAllowSVG: true, // Allow SVG optimization
     contentDispositionType: 'attachment', // Security enhancement
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+    domains: ['localhost'],
   },
   experimental: {
     // Enable new script loader

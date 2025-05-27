@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://vistanova.pt'),
   icons: {
     icon: [
-      { url: '/assets/icons/favicon.ico', sizes: 'any' },
-      { url: '/assets/icons/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/assets/icons/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/assets/icons/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon/favicon.ico', sizes: 'any' },
+      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
     ],
     apple: [
-      { url: '/assets/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
     ],
   },
   appleWebApp: {
@@ -74,23 +74,24 @@ export default function RootLayout({
         />
         
         {/* Favicons */}
-        <link rel="shortcut icon" href="/assets/icons/favicon.ico" />
-        <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="48x48" href="/assets/icons/favicon-48x48.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png" />
+        <link rel="shortcut icon" href="/favicon/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon/favicon-48x48.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials" />
+        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#2563eb" />
         
         {/* Theme and color */}
-        <meta name="theme-color" content="#0e454e" />
-        <meta name="msapplication-TileColor" content="#0e454e" />
-        <meta name="msapplication-TileImage" content="/assets/icons/mstile-144x144.png" />
+        <meta name="theme-color" content="#2563eb" />
+        <meta name="msapplication-TileColor" content="#2563eb" />
+        <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="msapplication-square70x70logo" content="/assets/icons/mstile-70x70.png" />
-        <meta name="msapplication-square150x150logo" content="/assets/icons/mstile-150x150.png" />
-        <meta name="msapplication-wide310x150logo" content="/assets/icons/mstile-310x150.png" />
-        <meta name="msapplication-square310x310logo" content="/assets/icons/mstile-310x310.png" />
+        <meta name="msapplication-square70x70logo" content="/favicon/favicon-70x70.png" />
+        <meta name="msapplication-square150x150logo" content="/favicon/favicon-150x150.png" />
+        <meta name="msapplication-wide310x150logo" content="/favicon/favicon-310x150.png" />
+        <meta name="msapplication-square310x310logo" content="/favicon/favicon-310x310.png" />
         
         {/* PWA related */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
