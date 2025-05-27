@@ -18,26 +18,35 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
   const [formData, setFormData] = useState<NewsletterSubscription>({
     email: "",
     name: "",
-    consent: false
+    message: "",
+    consent: false,
+    subscribeToNewsletter: true
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target as HTMLInputElement;
+    const checked = (e.target as HTMLInputElement).checked;
+    
     setFormData(prev => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent, subscribe: boolean) => {
     e.preventDefault();
     
-    if (!formData.email || !formData.name || !formData.consent) {
+    const submissionData = {
+      ...formData,
+      subscribeToNewsletter: subscribe
+    };
+    
+    if (!submissionData.email || !submissionData.name || !submissionData.message || !submissionData.consent) {
       toast({
         title: "Formulário incompleto",
-        description: "Por favor, preencha todos os campos e aceite os termos.",
+        description: "Por favor, preencha todos os campos obrigatórios e aceite os termos.",
         variant: "destructive"
       });
       return;
@@ -46,19 +55,24 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
     setIsSubmitting(true);
     
     try {
-      const result = await onNewsletterSubmit(formData);
+      const result = await onNewsletterSubmit(submissionData);
       
       if (result.success) {
         toast({
-          title: "Inscrição realizada!",
-          description: "Obrigado por se inscrever na nossa newsletter.",
+          title: "Mensagem enviada com sucesso!",
+          description: subscribe 
+            ? "Obrigado por se inscrever na nossa newsletter!" 
+            : "Obrigado pelo seu contato! Retornaremos em breve.",
           variant: "default"
         });
-        setFormData({
+        setFormData(prev => ({
+          ...prev,
           email: "",
           name: "",
-          consent: false
-        });
+          message: "",
+          consent: false,
+          subscribeToNewsletter: true
+        }));
       } else {
         toast({
           title: "Erro ao enviar",
@@ -185,7 +199,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
             <p className="text-neutral-700 mb-6">
               Inscreva-se na nossa newsletter para receber novidades e dicas exclusivas para o seu negócio.
             </p>
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">Email</label>
                 <input 
@@ -200,7 +214,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                 />
               </div>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">Nome</label>
+                <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">Nome *</label>
                 <input 
                   type="text" 
                   id="name" 
@@ -212,29 +226,76 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                   required
                 />
               </div>
-              <div className="flex items-start">
-                <input 
-                  type="checkbox" 
-                  id="consent" 
-                  name="consent"
-                  checked={formData.consent}
+              
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">Mensagem *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
                   onChange={handleInputChange}
-                  className="mt-1 h-4 w-4 text-primary focus:ring-primary border-neutral-300 rounded" 
+                  className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent min-h-[120px]"
+                  placeholder="Sua mensagem..."
                   required
                 />
-                <label htmlFor="consent" className="ml-2 block text-sm text-neutral-700">
-                  Concordo em receber comunicações da VISTA NOVA conforme a Política de Privacidade.
-                </label>
               </div>
-              <motion.button 
-                type="submit" 
-                className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-4 rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
-                disabled={isSubmitting}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {isSubmitting ? "Enviando..." : "Inscrever-se"}
-              </motion.button>
+              <div className="space-y-3">
+                <div className="flex items-start">
+                  <input 
+                    type="checkbox" 
+                    id="consent" 
+                    name="consent"
+                    checked={formData.consent}
+                    onChange={handleInputChange}
+                    className="mt-1 h-4 w-4 text-primary focus:ring-primary border-neutral-300 rounded" 
+                    required
+                  />
+                  <label htmlFor="consent" className="ml-2 block text-sm text-neutral-700">
+                    Concordo com os termos de privacidade e tratamento de dados. *
+                  </label>
+                </div>
+                
+                <div className="flex items-start">
+                  <input 
+                    type="checkbox" 
+                    id="subscribeToNewsletter" 
+                    name="subscribeToNewsletter"
+                    checked={formData.subscribeToNewsletter}
+                    onChange={handleInputChange}
+                    className="mt-1 h-4 w-4 text-primary focus:ring-primary border-neutral-300 rounded"
+                  />
+                  <label htmlFor="subscribeToNewsletter" className="ml-2 block text-sm text-neutral-700">
+                    Desejo receber a newsletter com novidades e atualizações.
+                  </label>
+                </div>
+              </div>
+              <div className="space-y-3">
+                <motion.button 
+                  type="button" 
+                  onClick={(e) => handleSubmit(e, true)}
+                  className="w-full bg-primary hover:bg-primary/90 text-white font-medium py-3 px-4 rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                  disabled={isSubmitting}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {isSubmitting ? "Enviando..." : "Enviar e assinar newsletter"}
+                </motion.button>
+                
+                <motion.button 
+                  type="button"
+                  onClick={(e) => handleSubmit(e, false)}
+                  className="w-full bg-white text-primary border-2 border-primary hover:bg-gray-50 font-medium py-2.5 px-4 rounded-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                  disabled={isSubmitting}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {isSubmitting ? "Enviando..." : "Apenas enviar"}
+                </motion.button>
+              </div>
+              
+              <p className="text-xs text-neutral-500">
+                * Campos obrigatórios
+              </p>
             </form>
           </motion.div>
         </div>

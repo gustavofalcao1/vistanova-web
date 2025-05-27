@@ -30,5 +30,7 @@ export interface FAQ {
 export interface NewsletterSubscription {
   email: string;
   name: string;
+  message: string;
   consent: boolean;
+  subscribeToNewsletter: boolean;
 }
