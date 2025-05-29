@@ -8,8 +8,8 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <div className="mb-4">
-              <Logo variant="white" className="h-10 w-auto" />
+            <div className="mb-4 w-[250px]">
+              <Logo variant="white" width={250} />
             </div>
             <p className="text-white/80 mb-4">
               Especialista em Intermediação de Crédito.

@@ -6,11 +6,11 @@ import { MessageCircle } from 'lucide-react';
 
 // Array of messages that will be displayed in the floating bubble
 const MESSAGES = [
-  "Precisa de ajuda?",
-  "Fale com nossos especialistas!",
-  "Tire suas dúvidas agora",
-  "Estamos online para te atender",
-  "Como podemos ajudar?"
+  "Precisas de ajuda?",
+  "Fala com nossos especialistas!",
+  "Tira tuas dúvidas agora",
+  "Estamos online para atender-te",
+  "Como podemos ajudar-te?"
 ];
 
 // Animation variants for the floating message
@@ -273,8 +273,8 @@ export default function WhatsAppButton() {
           backgroundColor: { duration: 0.3 }
         }}
         style={{...buttonStyles, pointerEvents: 'auto'}} // Enable pointer events on button
-        aria-label="Fale conosco pelo WhatsApp"
-        title="Fale conosco pelo WhatsApp"
+        aria-label="Fale connosco pelo WhatsApp"
+        title="Fale connosco pelo WhatsApp"
         role="button"
         tabIndex={0}
       >

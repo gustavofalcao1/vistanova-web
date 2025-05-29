@@ -122,7 +122,7 @@ export default function WhatWeDoSection() {
                   <span className="text-primary font-bold">02</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-primary">E sabe o melhor?</h3>
+                  <h3 className="text-xl font-semibold text-primary">E sabes o melhor?</h3>
                   <p className="mt-2 text-neutral-700">
                     Todo este nosso serviço, apoio e dedicação é totalmente gratuito para ti. Sim, leste bem: não pagas nada.
                   </p>

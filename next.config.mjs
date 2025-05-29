@@ -3,19 +3,29 @@ const createConfig = async () => ({
   reactStrictMode: true,
   poweredByHeader: false, // Remove X-Powered-By header for security
   images: {
-    formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 60 * 60 * 24 * 7, // 1 week
-    dangerouslyAllowSVG: true, // Allow SVG optimization
-    contentDispositionType: 'attachment', // Security enhancement
+    // Disable all image optimization except for the following patterns
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
     remotePatterns: [
+      // Local development
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+      },
+      // Production domains
       {
         protocol: 'https',
-        hostname: '**',
+        hostname: 'vistanova.pt',
+      },
+      // Allow any subdomains of vistanova.pt
+      {
+        protocol: 'https',
+        hostname: '**.vistanova.pt',
       },
     ],
-    domains: ['localhost'],
+    // Disable image optimization for all other domains
+    unoptimized: true,
   },
   experimental: {
     // Enable new script loader

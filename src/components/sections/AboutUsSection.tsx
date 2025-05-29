@@ -40,7 +40,7 @@ export default function QuemSomosSection() {
         </motion.div>
 
         <motion.div 
-          className="max-w-3xl mx-auto"
+          className="max-w-4xl mx-auto"
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 }
@@ -50,7 +50,7 @@ export default function QuemSomosSection() {
             Somos a Vista Nova.
           </p>
           <p className="text-lg text-neutral-800 text-center mb-2">
-            Durante 15 anos, ajudámos centenas de pessoas a tomar decisões com mais clareza. Somos Intermediários de Crédito Vinculados, registados no Banco de Portugal, com o n.º 0002543.
+            Durante 17 anos, ajudámos centenas de pessoas a tomar decisões com mais clareza. Somos Intermediários de Crédito Vinculados, registados no Banco de Portugal, com o n.º 0002543.
           </p>
           <p className="text-lg text-neutral-800 text-center mb-12 font-semibold">
             Ajudamos os nossos clientes a decidirem melhor… e a viver melhor!
@@ -65,7 +65,7 @@ export default function QuemSomosSection() {
             >
               <AccordionItem value="missao" className="border border-neutral-200 rounded-xl overflow-hidden bg-white">
                 <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold text-primary">
-                  Nossa Missão
+                  Missão
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 border-t border-neutral-100">
                   <p className="py-4">
@@ -86,7 +86,7 @@ export default function QuemSomosSection() {
             >
               <AccordionItem value="visao" className="border border-neutral-200 rounded-xl overflow-hidden bg-white">
                 <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold text-primary">
-                  Nossa Visão
+                  Visão
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 border-t border-neutral-100">
                   <p className="py-4">
@@ -106,7 +106,7 @@ export default function QuemSomosSection() {
             >
               <AccordionItem value="valores" className="border border-neutral-200 rounded-xl overflow-hidden bg-white">
                 <AccordionTrigger className="px-6 py-4 hover:bg-neutral-50 transition-colors text-left font-semibold text-primary">
-                  Nossos Valores
+                  Valores
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-4 border-t border-neutral-100">
                   <ul className="py-4 space-y-2">

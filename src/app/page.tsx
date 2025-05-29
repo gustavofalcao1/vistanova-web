@@ -22,47 +22,47 @@ const services: Service[] = [
   {
     icon: "House",
     title: "Crédito habitação",
-    description: "Análise e "
+    description: "A casa começa com o crédito."
   },
   {
     icon: "RefreshCw",
     title: "Transferência de crédito",
-    description: "Otimização de recursos e planejamento financeiro eficiente."
+    description: "Troca o peso por alívio."
   },
   {
     icon: "PiggyBank",
     title: "Crédito pessoal",
-    description: "Desenvolvimento de liderança e otimização de desempenho."
+    description: "Financia planos. Realiza momentos."
   },
   {
     icon: "Car",
     title: "Crédito automóvel",
-    description: "Pesquisa e identificação de oportunidades no seu setor."
+    description: "Liga o motor dos teus sonhos."
   },
   {
     icon: "HandCoins",
     title: "Crédito consolidado",
-    description: "Implementação de soluções inovadoras para o seu negócio."
+    description: "Junta tudo. Paga menos, melhor."
   },
   {
     icon: "HardHat",
     title: "Crédito para obras",
-    description: "Estratégias de comunicação e posicionamento de marca."
+    description: "Renova. Melhora. Valoriza a casa."
   },
   {
     icon: "Hammer",
     title: "Autoconstrução",
-    description: "Planejamento e execução eficiente de projetos empresariais."
+    description: "Constrói do zero, com apoio."
   },
   {
     icon: "MapPinned",
     title: "Aquisição de terreno",
-    description: "Implementação de soluções inovadoras para o seu negócio."
+    description: "Começa no terreno, acaba no lar."
   },
   {
     icon: "CreditCard",
     title: "Cartões de crédito",
-    description: "Implementação de soluções inovadoras para o seu negócio."
+    description: "Flexibilidade diária, com responsabilidade."
   },
 ];
 

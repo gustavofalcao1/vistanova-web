@@ -3,29 +3,19 @@ import "./globals.css";
 import WebVitals from "@/components/analytics/web-vitals";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
 import Providers from "@/components/providers/Providers";
+import { getFaviconMetadata } from "@/components/seo";
 
 export const metadata: Metadata = {
+  ...getFaviconMetadata(),
   title: "Vista Nova - Especialista em intermediação de crédito",
   description: "Especialista em intermediação de crédito",
   metadataBase: new URL('https://vistanova.pt'),
-  icons: {
-    icon: [
-      { url: '/favicon/favicon.ico', sizes: 'any' },
-      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
-  },
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
     title: 'Vista Nova',
   },
-  manifest: '/site.webmanifest',
-  themeColor: '#2563eb',
+  // Configurações de favicon e tema movidas para getFaviconMetadata()
   openGraph: {
     title: 'Vista Nova - Especialista em intermediação de crédito',
     description: 'Especialista em intermediação de crédito',
@@ -73,25 +63,10 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         
-        {/* Favicons */}
-        <link rel="shortcut icon" href="/favicon/favicon.ico" />
-        <link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="48x48" href="/favicon/favicon-48x48.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" crossOrigin="use-credentials" />
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#2563eb" />
-        
-        {/* Theme and color */}
+        {/* Theme and color - Configurações de tema e cor */}
         <meta name="theme-color" content="#2563eb" />
         <meta name="msapplication-TileColor" content="#2563eb" />
-        <meta name="msapplication-TileImage" content="/favicon/favicon-144x144.png" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
-        <meta name="msapplication-square70x70logo" content="/favicon/favicon-70x70.png" />
-        <meta name="msapplication-square150x150logo" content="/favicon/favicon-150x150.png" />
-        <meta name="msapplication-wide310x150logo" content="/favicon/favicon-310x150.png" />
-        <meta name="msapplication-square310x310logo" content="/favicon/favicon-310x310.png" />
         
         {/* PWA related */}
         <meta name="apple-mobile-web-app-capable" content="yes" />

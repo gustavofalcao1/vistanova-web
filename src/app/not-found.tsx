@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Página não encontrada",
-  description: "A página que você está procurando não existe.",
+  description: "A página que tu estas procurando não existe.",
 };
 
 export default function NotFound() {
@@ -13,7 +13,7 @@ export default function NotFound() {
         <h1 className="text-4xl font-bold mb-4">404</h1>
         <p className="text-xl mb-4">Página não encontrada</p>
         <p className="text-gray-600 mb-8">
-          A página que você está procurando não existe.
+          A página que tu estas procurando não existe.
         </p>
         <Link
           href="/"

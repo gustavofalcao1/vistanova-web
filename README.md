@@ -51,35 +51,33 @@ Website institucional profissional para a Vista Nova, construído com tecnologia
 
 #### Processamento de Imagens
 
-1. **Verificar transparência de uma imagem**:
+1. **Processar logos a partir dos arquivos SVG**:
+   ```bash
+   node scripts/process-logos-svg.js
+   ```
+   Este script irá:
+   - Processar a logo horizontal a partir de `public/assets/brand/LOGO VISTA NOVA/LoGO Horizonta l 500 x 281.svg`
+   - Processar o favicon a partir de `public/assets/brand/LOGO VISTA NOVA/Logo 1000 por 1000.svg`
+   - Gerar as versões otimizadas em `public/assets/brand/processed/`
+
+2. **Verificar transparência de uma imagem**:
    ```bash
    node scripts/check-transparency.js
    ```
 
-2. **Remover fundo branco da logo principal**:
+3. **Gerar favicon.ico**:
    ```bash
-   node scripts/remove-background.js
+   node scripts/generate-favicon.js
    ```
-   A imagem processada será salva em `public/assets/brand/processed/logo-transparent.png`.
-
-3. **Gerar favicons a partir da imagem 5.png**:
-   ```bash
-   node scripts/generate-favicons.js
-   ```
-   Os favicons serão gerados no diretório `public/favicon/`.
-
-4. **Processar a logo principal (3_2.png)**:
-   ```bash
-   node scripts/process-logo.js
-   ```
-   A imagem processada será salva em `public/assets/brand/processed/logo-default.png`.
+   Gera o arquivo `favicon.ico` na raiz do projeto.
 
 #### Notas Importantes
 
-- A logo principal (3_2.png) deve ser usada para o cabeçalho do site.
-- A imagem 5.png é usada para gerar os favicons e ícones do site.
-- Sempre execute os scripts de geração de favicons após alterar a imagem de origem.
-- Os diretórios `public/favicon/` e `public/assets/brand/processed/` são gerados automaticamente e não devem ser versionados.
+- A logo principal deve ser fornecida em formato SVG para melhor qualidade.
+- O arquivo `LoGO Horizonta l 500 x 281.svg` é usado para o cabeçalho e rodapé do site.
+- O arquivo `Logo 1000 por 1000.svg` é usado para gerar os favicons e ícones do site.
+- Sempre execute o script de processamento após alterar os arquivos de origem.
+- O diretório `public/assets/brand/processed/` é gerado automaticamente e não deve ser versionado.
 
 - `dev`: Inicia o servidor de desenvolvimento
 - `build`: Cria uma build de produção

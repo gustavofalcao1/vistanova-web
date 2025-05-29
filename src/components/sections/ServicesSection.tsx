@@ -33,7 +33,7 @@ export default function ServicosSection({ services }: ServicosSectionProps) {
   return (
     <section 
       id="servicos" 
-      className="py-20 px-14 bg-neutral-100"
+      className="py-20 px-14 bg-primary"
       ref={ref}
     >
       <motion.div
@@ -58,7 +58,7 @@ export default function ServicosSection({ services }: ServicosSectionProps) {
           }}
         >
           <span className="text-secondary font-semibold">Como Podemos Ajudar</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-3 text-primary">Nossos Serviços</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white">Nossos Serviços</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
         </motion.div>
         

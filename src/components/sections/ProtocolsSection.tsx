@@ -14,7 +14,7 @@ export default function ProtocolsSection({ protocols }: ProtocolosSectionProps) 
   return (
     <section 
       id="protocolos" 
-      className="py-16 px-0 bg-neutral-100 overflow-hidden"
+      className="py-16 px-0 bg-primary overflow-hidden"
       ref={ref}
     >
       <motion.div
@@ -39,10 +39,10 @@ export default function ProtocolsSection({ protocols }: ProtocolosSectionProps) 
           }}
         >
           <span className="text-secondary font-semibold">Entidades</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-3 text-primary">Protocolos</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mt-3 text-white">Protocolos</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
           <div className="mt-6 text-center">
-            <p className="text-md lg:text-sm text-neutral-500">
+            <p className="text-md lg:text-sm text-white/80">
               Se pertences a uma destas entidades, <strong>tens acesso a condições especiais.</strong>
               <br />
               Estas instituições já confiam na Vista Nova.
