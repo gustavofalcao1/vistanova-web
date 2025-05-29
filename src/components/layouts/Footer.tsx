@@ -34,7 +34,7 @@ export default function Footer() {
               <li><a href="#what-we-do" className="text-white/80 hover:text-secondary transition-colors">O Que Fazemos</a></li>
               <li><a href="#services" className="text-white/80 hover:text-secondary transition-colors">Serviços</a></li>
               <li><a href="#partners" className="text-white/80 hover:text-secondary transition-colors">Parceiros</a></li>
-              <li><a href="#where-we-are" className="text-white/80 hover:text-secondary transition-colors">Trabalhe Conosco</a></li>
+              <li><a href="#where-we-are" className="text-white/80 hover:text-secondary transition-colors">Trabalhe Connosco</a></li>
             </ul>
           </div>
           
@@ -53,7 +53,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <MapPin className="h-5 w-5 flex-shrink-0 text-secondary" />
-                <span className="text-white/80">Rua da Bélgica, 113434–H<br />4400-209 Vila Nova de Gaia</span>
+                <span className="text-white/80">Rua da Bélgica, 3434–H<br />4400-209 Vila Nova de Gaia</span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-5 w-5 flex-shrink-0 text-secondary" />
@@ -61,7 +61,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-5 w-5 flex-shrink-0 text-secondary" />
-                <span className="text-white/80">info@vistanova.pt</span>
+                <span className="text-white/80">geral@vistanova.pt</span>
               </li>
             </ul>
           </div>

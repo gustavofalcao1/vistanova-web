@@ -1,6 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface LogoProps {
   variant?: 'default' | 'white';
@@ -9,18 +9,19 @@ interface LogoProps {
   height?: number;
 }
 
-export function Logo({ variant = 'default', className = '', width = 180, height = 40 }: LogoProps) {
-  const logoPath = '/assets/brand/processed/logo-transparent.png'; // Logo com fundo transparente
-
+export function Logo({ variant = 'default', className = '', width = 180, height }: LogoProps) {
+  // Calculate height based on aspect ratio if not provided
+  const calculatedHeight = height || Math.round((width * 281) / 500); // 500x281 is the original SVG size
+  
   return (
-    <div className={`relative ${className}`} style={{ width: `${width}px`, height: `${height}px` }}>
+    <div className={`relative ${className}`} style={{ width: `${width}px`, height: `${calculatedHeight}px` }}>
       <Link href="/" className="block w-full h-full">
-        <Image 
-          src={logoPath}
+        <Image
+          src="/assets/brand/logo.svg"
           alt="Vista Nova - Especialista em intermediação de crédito"
-          fill
-          sizes={`(max-width: 768px) ${width / 2}px, ${width}px`}
-          className="object-contain"
+          width={width}
+          height={calculatedHeight}
+          className="h-full w-auto object-contain"
           priority
         />
       </Link>

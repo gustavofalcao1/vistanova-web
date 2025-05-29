@@ -46,7 +46,7 @@ export default function Header() {
               Parceiros
             </a>
             <a href="#partners" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
-              Trabalhe Conosco
+              Trabalhe Connosco
             </a>
           </div>
           
@@ -57,7 +57,7 @@ export default function Header() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Fale Conosco
+              Fale Connosco
             </motion.a>
             <button 
               className="lg:hidden text-neutral-800" 
@@ -121,7 +121,7 @@ export default function Header() {
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Trabalhe Conosco
+                Trabalhe Connosco
               </a>
             </div>
           </motion.div>
