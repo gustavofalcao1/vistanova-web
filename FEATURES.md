@@ -19,11 +19,21 @@
     - [x] Limitação de taxa de envio (5 requisições a cada 15 minutos por IP)
   - [x] Documentação detalhada
 
-- [ ] **Temas e Acessibilidade**
-  - Suporte a tema claro/escuro
-  - Melhorias de contraste
-  - Navegação por teclado
-  - Suporte a leitores de tela
+- [x] **Navegação e Acessibilidade** ✅
+  - [x] Navegação suave entre seções
+    - [x] Scroll suave para âncoras
+    - [x] Tratamento de navegação entre páginas com âncoras
+    - [x] Feedback visual durante a navegação
+  - [ ] Suporte a tema claro/escuro
+  - [ ] Melhorias de contraste
+  - [ ] Navegação por teclado
+  - [ ] Suporte a leitores de tela
+
+- [x] **Componente HeroCarousel Melhorado** ✅
+  - [x] Controle de exibição do badge de satisfação
+  - [x] Controle de exibição dos botões de CTA
+  - [x] Animações otimizadas
+  - [x] Responsividade aprimorada
 
 - [ ] **Otimização de Imagens e Logos**
   - [x] Atualizar favicon para versão moderna com suporte a múltiplos tamanhos e dispositivos
@@ -36,9 +46,9 @@
   - [ ] Adicionar metadados para SEO
 
 - [ ] **Monitoramento**
-  - Métricas de performance em tempo real
-  - Análise de erros do lado do cliente
-  - Monitoramento de disponibilidade
+  - [ ] Métricas de performance em tempo real
+  - [ ] Análise de erros do lado do cliente
+  - [ ] Monitoramento de disponibilidade
 
 ### 🔍 Em Análise
 - [ ] PWA Offline
@@ -46,23 +56,18 @@
 - [ ] Suporte a navegadores antigos
 - [ ] Internacionalização (i18n)
 
-## 🔄 Próximos Passos para o Sistema de Contato
+## 🔄 Melhorias Recentes
 
-1. **Configuração do Backend**
-   - Criar rota de API para processar o formulário
-   - Implementar validação no servidor
-   - Configurar serviço de e-mail (Nodemailer)
+### Navegação Suave
+- Implementado sistema de navegação suave entre seções
+- Corrigido comportamento de rolagem ao navegar entre páginas com âncoras
+- Adicionado feedback visual durante a navegação
 
-2. **Melhorias de Segurança**
-   - Adicionar proteção contra CSRF
-   - Implementar rate limiting
-   - Adicionar validação de domínio de e-mail
-
-3. **Feedback e Monitoramento**
-   - Adicionar métricas de uso do formulário
-   - Configurar alertas para falhas no envio
-   - Implementar log de atividades
+### HeroCarousel Aprimorado
+- Adicionado controle para exibir/ocultar o badge de satisfação
+- Adicionado controle para exibir/ocultar os botões de CTA
+- Melhorias na responsividade e desempenho
 
 ---
-*📅 Última atualização: 27/05/2025*
+*📅 Última atualização: 30/05/2025*
 *📚 Histórico de alterações: [CHANGELOG.md](CHANGELOG.md)*
