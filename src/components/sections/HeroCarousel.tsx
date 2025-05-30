@@ -111,27 +111,49 @@ const HeroCarousel = () => {
 
   const slide = heroSlides[currentIndex];
 
+  // Handle drag gestures for mobile swipe navigation
+  const handleDragEnd = (event: any, info: any) => {
+    // Check if the drag distance is significant enough to trigger a slide change
+    if (info.offset.x > 50) {
+      // Swiped right, go to previous slide
+      prevSlide();
+    } else if (info.offset.x < -50) {
+      // Swiped left, go to next slide
+      nextSlide();
+    }
+  };
+
   return (
     <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-primary to-primary/90 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <AnimatePresence mode="wait" initial={false}>
           <motion.div 
             key={slide.id}
-            className="flex flex-col lg:flex-row items-center gap-8 md:gap-10 lg:gap-12"
+            className="flex flex-col lg:flex-row items-center gap-8 md:gap-10 lg:gap-12 touch-none"
             initial="hidden"
             animate="visible"
             exit="hidden"
             transition={{ duration: 0.5 }}
+            // Mobile swipe gestures
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={handleDragEnd}
+            // Disable drag on desktop for better UX with buttons
+            dragDirectionLock
+            whileTap={{ cursor: 'grabbing' }}
           >
             {/* Left Side Content */}
             <motion.div 
-              className="lg:w-1/2 space-y-8"
+              className="lg:w-1/2 space-y-8 touch-auto"
               variants={textVariants}
               style={{ 
                 willChange: 'transform, opacity',
                 backfaceVisibility: 'hidden',
                 transform: 'translateZ(0)'
               }}
+              // Prevent text selection during drag
+              onPointerDown={(e) => e.stopPropagation()}
             >
               <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                 {slide.title}<br />
@@ -164,13 +186,15 @@ const HeroCarousel = () => {
             
             {/* Right Side Image */}
             <motion.div 
-              className="lg:w-1/2 relative flex lg:block justify-center lg:justify-normal items-center w-full max-w-md mx-auto lg:max-w-none lg:mx-0"
+              className="lg:w-1/2 relative flex lg:block justify-center lg:justify-normal items-center w-full max-w-md mx-auto lg:max-w-none lg:mx-0 touch-auto"
               variants={imageVariants}
               style={{ 
                 willChange: 'transform, opacity',
                 backfaceVisibility: 'hidden',
                 transform: 'translateZ(0)'
               }}
+              // Prevent image dragging (use parent container drag instead)
+              onPointerDown={(e) => e.stopPropagation()}
             >
               <div className="relative rounded-2xl shadow-2xl w-full aspect-[4/3] overflow-hidden bg-primary/40">
                 <OptimizedImage 
