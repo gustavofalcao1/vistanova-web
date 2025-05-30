@@ -126,7 +126,7 @@ export default function WhatsAppButton() {
   // Container base styles
   const containerBaseStyles: React.CSSProperties = {
     position: 'fixed',
-    bottom: '92px',
+    bottom: '24px',
     right: '24px',
     zIndex: 99,
     display: 'flex',
@@ -156,7 +156,7 @@ export default function WhatsAppButton() {
   const containerStyles = useMemo(() => ({
     ...containerBaseStyles,
     ...(isMobile ? {
-      bottom: '92px',
+      bottom: '16px',
       right: '16px'
     } : {})
   }), [isMobile]);
@@ -273,8 +273,8 @@ export default function WhatsAppButton() {
           backgroundColor: { duration: 0.3 }
         }}
         style={{...buttonStyles, pointerEvents: 'auto'}} // Enable pointer events on button
-        aria-label="Fale connosco pelo WhatsApp"
-        title="Fale connosco pelo WhatsApp"
+        aria-label="Fala connosco pelo WhatsApp"
+        title="Fala connosco pelo WhatsApp"
         role="button"
         tabIndex={0}
       >

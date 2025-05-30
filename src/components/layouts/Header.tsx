@@ -27,9 +27,9 @@ export default function Header() {
   return (
     <header className="fixed w-full top-4 z-50 px-4">
       <div className="max-w-7xl mx-auto">
-        <nav className={`backdrop-blur ${scrolled ? 'bg-white/80' : 'bg-white/70'} rounded-full py-3 px-6 shadow-lg flex items-center justify-between transition-all duration-300`}>
-          <div className="flex items-center w-[200px]">
-            <Logo width={200} />
+        <nav className={`backdrop-blur ${scrolled ? 'bg-white/80' : 'bg-white/70'} rounded-full py-2 sm:py-3 px-4 sm:px-6 shadow-lg flex items-center justify-between transition-all duration-300`}>
+          <div className="flex items-center w-[100px] sm:w-auto">
+            <Logo className="w-full max-w-[100px] sm:max-w-[130px]" width={130} />
           </div>
           
           <div className="hidden lg:flex items-center justify-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
@@ -46,7 +46,7 @@ export default function Header() {
               Parceiros
             </a>
             <a href="#partners" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
-              Trabalha Connosco
+              Trabalhe Connosco
             </a>
           </div>
           
@@ -57,7 +57,7 @@ export default function Header() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Fale Connosco
+              Fala Connosco
             </motion.a>
             <button 
               className="lg:hidden text-neutral-800" 
@@ -121,7 +121,7 @@ export default function Header() {
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Trabalha Connosco
+                Trabalhe Connosco
               </a>
             </div>
           </motion.div>

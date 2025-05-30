@@ -8,7 +8,7 @@ interface LogoProps {
   width?: number;
 }
 
-export function Logo({ variant = 'default', className = '', width = 140 }: LogoProps) {
+export function Logo({ variant = 'default', className = '', width = 180 }: LogoProps) {
   const logoPath = variant === 'white' 
     ? '/assets/brand/logo_with.png' 
     : '/assets/brand/logo.png';

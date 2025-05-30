@@ -207,3 +207,10 @@
 .service-card:hover {
   transform: translateY(-5px);
 }
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  transition: none !important;
+  display: none !important;
+}
