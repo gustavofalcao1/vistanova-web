@@ -42,16 +42,16 @@ export default function Footer() {
               <li><SmoothScrollLink to="#what-we-do" className="text-white/80 hover:text-secondary transition-colors block py-1">O Que Fazemos</SmoothScrollLink></li>
               <li><SmoothScrollLink to="#services" className="text-white/80 hover:text-secondary transition-colors block py-1">Serviços</SmoothScrollLink></li>
               <li><SmoothScrollLink to="#partners" className="text-white/80 hover:text-secondary transition-colors block py-1">Parceiros</SmoothScrollLink></li>
-              <li><SmoothScrollLink to="#contact" className="text-white/80 hover:text-secondary transition-colors block py-1">Trabalhe Connosco</SmoothScrollLink></li>
+              <li><a href="/(pages)/trabalhe-connosco" className="text-white/80 hover:text-secondary transition-colors block py-1">Trabalhe Connosco</a></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/80 hover:text-secondary transition-colors">Política de Privacidade</a></li>
-              <li><a href="#" className="text-white/80 hover:text-secondary transition-colors">Aviso de Privacidade</a></li>
-              <li><a href="#" className="text-white/80 hover:text-secondary transition-colors">Política de Cookies</a></li>
+              <li><a href="/(pages)/politica-de-privacidade" className="text-white/80 hover:text-secondary transition-colors">Política de Privacidade</a></li>
+              <li><a href="/(pages)/aviso-de-privacidade" className="text-white/80 hover:text-secondary transition-colors">Aviso de Privacidade</a></li>
+              <li><a href="/(pages)/politica-de-cookies" className="text-white/80 hover:text-secondary transition-colors">Política de Cookies</a></li>
             </ul>
           </div>
           

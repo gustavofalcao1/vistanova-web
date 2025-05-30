@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import WebVitals from "@/components/analytics/web-vitals";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
+import { Toaster } from "@/components/ui/toaster";
 import Providers from "@/components/providers/Providers";
 import { getFaviconMetadata } from "@/components/seo";
 
@@ -81,6 +82,7 @@ export default function RootLayout({
           <div style={{ minHeight: '100vh' }}>
             {children}
             <WhatsAppButton />
+            <Toaster />
             {/* Performance monitoring - only active in production */}
             <WebVitals />
           </div>
