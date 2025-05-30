@@ -105,11 +105,11 @@ export default function Partners({ partners }: PartnersProps) {
           </div>
         </motion.div>
         
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 md:gap-8 mt-12">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8 mt-12 px-4">
           {partners.map((partner, index) => (
             <motion.div 
               key={index}
-              className="flex items-center justify-center p-5 bg-gray-100 shadow-sm rounded-lg h-24 transition-all duration-300 hover:bg-gray-200"
+              className="flex items-center justify-center p-5 bg-gray-100 shadow-sm rounded-lg h-24 w-[calc(50%-12px)] sm:w-[calc(33.333%-22px)] md:w-[calc(25%-24px)] max-w-[180px] transition-all duration-300 hover:bg-gray-200"
               variants={{
                 hidden: { opacity: 0, scale: 0.9 },
                 visible: { 

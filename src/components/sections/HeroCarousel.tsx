@@ -18,8 +18,8 @@ const heroSlides = [
   },
   {
     id: 2,
-    title: "Soluções Financeiras",
-    highlight: "Personalizadas",
+    title: "Tratamos-te por",
+    highlight: '"tu"',
     description: "Oferecemos as melhores opções de crédito do mercado, com taxas competitivas e condições especiais para você.",
     ctaPrimary: "Ver Soluções",
     ctaSecondary: "Falar com Especialista",
@@ -28,9 +28,9 @@ const heroSlides = [
   },
   {
     id: 3,
-    title: "Realize Seus Sonhos",
-    highlight: "Com Crédito Consciente",
-    description: "Conte com nossa assessoria especializada para realizar seus projetos com segurança e tranquilidade.",
+    title: "Crédito Habitação - Garantia Pública",
+    highlight: "100% financiado para jovens",
+    description: "Agora podes comprar casa sem entrada inicial: o Estado garante até 15% do valor do imóvel para jovens até 35 anos. Válido para imóveis até 450.000€. Medida válida até 31 de dezembro de 2026. Sem entrada inicial, sem IMT, sem Imposto de Selo ao estado, tudo com apoio.",
     ctaPrimary: "Simular Crédito",
     ctaSecondary: "Tire suas Dúvidas",
     ctaPrimaryLink: "#simulator",
