@@ -16,10 +16,8 @@ interface HeroSlide {
   ctaSecondaryLink: string;
   imagePath: string;
   sameLine?: boolean; 
-  titleSize?: 'xsmall' | 'small' | 'medium' | 'large';
-  highlightSize?: 'xsmall' | 'small' | 'medium' | 'large';
-  showSatisfactionBadge?: boolean;
-  showCtaButtons?: boolean;
+  titleSize?: 'xsmall' | 'small' | 'medium' | 'large'; 
+  highlightSize?: 'xsmall' | 'small' | 'medium' | 'large'; 
 }
 
 // Carousel slides data
@@ -36,9 +34,7 @@ const heroSlides: HeroSlide[] = [
     imagePath: "/assets/images/carousel/1.png",
     sameLine: false,
     titleSize: 'medium',
-    highlightSize: 'medium',
-    showSatisfactionBadge: true,
-    showCtaButtons: true
+    highlightSize: 'medium'
   },
   {
     id: 2,
@@ -52,9 +48,7 @@ const heroSlides: HeroSlide[] = [
     imagePath: "/assets/images/carousel/2.png",
     sameLine: true, 
     titleSize: 'medium',
-    highlightSize: 'large',
-    showSatisfactionBadge: false,
-    showCtaButtons: false
+    highlightSize: 'large'
   },
   {
     id: 3,
@@ -68,9 +62,7 @@ const heroSlides: HeroSlide[] = [
     imagePath: "/assets/images/carousel/3.png",
     sameLine: false,
     titleSize: 'xsmall',
-    highlightSize: 'small',
-    showSatisfactionBadge: false,
-    showCtaButtons: false
+    highlightSize: 'small'
   }
 ];
 
@@ -217,26 +209,23 @@ const HeroCarousel = () => {
                   </>
                 )}
               </h1>
-              <p className="text-white/80 text-base md:text-lg lg:text-xl mt-4 md:mt-6 lg:mt-8 max-w-2xl mx-auto lg:mx-0">
+              <p className="text-lg text-white/80 max-w-lg">
                 {slide.description}
               </p>
-
-              {slide.showCtaButtons !== false && (
-                <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6 md:mt-8 lg:mt-10 justify-center lg:justify-start">
-                  <SmoothScrollLink 
-                    to={slide.ctaPrimaryLink}
-                    className="bg-secondary hover:bg-secondary/90 text-primary font-bold py-3 px-6 rounded-full transition-colors text-sm sm:text-base whitespace-nowrap text-center"
-                  >
-                    {slide.ctaPrimary}
-                  </SmoothScrollLink>
-                  <SmoothScrollLink 
-                    to={slide.ctaSecondaryLink}
-                    className="border-2 border-secondary text-secondary hover:bg-secondary/5 font-bold py-3 px-6 rounded-full transition-colors text-sm sm:text-base whitespace-nowrap text-center"
-                  >
-                    {slide.ctaSecondary}
-                  </SmoothScrollLink>
-                </div>
-              )}
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                <SmoothScrollLink
+                  to={slide.ctaPrimaryLink}
+                  className="bg-secondary hover:bg-secondary/90 text-primary font-bold py-3 px-6 rounded-full transition-colors text-center"
+                >
+                  {slide.ctaPrimary}
+                </SmoothScrollLink>
+                <SmoothScrollLink
+                  to={slide.ctaSecondaryLink}
+                  className="bg-transparent hover:bg-white/10 text-white font-medium py-3 px-6 border-2 border-white/20 hover:border-white/40 rounded-full transition-colors text-center"
+                >
+                  {slide.ctaSecondary}
+                </SmoothScrollLink>
+              </div>
             </motion.div>
             
             {/* Right Side Image */}
@@ -262,22 +251,20 @@ const HeroCarousel = () => {
                   quality={90}
                 />
               </div>
-              {slide.showSatisfactionBadge !== false && (
-                <motion.div 
-                  className="absolute lg:-bottom-4 lg:-left-4 -bottom-4 left-2 right-0 mx-auto lg:mx-0 lg:-left-8 lg:right-auto bg-white rounded-2xl p-3 shadow-lg w-max max-w-full"
-                  variants={badgeVariants}
-                  style={{ 
-                    willChange: 'transform, opacity',
-                    backfaceVisibility: 'hidden',
-                    transform: 'translateZ(0)'
-                  }}
-                >
-                  <div className="flex items-center gap-2 md:gap-3">
-                    <div className="bg-green-500 h-2.5 w-2.5 md:h-3 md:w-3 rounded-full flex-shrink-0"></div>
-                    <span className="text-primary font-medium text-sm md:text-base">98% de satisfação dos clientes</span>
-                  </div>
-                </motion.div>
-              )}
+              <motion.div 
+                className="absolute lg:-bottom-4 lg:-left-4 -bottom-4 left-2 right-0 mx-auto lg:mx-0 lg:-left-8 lg:right-auto bg-white rounded-2xl p-3 shadow-lg w-max max-w-full"
+                variants={badgeVariants}
+                style={{ 
+                  willChange: 'transform, opacity',
+                  backfaceVisibility: 'hidden',
+                  transform: 'translateZ(0)'
+                }}
+              >
+                <div className="flex items-center gap-2 md:gap-3">
+                  <div className="bg-green-500 h-2.5 w-2.5 md:h-3 md:w-3 rounded-full flex-shrink-0"></div>
+                  <span className="text-primary font-medium text-sm md:text-base">98% de satisfação dos clientes</span>
+                </div>
+              </motion.div>
             </motion.div>
           </motion.div>
         </AnimatePresence>

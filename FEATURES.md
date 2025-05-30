@@ -3,13 +3,21 @@
 ## 📌 Tarefas Pendentes
 
 ### 🚀 Melhorias Planejadas
-- [x] **Sistema de Contato** ✅
-  - [x] Formulário com validação em tempo real
+- [x] **Sistema de Formulários** ✅
+  - [x] Separação de formulários de contato e newsletter
+    - [x] Formulário de newsletter na seção "Estamos Aqui"
+    - [x] Formulário de contato no Footer
+    - [x] Validação específica para cada formulário com Zod
+    - [x] Conformidade com RGPD para consentimento claro
+  - [x] Formulário de contato
     - [x] Campos: Nome, E-mail, Mensagem (obrigatórios)
-    - [x] Opção para assinar newsletter
     - [x] Aceitação dos termos de privacidade
     - [x] Feedback visual durante o envio
     - [x] Mensagens de sucesso/erro
+  - [x] Formulário de newsletter
+    - [x] Campos: E-mail (obrigatório), Nome (opcional)
+    - [x] Consentimento específico para marketing
+    - [x] Interface simplificada e focada
   - [x] Integração com Nodemailer
     - [x] Configuração do servidor de e-mail
     - [x] Template de e-mail para notificação
@@ -37,11 +45,12 @@
 
 - [ ] **Otimização de Imagens e Logos**
   - [x] Atualizar favicon para versão moderna com suporte a múltiplos tamanhos e dispositivos
-  - [ ] Otimizar logos em SVG para melhor desempenho
+  - [ ] Otimizar logos em SVG e PNG para melhor desempenho
     - [ ] Remover metadados desnecessários
-    - [ ] Reduzir a complexidade dos caminhos SVG
+    - [ ] Reduzir a complexidade dos caminhos SVG e PNG
     - [ ] Converter estilos inline para classes CSS quando possível
     - [ ] Validar SVGs com ferramentas como SVGOMG
+    - [ ] Validar PNGs com ferramentas como ImageOptim
   - [ ] Implementar carregamento otimizado para imagens
   - [ ] Adicionar metadados para SEO
 
@@ -57,6 +66,13 @@
 - [ ] Internacionalização (i18n)
 
 ## 🔄 Melhorias Recentes
+
+### Separação de Formulários
+- Separados os formulários de newsletter e contato para melhor experiência do usuário
+- Implementada validação específica para cada formulário com Zod
+- Adicionado formulário de contato dedicado no Footer
+- Simplificado o formulário de newsletter na seção "Estamos Aqui"
+- Melhorada a conformidade com RGPD para consentimento claro
 
 ### Navegação Suave
 - Implementado sistema de navegação suave entre seções

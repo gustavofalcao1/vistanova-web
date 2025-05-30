@@ -17,6 +17,7 @@ import ImpactSection from "@/components/sections/ImpactSection";
 
 // Types
 import { Service, FAQ, ContactPerson, PartnerLogo, Protocol } from "@/types";
+import { NewsletterFormData } from "@/lib/types";
 
 const services: Service[] = [
   {
@@ -188,13 +189,15 @@ const faqs: FAQ[] = [
   }
 ];
 
-const handleNewsletterSubmit = async () => {
+const handleNewsletterSubmit = async (data: NewsletterFormData) => {
   try {
-    // Simulate API call
+    // Simulate API call - aqui você implementaria a chamada real à API
+    console.log('Dados da newsletter:', data);
     await new Promise(resolve => setTimeout(resolve, 1000));
     return { success: true };
-  } catch {
-    return { success: false, error: "Failed to submit newsletter" };
+  } catch (error) {
+    console.error('Erro ao enviar newsletter:', error);
+    return { success: false, error: "Falha ao enviar inscrição na newsletter" };
   }
 };
 

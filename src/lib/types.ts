@@ -27,10 +27,15 @@ export interface FAQ {
   answer: string;
 }
 
-export interface NewsletterSubscription {
-  email: string;
+export interface ContactFormData {
   name: string;
+  email: string;
   message: string;
   consent: boolean;
-  subscribeToNewsletter: boolean;
+}
+
+export interface NewsletterFormData {
+  name: string;
+  email: string;
+  consent: boolean;
 }
