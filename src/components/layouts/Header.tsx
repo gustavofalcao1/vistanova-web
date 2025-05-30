@@ -28,8 +28,8 @@ export default function Header() {
     <header className="fixed w-full top-4 z-50 px-4">
       <div className="max-w-7xl mx-auto">
         <nav className={`backdrop-blur ${scrolled ? 'bg-white/80' : 'bg-white/70'} rounded-full py-3 px-6 shadow-lg flex items-center justify-between transition-all duration-300`}>
-          <div className="flex items-center w-[150px]">
-            <Logo width={150} />
+          <div className="flex items-center w-[200px]">
+            <Logo width={200} />
           </div>
           
           <div className="hidden lg:flex items-center justify-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
