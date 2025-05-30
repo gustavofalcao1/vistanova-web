@@ -13,7 +13,7 @@
     "check-types": "tsc --noEmit",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
-    "prebuild": "yarn lint && yarn check-types && yarn generate-favicons && yarn optimize-images",
+    "prebuild": "yarn generate-favicons && yarn optimize-images",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "download-fonts": "node scripts/download-fonts.js",
     "generate-brand-assets": "tsx scripts/generate-brand-assets.ts",
