@@ -4,16 +4,21 @@ const withOptimizedImages = require('next-optimized-images');
 const nextConfig = {
   reactStrictMode: true,
   eslint: {
-    // Desabilita as verificações de ESLint durante o build
+    // Disable ESLint checks during build
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // Desabilita as verificações de TypeScript durante o build
+    // Disable TypeScript checks during build
     ignoreBuildErrors: true,
   },
   images: {
     disableStaticImages: true,
   },
+  // Disable source maps in production
+  productionBrowserSourceMaps: false,
+  // Disable strict mode for faster builds
+  swcMinify: true,
+  poweredByHeader: false,
   // Otimização de imagens
   optimizeImages: true,
   optimizeImagesInDev: false,
