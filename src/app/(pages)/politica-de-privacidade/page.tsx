@@ -85,7 +85,7 @@ export default function PoliticaPrivacidade() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-primary mb-4">8. Contacte-nos</h2>
+        <h2 className="text-2xl font-semibold text-primary mb-4">8. Contacta-nos</h2>
         <p className="mb-2">
           Se tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco através de:
         </p>

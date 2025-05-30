@@ -81,7 +81,7 @@ export default function PoliticaCookies() {
       </section>
 
       <section>
-        <h2 className="text-2xl font-semibold text-primary mb-4">Contacte-nos</h2>
+        <h2 className="text-2xl font-semibold text-primary mb-4">Contacta-nos</h2>
         <p className="mb-4">
           Se tiver alguma dúvida sobre a nossa Política de Cookies, entre em contato conosco através de:
         </p>

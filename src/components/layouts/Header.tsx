@@ -28,7 +28,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed w-full top-4 z-50 px-4">
+    <header className="fixed w-full top-4 z-50 px-0 sm:px-4">
       <div className="max-w-7xl mx-auto px-2 sm:px-4">
         <nav className={`backdrop-blur ${scrolled ? 'bg-white/80' : 'bg-white/70'} rounded-full py-2 sm:py-3 px-4 sm:px-6 shadow-lg flex items-center justify-between transition-all duration-300`}>
           <div className="flex-shrink-0 w-[100px] sm:w-auto">
