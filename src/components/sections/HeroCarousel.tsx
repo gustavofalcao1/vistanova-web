@@ -11,8 +11,8 @@ const heroSlides = [
     title: "Especialista em",
     highlight: "Intermediação de Crédito",
     description: "Ajudamos a decidir de maneira estratégica, e tornar a literacia financeira um conhecimento acessível, não um privilégio de alguns.",
-    ctaPrimary: "Conheça Nossos Serviços",
-    ctaSecondary: "Agende uma Conversa",
+    ctaPrimary: "Conhece Nossos Serviços",
+    ctaSecondary: "Agenda uma Conversa",
     ctaPrimaryLink: "#what-we-do",
     ctaSecondaryLink: "#where-we-are"
   },

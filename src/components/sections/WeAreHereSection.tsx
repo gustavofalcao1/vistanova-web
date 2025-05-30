@@ -205,7 +205,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
           >
             <h3 className="text-2xl font-semibold text-primary mb-6">Contacta-nos e Fica Atualizado</h3>
             <p className="text-neutral-700 mb-6">
-              Inscreve-te na nossa newsletter para receberes novidades e dicas exclusivas para ti e para o teu negócio.
+              Inscreve-te na nossa newsletter para receberes novidades e dicas exclusivas ou para o teu negócio.
             </p>
             <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <div>

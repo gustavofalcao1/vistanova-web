@@ -74,7 +74,7 @@ export default function HeroSection() {
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.2 }}
                 >
-                  Conheça Nossos Serviços
+                  Conhece Nossos Serviços
                 </motion.a>
                 <motion.a 
                   href="#where-we-are" 
@@ -83,7 +83,7 @@ export default function HeroSection() {
                   whileTap={{ scale: 0.97 }}
                   transition={{ duration: 0.2 }}
                 >
-                  Agende uma Conversa
+                  Agenda uma Conversa
                 </motion.a>
               </div>
             </motion.div>

@@ -34,7 +34,7 @@ export default function QuemSomosSection() {
             visible: { opacity: 1, y: 0 }
           }}
         >
-          <span className="text-secondary font-semibold">Conheça-nos</span>
+          <span className="text-secondary font-semibold">Conhece-nos</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 text-primary">Quem Somos</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
         </motion.div>
@@ -50,7 +50,7 @@ export default function QuemSomosSection() {
             Somos a Vista Nova.
           </p>
           <p className="text-lg text-neutral-800 text-center mb-2">
-            Durante 17 anos, ajudámos centenas de pessoas a tomar decisões com mais clareza. Somos Intermediários de Crédito Vinculados, registados no Banco de Portugal, com o n.º 0002543.
+            Durante 17 anos, ajudámos centenas de pessoas a tomarem decisões com mais clareza. Somos Intermediários de Crédito Vinculados, registados no Banco de Portugal, com o n.º 0002543.
           </p>
           <p className="text-lg text-neutral-800 text-center mb-12 font-semibold">
             Ajudamos os nossos clientes a decidirem melhor… e a viver melhor!
