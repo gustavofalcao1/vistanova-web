@@ -192,16 +192,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
             }}
           >
             <div className="w-full h-full flex items-center justify-center bg-neutral-200 relative">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.3985590261436!2d-8.634811924249076!3d41.12582461217906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd246526038471eb%3A0xbcc6fd0cdae10b46!2sMaxfinance%20Nova!5e0!3m2!1sen!2spt!4v1746209444412!5m2!1sen!2spt"
-                width="600"
-                height="800"
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                style={{ border: 0 }}
-                className="w-full h-[750px] rounded-xl shadow-lg"
-              />
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.3987532634856!2d-8.634833888637129!3d41.125820371214694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd246530cd054073%3A0xd52f534652e26b69!2sVista%20Nova%2C%20Lda.!5e0!3m2!1spt-BR!2spt!4v1748551784864!5m2!1spt-BR!2spt" width="600" height="800" style={{border:0}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </motion.div>
           
@@ -212,13 +203,13 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
               visible: { opacity: 1, x: 0 }
             }}
           >
-            <h3 className="text-2xl font-semibold text-primary mb-6">Fique Atualizado</h3>
+            <h3 className="text-2xl font-semibold text-primary mb-6">Contacta-nos e Fica Atualizado</h3>
             <p className="text-neutral-700 mb-6">
-              Inscreva-se na nossa newsletter para receber novidades e dicas exclusivas para o seu negócio.
+              Inscreve-te na nossa newsletter para receberes novidades e dicas exclusivas para ti e para o teu negócio.
             </p>
             <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">Email</label>
+                <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">Email *</label>
                 <input 
                   type="email" 
                   id="email" 
@@ -231,7 +222,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                 />
               </div>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">Nome *</label>
+                <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">Nome</label>
                 <input 
                   type="text" 
                   id="name" 
@@ -240,12 +231,11 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" 
                   placeholder="Seu Nome" 
-                  required
                 />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">Mensagem *</label>
+                <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">Mensagem</label>
                 <textarea
                   id="message"
                   name="message"
@@ -253,7 +243,6 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 rounded-lg border border-neutral-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent min-h-[120px]"
                   placeholder="Sua mensagem..."
-                  required
                 />
               </div>
               <div className="space-y-3">

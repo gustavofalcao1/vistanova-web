@@ -12,21 +12,21 @@
   
   /* Base colors */
   --background: 0 0% 100%; /* #FFFFFF */
-  --foreground: 222.2 84% 4.9%; /* #1F2C40 - Primary color */
+  --foreground: 215 31% 18%; /* #1F2C40 - Primary color */
   
   /* Component colors */
   --muted: 210 40% 96.1%;
   --muted-foreground: 215.4 16.3% 46.9%;
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover-foreground: 215 31% 18%;
   --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card-foreground: 215 31% 18%;
   --border: 214.3 31.8% 91.4%;
   --input: 214.3 31.8% 91.4%;
   
   /* Brand colors */
   --primary: 215 31% 18%; /* #1F2C40 - Azul escuro */
-  --primary-foreground: 210 40% 98%;
+  --primary-foreground: 0 0% 100%; /* #FFFFFF */
   --secondary: 84 100% 50%; /* #B4FF00 - Verde neon */
   --secondary-foreground: 215 31% 18%; /* #1F2C40 */
   
@@ -39,43 +39,43 @@
   
   /* Section specific colors */
   --header-bg: 0 0% 100%; /* #FFFFFF */
-  --footer-bg: 222.2 84% 4.9%; /* #1F2C40 */
-  --section-alt-bg: 210 40% 98%; /* Light blue-gray */
+  --footer-bg: 215 31% 18%; /* #1F2C40 */
+  --section-alt-bg: 248 53% 99%; /* Light blue-gray */
 }
 
 .dark {
   /* Border radius */
-  --radius: 0.75rem;
+  --radius: 0.5rem;
   
   /* Base colors */
-  --background: 215 31% 18%; /* #1F2C40 - Primary color */
-  --foreground: 0 0% 100%; /* #FFFFFF */
+  --background: 222.2 84% 4.9%; /* #1F2C40 - Primary color */
+  --foreground: 210 40% 98%; /* #FFFFFF */
   
   /* Component colors */
   --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 75%;
-  --popover: 215 31% 18%; /* #1F2C40 */
-  --popover-foreground: 0 0% 100%; /* #FFFFFF */
-  --card: 215 31% 18%; /* #1F2C40 */
-  --card-foreground: 0 0% 100%; /* #FFFFFF */
+  --muted-foreground: 215 20.2% 65.1%;
+  --popover: 222.2 84% 4.9%; /* #1F2C40 */
+  --popover-foreground: 210 40% 98%; /* #FFFFFF */
+  --card: 222.2 84% 4.9%; /* #1F2C40 */
+  --card-foreground: 210 40% 98%; /* #FFFFFF */
   --border: 217.2 32.6% 25%;
   --input: 217.2 32.6% 25%;
   
-  /* Brand colors - Mantém as mesmas cores da marca */
-  --primary: 215 31% 18%; /* #1F2C40 - Azul escuro */
-  --primary-foreground: 0 0% 100%; /* #FFFFFF */
+  /* Brand colors */
+  --primary: 210 40% 98%; /* Almost white */
+  --primary-foreground: 222.2 47.4% 11.2%; /* Dark blue */
   --secondary: 84 100% 50%; /* #B4FF00 - Verde neon */
   --secondary-foreground: 215 31% 18%; /* #1F2C40 */
   
   /* Accent and feedback colors */
-  --accent: 217.2 32.6% 25%;
-  --accent-foreground: 0 0% 100%; /* #FFFFFF */
+  --accent: 217.2 32.6% 17.5%; 
+  --accent-foreground: 210 40% 98%; /* #FFFFFF */
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 100%; /* #FFFFFF */
+  --destructive-foreground: 210 40% 98%; /* #FFFFFF */
   --ring: 84 100% 50%; /* #B4FF00 - Verde neon */
   
   /* Section specific colors */
-  --header-bg: 215 31% 18%; /* #1F2C40 */
+  --header-bg: 222.2 84% 4.9%; /* #1F2C40 */
   --footer-bg: 215 31% 12%; /* #14202F - Primary Dark */
   --section-alt-bg: 215 31% 22%; /* #2D3F5A - Primary Light */
 }

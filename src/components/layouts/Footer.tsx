@@ -5,9 +5,16 @@ import { Logo } from "@/components/ui/Logo";
 export default function Footer() {
   return (
     <footer className="bg-primary text-white py-12 px-4">
+      <style jsx>{`
+        @media (min-width: 1024px) {
+          .footer-grid {
+            grid-template-columns: 40% 20% 20% 20%;
+          }
+        }
+      `}</style>
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 footer-grid gap-8 mb-12">
+          <div className="lg:col-span-1">
             <div className="mb-4 w-[250px]">
               <Logo variant="white" width={250} />
             </div>
@@ -34,7 +41,7 @@ export default function Footer() {
               <li><a href="#what-we-do" className="text-white/80 hover:text-secondary transition-colors">O Que Fazemos</a></li>
               <li><a href="#services" className="text-white/80 hover:text-secondary transition-colors">Serviços</a></li>
               <li><a href="#partners" className="text-white/80 hover:text-secondary transition-colors">Parceiros</a></li>
-              <li><a href="#where-we-are" className="text-white/80 hover:text-secondary transition-colors">Trabalhe Connosco</a></li>
+              <li><a href="#where-we-are" className="text-white/80 hover:text-secondary transition-colors">Trabalha Connosco</a></li>
             </ul>
           </div>
           

@@ -5,7 +5,7 @@ import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 
 // Section Components
-import HeroSection from "@/components/sections/HeroSection";
+import HeroCarousel from "@/components/sections/HeroCarousel";
 import AboutUsSection from "@/components/sections/AboutUsSection";
 import WhatWeDoSection from "@/components/sections/WhatWeDoSection";
 import ServicesSection from "@/components/sections/ServicesSection";
@@ -57,7 +57,7 @@ const services: Service[] = [
   {
     icon: "MapPinned",
     title: "Aquisição de terreno",
-    description: "Começa no terreno, acaba no lar."
+    description: "Terreno hoje, casa amanhã."
   },
   {
     icon: "CreditCard",
@@ -146,16 +146,16 @@ const protocols: Protocol[] = [
 
 const contacts: ContactPerson[] = [
   {
-    name: "Jorge Verissimo",
-    role: "CEO",
+    name: "Jorge Veríssimo",
+    role: "Diretor General",
     email: "jverissimo@vistanova.pt",
     phone: "+351965091853",
     photo: "/assets/images/jv.jpg"
   },
   {
-    name: "Ágatha Batista",
-    role: "Operations Manager",
-    email: "agathabatista@vistanova.pt",
+    name: "Ágatha Santos",
+    role: "Especialista em Crédito",
+    email: "agathasantos@vistanova.pt",
     phone: "+351924967148",
     photo: "/assets/images/ab.jpg"
   }
@@ -202,7 +202,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <HeroSection />
+      <HeroCarousel />
       <AboutUsSection />
       <WhatWeDoSection />
       <ServicesSection services={services} />

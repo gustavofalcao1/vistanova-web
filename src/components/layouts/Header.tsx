@@ -46,7 +46,7 @@ export default function Header() {
               Parceiros
             </a>
             <a href="#partners" className="text-neutral-800 hover:text-secondary font-medium text-md transition-colors">
-              Trabalhe Connosco
+              Trabalha Connosco
             </a>
           </div>
           
@@ -121,7 +121,7 @@ export default function Header() {
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Trabalhe Connosco
+                Trabalha Connosco
               </a>
             </div>
           </motion.div>

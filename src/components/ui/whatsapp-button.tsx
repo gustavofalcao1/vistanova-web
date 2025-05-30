@@ -126,7 +126,7 @@ export default function WhatsAppButton() {
   // Container base styles
   const containerBaseStyles: React.CSSProperties = {
     position: 'fixed',
-    bottom: '24px',
+    bottom: '92px',
     right: '24px',
     zIndex: 99,
     display: 'flex',
@@ -156,7 +156,7 @@ export default function WhatsAppButton() {
   const containerStyles = useMemo(() => ({
     ...containerBaseStyles,
     ...(isMobile ? {
-      bottom: '16px',
+      bottom: '92px',
       right: '16px'
     } : {})
   }), [isMobile]);
