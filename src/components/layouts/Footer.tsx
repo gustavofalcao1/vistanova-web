@@ -87,7 +87,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <MapPin className="h-5 w-5 flex-shrink-0 text-secondary" />
-                <a href="https://maps.app.goo.gl/EM3Bo6LFMfE3uiVUA" target="_blank" className="text-white/80">Rua da Bélgica, 3434–H<br />4400-209 Vila Nova de Gaia</a>
+                <a href="https://maps.app.goo.gl/EM3Bo6LFMfE3uiVUA" target="_blank" className="text-white/80">Rua da Bélgica, 3434 - H<br />4400-209 Vila Nova de Gaia</a>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-5 w-5 flex-shrink-0 text-secondary" />

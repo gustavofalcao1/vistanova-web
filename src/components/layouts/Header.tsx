@@ -32,7 +32,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-2 sm:px-4">
         <nav className={`backdrop-blur ${scrolled ? 'bg-white/80' : 'bg-white/70'} rounded-full py-2 sm:py-3 px-4 sm:px-6 shadow-lg flex items-center justify-between transition-all duration-300`}>
           <div className="flex-shrink-0 w-[100px] sm:w-auto">
-            <Logo className="w-full max-w-[100px] sm:max-w-[130px]" width={130} />
+            <Logo className="w-full max-w-[100px] sm:max-w-[160px]" width={160} />
           </div>
           
           <div className="hidden lg:flex items-center justify-center space-x-4 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2 px-4">

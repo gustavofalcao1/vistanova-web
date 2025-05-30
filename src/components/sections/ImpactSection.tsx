@@ -12,7 +12,7 @@ export default function ImpactSection() {
       ref={ref}
     >
       <motion.div
-        className="max-w-5xl mx-auto text-center"
+        className="max-w-4xl mx-auto text-center"
         initial="hidden"
         animate={isVisible ? "visible" : "hidden"}
         variants={{
@@ -26,7 +26,7 @@ export default function ImpactSection() {
         }}
       >
         <motion.h2 
-          className="text-2xl md:text-4xl font-bold text-secondary leading-tight relative inline-block p-5"
+          className="text-lg md:text-3xl font-bold text-secondary leading-tight relative inline-block p-5"
           variants={{
             hidden: { opacity: 0, y: 20 },
             visible: { opacity: 1, y: 0 }

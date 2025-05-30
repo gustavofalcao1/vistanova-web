@@ -226,7 +226,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                       type="email" 
                       id="newsletter-email" 
                       className={`flex-1 px-4 py-2 rounded-l-lg border-y border-l ${errorsNewsletter.email ? 'border-red-500' : 'border-neutral-300'} focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary`} 
-                      placeholder="seu-email@exemplo.com" 
+                      placeholder="Email *" 
                       {...registerNewsletter("email")}
                     />
                     <motion.button 
@@ -244,14 +244,14 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                   )}
                 </div>
                 
-                <div className="flex items-start">
+                <div className="flex items-center">
                   <input 
                     type="checkbox" 
                     id="newsletter-consent" 
                     className={`mt-1 h-4 w-4 text-primary focus:ring-primary ${errorsNewsletter.consent ? 'border-red-500' : 'border-neutral-300'} rounded`} 
                     {...registerNewsletter("consent")}
                   />
-                  <label htmlFor="newsletter-consent" className="ml-2 block text-xs text-neutral-700">
+                  <label htmlFor="newsletter-consent" className="ml-2 block text-xs text-neutral-700 mt-1">
                     Concordo em receber comunicações de marketing da Vista Nova. *
                   </label>
                 </div>
@@ -310,15 +310,15 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                   )}
                 </div>
                 
-                <div className="flex items-start">
+                <div className="flex items-center">
                   <input 
                     type="checkbox" 
                     id="contact-consent" 
                     className={`mt-1 h-4 w-4 text-primary focus:ring-primary ${errorsContact.consent ? 'border-red-500' : 'border-neutral-300'} rounded`}
                     {...registerContact("consent")}
                   />
-                  <label htmlFor="contact-consent" className="ml-2 block text-xs text-neutral-700">
-                    Concordo com os termos de privacidade e tratamento de dados. *
+                  <label htmlFor="contact-consent" className="ml-2 block text-xs text-neutral-700 mt-1">
+                    Concordo com a <a href="/politica-de-privacidade" className="text-primary hover:underline">Política de Privacidade</a>. *
                   </label>
                 </div>
                 {errorsContact.consent && (
