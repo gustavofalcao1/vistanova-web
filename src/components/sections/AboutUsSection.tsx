@@ -9,7 +9,7 @@ export default function QuemSomosSection() {
 
   return (
     <section 
-      id="quem-somos" 
+      id="about-us" 
       className="py-20 px-14 bg-neutral-100"
       ref={ref}
     >

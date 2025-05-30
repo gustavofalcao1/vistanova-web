@@ -51,7 +51,7 @@ export default function ImpactSection() {
           }}
         >
           <motion.a 
-            href="#estamos-aqui" 
+            href="#contact" 
             className="bg-secondary hover:bg-secondary/90 text-primary font-bold py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-xl inline-flex items-center gap-2"
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.95 }}

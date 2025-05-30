@@ -77,7 +77,7 @@ export default function HeroSection() {
                   Conhece Nossos Serviços
                 </motion.a>
                 <motion.a 
-                  href="#where-we-are" 
+                  href="#contact" 
                   className="bg-white/10 hover:bg-white/20 backdrop-blur text-white font-bold py-3 px-8 rounded-full text-sm md:text-base transition-colors border border-white/30"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}

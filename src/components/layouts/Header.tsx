@@ -46,7 +46,7 @@ export default function Header() {
             <SmoothScrollLink to="#partners" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Parceiros
             </SmoothScrollLink>
-            <SmoothScrollLink to="#work-with-us" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            <SmoothScrollLink to="#contact" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Trabalhe Connosco
             </SmoothScrollLink>
           </div>
@@ -57,7 +57,7 @@ export default function Header() {
               whileTap={{ scale: 0.95 }}
             >
               <SmoothScrollLink 
-                to="#where-we-are" 
+                to="#contact" 
                 className="bg-secondary hover:bg-secondary/90 text-primary font-bold text-base xs:text-sm py-1.5 xs:py-2 px-3 xs:px-4 rounded-full transition-colors whitespace-nowrap inline-block"
               >
                 <span className="text-[14px] [@media(max-width:325px)]:text-xs">Fala Connosco</span>
@@ -106,27 +106,27 @@ export default function Header() {
               >
                 Serviços
               </SmoothScrollLink>
-              <a 
-                href="#partners" 
-                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
+              <SmoothScrollLink 
+                to="#partners" 
+                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Parceiros
-              </a>
-              <a 
-                href="#where-we-are" 
-                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
+              </SmoothScrollLink>
+              <SmoothScrollLink 
+                to="#contact" 
+                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contacto
-              </a>
-              <a 
-                href="#where-we-are" 
-                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
+              </SmoothScrollLink>
+              <SmoothScrollLink 
+to="#contact" 
+                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Trabalhe Connosco
-              </a>
+              </SmoothScrollLink>
             </div>
           </motion.div>
         )}

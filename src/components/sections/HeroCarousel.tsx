@@ -30,7 +30,7 @@ const heroSlides: HeroSlide[] = [
     ctaPrimary: "Conhece Nossos Serviços",
     ctaSecondary: "Agenda uma Conversa",
     ctaPrimaryLink: "#what-we-do",
-    ctaSecondaryLink: "#where-we-are",
+    ctaSecondaryLink: "#contact",
     imagePath: "/assets/images/carousel/1.png",
     sameLine: false,
     titleSize: 'medium',

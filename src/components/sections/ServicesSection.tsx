@@ -32,7 +32,7 @@ export default function ServicosSection({ services }: ServicosSectionProps) {
 
   return (
     <section 
-      id="servicos" 
+      id="services" 
       className="py-20 px-14 bg-primary"
       ref={ref}
     >

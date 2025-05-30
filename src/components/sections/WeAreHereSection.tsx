@@ -110,7 +110,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
 
   return (
     <section 
-      id="estamos-aqui" 
+      id="contact" 
       className={`py-20 px-4 sm:px-6 lg:px-14 bg-white ${isVisible ? 'section-visible' : 'section-hidden'}`}
       ref={ref}
     >

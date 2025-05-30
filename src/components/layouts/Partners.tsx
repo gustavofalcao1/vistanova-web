@@ -69,7 +69,7 @@ export default function Partners({ partners }: PartnersProps) {
   
   return (
     <section 
-      id="parceiros" 
+      id="partners" 
       className="py-20 px-14 bg-background"
     >
       <motion.div

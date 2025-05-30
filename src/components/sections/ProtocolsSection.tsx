@@ -13,7 +13,7 @@ export default function ProtocolsSection({ protocols }: ProtocolosSectionProps) 
 
   return (
     <section 
-      id="protocolos" 
+      id="protocols" 
       className="py-16 px-0 bg-primary overflow-hidden"
       ref={ref}
     >
