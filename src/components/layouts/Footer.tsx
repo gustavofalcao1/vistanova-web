@@ -1,7 +1,9 @@
+'use client';
+
 import React from "react";
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
-import { SmoothScrollLink } from "@/components/ui/SmoothScrollLink";
+import { PageLink } from "@/components/ui/PageLink";
 
 export default function Footer() {
   return (
@@ -38,20 +40,20 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Páginas</h4>
             <ul className="space-y-2">
-              <li><SmoothScrollLink to="#about-us" className="text-white/80 hover:text-secondary transition-colors block py-1">Quem Somos</SmoothScrollLink></li>
-              <li><SmoothScrollLink to="#what-we-do" className="text-white/80 hover:text-secondary transition-colors block py-1">O Que Fazemos</SmoothScrollLink></li>
-              <li><SmoothScrollLink to="#services" className="text-white/80 hover:text-secondary transition-colors block py-1">Serviços</SmoothScrollLink></li>
-              <li><SmoothScrollLink to="#partners" className="text-white/80 hover:text-secondary transition-colors block py-1">Parceiros</SmoothScrollLink></li>
-              <li><a href="/(pages)/trabalhe-connosco" className="text-white/80 hover:text-secondary transition-colors block py-1">Trabalhe Connosco</a></li>
+              <li><PageLink to="#about-us" className="text-white/80 hover:text-secondary transition-colors block py-1">Quem Somos</PageLink></li>
+              <li><PageLink to="#what-we-do" className="text-white/80 hover:text-secondary transition-colors block py-1">O Que Fazemos</PageLink></li>
+              <li><PageLink to="#services" className="text-white/80 hover:text-secondary transition-colors block py-1">Serviços</PageLink></li>
+              <li><PageLink to="#partners" className="text-white/80 hover:text-secondary transition-colors block py-1">Parceiros</PageLink></li>
+              <li><a href="/trabalha-connosco" className="text-white/80 hover:text-secondary transition-colors block py-1">Trabalha Connosco</a></li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4">Legal</h4>
             <ul className="space-y-2">
-              <li><a href="/(pages)/politica-de-privacidade" className="text-white/80 hover:text-secondary transition-colors">Política de Privacidade</a></li>
-              <li><a href="/(pages)/aviso-de-privacidade" className="text-white/80 hover:text-secondary transition-colors">Aviso de Privacidade</a></li>
-              <li><a href="/(pages)/politica-de-cookies" className="text-white/80 hover:text-secondary transition-colors">Política de Cookies</a></li>
+              <li><a href="/politica-de-privacidade" className="text-white/80 hover:text-secondary transition-colors">Política de Privacidade</a></li>
+              <li><a href="/aviso-de-privacidade" className="text-white/80 hover:text-secondary transition-colors">Aviso de Privacidade</a></li>
+              <li><a href="/politica-de-cookies" className="text-white/80 hover:text-secondary transition-colors">Política de Cookies</a></li>
             </ul>
           </div>
           

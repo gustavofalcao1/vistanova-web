@@ -4,6 +4,7 @@ import WebVitals from "@/components/analytics/web-vitals";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
 import { Toaster } from "@/components/ui/toaster";
 import Providers from "@/components/providers/Providers";
+import { ScrollProvider } from "@/components/providers/ScrollProvider";
 import { getFaviconMetadata } from "@/components/seo";
 
 export const metadata: Metadata = {
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#2563eb',
+  themeColor: '#E5FC2A',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 1,
@@ -65,8 +66,8 @@ export default function RootLayout({
         />
         
         {/* Theme and color - Configurações de tema e cor */}
-        <meta name="theme-color" content="#2563eb" />
-        <meta name="msapplication-TileColor" content="#2563eb" />
+        <meta name="theme-color" content="#E5FC2A" />
+        <meta name="msapplication-TileColor" content="#E5FC2A" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         
         {/* PWA related */}
@@ -79,13 +80,15 @@ export default function RootLayout({
       </head>
       <body className="antialiased relative">
         <Providers>
-          <div style={{ minHeight: '100vh' }}>
-            {children}
-            <WhatsAppButton />
-            <Toaster />
-            {/* Performance monitoring - only active in production */}
-            <WebVitals />
-          </div>
+          <ScrollProvider>
+            <div style={{ minHeight: '100vh' }}>
+              {children}
+              <WhatsAppButton />
+              <Toaster />
+              {/* Performance monitoring - only active in production */}
+              <WebVitals />
+            </div>
+          </ScrollProvider>
         </Providers>
       </body>
     </html>

@@ -8,11 +8,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
 
-export const metadata = {
-  title: 'Trabalhe Conosco | Vista Nova',
-  description: 'Faça parte da nossa equipe de especialistas em crédito e ajude-nos a transformar sonhos em realidade.',
-};
-
 type FormData = {
   nome: string;
   email: string;
@@ -22,7 +17,7 @@ type FormData = {
   curriculo: File | null;
 };
 
-export default function TrabalheConosco() {
+export default function TrabalhaConosco() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
@@ -102,7 +97,7 @@ export default function TrabalheConosco() {
         transition={{ duration: 0.5 }}
         className="text-center mb-12"
       >
-        <h1 className="text-4xl font-bold text-primary mb-4">Trabalhe Conosco</h1>
+        <h1 className="text-4xl font-bold text-primary mb-4">Trabalha Conosco</h1>
         <p className="text-xl text-gray-600">
           Junte-se à nossa equipe de especialistas em crédito e ajude-nos a transformar sonhos em realidade.
         </p>
@@ -160,7 +155,7 @@ export default function TrabalheConosco() {
               </div>
               <div>
                 <h3 className="font-medium">Propósito inspirador</h3>
-                <p className="text-gray-600 text-sm">Trabalhe em algo que realmente faz a diferença na vida das pessoas.</p>
+                <p className="text-gray-600 text-sm">Trabalha em algo que realmente faz a diferença na vida das pessoas.</p>
               </div>
             </div>
           </div>

@@ -1,7 +1,9 @@
+'use client';
+
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/ui/logo";
-import { SmoothScrollLink } from "@/components/ui/SmoothScrollLink";
+import { PageLink } from "@/components/ui/PageLink";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -34,21 +36,21 @@ export default function Header() {
           </div>
           
           <div className="hidden lg:flex items-center justify-center space-x-4 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2 px-4">
-            <SmoothScrollLink to="#about-us" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            <PageLink to="#about-us" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Quem Somos
-            </SmoothScrollLink>
-            <SmoothScrollLink to="#what-we-do" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            </PageLink>
+            <PageLink to="#what-we-do" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               O Que Fazemos
-            </SmoothScrollLink>
-            <SmoothScrollLink to="#services" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            </PageLink>
+            <PageLink to="#services" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Serviços
-            </SmoothScrollLink>
-            <SmoothScrollLink to="#partners" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            </PageLink>
+            <PageLink to="#partners" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Parceiros
-            </SmoothScrollLink>
-            <SmoothScrollLink to="#contact" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
-              Trabalhe Connosco
-            </SmoothScrollLink>
+            </PageLink>
+            <a href="/trabalha-connosco" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+              Trabalha Connosco
+            </a>
           </div>
           
           <div className="flex items-center space-x-2 sm:space-x-4">
@@ -56,12 +58,12 @@ export default function Header() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <SmoothScrollLink 
+              <PageLink 
                 to="#contact" 
                 className="bg-secondary hover:bg-secondary/90 text-primary font-bold text-base xs:text-sm py-1.5 xs:py-2 px-3 xs:px-4 rounded-full transition-colors whitespace-nowrap inline-block"
               >
                 <span className="text-[14px] [@media(max-width:325px)]:text-xs">Fala Connosco</span>
-              </SmoothScrollLink>
+              </PageLink>
             </motion.div>
             <button 
               className="lg:hidden text-neutral-800" 
@@ -85,48 +87,48 @@ export default function Header() {
             transition={{ duration: 0.2 }}
           >
             <div className="flex flex-col space-y-3">
-              <SmoothScrollLink 
+              <PageLink 
                 to="#about-us" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Quem Somos
-              </SmoothScrollLink>
-              <SmoothScrollLink 
+              </PageLink>
+              <PageLink 
                 to="#what-we-do" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 O Que Fazemos
-              </SmoothScrollLink>
-              <SmoothScrollLink 
+              </PageLink>
+              <PageLink 
                 to="#services" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Serviços
-              </SmoothScrollLink>
-              <SmoothScrollLink 
+              </PageLink>
+              <PageLink 
                 to="#partners" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Parceiros
-              </SmoothScrollLink>
-              <SmoothScrollLink 
+              </PageLink>
+              <PageLink 
                 to="#contact" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contacto
-              </SmoothScrollLink>
-              <SmoothScrollLink 
-to="#contact" 
+              </PageLink>
+              <a 
+                href="/trabalha-connosco" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Trabalhe Connosco
-              </SmoothScrollLink>
+                Trabalha Connosco
+              </a>
             </div>
           </motion.div>
         )}
