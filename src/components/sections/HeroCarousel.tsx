@@ -44,7 +44,7 @@ const heroSlides: HeroSlide[] = [
     ctaSecondary: "Falar com Especialista",
     ctaPrimaryLink: "#services",
     ctaSecondaryLink: "#contact",
-    imagePath: "/assets/images/carousel/2.svg",
+    imagePath: "/assets/images/carousel/2.png",
     sameLine: true, 
     titleSize: 'medium',
     highlightSize: 'large'
