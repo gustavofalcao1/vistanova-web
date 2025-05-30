@@ -4,8 +4,23 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { OptimizedImage } from "@/components/ui";
 
+interface HeroSlide {
+  id: number;
+  title: string;
+  highlight: string;
+  description: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+  ctaPrimaryLink: string;
+  ctaSecondaryLink: string;
+  imagePath: string;
+  sameLine?: boolean; 
+  titleSize?: 'xsmall' | 'small' | 'medium' | 'large'; 
+  highlightSize?: 'xsmall' | 'small' | 'medium' | 'large'; 
+}
+
 // Carousel slides data
-const heroSlides = [
+const heroSlides: HeroSlide[] = [
   {
     id: 1,
     title: "Especialista em",
@@ -14,17 +29,25 @@ const heroSlides = [
     ctaPrimary: "Conhece Nossos Serviços",
     ctaSecondary: "Agenda uma Conversa",
     ctaPrimaryLink: "#what-we-do",
-    ctaSecondaryLink: "#where-we-are"
+    ctaSecondaryLink: "#where-we-are",
+    imagePath: "/assets/images/carousel/1.png",
+    sameLine: false,
+    titleSize: 'medium',
+    highlightSize: 'medium'
   },
   {
     id: 2,
-    title: "Tratamos-te por",
+    title: "Tratamos-te por ", 
     highlight: '"tu"',
-    description: "Oferecemos as melhores opções de crédito do mercado, com taxas competitivas e condições especiais para você.",
+    description: "Não por falta de respeito, mas exatamente porque te respeitamos. O crédito é um tema sério, e acreditamos que a melhor forma de te ajudar, é falar contigo com clareza, proximidade e sem barreiras formais. Somos profissionais, mas também somos humanos. E sabemos que, quando o tema é importante, ouvir alguém que nos fala de forma direta faz toda a diferença.",
     ctaPrimary: "Ver Soluções",
     ctaSecondary: "Falar com Especialista",
     ctaPrimaryLink: "#services",
-    ctaSecondaryLink: "#contact"
+    ctaSecondaryLink: "#contact",
+    imagePath: "/assets/images/carousel/2.svg",
+    sameLine: true, 
+    titleSize: 'medium',
+    highlightSize: 'large'
   },
   {
     id: 3,
@@ -34,7 +57,11 @@ const heroSlides = [
     ctaPrimary: "Simular Crédito",
     ctaSecondary: "Tire suas Dúvidas",
     ctaPrimaryLink: "#simulator",
-    ctaSecondaryLink: "#faq"
+    ctaSecondaryLink: "#faq",
+    imagePath: "/assets/images/carousel/3.png",
+    sameLine: false,
+    titleSize: 'xsmall',
+    highlightSize: 'small'
   }
 ];
 
@@ -155,9 +182,31 @@ const HeroCarousel = () => {
               // Prevent text selection during drag
               onPointerDown={(e) => e.stopPropagation()}
             >
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                {slide.title}<br />
-                <span className="text-secondary">{slide.highlight}</span>
+              <h1 className={`font-bold leading-tight ${
+                slide.titleSize === 'xsmall' ? 'text-2xl md:text-3xl' :
+                slide.titleSize === 'small' ? 'text-3xl md:text-4xl' : 
+                slide.titleSize === 'large' ? 'text-5xl md:text-6xl' : 
+                'text-4xl md:text-5xl' // medium
+              }`}>
+                {slide.sameLine ? (
+                  <>
+                    {slide.title}
+                    <span className="text-secondary">{slide.highlight}</span>
+                  </>
+                ) : (
+                  <>
+                    {slide.title}
+                    <br />
+                    <span className={`text-secondary ${
+                      slide.highlightSize === 'xsmall' ? 'text-2xl md:text-3xl' :
+                      slide.highlightSize === 'small' ? 'text-3xl md:text-4xl' : 
+                      slide.highlightSize === 'large' ? 'text-5xl md:text-6xl' : 
+                      'text-4xl md:text-5xl' // medium
+                    }`}>
+                      {slide.highlight}
+                    </span>
+                  </>
+                )}
               </h1>
               <p className="text-lg text-white/80 max-w-lg">
                 {slide.description}
@@ -198,7 +247,7 @@ const HeroCarousel = () => {
             >
               <div className="relative rounded-2xl shadow-2xl w-full aspect-[4/3] overflow-hidden bg-primary/40">
                 <OptimizedImage 
-                  src="/assets/images/hero.avif"
+                  src={slide.imagePath}
                   alt={slide.title}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"

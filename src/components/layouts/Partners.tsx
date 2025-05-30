@@ -93,7 +93,7 @@ export default function Partners({ partners }: PartnersProps) {
             visible: { opacity: 1, y: 0 }
           }}
         >
-          <span className="text-secondary font-semibold">Colaboradores</span>
+          <span className="text-secondary font-semibold">Bancos e Financeiras</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 text-primary/90">Nossos Parceiros</h2>
           <div className="w-24 h-1 bg-secondary mx-auto mt-4"></div>
           <div className="mt-6 text-center">

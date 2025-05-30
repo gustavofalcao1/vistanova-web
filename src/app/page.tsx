@@ -147,7 +147,7 @@ const protocols: Protocol[] = [
 const contacts: ContactPerson[] = [
   {
     name: "Jorge Veríssimo",
-    role: "Diretor General",
+    role: "Diretor Geral",
     email: "jverissimo@vistanova.pt",
     phone: "+351965091853",
     photo: "/assets/images/jv.jpg"
