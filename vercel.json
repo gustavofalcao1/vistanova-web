@@ -1,8 +1,9 @@
 {
   "framework": "nextjs",
-  "buildCommand": "yarn build",
+  "buildCommand": "node vercel-build.js",
   "devCommand": "yarn dev",
   "installCommand": "yarn install",
+  "ignoreCommand": "exit 0",
   "headers": [
     {
       "source": "/(.*)",

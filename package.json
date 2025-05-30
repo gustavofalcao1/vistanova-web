@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "SKIP_LINT=true next build",
+    "build": "node vercel-build.js",
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true next build",
@@ -13,8 +13,7 @@
     "check-types": "tsc --noEmit",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
-    "prebuild": "yarn generate-favicons",
-    "postbuild": "next-sitemap --config next-sitemap.config.js",
+    "generate-sitemap": "next-sitemap --config next-sitemap.config.js",
     "download-fonts": "node scripts/download-fonts.js",
     "generate-brand-assets": "tsx scripts/generate-brand-assets.ts",
     "verify-assets": "node scripts/verify-assets.js",
