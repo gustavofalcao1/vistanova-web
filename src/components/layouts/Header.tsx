@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Logo } from "@/components/ui/Logo";
+import { Logo } from "@/components/ui/logo";
+import { SmoothScrollLink } from "@/components/ui/SmoothScrollLink";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -33,32 +34,35 @@ export default function Header() {
           </div>
           
           <div className="hidden lg:flex items-center justify-center space-x-4 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2 px-4">
-            <a href="#about-us" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            <SmoothScrollLink to="#about-us" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Quem Somos
-            </a>
-            <a href="#what-we-do" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            </SmoothScrollLink>
+            <SmoothScrollLink to="#what-we-do" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               O Que Fazemos
-            </a>
-            <a href="#services" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            </SmoothScrollLink>
+            <SmoothScrollLink to="#services" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Serviços
-            </a>
-            <a href="#partners" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            </SmoothScrollLink>
+            <SmoothScrollLink to="#partners" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Parceiros
-            </a>
-            <a href="#partners" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            </SmoothScrollLink>
+            <SmoothScrollLink to="#work-with-us" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Trabalhe Connosco
-            </a>
+            </SmoothScrollLink>
           </div>
           
           <div className="flex items-center space-x-2 sm:space-x-4">
-            <motion.a 
-              href="#where-we-are" 
-              className="bg-secondary hover:bg-secondary/90 text-primary font-bold text-base xs:text-sm py-1.5 xs:py-2 px-3 xs:px-4 rounded-full transition-colors whitespace-nowrap"
+            <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="text-[14px] [@media(max-width:325px)]:text-xs">Fala Connosco</span>
-            </motion.a>
+              <SmoothScrollLink 
+                to="#where-we-are" 
+                className="bg-secondary hover:bg-secondary/90 text-primary font-bold text-base xs:text-sm py-1.5 xs:py-2 px-3 xs:px-4 rounded-full transition-colors whitespace-nowrap inline-block"
+              >
+                <span className="text-[14px] [@media(max-width:325px)]:text-xs">Fala Connosco</span>
+              </SmoothScrollLink>
+            </motion.div>
             <button 
               className="lg:hidden text-neutral-800" 
               aria-label="Menu"
@@ -81,27 +85,27 @@ export default function Header() {
             transition={{ duration: 0.2 }}
           >
             <div className="flex flex-col space-y-3">
-              <a 
-                href="#about-us" 
-                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
+              <SmoothScrollLink 
+                to="#about-us" 
+                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Quem Somos
-              </a>
-              <a 
-                href="#what-we-do" 
-                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
+              </SmoothScrollLink>
+              <SmoothScrollLink 
+                to="#what-we-do" 
+                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 O Que Fazemos
-              </a>
-              <a 
-                href="#services" 
-                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"
+              </SmoothScrollLink>
+              <SmoothScrollLink 
+                to="#services" 
+                className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Serviços
-              </a>
+              </SmoothScrollLink>
               <a 
                 href="#partners" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100"

@@ -10,7 +10,7 @@ interface LogoProps {
 
 export function Logo({ variant = 'default', className = '', width = 180 }: LogoProps) {
   const logoPath = variant === 'white' 
-    ? '/assets/brand/logo_with.png' 
+    ? '/assets/brand/logo_white.png' 
     : '/assets/brand/logo.png';
   
   return (

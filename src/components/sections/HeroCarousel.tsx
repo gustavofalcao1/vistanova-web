@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { OptimizedImage } from "@/components/ui";
+import { SmoothScrollLink } from "@/components/ui/SmoothScrollLink";
 
 interface HeroSlide {
   id: number;
@@ -211,25 +212,19 @@ const HeroCarousel = () => {
               <p className="text-lg text-white/80 max-w-lg">
                 {slide.description}
               </p>
-              <div className="flex flex-wrap gap-3 md:gap-4">
-                <motion.a 
-                  href={slide.ctaPrimaryLink}
-                  className="bg-secondary hover:bg-secondary/90 text-primary font-bold py-3 px-8 rounded-full text-sm md:text-base transition-colors shadow-lg hover:shadow-xl"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ duration: 0.2 }}
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                <SmoothScrollLink
+                  to={slide.ctaPrimaryLink}
+                  className="bg-secondary hover:bg-secondary/90 text-primary font-bold py-3 px-6 rounded-full transition-colors text-center"
                 >
                   {slide.ctaPrimary}
-                </motion.a>
-                <motion.a 
-                  href={slide.ctaSecondaryLink}
-                  className="bg-white/10 hover:bg-white/20 backdrop-blur text-white font-bold py-3 px-8 rounded-full text-sm md:text-base transition-colors border border-white/30"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.97 }}
-                  transition={{ duration: 0.2 }}
+                </SmoothScrollLink>
+                <SmoothScrollLink
+                  to={slide.ctaSecondaryLink}
+                  className="bg-transparent hover:bg-white/10 text-white font-medium py-3 px-6 border-2 border-white/20 hover:border-white/40 rounded-full transition-colors text-center"
                 >
                   {slide.ctaSecondary}
-                </motion.a>
+                </SmoothScrollLink>
               </div>
             </motion.div>
             

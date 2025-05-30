@@ -1,6 +1,7 @@
 import React from "react";
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
-import { Logo } from "@/components/ui/Logo";
+import { Logo } from "@/components/ui/logo";
+import { SmoothScrollLink } from "@/components/ui/SmoothScrollLink";
 
 export default function Footer() {
   return (
@@ -37,11 +38,11 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Páginas</h4>
             <ul className="space-y-2">
-              <li><a href="#about-us" className="text-white/80 hover:text-secondary transition-colors">Quem Somos</a></li>
-              <li><a href="#what-we-do" className="text-white/80 hover:text-secondary transition-colors">O Que Fazemos</a></li>
-              <li><a href="#services" className="text-white/80 hover:text-secondary transition-colors">Serviços</a></li>
-              <li><a href="#partners" className="text-white/80 hover:text-secondary transition-colors">Parceiros</a></li>
-              <li><a href="#where-we-are" className="text-white/80 hover:text-secondary transition-colors">Trabalha Connosco</a></li>
+              <li><SmoothScrollLink to="#about-us" className="text-white/80 hover:text-secondary transition-colors block py-1">Quem Somos</SmoothScrollLink></li>
+              <li><SmoothScrollLink to="#what-we-do" className="text-white/80 hover:text-secondary transition-colors block py-1">O Que Fazemos</SmoothScrollLink></li>
+              <li><SmoothScrollLink to="#services" className="text-white/80 hover:text-secondary transition-colors block py-1">Serviços</SmoothScrollLink></li>
+              <li><SmoothScrollLink to="#partners" className="text-white/80 hover:text-secondary transition-colors block py-1">Parceiros</SmoothScrollLink></li>
+              <li><SmoothScrollLink to="#work-with-us" className="text-white/80 hover:text-secondary transition-colors block py-1">Trabalhe Connosco</SmoothScrollLink></li>
             </ul>
           </div>
           
