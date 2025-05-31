@@ -1,9 +1,11 @@
 'use client';
 
 import React from "react";
-import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { PageLink } from "@/components/ui/PageLink";
+import { FaInstagram, FaTiktok, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+
 // Removed unused imports
 
 export default function Footer() {
@@ -28,14 +30,17 @@ export default function Footer() {
               Especialista em Intermediação de Crédito.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.facebook.com/vista.nova.pt/" target="_blank" className="text-white hover:text-secondary transition-colors" aria-label="Facebook">
-                <Facebook className="h-5 w-5" />
-              </a>
               <a href="https://www.instagram.com/vista_nova_/" target="_blank" className="text-white hover:text-secondary transition-colors" aria-label="Instagram">
-                <Instagram className="h-5 w-5" />
+                <FaInstagram className="h-5 w-5" />
+              </a>
+              <a href="https://www.tiktok.com/@vista_nova_" target="_blank" className="text-white hover:text-secondary transition-colors" aria-label="Tiktok">
+                <FaTiktok className="h-5 w-5" />
+              </a>
+              <a href="https://www.facebook.com/vista.nova.pt/" target="_blank" className="text-white hover:text-secondary transition-colors" aria-label="Facebook">
+                <FaFacebookF className="h-5 w-5" />
               </a>
               <a href="https://www.linkedin.com/company/vistanova-intermediariocredito/" target="_blank" className="text-white hover:text-secondary transition-colors" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
+                <FaLinkedinIn className="h-5 w-5" />
               </a>
             </div>
           </div>
