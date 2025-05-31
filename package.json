@@ -16,7 +16,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
     "generate-sitemap": "next-sitemap --config next-sitemap.config.js",
     "download-fonts": "tsx scripts/download-fonts.ts",
-    "check:colors": "node scripts/check-colors-simple.js",
+    "check:colors": "tsx scripts/check-colors.ts",
     "optimize-images": "tsx scripts/optimize-images.ts",
     "generate-icons": "tsx scripts/generate-icons.ts"
   },

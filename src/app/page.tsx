@@ -151,14 +151,14 @@ const contacts: ContactPerson[] = [
     role: "Diretor Geral",
     email: "jverissimo@vistanova.pt",
     phone: "+351965091853",
-    photo: "/optimized-assets/images/jv.jpg"
+    photo: "/optimized-assets/images/jv.webp"
   },
   {
     name: "Ágatha Santos",
     role: "Especialista em Crédito",
     email: "agathasantos@vistanova.pt",
     phone: "+351924967148",
-    photo: "/optimized-assets/images/ab.jpg"
+    photo: "/optimized-assets/images/ab.webp"
   }
 ];
 
