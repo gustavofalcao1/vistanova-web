@@ -66,7 +66,6 @@ export default function RootLayout({
         />
         
         {/* Theme and color - Configurações de tema e cor */}
-        <meta name="theme-color" content="#E5FC2A" />
         <meta name="msapplication-TileColor" content="#E5FC2A" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
         
