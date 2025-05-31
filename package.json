@@ -15,12 +15,10 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx}\"",
     "generate-sitemap": "next-sitemap --config next-sitemap.config.js",
-    "download-fonts": "node scripts/download-fonts.js",
-    "generate-brand-assets": "tsx scripts/generate-brand-assets.ts",
-    "verify-assets": "node scripts/verify-assets.js",
+    "download-fonts": "tsx scripts/download-fonts.ts",
     "check:colors": "node scripts/check-colors-simple.js",
-    "check:styles": "yarn check:colors",
-    "optimize-images": "node scripts/optimize-images.js"
+    "optimize-images": "tsx scripts/optimize-images.ts",
+    "generate-icons": "tsx scripts/generate-icons.ts"
   },
   "dependencies": {
     "@azure/identity": "^4.10.0",
@@ -89,6 +87,7 @@
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
+    "@types/fs-extra": "^11.0.4",
     "@types/node": "^22.15.25",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19",

@@ -48,7 +48,6 @@ next-env.d.ts
 /public/favicon/
 /public/assets/brand/processed/
 /public/assets/brand/logos/
-public/optimized-assets/
 
 # Backup directories
 /public/assets/brand/backup/

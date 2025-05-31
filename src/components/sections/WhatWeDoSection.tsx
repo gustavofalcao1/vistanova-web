@@ -36,7 +36,7 @@ export default function WhatWeDoSection() {
             }}
           >
             <img
-              src="/assets/images/do.png" 
+              src="/optimized-assets/images/do.png" 
               alt="Nossa equipe em ação" 
               className="
                 hidden

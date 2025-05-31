@@ -10,8 +10,8 @@ interface LogoProps {
 
 export function Logo({ variant = 'default', className = '', width = 180 }: LogoProps) {
   const logoPath = variant === 'white' 
-    ? '/assets/brand/logo_white.png' 
-    : '/assets/brand/logo.png';
+    ? '/optimized-assets/brand/logo_white.png' 
+    : '/optimized-assets/brand/logo.png';
   
   return (
     <div className={`relative flex items-center ${className}`}>
