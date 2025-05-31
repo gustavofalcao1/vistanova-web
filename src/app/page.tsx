@@ -70,62 +70,62 @@ const services: Service[] = [
 const partners: PartnerLogo[] = [
   {
     name: "Abanca",
-    logo: "/optimized-assets/partners/logo-abanca.png"
+    logo: "/optimized-assets/partners/logo-abanca.webp"
   },
   {
     name: "Banco CTT",
-    logo: "/optimized-assets/partners/logo-bancoctt.png"
+    logo: "/optimized-assets/partners/logo-bancoctt.webp"
   },
   {
     name: "Bankinter",
-    logo: "/optimized-assets/partners/logo-bankinter.png"
+    logo: "/optimized-assets/partners/logo-bankinter.webp"
   },
   {
     name: "BBVA",
-    logo: "/optimized-assets/partners/logo-bbva.png"
+    logo: "/optimized-assets/partners/logo-bbva.webp"
   },
   {
     name: "BPI",
-    logo: "/optimized-assets/partners/logo-bpi.png"
+    logo: "/optimized-assets/partners/logo-bpi.webp"
   },
   {
     name: "CGD",
-    logo: "/optimized-assets/partners/logo-cgd.png"
+    logo: "/optimized-assets/partners/logo-cgd.webp"
   },
   {
     name: "Cofidis",
-    logo: "/optimized-assets/partners/logo-cofidis.png"
+    logo: "/optimized-assets/partners/logo-cofidis.webp"
   },
   {
     name: "Credibom",
-    logo: "/optimized-assets/partners/logo-credibom.png"
+    logo: "/optimized-assets/partners/logo-credibom.webp"
   },
   {
     name: "Eurobic",
-    logo: "/optimized-assets/partners/logo-eurobic.png"
+    logo: "/optimized-assets/partners/logo-eurobic.webp"
   },
   {
     name: "Novo Banco",
-    logo: "/optimized-assets/partners/logo-novobanco.png"
+    logo: "/optimized-assets/partners/logo-novobanco.webp"
   },
   {
     name: "Santander",
-    logo: "/optimized-assets/partners/logo-santander.png"
+    logo: "/optimized-assets/partners/logo-santander.webp"
   },
   {
     name: "UCI",
-    logo: "/optimized-assets/partners/logo-uci.png"
+    logo: "/optimized-assets/partners/logo-uci.webp"
   },
   {
     name: "Unicre",
-    logo: "/optimized-assets/partners/logo-unicre.png"
+    logo: "/optimized-assets/partners/logo-unicre.webp"
   }
 ];
 
 const protocols: Protocol[] = [
   {
     name: "Ordem dos Contabilistas Certificados",
-    logo: "/optimized-assets/protocols/logo_occ.png"
+    logo: "/optimized-assets/protocols/logo_occ.webp"
   },
   {
     name: "Ordem dos Enfermeiros",
@@ -133,15 +133,15 @@ const protocols: Protocol[] = [
   },
   {
     name: "Jerónimo Martins",
-    logo: "/optimized-assets/protocols/logo_jm.png"
+    logo: "/optimized-assets/protocols/logo_jm.webp"
   },
   {
     name: "Amuto",
-    logo: "/optimized-assets/protocols/logo_amg.png"
+    logo: "/optimized-assets/protocols/logo_amg.webp"
   },
   {
     name: "Salvador Caetano",
-    logo: "/optimized-assets/protocols/logo_sc.png"
+    logo: "/optimized-assets/protocols/logo_sc.webp"
   }
 ];
 
