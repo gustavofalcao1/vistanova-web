@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import Providers from "@/components/providers/Providers";
 import { ScrollProvider } from "@/components/providers/ScrollProvider";
 import { getFaviconMetadata } from "@/components/seo";
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   ...getFaviconMetadata(),
@@ -88,7 +89,8 @@ export default function RootLayout({
               <WebVitals />
             </div>
           </ScrollProvider>
-        </Providers>
+        </Providers>        
+        <Analytics />
       </body>
     </html>
   );

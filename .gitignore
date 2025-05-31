@@ -51,3 +51,5 @@ next-env.d.ts
 
 # Backup directories
 /public/assets/brand/backup/
+
+.vercel
