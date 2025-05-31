@@ -56,25 +56,26 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ---
 
-## [2.1.4] - 2025-05-25
+## [2.2.6] - 2025-05-31
 
 ### Adicionado
 - Suporte a fontes locais otimizadas
 - Sistema de pré-carregamento de fontes
-- Componente `FontProvider` para gerenciamento de fontes
-- Configuração `font-display: swap` para melhor CLS
-- Script `yarn download-fonts` para baixar arquivos de fonte
-- Suporte a preload de fontes críticas
+- Título "Equipa" na seção WeAreHereSection
+- Padronização visual dos títulos de seção
 
 ### Corrigido
-- Carregamento de fontes em navegadores antigos
-- FOUC (Flash of Unstyled Content)
-- Warnings de tipagem no TypeScript
+- Link "Fala Connosco" para navegação correta em todas as páginas
+- Exibição do iframe do mapa com bordas arredondadas em todos os lados
+- Inconsistências nas cores dos títulos de seção (agora usando text-primary)
+- Problemas de tipagem na função getColor para lidar com variantes e erros
 
 ### Alterado
-- Atualizado `tailwind.config.js` para usar fontes locais
-- Melhorado suporte a TypeScript
-- Estrutura de pastas para organização de estilos
+- Responsividade do header para melhor visualização em tablets (menu móvel até xl)
+- Tamanho da logo no header para diferentes tamanhos de tela
+- Layout responsivo dos cards da equipe para centralizar em telas menores
+- Breakpoint customizado em 976px para a grid de contatos e equipe
+- Altura do mapa aumentada para 350px para melhor visualização
 
 ---
 
@@ -121,4 +122,4 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ---
 
-📅 *Última atualização: 25/05/2025*
+📅 *Última atualização: 31/05/2025*

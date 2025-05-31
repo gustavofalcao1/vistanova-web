@@ -4,14 +4,38 @@ Website institucional profissional para a Vista Nova, construído com tecnologia
 
 ## 📌 Status do Projeto
 
-**Versão Atual:** 2.1.3  
+**Versão Atual:** 2.2.6  
 **Status:** Em desenvolvimento ativo  
-**Próxima Versão Estável:** 2.2.X (Planejada para produção)
+**Próxima Versão Estável:** 2.3.X (Planejada para produção)
 
 ### Versionamento
 - **2.x.x**: Melhorias e manutenção do site atual
-- **x.1.x**: Versão em produção (MVP validado)
-- **x.x.3**: Terceira iteração de desenvolvimento
+- **x.2.x**: Versão em produção (versão estável)
+- **x.x.6**: Sexta iteração de desenvolvimento
+
+### Melhorias Recentes (v2.2.6)
+- Correção do link "Fala Connosco" para navegação correta em todas as páginas
+- Ajuste da responsividade no header para melhor visualização em tablets
+- Padronização das cores nos títulos de seção para maior consistência visual
+- Ajuste do tamanho da logo no header para diferentes tamanhos de tela
+- Melhoria na exibição do menu móvel em dispositivos de tamanho médio
+
+## 🛡️ Funcionalidades Avançadas
+
+O site da Vista Nova implementa diversas funcionalidades avançadas para garantir desempenho, segurança e experiência do utilizador:
+
+### Desempenho e Otimização
+- **Lazy-loading** de componentes e imagens para carregamento otimizado
+- **Image Optimization** com Next.js para formatos modernos (WebP/AVIF)
+- **Vercel Analytics** para monitoramento de performance em tempo real
+- **Caching inteligente** para recursos estáticos e dinâmicos
+
+### Segurança e Proteção
+- **reCAPTCHA v3** para proteção contra bots nos formulários
+- **Proteção DDoS** para garantir disponibilidade mesmo sob ataques
+- **File Route Path Protection** para controlo de acesso a recursos
+- **Verificação SSL** para comunicação segura
+- **Firewall** para filtragem de tráfego malicioso
 
 ## 🚀 Tecnologias Principais
 

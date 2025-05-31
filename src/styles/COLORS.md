@@ -4,7 +4,7 @@ Este documento descreve o sistema de cores do projeto e como usá-lo de forma co
 
 ## Visão Geral
 
-O sistema de cores é baseado em um conjunto de tokens que definem as cores principais, secundárias e utilitárias do projeto. Esses tokens são usados para manter a consistência visual em toda a aplicação.
+O sistema de cores é baseado em um conjunto de tokens que definem as cores principais, secundárias e utilitárias do projeto. Esses tokens são usados para manter a consistência visual em toda a aplicação. Todas as cores são definidas no arquivo `src/styles/tokens/colors.ts` e convertidas para HSL em `src/styles/utils/colorUtils.ts`.
 
 ## Estrutura de Cores
 
@@ -123,3 +123,23 @@ module.exports = {
 
 ### Neutras
 - `neutral.50` a `neutral.900`: Escala de cinza
+
+## Melhorias Recentes (v2.2.6)
+
+### Padronização de Cores em Títulos de Seção
+- Todos os títulos de seção agora usam `text-primary` para o texto principal
+- Os subtítulos usam `text-primary` para maior consistência visual
+- A barra decorativa abaixo dos títulos mantém a cor `bg-secondary`
+
+### Função getColor Aprimorada
+- Função `getColor` melhorada para lidar melhor com variantes e erros
+- Suporte a fallbacks quando uma cor específica não é encontrada
+- Melhor tratamento de erros para evitar problemas em produção
+
+### Uso Consistente em Componentes
+- Componentes como `Header`, `Footer` e seções agora seguem estritamente o sistema de cores
+- Remoção de cores hardcoded em favor das variáveis de cor definidas no sistema
+
+---
+
+📅 *Última atualização: 31/05/2025*
