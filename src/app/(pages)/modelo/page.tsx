@@ -1,9 +1,4 @@
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Página de Modelo | Vista Nova',
-  description: 'Modelo de página para o site da Vista Nova.',
-};
+// Metadata e viewport agora estão definidos no ficheiro metadata.ts
 
 export default function ModeloPage() {
   return (

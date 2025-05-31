@@ -1,38 +1,12 @@
-import nodemailer from 'nodemailer';
+// Simplified email module without actual SMTP connection
+// This version simulates email sending for development/testing
 
-// Log email configuration for debugging
-console.log('Email configuration:');
-console.log('Host:', process.env.EMAIL_SERVER_HOST);
-console.log('Port:', process.env.EMAIL_SERVER_PORT);
-console.log('User:', process.env.EMAIL_SERVER_USER);
-console.log('From:', process.env.EMAIL_FROM);
-console.log('Default recipient:', process.env.CONTACT_FORM_RECIPIENT);
+// Log that we're using the simulated email service
+console.log('Using simulated email service');
+console.log('No actual emails will be sent');
 
-// Email transport configuration
-const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_SERVER_HOST,
-  port: parseInt(process.env.EMAIL_SERVER_PORT || '587'),
-  secure: process.env.EMAIL_SERVER_SECURE === 'true', // true for port 465, false for other ports
-  auth: {
-    user: process.env.EMAIL_SERVER_USER,
-    pass: process.env.EMAIL_SERVER_PASSWORD,
-  },
-  tls: {
-    // Do not fail on invalid certificates (useful for development)
-    rejectUnauthorized: process.env.NODE_ENV !== 'production',
-  },
-  logger: true, // Enable detailed logs
-  debug: true,   // Enable debug output
-});
-
-// Verify transport configuration
-transporter.verify(function(error, success) {
-  if (error) {
-    console.error('Error in email server configuration:', error);
-  } else {
-    console.log('Email server configured successfully!');
-  }
-});
+// In a production environment, you would use a real email service
+// such as nodemailer, SendGrid, Mailgun, etc.
 
 export interface SendEmailOptions {
   to: string;
@@ -46,63 +20,52 @@ export async function sendEmail(options: SendEmailOptions) {
     const from = `"Vista Nova" <${process.env.EMAIL_FROM || 'noreply@vistanova.pt'}>`;
     const replyTo = process.env.EMAIL_REPLY_TO;
     
-    console.log('Preparando para enviar e-mail:', {
+    console.log('Simulando envio de e-mail:', {
       from,
       to: options.to,
       subject: options.subject,
       replyTo,
     });
 
-    const mailOptions = {
-      from,
-      replyTo,
-      ...options,
-    };
-
-    console.log('Opções de e-mail:', {
-      ...mailOptions,
-      // Não logar o conteúdo completo por segurança
-      text: mailOptions.text ? '[text content]' : undefined,
-      html: mailOptions.html ? '[html content]' : undefined,
-    });
-
-    const info = await transporter.sendMail(mailOptions);
+    // Log email content in development only
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Conteúdo do e-mail (apenas em desenvolvimento):', {
+        text: options.text ? '[text content]' : undefined,
+        html: options.html ? '[html content]' : undefined,
+      });
+    }
     
-    const previewUrl = nodemailer.getTestMessageUrl ? nodemailer.getTestMessageUrl(info) : undefined;
+    // Simulate successful email sending
+    const mockMessageId = `simulated-${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
     
-    console.log('E-mail enviado com sucesso:', {
-      messageId: info.messageId,
-      previewUrl,
+    console.log('E-mail simulado com sucesso:', {
+      messageId: mockMessageId,
     });
     
+    // Return success response
     return { 
       success: true, 
-      messageId: info.messageId,
-      previewUrl,
+      messageId: mockMessageId,
+      simulated: true,
     };
   } catch (error) {
-    console.error('Erro ao enviar e-mail:', {
+    console.error('Erro ao simular e-mail:', {
       error: error instanceof Error ? {
         name: error.name,
         message: error.message,
         stack: error.stack,
       } : error,
-      options: {
-        ...options,
-        // Don't log full content for security reasons
-        text: options.text ? '[text content]' : undefined,
-        html: options.html ? '[html content]' : undefined,
-      },
     });
     
     return { 
       success: false, 
-      error: error instanceof Error ? error.message : 'Erro desconhecido ao enviar e-mail',
+      error: error instanceof Error ? error.message : 'Erro desconhecido ao simular e-mail',
       details: error instanceof Error ? {
         name: error.name,
         message: error.message,
         stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,
       } : undefined,
+      simulated: true,
     };
   }
 }

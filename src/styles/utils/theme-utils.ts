@@ -106,8 +106,8 @@ export const generateThemeVariables = (): Record<string, string> => {
   // Processa os espaçamentos
   processObject(theme.space, 'space');
   
-  // Processa as fontes
-  processObject(theme.fonts, 'font');
+  // Processa a tipografia
+  processObject(theme.typography, 'typography');
   
   // Processa os breakpoints
   processObject(theme.breakpoints, 'breakpoint');

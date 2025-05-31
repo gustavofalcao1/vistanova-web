@@ -1,6 +1,6 @@
 {
   "framework": "nextjs",
-  "buildCommand": "node build.js",
+  "buildCommand": "next build",
   "devCommand": "yarn dev",
   "installCommand": "yarn install",
   "ignoreCommand": "exit 0",

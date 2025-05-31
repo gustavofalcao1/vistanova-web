@@ -1,22 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
-function scrollToElement(elementId: string) {
-  const element = document.getElementById(elementId);
-  if (!element) return false;
-
-  // Usa um scroll mais suave e garante que o elemento esteja visível
-  element.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  });
-  
-  return true;
-}
-
-export function ScrollProvider({ children }: { children: React.ReactNode }) {
+// Componente interno que usa hooks que requerem suspense
+function ScrollProviderInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -33,19 +21,15 @@ export function ScrollProvider({ children }: { children: React.ReactNode }) {
       if (element) {
         element.scrollIntoView({
           behavior: 'smooth',
-          block: 'start'
+          block: 'start',
         });
-        // Remove o hash da URL após a rolagem
-        window.history.replaceState(null, '', ' ');
         return true;
       }
       return false;
     };
 
     // Tenta rolar imediatamente
-    if (tryScroll()) {
-      return;
-    }
+    if (tryScroll()) return;
 
     // Se não encontrou o elemento, tenta novamente após um atraso
     const retryInterval = setInterval(() => {
@@ -66,4 +50,26 @@ export function ScrollProvider({ children }: { children: React.ReactNode }) {
   }, [pathname, searchParams]);
 
   return <>{children}</>;
+}
+
+function scrollToElement(elementId: string) {
+  const element = document.getElementById(elementId);
+  if (!element) return false;
+
+  // Usa um scroll mais suave e garante que o elemento esteja visível
+  element.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+  
+  return true;
+}
+
+// Wrapper com Suspense para evitar erros de hydration
+export function ScrollProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <Suspense fallback={<>{children}</>}>
+      <ScrollProviderInner>{children}</ScrollProviderInner>
+    </Suspense>
+  );
 }

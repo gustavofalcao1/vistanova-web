@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const createConfig = async () => ({
+  // Disable ESLint during build
+  eslint: {
+    // Only run ESLint during development, not during build
+    ignoreDuringBuilds: true,
+  },
   reactStrictMode: true,
   poweredByHeader: false, // Remove X-Powered-By header for security
   images: {

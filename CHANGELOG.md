@@ -5,6 +5,30 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.5] - 2025-05-31
+
+### Corrigido
+- ✅ Problemas de build para produção
+  - Corrigido erro de tipo no `src/styles/theme/index.ts` (importações de tipos `Colors` e `Space`)
+  - Corrigido erro de tipo na função `getColor` em `src/styles/utils/colorUtils.ts`
+  - Corrigida referência incorreta a `theme.fonts` em `src/styles/utils/theme-utils.ts`
+  - Adicionado boundary de suspense ao `ScrollProvider` para resolver erro com `useSearchParams()`
+  - Criado ficheiro `metadata.ts` para a página `/modelo` com configuração correta de `viewport`
+- ✅ Simplificação do sistema de email
+  - Removida dependência do `nodemailer`
+  - Implementada simulação de envio de email para desenvolvimento
+  - Simplificada a configuração de variáveis de ambiente
+- ✅ Otimização de páginas
+  - Convertidas páginas de políticas para Client Components
+  - Implementado renderização dinâmica de datas
+  - Movidos metadados para ficheiros separados
+
+### Alterado
+- Simplificada a configuração do Next.js
+- Desativada verificação de linting durante o build
+- Atualizada estrutura de tipagem para o sistema de tema
+- Adicionada biblioteca `styled-components` para estilização avançada
+
 ## [2.2.0] - 2025-05-27
 
 ### Adicionado

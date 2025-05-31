@@ -56,17 +56,47 @@ export function generateHSLColors() {
 
 /**
  * Gets a color from the token in hexadecimal format
+ * @param colorName The name of the color in the tokens
+ * @param variant Optional variant of the color (e.g., 'light', 'dark', 'DEFAULT')
+ * @returns The color in hexadecimal format or empty string if not found
  */
-export function getColor(colorName: keyof typeof colors): string {
-  return colors[colorName];
+export function getColor(colorName: keyof typeof colors, variant?: string): string {
+  const color = colors[colorName];
+  
+  // If color is a string, return it directly
+  if (typeof color === 'string') {
+    return color;
+  }
+  
+  // If color is an object and variant is specified, try to get that variant
+  if (color && typeof color === 'object' && variant) {
+    const variantColor = color[variant as keyof typeof color];
+    if (typeof variantColor === 'string') {
+      return variantColor;
+    }
+  }
+  
+  // If color is an object but no variant specified or variant not found, try DEFAULT
+  if (color && typeof color === 'object' && 'DEFAULT' in color) {
+    const defaultColor = color.DEFAULT;
+    if (typeof defaultColor === 'string') {
+      return defaultColor;
+    }
+  }
+  
+  // Fallback
+  return '';
 }
 
 /**
  * Gets a color from the token in HSL format
+ * @param colorName The name of the color in the tokens
+ * @param variant Optional variant of the color (e.g., 'light', 'dark', 'DEFAULT')
+ * @returns The color in HSL format or empty string if not found
  */
-export function getColorHSL(colorName: keyof typeof colors): string {
-  const color = colors[colorName];
-  if (typeof color === 'string' && color.startsWith('#')) {
+export function getColorHSL(colorName: keyof typeof colors, variant?: string): string {
+  const color = getColor(colorName, variant);
+  if (color && color.startsWith('#')) {
     return hexToHSL(color);
   }
   return '';
@@ -76,15 +106,15 @@ export function getColorHSL(colorName: keyof typeof colors): string {
  * Main colors in HSL format for use with CSS variables
  */
 export const hslColorTokens = {
-  primary: hexToHSL(colors.primary),
-  primaryLight: hexToHSL(colors.primaryLight),
-  primaryDark: hexToHSL(colors.primaryDark),
-  secondary: hexToHSL(colors.secondary),
-  secondaryLight: hexToHSL(colors.secondaryLight),
-  secondaryDark: hexToHSL(colors.secondaryDark),
-  background: hexToHSL(colors.background),
-  backgroundDark: hexToHSL(colors.backgroundDark),
-  text: hexToHSL(colors.text),
-  textLight: hexToHSL(colors.textLight),
-  textOnDark: hexToHSL(colors.textOnDark),
+  primary: getColorHSL('primary', 'DEFAULT'),
+  primaryLight: getColorHSL('primaryLight'),
+  primaryDark: getColorHSL('primaryDark'),
+  secondary: getColorHSL('secondary', 'DEFAULT'),
+  secondaryLight: getColorHSL('secondaryLight'),
+  secondaryDark: getColorHSL('secondaryDark'),
+  background: getColorHSL('background', 'DEFAULT'),
+  backgroundDark: getColorHSL('backgroundDark'),
+  text: getColorHSL('text'),
+  textLight: getColorHSL('textLight'),
+  textOnDark: getColorHSL('textOnDark'),
 };
