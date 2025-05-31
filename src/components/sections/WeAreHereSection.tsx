@@ -156,7 +156,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+        <div className="grid grid-cols-1 [@media(min-width:976px)]:grid-cols-2 gap-8 mt-12">
           <motion.div 
             className="bg-neutral-100 rounded-xl shadow-lg p-8"
             variants={{
@@ -207,8 +207,15 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
             </div>
             <div className="mt-8 pt-6 border-t border-neutral-200">
               <h3 className="text-2xl font-semibold text-primary mb-4">Onde Estamos</h3>
-              <div className="aspect-video w-full rounded-lg overflow-hidden">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.3987532634856!2d-8.634833888637129!3d41.125820371214694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd246530cd054073%3A0xd52f534652e26b69!2sVista%20Nova%2C%20Lda.!5e0!3m2!1spt-BR!2spt!4v1748551784864!5m2!1spt-BR!2spt" width="600" height="350" style={{border:0}} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+              <div className="w-full h-[350px] rounded-lg overflow-hidden">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.3987532634856!2d-8.634833888637129!3d41.125820371214694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd246530cd054073%3A0xd52f534652e26b69!2sVista%20Nova%2C%20Lda.!5e0!3m2!1spt-BR!2spt!4v1748551784864!5m2!1spt-BR!2spt" 
+                  className="w-full h-full rounded-lg" 
+                  style={{border:0}} 
+                  allowFullScreen 
+                  loading="lazy" 
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </motion.div>

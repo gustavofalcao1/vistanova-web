@@ -31,7 +31,7 @@ const heroSlides: HeroSlide[] = [
     description: "Ajudamos a decidir de maneira estratégica, e tornar a literacia financeira um conhecimento acessível, não um privilégio de alguns.",
     ctaPrimary: "Conhece Nossos Serviços",
     ctaSecondary: "Agenda uma Conversa",
-    ctaPrimaryLink: "#what-we-do",
+    ctaPrimaryLink: "#services",
     ctaSecondaryLink: "#contact",
     imagePath: "/optimized-assets/images/carousel/1.webp",
     sameLine: false,
