@@ -1,6 +1,6 @@
 {
   "name": "vistanova-web",
-  "version": "2.1.6",
+  "version": "2.2.6",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
