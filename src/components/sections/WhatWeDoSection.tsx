@@ -66,7 +66,7 @@ export default function WhatWeDoSection() {
                 visible: { opacity: 1, y: 0 }
               }}
             >
-              <span className="text-secondary font-semibold">Nossa Abordagem</span>
+              <span className="text-primary font-semibold">Nossa Abordagem</span>
               <h2 className="text-3xl md:text-4xl font-bold mt-2 text-primary">O que fazemos</h2>
               <div className="w-20 h-1 bg-secondary mt-4"></div>
             </motion.div>

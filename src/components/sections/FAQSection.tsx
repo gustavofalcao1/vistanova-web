@@ -38,7 +38,7 @@ export default function FAQSection({ faqs }: FAQSectionProps) {
             visible: { opacity: 1, y: 0 }
           }}
         >
-          <span className="text-secondary font-semibold">Dúvidas</span>
+          <span className="text-primary font-semibold">Dúvidas</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 text-primary">Perguntas Frequentes</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
         </motion.div>

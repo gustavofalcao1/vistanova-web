@@ -151,7 +151,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
           className="text-center mb-16 animate-fade-in-up"
           style={isVisible ? { animationPlayState: 'running' } : { animationPlayState: 'paused' }}
         >
-          <span className="text-secondary font-semibold">Contacta-nos</span>
+          <span className="text-primary font-semibold">Contacta-nos</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 text-primary">Estamos Aqui</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
         </div>

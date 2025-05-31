@@ -183,7 +183,7 @@ const HeroCarousel = () => {
           >
             {/* Left Side Content */}
             <motion.div 
-              className="lg:w-1/2 space-y-8 touch-auto"
+              className="xl:w-1/2 space-y-8 touch-auto"
               variants={textVariants}
               style={{ 
                 willChange: 'transform, opacity',

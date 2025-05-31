@@ -36,11 +36,11 @@ export default function Header() {
     <header className="fixed w-full top-4 z-50 px-0 sm:px-4">
       <div className="max-w-7xl mx-auto px-2 sm:px-4">
         <nav className={`backdrop-blur ${scrolled ? 'bg-white/80' : 'bg-white/70'} rounded-full py-2 sm:py-3 px-4 sm:px-6 shadow-lg flex items-center justify-between transition-all duration-300`}>
-          <div className="flex-shrink-0 w-[100px] sm:w-auto">
-            <Logo className="w-full max-w-[100px] sm:max-w-[160px]" width={160} />
+          <div className="flex-shrink-0 w-auto">
+            <Logo className="w-full max-w-[120px] [@media(min-width:426px)]:max-w-[220px]" width={220} />
           </div>
           
-          <div className="hidden lg:flex items-center justify-center space-x-4 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2 px-4">
+          <div className="hidden xl:flex items-center justify-center space-x-4 xl:space-x-8 absolute left-1/2 transform -translate-x-1/2 px-4">
             <PageLink to="#about-us" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Quem Somos
             </PageLink>
@@ -67,11 +67,11 @@ export default function Header() {
                 to="/#contact" 
                 className="bg-secondary hover:bg-secondary/90 text-primary font-bold text-base xs:text-sm py-1.5 xs:py-2 px-3 xs:px-4 rounded-full transition-colors whitespace-nowrap inline-block"
               >
-                <span className="text-[14px] [@media(max-width:325px)]:text-xs">Fala Connosco</span>
+                <span className="text-[14px] [@media(max-width:325px)]:text-[12px]">Fala Connosco</span>
               </PageLink>
             </motion.div>
             <button 
-              className="lg:hidden text-neutral-800" 
+              className="xl:hidden text-neutral-800" 
               aria-label="Menu"
               onClick={toggleMobileMenu}
             >
@@ -85,7 +85,7 @@ export default function Header() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <motion.div 
-            className="lg:hidden mt-2 bg-white/95 backdrop-blur rounded-2xl shadow-lg p-4 absolute w-[calc(100%-2rem)] left-4 right-4"
+            className="xl:hidden mt-2 bg-white/95 backdrop-blur rounded-2xl shadow-lg p-4 absolute w-[calc(100%-2rem)] left-4 right-4"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}

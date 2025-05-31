@@ -34,7 +34,7 @@ export default function QuemSomosSection() {
             visible: { opacity: 1, y: 0 }
           }}
         >
-          <span className="text-secondary font-semibold">Conhece-nos</span>
+          <span className="text-primary font-semibold">Conhece-nos</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-3 text-primary">Quem Somos</h2>
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
         </motion.div>
