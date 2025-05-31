@@ -1,16 +1,21 @@
 import { theme } from '../theme';
 
 /**
- * Obtém um valor do tema usando um caminho de propriedades aninhadas
- * Exemplo: getThemeValue('colors.primary.default') retorna o valor de theme.colors.primary.default
+ * Gets a theme value using a nested property path
+ * Example: getThemeValue('colors.primary.default') returns the value of theme.colors.primary.default
  */
+type NestedObject = {
+  [key: string]: string | NestedObject;
+};
+
 export const getThemeValue = (path: string, fallback: string = ''): string => {
   try {
-    const value = path.split('.').reduce((obj, key) => {
-      return obj && obj[key] !== undefined ? obj[key] : undefined;
-    }, theme as any);
+    const value = path.split('.').reduce<string | NestedObject | undefined>((obj, key) => {
+      if (obj === undefined || typeof obj !== 'object') return undefined;
+      return (obj as Record<string, unknown>)[key] as string | NestedObject | undefined;
+    }, theme as unknown as NestedObject);
 
-    return value || fallback;
+    return (typeof value === 'string' ? value : fallback);
   } catch (error) {
     console.warn(`[getThemeValue] Invalid theme path: ${path}`, error);
     return fallback;
@@ -18,7 +23,7 @@ export const getThemeValue = (path: string, fallback: string = ''): string => {
 };
 
 /**
- * Obtém uma cor do tema
+ * Gets a color from the theme
  */
 export const getColor = (colorPath: string, fallback: string = '#000000'): string => {
   return getThemeValue(`colors.${colorPath}`, fallback);

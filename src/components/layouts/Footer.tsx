@@ -4,32 +4,10 @@ import React from "react";
 import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { PageLink } from "@/components/ui/PageLink";
-import { ContactForm } from "@/components/ui/contact-form";
-import { ContactFormData } from "@/lib/types";
-import { useToast } from "@/hooks/use-toast";
+// Removed unused imports
 
 export default function Footer() {
-  const { toast } = useToast();
-  
-  const handleContactSubmit = async (data: ContactFormData) => {
-    try {
-      // Aqui você implementaria a chamada à API para enviar o formulário de contato
-      // Exemplo:
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      
-      const result = await response.json();
-      return result;
-    } catch (error) {
-      console.error('Erro ao enviar formulário de contato:', error);
-      return { success: false, error: 'Falha na comunicação com o servidor' };
-    }
-  };
+  // Removed unused contact form handling code
   
   return (
     <footer className="bg-primary text-white py-12 px-4">

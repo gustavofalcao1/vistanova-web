@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import { OptimizedImage } from "@/components/ui";
 import { SmoothScrollLink } from "@/components/ui/SmoothScrollLink";
 
@@ -115,40 +115,42 @@ const badgeVariants = {
 
 const HeroCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
+  // Direction is used to track slide direction for potential animation enhancements
+  // We'll keep it commented out until implemented in animations
+  // const [direction, setDirection] = useState(0);
 
-  // Auto-avançar os slides
+  // Auto-advance slides every 8 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       nextSlide();
-    }, 8000); // Muda a cada 8 segundos
+    }, 8000);
     
     return () => clearTimeout(timer);
-  }, [currentIndex]);
+  }, []); // Empty dependency array to run only once on mount
 
   const nextSlide = () => {
-    setDirection(1);
+    // setDirection(1);
     setCurrentIndex((prevIndex) => 
       prevIndex === heroSlides.length - 1 ? 0 : prevIndex + 1
     );
   };
 
   const prevSlide = () => {
-    setDirection(-1);
+    // setDirection(-1);
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? heroSlides.length - 1 : prevIndex - 1
     );
   };
 
   const goToSlide = (index: number) => {
-    setDirection(index > currentIndex ? 1 : -1);
+    // setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
   };
 
   const slide = heroSlides[currentIndex];
 
   // Handle drag gestures for mobile swipe navigation
-  const handleDragEnd = (event: any, info: any) => {
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     // Check if the drag distance is significant enough to trigger a slide change
     if (info.offset.x > 50) {
       // Swiped right, go to previous slide

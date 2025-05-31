@@ -34,36 +34,40 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
 
   const handleFormSubmit = async (data: ContactFormValues) => {
     try {
-      // Obter token do reCAPTCHA
+      // Get reCAPTCHA token for form verification
       const recaptchaToken = await getRecaptchaToken('contact_form');
       
-      // Enviar dados para o servidor
+      // Log the token for debugging purposes
+      console.log('Contact form submission with reCAPTCHA token', { tokenReceived: !!recaptchaToken });
+      
+      // Send data to the server
       const result = await onSubmit({
         name: data.name,
         email: data.email,
         message: data.message,
-        consent: data.consent
+        consent: data.consent,
+        recaptchaToken: recaptchaToken || undefined // Convert null to undefined if token is null
       });
       
       if (result.success) {
         toast({
           title: "Mensagem enviada com sucesso!",
-          description: "Obrigado pelo seu contato! Retornaremos em breve.",
+          description: "Obrigado pelo teu contacto! Retornaremos em breve.",
           variant: "default"
         });
         reset();
       } else {
         toast({
           title: "Erro ao enviar mensagem",
-          description: String(result.error) || "Ocorreu um erro ao processar sua mensagem. Tente novamente.",
+          description: String(result.error) || "Ocorreu um erro ao processar a tua mensagem. Tenta novamente.",
           variant: "destructive"
         });
       }
     } catch (error) {
-      console.error('Erro ao enviar mensagem:', error);
+      console.error('Error sending message:', error);
       toast({
         title: "Erro ao enviar mensagem",
-        description: "Não foi possível enviar sua mensagem. Por favor, tente novamente mais tarde.",
+        description: "Não foi possível enviar a tua mensagem. Por favor, tenta novamente mais tarde.",
         variant: "destructive"
       });
     }
@@ -77,7 +81,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           type="text" 
           id="contact-name" 
           className={`w-full px-4 py-2 rounded-lg border ${errors.name ? 'border-red-400' : 'border-white/20'} bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent`}
-          placeholder="Seu Nome" 
+          placeholder="Teu Nome" 
           {...register("name")}
         />
         {errors.name && (
@@ -91,7 +95,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
           type="email" 
           id="contact-email" 
           className={`w-full px-4 py-2 rounded-lg border ${errors.email ? 'border-red-400' : 'border-white/20'} bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent`}
-          placeholder="seu-email@exemplo.com" 
+          placeholder="teu-email@exemplo.com" 
           {...register("email")}
         />
         {errors.email && (
@@ -104,7 +108,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
         <textarea
           id="contact-message"
           className={`w-full px-4 py-2 rounded-lg border ${errors.message ? 'border-red-400' : 'border-white/20'} bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent min-h-[100px]`}
-          placeholder="Sua mensagem..."
+          placeholder="Tua mensagem..."
           {...register("message")}
         />
         {errors.message && (

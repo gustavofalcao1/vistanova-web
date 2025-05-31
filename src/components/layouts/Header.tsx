@@ -8,8 +8,10 @@ import { PageLink } from "@/components/ui/PageLink";
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
 
+  // Effect to handle header background change on scroll
   useEffect(() => {
     const handleScroll = () => {
+      // Add background when scrolled past threshold
       if (window.scrollY > 10) {
         setScrolled(true);
       } else {
@@ -17,9 +19,12 @@ export default function Header() {
       }
     };
 
+    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
+    
+    // Cleanup function to remove event listener
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, []); // Empty dependency array means this effect runs once on mount
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   

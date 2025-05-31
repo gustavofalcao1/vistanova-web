@@ -3,7 +3,7 @@
 import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
-// Componente interno que usa hooks que requerem suspense
+// Inner component that uses hooks requiring suspense
 function ScrollProviderInner({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -15,7 +15,7 @@ function ScrollProviderInner({ children }: { children: React.ReactNode }) {
     const targetId = hash.substring(1);
     if (!targetId) return;
 
-    // Função para tentar rolar até o elemento
+    // Function to attempt scrolling to the target element
     const tryScroll = () => {
       const element = document.getElementById(targetId);
       if (element) {
@@ -28,44 +28,40 @@ function ScrollProviderInner({ children }: { children: React.ReactNode }) {
       return false;
     };
 
-    // Tenta rolar imediatamente
+    // Try to scroll immediately
     if (tryScroll()) return;
 
-    // Se não encontrou o elemento, tenta novamente após um atraso
+    // If element not found, retry with a delay
     const retryInterval = setInterval(() => {
       if (tryScroll()) {
         clearInterval(retryInterval);
       }
     }, 150);
 
-    // Limpa o intervalo após 3 segundos (20 tentativas)
+    // Clear the interval after 3 seconds (20 attempts)
     const timeout = setTimeout(() => {
       clearInterval(retryInterval);
     }, 3000);
 
+    // Cleanup function
     return () => {
       clearInterval(retryInterval);
       clearTimeout(timeout);
     };
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams]); // Re-run when URL changes
 
   return <>{children}</>;
 }
 
-function scrollToElement(elementId: string) {
-  const element = document.getElementById(elementId);
-  if (!element) return false;
+// Function to be used in the future for programmatic scrolling
+// Currently referenced in other components
+export const scrollToElement = (id: string) => {
+  const element = document.getElementById(id);
+  element?.scrollIntoView({ behavior: 'smooth' });
+  return element !== null;
+};
 
-  // Usa um scroll mais suave e garante que o elemento esteja visível
-  element.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  });
-  
-  return true;
-}
-
-// Wrapper com Suspense para evitar erros de hydration
+// Wrapper with Suspense to prevent hydration errors
 export function ScrollProvider({ children }: { children: React.ReactNode }) {
   return (
     <Suspense fallback={<>{children}</>}>

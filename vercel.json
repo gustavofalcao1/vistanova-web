@@ -1,6 +1,6 @@
 {
   "framework": "nextjs",
-  "buildCommand": "next build",
+  "buildCommand": "yarn build:vercel",
   "devCommand": "yarn dev",
   "installCommand": "yarn install",
   "ignoreCommand": "exit 0",

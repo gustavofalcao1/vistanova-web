@@ -32,10 +32,12 @@ export interface ContactFormData {
   email: string;
   message: string;
   consent: boolean;
+  recaptchaToken?: string; // Optional to maintain backward compatibility
 }
 
 export interface NewsletterFormData {
   name: string;
   email: string;
   consent: boolean;
+  recaptchaToken?: string; // Optional to maintain backward compatibility
 }

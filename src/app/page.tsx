@@ -191,13 +191,27 @@ const faqs: FAQ[] = [
 
 const handleNewsletterSubmit = async (data: NewsletterFormData) => {
   try {
-    // Simulate API call - aqui você implementaria a chamada real à API
-    console.log('Dados da newsletter:', data);
+    // Simulate API call - here you would implement the actual API call
+    console.log('Newsletter data:', {
+      ...data,
+      recaptchaTokenReceived: !!data.recaptchaToken
+    });
+    
+    // In a production environment, you would send the recaptchaToken for validation on the server
+    // Example:
+    // const response = await fetch('/api/newsletter', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(data),
+    // });
+    // const result = await response.json();
+    // return result;
+    
     await new Promise(resolve => setTimeout(resolve, 1000));
     return { success: true };
   } catch (error) {
-    console.error('Erro ao enviar newsletter:', error);
-    return { success: false, error: "Falha ao enviar inscrição na newsletter" };
+    console.error('Error sending newsletter:', error);
+    return { success: false, error: "Falha ao enviar a tua inscrição na newsletter" };
   }
 };
 

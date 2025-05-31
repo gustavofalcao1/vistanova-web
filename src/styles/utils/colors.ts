@@ -6,19 +6,30 @@ import { theme } from '../theme';
  * @param path - Path to the color in the theme (e.g., 'primary', 'secondary.light')
  * @returns The color value
  */
+// Define a type to represent the nested color structure
+type NestedColors = {
+  [key: string]: string | NestedColors;
+};
+
 export const getColor = (path: string): string => {
   const keys = path.split('.');
-  let result: any = { ...theme.colors };
+  let result: NestedColors = { ...theme.colors as NestedColors };
   
   for (const key of keys) {
-    if (result[key] === undefined) {
+    if (typeof result !== 'object' || result === null || !(key in result)) {
       console.warn(`Color '${path}' not found in theme`);
       return '#000000'; // Fallback color
     }
-    result = result[key];
+    result = result[key] as NestedColors;
   }
   
-  return result as string;
+  // If the result is an object, return black as fallback
+  if (typeof result === 'object') {
+    console.warn(`Color '${path}' is an object, not a color string`);
+    return '#000000';
+  }
+  
+  return String(result);
 };
 
 /**
@@ -36,23 +47,27 @@ export const colorVar = (name: string, path: string) => {
  * @returns CSS variables for all colors
  */
 export const colorVariables = () => {
-  const colors = theme.colors as Record<string, any>;
-  let cssVars = '';
+  const colors = theme.colors as Record<string, unknown>;
+  const cssVarsList: string[] = [];
   
-  const processObject = (obj: Record<string, any>, prefix = '') => {
+  const processObject = (obj: Record<string, unknown>, prefix = '') => {
     Object.entries(obj).forEach(([key, value]) => {
       const varName = prefix ? `${prefix}-${key}` : key;
       
       if (typeof value === 'object' && value !== null) {
-        processObject(value, varName);
+        // Type assertion to ensure it's a valid object for recursive processing
+        const nestedObj = value as Record<string, unknown>;
+        processObject(nestedObj, varName);
       } else if (typeof value === 'string') {
-        cssVars += `  --color-${varName}: ${value};\n`;
+        cssVarsList.push(`--color-${varName}: ${value};`);
       }
     });
   };
   
   processObject(colors);
-  return css`${cssVars}`;
+  return css`
+    ${cssVarsList.join('\n    ')}
+  `;
 };
 
 /**
@@ -63,10 +78,14 @@ export const colorVariables = () => {
  */
 export const color = (path: string, property = 'color') => {
   const colorValue = getColor(path);
+  // Usando uma abordagem alternativa para evitar problemas de sintaxe CSS
+  const normalProp = `${property}: ${colorValue};`;
+  const varProp = `${property}: var(--color-${path.replace('.', '-')}, ${colorValue});`;
+  
   return css`
-    ${property}: ${colorValue};
-    ${property}: color-mix(in srgb, ${colorValue}, transparent);
-  `;
+    ${normalProp}
+    ${varProp}
+  `
 };
 
 /**

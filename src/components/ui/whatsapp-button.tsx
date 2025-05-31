@@ -45,11 +45,7 @@ export default function WhatsAppButton() {
   // Set component as mounted (client-side only)
   useEffect(() => {
     setIsMounted(true);
-    return () => {
-      if (messageTimer.current) {
-        clearTimeout(messageTimer.current);
-      }
-    };
+    // No cleanup needed for setIsMounted
   }, []);
 
   // Memoize message rotation logic
@@ -65,13 +61,14 @@ export default function WhatsAppButton() {
     // Set up interval for subsequent changes
     messageTimer.current = setInterval(rotateMessage, 3000);
     
+    // Cleanup function to clear timers when component unmounts
     return () => {
       clearTimeout(initialTimer);
       if (messageTimer.current) {
         clearInterval(messageTimer.current);
       }
     };
-  }, [rotateMessage]);
+  }, [rotateMessage]); // rotateMessage is memoized with useCallback, so this is safe
   
   // Handle hover state changes
   const handleMouseEnter = useCallback(() => {
@@ -139,14 +136,19 @@ export default function WhatsAppButton() {
   // Mobile styles
   const [isMobile, setIsMobile] = useState(false);
   
+  // Check if device is mobile and listen for window resize events
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth <= 480);
     };
     
+    // Check immediately on mount
     checkIfMobile();
+    
+    // Add resize listener
     window.addEventListener('resize', checkIfMobile);
     
+    // Cleanup function to remove event listener
     return () => {
       window.removeEventListener('resize', checkIfMobile);
     };

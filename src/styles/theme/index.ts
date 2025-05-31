@@ -128,7 +128,7 @@ export interface ThemeContainer {
   center: boolean;
   padding: string | { [key: string]: string };
   screens: {
-    [key: string]: any; // Using any to avoid type issues with string | undefined
+    [key: string]: string | number | boolean | Record<string, unknown>; // More specific type than 'any'
   };
 }
 

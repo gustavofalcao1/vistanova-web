@@ -36,7 +36,7 @@ export function getSpacing(theme: ThemeConfig, spacingPath: string, fallback: st
 /**
  * Gets a typography value from the theme
  */
-export function getTypography(theme: ThemeConfig, key: string, fallback: any = '') {
+export function getTypography(theme: ThemeConfig, key: string, fallback: string | number | Record<string, unknown> = '') {
   return getThemeValue(theme, `typography.${key}`, fallback);
 }
 

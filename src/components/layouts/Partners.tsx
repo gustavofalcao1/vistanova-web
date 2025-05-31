@@ -13,10 +13,10 @@ interface PartnersProps {
 export default function Partners({ partners }: PartnersProps) {
   const [mounted, setMounted] = useState(false);
   
-  // Ensure component is only rendered on the client
+  // Ensure component is only rendered on the client side to avoid hydration issues
   useEffect(() => {
     setMounted(true);
-  }, []);
+  }, []); // Empty dependency array means this runs once on mount
   
   // Function to determine the appropriate dimensions and style based on the logo filename
   const getLogoConfig = (logoPath: string) => {

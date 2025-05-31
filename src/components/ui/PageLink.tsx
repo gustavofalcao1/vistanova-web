@@ -1,14 +1,13 @@
 'use client';
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
-interface PageLinkProps {
+interface PageLinkProps extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> {
   to: string;
   className?: string;
   children: React.ReactNode;
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
-  [key: string]: any;
 }
 
 export const PageLink: React.FC<PageLinkProps> = ({
@@ -19,7 +18,6 @@ export const PageLink: React.FC<PageLinkProps> = ({
   ...props
 }) => {
   const pathname = usePathname();
-  const router = useRouter();
   const isHome = pathname === '/';
   const isHashLink = to.startsWith('#');
 

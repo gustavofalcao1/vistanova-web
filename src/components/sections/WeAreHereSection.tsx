@@ -4,7 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { ContactPerson, NewsletterFormData, ContactFormData } from "@/lib/types";
+import { ContactPerson, NewsletterFormData } from "@/lib/types";
 import { Phone, Mail } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
@@ -22,7 +22,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
   const { toast } = useToast();
   const { getRecaptchaToken } = useRecaptcha();
   
-  // Formulário de Newsletter
+  // Newsletter form setup with react-hook-form
   const {
     register: registerNewsletter,
     handleSubmit: handleSubmitNewsletter,
@@ -36,7 +36,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
     }
   });
 
-  // Formulário de Contato
+  // Contact form setup with react-hook-form
   const {
     register: registerContact,
     handleSubmit: handleSubmitContact,
@@ -54,15 +54,19 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
 
   const onSubmitNewsletter = async (data: NewsletterFormValues) => {
     try {
-      // Obter token do reCAPTCHA
+      // Get reCAPTCHA token for newsletter form verification
       const recaptchaToken = await getRecaptchaToken('newsletter_form');
       
-      // Converter para NewsletterFormData
+      // Convert form values to NewsletterFormData type
       const newsletterData: NewsletterFormData = {
-        name: "", // Não usamos mais o nome para newsletter
+        name: "", // We no longer use name for newsletter
         email: data.email,
-        consent: data.consent
+        consent: data.consent,
+        recaptchaToken: recaptchaToken || undefined // Convert null to undefined if token is null
       };
+      
+      // Log the token for debugging purposes
+      console.log('Newsletter submission with reCAPTCHA token', { tokenReceived: !!recaptchaToken });
       
       const result = await onNewsletterSubmit(newsletterData);
       
@@ -81,7 +85,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
         });
       }
     } catch (error) {
-      console.error('Erro ao enviar inscrição:', error);
+      console.error('Error sending newsletter subscription:', error);
       toast({
         title: "Erro na inscrição",
         description: "Não foi possível processar a tua inscrição. Por favor, tenta novamente mais tarde.",
@@ -92,11 +96,13 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
   
   const onSubmitContact = async (data: ContactFormValues) => {
     try {
-      // Obter token do reCAPTCHA
+      // Get reCAPTCHA token for contact form verification
       const recaptchaToken = await getRecaptchaToken('contact_form');
       
-      // Aqui você implementaria a chamada à API para enviar o formulário de contato
-      // Exemplo:
+      // Log the token for debugging purposes
+      console.log('Contact form submission with reCAPTCHA token', { tokenReceived: !!recaptchaToken });
+      
+      // Send the contact form data to the API
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
@@ -104,7 +110,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
         },
         body: JSON.stringify({
           ...data,
-          recaptchaToken
+          recaptchaToken: recaptchaToken || undefined // Convert null to undefined if token is null
         }),
       });
       
@@ -125,7 +131,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
         });
       }
     } catch (error) {
-      console.error('Erro ao enviar mensagem:', error);
+      console.error('Error sending contact message:', error);
       toast({
         title: "Erro ao enviar mensagem",
         description: "Não foi possível enviar a tua mensagem. Por favor, tenta novamente mais tarde.",

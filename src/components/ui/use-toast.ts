@@ -29,6 +29,7 @@ function genId() {
   return count.toString()
 }
 
+// Using the type from the const assertion
 type ActionType = typeof actionTypes
 
 type Action =

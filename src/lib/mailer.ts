@@ -113,10 +113,19 @@ export async function sendContactFormEmail(data: {
     </div>
   `;
 
-  return sendEmail({
+  const result = await sendEmail({
     to: process.env.CONTACT_FORM_RECIPIENT || process.env.EMAIL_FROM || 'contato@vistanova.pt',
     subject,
     text,
     html,
   });
+  
+  // Log the result for debugging purposes
+  console.log('Contact form email result:', {
+    success: result.success,
+    simulated: result.simulated,
+    messageId: result.messageId,
+  });
+  
+  return result;
 }

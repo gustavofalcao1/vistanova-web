@@ -79,9 +79,10 @@ export default function TrabalhaConosco() {
         variant: 'default',
       });
     } catch (error) {
+      console.error('Error sending job application:', error);
       toast({
         title: 'Erro ao enviar candidatura',
-        description: 'Ocorreu um erro ao processar sua candidatura. Por favor, tente novamente mais tarde.',
+        description: 'Ocorreu um erro ao processar a tua candidatura. Por favor, tenta novamente mais tarde.',
         variant: 'destructive',
       });
     } finally {
