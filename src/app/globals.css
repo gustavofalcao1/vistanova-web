@@ -10,37 +10,37 @@
   /* Border radius */
   --radius: 0.75rem;
   
-  /* Base colors */
-  --background: 0 0% 100%; /* #FFFFFF */
-  --foreground: 215 31% 18%; /* #1F2C40 - Primary color */
+  /* Base colors - Baseado em src/styles/tokens/colors.ts */
+  --background: 46 20% 95%; /* #F4F4ED */
+  --foreground: 187 72% 18%; /* #0E454E */
   
   /* Component colors */
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 215 31% 18%;
-  --card: 0 0% 100%;
-  --card-foreground: 215 31% 18%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
+  --muted: 46 20% 95%; /* #F4F4ED */
+  --muted-foreground: 220 2% 55%; /* #888A8C */
+  --popover: 46 20% 95%; /* #F4F4ED */
+  --popover-foreground: 187 72% 18%; /* #0E454E */
+  --card: 46 20% 95%; /* #F4F4ED */
+  --card-foreground: 187 72% 18%; /* #0E454E */
+  --border: 220 2% 55%; /* #888A8C */
+  --input: 220 2% 55%; /* #888A8C */
   
   /* Brand colors */
-  --primary: 215 31% 18%; /* #1F2C40 - Azul escuro */
-  --primary-foreground: 0 0% 100%; /* #FFFFFF */
-  --secondary: 84 100% 50%; /* #B4FF00 - Verde neon */
-  --secondary-foreground: 215 31% 18%; /* #1F2C40 */
+  --primary: 187 72% 18%; /* #0E454E - Azul escuro principal */
+  --primary-foreground: 46 20% 95%; /* #F4F4ED - Texto claro em fundo escuro */
+  --secondary: 63 96% 58%; /* #E5FC2A - Verde limão */
+  --secondary-foreground: 187 72% 18%; /* #0E454E - Texto escuro em fundo claro */
   
   /* Accent and feedback colors */
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 215 31% 18%;
+  --accent: 187 44% 26%; /* #1D5D68 - Tom mais claro do azul principal */
+  --accent-foreground: 46 20% 95%; /* #F4F4ED */
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --ring: 215 31% 18%;
+  --destructive-foreground: 46 20% 95%; /* #F4F4ED */
+  --ring: 63 96% 58%; /* #E5FC2A - Verde limão */
   
   /* Section specific colors */
-  --header-bg: 0 0% 100%; /* #FFFFFF */
-  --footer-bg: 215 31% 18%; /* #1F2C40 */
-  --section-alt-bg: 248 53% 99%; /* Light blue-gray */
+  --header-bg: 187 72% 18%; /* #0E454E - Azul escuro principal */
+  --footer-bg: 187 72% 18%; /* #0E454E - Azul escuro principal */
+  --section-alt-bg: 0 0% 100%; /* #FFFFFF - Branco puro */
 }
 
 .dark {
@@ -48,36 +48,36 @@
   --radius: 0.5rem;
   
   /* Base colors */
-  --background: 222.2 84% 4.9%; /* #1F2C40 - Primary color */
-  --foreground: 210 40% 98%; /* #FFFFFF */
+  --background: 187 72% 18%; /* #0E454E - Azul escuro principal */
+  --foreground: 46 20% 95%; /* #F4F4ED - Texto claro em fundo escuro */
   
   /* Component colors */
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --popover: 222.2 84% 4.9%; /* #1F2C40 */
-  --popover-foreground: 210 40% 98%; /* #FFFFFF */
-  --card: 222.2 84% 4.9%; /* #1F2C40 */
-  --card-foreground: 210 40% 98%; /* #FFFFFF */
-  --border: 217.2 32.6% 25%;
-  --input: 217.2 32.6% 25%;
+  --muted: 187 44% 26%; /* #1D5D68 - Tom mais claro do azul principal */
+  --muted-foreground: 46 20% 95%; /* #F4F4ED */
+  --popover: 187 72% 18%; /* #0E454E */
+  --popover-foreground: 46 20% 95%; /* #F4F4ED */
+  --card: 187 72% 18%; /* #0E454E */
+  --card-foreground: 46 20% 95%; /* #F4F4ED */
+  --border: 187 44% 26%; /* #1D5D68 */
+  --input: 187 44% 26%; /* #1D5D68 */
   
   /* Brand colors */
-  --primary: 210 40% 98%; /* Almost white */
-  --primary-foreground: 222.2 47.4% 11.2%; /* Dark blue */
-  --secondary: 84 100% 50%; /* #B4FF00 - Verde neon */
-  --secondary-foreground: 215 31% 18%; /* #1F2C40 */
+  --primary: 46 20% 95%; /* #F4F4ED - Texto claro em fundo escuro */
+  --primary-foreground: 187 72% 18%; /* #0E454E - Azul escuro principal */
+  --secondary: 63 96% 58%; /* #E5FC2A - Verde limão */
+  --secondary-foreground: 187 72% 18%; /* #0E454E - Texto escuro em fundo claro */
   
   /* Accent and feedback colors */
-  --accent: 217.2 32.6% 17.5%; 
-  --accent-foreground: 210 40% 98%; /* #FFFFFF */
+  --accent: 187 44% 26%; /* #1D5D68 - Tom mais claro do azul principal */ 
+  --accent-foreground: 46 20% 95%; /* #F4F4ED */
   --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%; /* #FFFFFF */
-  --ring: 84 100% 50%; /* #B4FF00 - Verde neon */
+  --destructive-foreground: 46 20% 95%; /* #F4F4ED */
+  --ring: 63 96% 58%; /* #E5FC2A - Verde limão */
   
   /* Section specific colors */
-  --header-bg: 222.2 84% 4.9%; /* #1F2C40 */
-  --footer-bg: 215 31% 12%; /* #14202F - Primary Dark */
-  --section-alt-bg: 215 31% 22%; /* #2D3F5A - Primary Light */
+  --header-bg: 187 72% 18%; /* #0E454E - Azul escuro principal */
+  --footer-bg: 187 76% 12%; /* #0A3239 - Tom mais escuro do azul principal */
+  --section-alt-bg: 187 44% 26%; /* #1D5D68 - Tom mais claro do azul principal */
 }
 
 @layer base {
@@ -103,11 +103,11 @@
   
   /* Color classes */
   .bg-primary-gradient {
-    background: linear-gradient(135deg, hsl(215, 31%, 18%) 0%, hsl(215, 31%, 12%) 100%);
+    background: linear-gradient(135deg, hsl(187, 72%, 18%) 0%, hsl(187, 76%, 12%) 100%);
   }
   
   .bg-secondary-gradient {
-    background: linear-gradient(135deg, hsl(84, 100%, 50%) 0%, hsl(84, 100%, 45%) 100%);
+    background: linear-gradient(135deg, hsl(63, 96%, 58%) 0%, hsl(63, 96%, 48%) 100%);
   }
   
   .bg-section-alt {
@@ -115,19 +115,19 @@
   }
   
   .text-primary-dark {
-    color: hsl(215, 31%, 12%);
+    color: hsl(187, 76%, 12%); /* #0A3239 - Tom mais escuro do azul principal */
   }
   
   .text-primary-light {
-    color: hsl(215, 31%, 30%);
+    color: hsl(187, 44%, 26%); /* #1D5D68 - Tom mais claro do azul principal */
   }
   
   .border-primary-light {
-    border-color: hsl(215, 31%, 30%);
+    border-color: hsl(187, 44%, 26%); /* #1D5D68 - Tom mais claro do azul principal */
   }
   
   .border-secondary {
-    border-color: hsl(84, 100%, 50%);
+    border-color: hsl(63, 96%, 58%); /* #E5FC2A - Verde limão */
   }
 }
 

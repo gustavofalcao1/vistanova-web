@@ -107,14 +107,14 @@ export function getColorHSL(colorName: keyof typeof colors, variant?: string): s
  */
 export const hslColorTokens = {
   primary: getColorHSL('primary', 'DEFAULT'),
-  primaryLight: getColorHSL('primaryLight'),
-  primaryDark: getColorHSL('primaryDark'),
+  primaryLight: getColorHSL('primary', 'light'),
+  primaryDark: getColorHSL('primary', 'dark'),
   secondary: getColorHSL('secondary', 'DEFAULT'),
-  secondaryLight: getColorHSL('secondaryLight'),
-  secondaryDark: getColorHSL('secondaryDark'),
+  secondaryLight: getColorHSL('secondary', 'light'),
+  secondaryDark: getColorHSL('secondary', 'dark'),
   background: getColorHSL('background', 'DEFAULT'),
-  backgroundDark: getColorHSL('backgroundDark'),
-  text: getColorHSL('text'),
-  textLight: getColorHSL('textLight'),
-  textOnDark: getColorHSL('textOnDark'),
+  backgroundDark: getColorHSL('background', 'dark'),
+  text: getColorHSL('foreground', 'DEFAULT'),
+  textLight: getColorHSL('foreground', 'light'),
+  textOnDark: getColorHSL('foreground', 'onDark'),
 };
