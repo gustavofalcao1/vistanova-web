@@ -25,15 +25,13 @@ const eslintConfig = [
     },
     rules: {
       // Spread recommended rules for Tailwind CSS
-      ...tailwindcssPlugin.configs.recommended.rules,
-      // Custom Tailwind CSS rules
+      ...tailwindcssPlugin.configs.recommended.rules, // Use recommended rules as a base
+      // Custom Tailwind CSS rules (from your original .eslintrc.js)
       "tailwindcss/classnames-order": "warn",
       "tailwindcss/no-custom-classname": [
         "warn",
         {
-          // Add your allowed custom classnames here if any, otherwise keep empty
-          // This was previously 'whitelist'
-          allowlist: [
+          allowlist: [ // Renamed from whitelist
             "text-primary", "bg-primary", "border-primary", 
             "text-secondary", "bg-secondary", "border-secondary",
             // Add any other specific classes from your theme that might be flagged
@@ -42,12 +40,6 @@ const eslintConfig = [
       ],
       "tailwindcss/no-contradicting-classname": "error",
     },
-    // Settings for Tailwind CSS plugin (if needed, often defaults are fine)
-    // settings: {
-    //   tailwindcss: {
-    //     config: 'tailwind.config.js', // Default
-    //   }
-    // }
   },
 
   // 3. Global TypeScript and JavaScript/JSX specific configurations
@@ -56,8 +48,8 @@ const eslintConfig = [
     languageOptions: {
       parser: tsParser,
       parserOptions: {
-        project: "./tsconfig.json", // Crucial for type-aware linting rules
-        tsconfigRootDir: __dirname, // Explicitly set the root directory for tsconfig.json
+        project: "./tsconfig.json", 
+        tsconfigRootDir: __dirname, 
         ecmaFeatures: {
           jsx: true,
         },
@@ -70,21 +62,14 @@ const eslintConfig = [
     },
     rules: {
       // Rules migrated from .eslintrc.json
-      "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "react-hooks/exhaustive-deps": "warn", // Note: Disabling this can hide potential bugs. Re-evaluate if needed.
+      "@typescript-eslint/no-unused-vars": "off", // As per your .eslintrc.json
+      "@typescript-eslint/no-explicit-any": "off", // As per your .eslintrc.json
+      "react-hooks/exhaustive-deps": "warn", // Changed from "off" to "warn" as per previous suggestion
 
-      // Custom rule from .eslintrc.js to discourage direct hex color usage
-      "no-restricted-syntax": [
-        "error",
-        {
-          selector: "Literal[value=/^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$/]",
-          message: "Use theme colors (Tailwind classes or CSS variables) instead of direct hex values.",
-        },
-      ],
+      // The "no-restricted-syntax" rule for hex colors has been REMOVED.
+      // Color checking will be handled by the `scripts/check-colors.ts` script.
       
-      // Add any other global custom rules here
-      // Example: "@typescript-eslint/explicit-function-return-type": "warn",
+      // Add any other global custom rules here if needed
     },
   },
 
@@ -92,20 +77,19 @@ const eslintConfig = [
   {
     files: [
       "tailwind.config.js", 
-      "tailwind.config.cjs", // If you ever use .cjs version
+      "tailwind.config.mjs", // Added .mjs variant
+      "tailwind.config.cjs",
       "postcss.config.mjs", 
-      "postcss.config.js",   // If you ever use .js version
+      "postcss.config.js",   
       "next.config.mjs",
-      "next.config.js",      // If you ever use .js version
+      "next.config.js",      
       "next-sitemap.config.js",
-      "eslint.config.mjs",   // Linting the linter config itself
+      "next-sitemap.config.mjs", // Added .mjs variant
+      "eslint.config.mjs",   
     ],
     rules: {
       "@typescript-eslint/no-var-requires": "off",
-      "import/no-commonjs": "off", // Allow CommonJS for these config files
-      // Potentially relax other rules for config files if needed
-      // "@typescript-eslint/no-unsafe-assignment": "off",
-      // "@typescript-eslint/no-unsafe-call": "off",
+      "import/no-commonjs": "off", 
     },
   },
   
@@ -115,21 +99,16 @@ const eslintConfig = [
       "node_modules/",
       ".next/",
       "out/",
-      "public/", // Static assets, generally no JS/TS to lint
-      "build.js", // Generated build file, if any
-      "vercel-build.js", // Generated Vercel build file, if any
-      "*.d.ts", // TypeScript declaration files
-      "dist/", // Common distribution folder for compiled scripts/libs
-      
-      // Scripts (usually run in Node, may use different conventions)
+      "public/", 
+      "build.js", 
+      "vercel-build.js", 
+      "*.d.ts", 
+      "dist/", 
       "scripts/optimize-images.ts",
       "scripts/generate-icons.ts",
       "scripts/download-fonts.ts",
-      "scripts/check-colors.ts",
+      "scripts/check-colors.ts", // Don't lint the color checker script with these rules
       "src/app/generateGlobalCSS.mjs",
-      
-      // Specific generated files or large library files you don't control
-      // Example: "src/generated/**/*"
     ],
   },
 ];
