@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ContactPerson, NewsletterFormData } from "@/lib/types";
 import { Phone, Mail } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { useToast } from "@/components/ui/use-toast";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
