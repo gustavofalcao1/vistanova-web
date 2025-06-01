@@ -10,79 +10,92 @@
   /* Border radius */
   --radius: 0.75rem;
   
-  /* Base colors - Baseado em src/styles/tokens/colors.ts */
-  --background: 46 20% 95%; /* #F4F4ED */
-  --foreground: 187 72% 18%; /* #0E454E */
+  /* Base colors - Based on src/styles/tokens/colors.ts */
+  --background: 46 20% 95%; /* #F4F4ED from colors.background.DEFAULT */
+  --foreground: 187 72% 18%; /* #0E454E from colors.foreground.DEFAULT */
   
   /* Component colors */
-  --muted: 46 20% 95%; /* #F4F4ED */
-  --muted-foreground: 220 2% 55%; /* #888A8C */
+  --muted: 46 20% 95%; /* #F4F4ED from colors.background.DEFAULT (assuming same as background for light) */
+  --muted-foreground: 220 2% 55%; /* #888A8C from colors.foreground.muted / colors.neutral[500] */
   --popover: 46 20% 95%; /* #F4F4ED */
   --popover-foreground: 187 72% 18%; /* #0E454E */
   --card: 46 20% 95%; /* #F4F4ED */
   --card-foreground: 187 72% 18%; /* #0E454E */
-  --border: 220 2% 55%; /* #888A8C */
+  --border: 220 2% 55%; /* #888A8C from colors.border.dark (used as default border in light mode?) or colors.neutral[500] */
   --input: 220 2% 55%; /* #888A8C */
   
   /* Brand colors */
-  --primary: 187 72% 18%; /* #0E454E - Azul escuro principal */
-  --primary-foreground: 46 20% 95%; /* #F4F4ED - Texto claro em fundo escuro */
-  --secondary: 63 96% 58%; /* #E5FC2A - Verde limão */
-  --secondary-foreground: 187 72% 18%; /* #0E454E - Texto escuro em fundo claro */
+  --primary: 187 72% 18%; /* #0E454E from colors.primary.DEFAULT */
+  --primary-light: 187 44% 26%; /* #1D5D68 from colors.primary.light */
+  --primary-dark: 187 76% 12%; /* #0A3239 from colors.primary.dark */
+  --primary-foreground: 46 20% 95%; /* #F4F4ED from colors.primary.foreground */
+  
+  --secondary: 63 96% 58%; /* #E5FC2A from colors.secondary.DEFAULT */
+  --secondary-light: 63 97% 67%; /* #EBFD5E from colors.secondary.light */
+  --secondary-dark: 63 78% 52%; /* #D2E925 from colors.secondary.dark */
+  --secondary-gradient-dark-stop: 63 96% 48%; /* Darker shade for gradient, if needed */
+  --secondary-foreground: 187 72% 18%; /* #0E454E from colors.secondary.foreground */
   
   /* Accent and feedback colors */
-  --accent: 187 44% 26%; /* #1D5D68 - Tom mais claro do azul principal */
+  --accent: 187 44% 26%; /* #1D5D68 from colors.primary.light (used as accent) */
   --accent-foreground: 46 20% 95%; /* #F4F4ED */
-  --destructive: 0 84.2% 60.2%;
+  --destructive: 0 84% 60%; /* HSL for #E53E3E from colors.error.DEFAULT */
   --destructive-foreground: 46 20% 95%; /* #F4F4ED */
-  --ring: 63 96% 58%; /* #E5FC2A - Verde limão */
+  --ring: 63 96% 58%; /* #E5FC2A for ring, same as secondary */
   
   /* Section specific colors */
-  --header-bg: 187 72% 18%; /* #0E454E - Azul escuro principal */
-  --footer-bg: 187 72% 18%; /* #0E454E - Azul escuro principal */
-  --section-alt-bg: 0 0% 100%; /* #FFFFFF - Branco puro */
+  --header-bg: 187 72% 18%; /* #0E454E */
+  --footer-bg: 187 72% 18%; /* #0E454E */
+  --section-alt-bg: 0 0% 100%; /* #FFFFFF from colors.background.alt */
 }
 
 .dark {
   /* Border radius */
-  --radius: 0.5rem;
+  --radius: 0.5rem; /* Note: radius changes in dark mode, intentional? */
   
   /* Base colors */
-  --background: 187 72% 18%; /* #0E454E - Azul escuro principal */
-  --foreground: 46 20% 95%; /* #F4F4ED - Texto claro em fundo escuro */
+  --background: 187 72% 18%; /* #0E454E from colors.background.dark */
+  --foreground: 46 20% 95%; /* #F4F4ED from colors.foreground.onDark */
   
   /* Component colors */
-  --muted: 187 44% 26%; /* #1D5D68 - Tom mais claro do azul principal */
+  --muted: 187 44% 26%; /* #1D5D68 from colors.background.alt-dark (used as muted) */
   --muted-foreground: 46 20% 95%; /* #F4F4ED */
   --popover: 187 72% 18%; /* #0E454E */
   --popover-foreground: 46 20% 95%; /* #F4F4ED */
   --card: 187 72% 18%; /* #0E454E */
   --card-foreground: 46 20% 95%; /* #F4F4ED */
-  --border: 187 44% 26%; /* #1D5D68 */
+  --border: 187 44% 26%; /* #1D5D68 from colors.border.DEFAULT for dark mode? */
   --input: 187 44% 26%; /* #1D5D68 */
   
   /* Brand colors */
-  --primary: 46 20% 95%; /* #F4F4ED - Texto claro em fundo escuro */
-  --primary-foreground: 187 72% 18%; /* #0E454E - Azul escuro principal */
-  --secondary: 63 96% 58%; /* #E5FC2A - Verde limão */
-  --secondary-foreground: 187 72% 18%; /* #0E454E - Texto escuro em fundo claro */
+  /* In dark mode, primary becomes light, and its foreground dark. This is a common inversion. */
+  --primary: 46 20% 95%; /* #F4F4ED */
+  --primary-light: 46 20% 98%; /* Lighter shade of the dark mode primary */
+  --primary-dark: 46 20% 90%;  /* Darker shade of the dark mode primary */
+  --primary-foreground: 187 72% 18%; /* #0E454E */
+  
+  --secondary: 63 96% 58%; /* #E5FC2A - Secondary remains the same */
+  --secondary-light: 63 97% 67%;
+  --secondary-dark: 63 78% 52%;
+  --secondary-gradient-dark-stop: 63 96% 48%;
+  --secondary-foreground: 187 72% 18%; /* #0E454E */
   
   /* Accent and feedback colors */
-  --accent: 187 44% 26%; /* #1D5D68 - Tom mais claro do azul principal */ 
+  --accent: 187 44% 26%; /* #1D5D68 */ 
   --accent-foreground: 46 20% 95%; /* #F4F4ED */
-  --destructive: 0 62.8% 30.6%;
+  --destructive: 0 63% 31%; /* HSL for #C53030 from colors.error.dark */
   --destructive-foreground: 46 20% 95%; /* #F4F4ED */
-  --ring: 63 96% 58%; /* #E5FC2A - Verde limão */
+  --ring: 63 96% 58%; /* #E5FC2A */
   
   /* Section specific colors */
-  --header-bg: 187 72% 18%; /* #0E454E - Azul escuro principal */
-  --footer-bg: 187 76% 12%; /* #0A3239 - Tom mais escuro do azul principal */
-  --section-alt-bg: 187 44% 26%; /* #1D5D68 - Tom mais claro do azul principal */
+  --header-bg: 187 72% 18%; /* #0E454E */
+  --footer-bg: 187 76% 12%; /* #0A3239 from colors.primary.dark (used as footer bg) */
+  --section-alt-bg: 187 44% 26%; /* #1D5D68 from colors.background.alt-dark */
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border; /* Uses CSS variable --border */
   }
   
   html {
@@ -91,7 +104,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased; /* Uses CSS variables */
   }
 }
 
@@ -101,33 +114,34 @@
     -webkit-backdrop-filter: blur(8px);
   }
   
-  /* Color classes */
+  /* Color classes - Corrected to use CSS Variables */
   .bg-primary-gradient {
-    background: linear-gradient(135deg, hsl(187, 72%, 18%) 0%, hsl(187, 76%, 12%) 100%);
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 100%);
   }
-  
+
   .bg-secondary-gradient {
-    background: linear-gradient(135deg, hsl(63, 96%, 58%) 0%, hsl(63, 96%, 48%) 100%);
+    /* Using a specific darker stop for the gradient if --secondary-dark isn't dark enough */
+    background: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--secondary-gradient-dark-stop)) 100%);
   }
   
   .bg-section-alt {
-    background-color: hsl(var(--section-alt-bg));
+    background-color: hsl(var(--section-alt-bg)); /* This was already correct */
   }
   
   .text-primary-dark {
-    color: hsl(187, 76%, 12%); /* #0A3239 - Tom mais escuro do azul principal */
+    color: hsl(var(--primary-dark));
   }
   
   .text-primary-light {
-    color: hsl(187, 44%, 26%); /* #1D5D68 - Tom mais claro do azul principal */
+    color: hsl(var(--primary-light));
   }
   
   .border-primary-light {
-    border-color: hsl(187, 44%, 26%); /* #1D5D68 - Tom mais claro do azul principal */
+    border-color: hsl(var(--primary-light));
   }
   
   .border-secondary {
-    border-color: hsl(63, 96%, 58%); /* #E5FC2A - Verde limão */
+    border-color: hsl(var(--secondary));
   }
 }
 
@@ -259,7 +273,7 @@
 }
 
 .accordion-content.open {
-  max-height: 500px;
+  max-height: 500px; /* Adjust if needed for larger content */
 }
 
 /* Service Card styles */
