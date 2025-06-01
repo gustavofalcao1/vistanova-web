@@ -112,7 +112,7 @@ export default function HeroSection() {
                 />
               </div>
               <motion.div 
-                className="absolute lg:-bottom-4 lg:-left-4 -bottom-4 left-2 right-0 mx-auto lg:mx-0 lg:-left-8 lg:right-auto bg-white rounded-2xl p-3 shadow-lg w-max max-w-full"
+                className="absolute lg:-bottom-4 lg:-left-4 -bottom-4 left-2 right-0 mx-auto lg:mx-0 xl:-left-8 lg:right-auto bg-white rounded-2xl p-3 shadow-lg w-max max-w-full"
                 variants={badgeVariants}
                 style={{ 
                   willChange: 'transform, opacity',
