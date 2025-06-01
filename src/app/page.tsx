@@ -1,5 +1,7 @@
 "use client"
 
+import React, { useEffect } from "react";
+
 // Layout Components
 import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
@@ -216,6 +218,56 @@ const handleNewsletterSubmit = async (data: NewsletterFormData) => {
 };
 
 export default function Home() {
+  // Função para verificar e processar o scrollToSection do sessionStorage
+  useEffect(() => {
+    // Função para tentar rolar até um elemento com múltiplas tentativas
+    const scrollToElement = (elementId: string) => {
+      // Número máximo de tentativas
+      const maxAttempts = 15;
+      // Intervalo entre tentativas (ms)
+      const interval = 300;
+      let attempts = 0;
+      
+      const tryScroll = () => {
+        const targetElement = document.getElementById(elementId);
+        
+        if (targetElement) {
+          // Elemento encontrado, rola até ele com um atraso maior para garantir que tudo esteja carregado
+          setTimeout(() => {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }, 200);
+          return true;
+        } else if (attempts < maxAttempts) {
+          // Elemento não encontrado, tenta novamente
+          attempts++;
+          setTimeout(tryScroll, interval);
+          return false;
+        } else {
+          // Desiste após o número máximo de tentativas
+          console.warn(`Elemento #${elementId} não encontrado após ${maxAttempts} tentativas`);
+          return false;
+        }
+      };
+      
+      // Inicia a primeira tentativa com um atraso inicial para garantir que os componentes começaram a carregar
+      setTimeout(tryScroll, 500);
+    };
+
+    // Verifica se há uma seção para rolar armazenada no sessionStorage
+    if (typeof window !== 'undefined') {
+      const sectionToScroll = sessionStorage.getItem('scrollToSection');
+      if (sectionToScroll) {
+        // Remove o item do sessionStorage para não rolar novamente em futuros carregamentos
+        sessionStorage.removeItem('scrollToSection');
+        // Tenta rolar até a seção
+        scrollToElement(sectionToScroll);
+      }
+    }
+  }, []);
+
   return (
     <main className="min-h-screen">
       <Header />

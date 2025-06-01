@@ -33,35 +33,53 @@ export const PageLink: React.FC<PageLinkProps> = ({
       
       // Se não estiver na home, navega para a home com o hash
       if (!isHome) {
+        // Armazena o targetId no sessionStorage para recuperá-lo após a navegação
+        sessionStorage.setItem('scrollToSection', targetId);
         window.location.href = `/#${targetId}`;
         return;
       }
       
       // Se já estiver na home, rola até a seção
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-        // Remove o hash da URL sem rolagem
-        window.history.replaceState(null, '', ' ');
-      } else {
-        // Se o elemento ainda não estiver disponível, tenta novamente após um curto atraso
-        const timer = setTimeout(() => {
-          const el = document.getElementById(targetId);
-          if (el) {
-            el.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-            });
-            window.history.replaceState(null, '', ' ');
-          }
-        }, 100);
-        
-        return () => clearTimeout(timer);
-      }
+      scrollToElement(targetId);
     }
+  };
+  
+  // Função para tentar rolar até um elemento com múltiplas tentativas
+  const scrollToElement = (elementId: string) => {
+    // Número máximo de tentativas
+    const maxAttempts = 10;
+    // Intervalo entre tentativas (ms)
+    const interval = 300;
+    let attempts = 0;
+    
+    const tryScroll = () => {
+      const targetElement = document.getElementById(elementId);
+      
+      if (targetElement) {
+        // Elemento encontrado, rola até ele
+        setTimeout(() => {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start',
+          });
+          // Remove o hash da URL sem rolagem
+          window.history.replaceState(null, '', ' ');
+        }, 100);
+        return true;
+      } else if (attempts < maxAttempts) {
+        // Elemento não encontrado, tenta novamente
+        attempts++;
+        setTimeout(tryScroll, interval);
+        return false;
+      } else {
+        // Desiste após o número máximo de tentativas
+        console.warn(`Elemento #${elementId} não encontrado após ${maxAttempts} tentativas`);
+        return false;
+      }
+    };
+    
+    // Inicia a primeira tentativa
+    tryScroll();
   };
 
   // Se for um link de hash e não estiver na home, redireciona para a home com o hash
