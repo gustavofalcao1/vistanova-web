@@ -56,11 +56,11 @@ const createConfig = async () => ({
       exclude: ['error', 'warn'],
     } : false,
   },
-  // Security headers configuration
+  // Security and Cache headers configuration
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/(.*)', // Global headers for all routes
         headers: [
           {
             key: 'X-Content-Type-Options',
@@ -80,45 +80,59 @@ const createConfig = async () => ({
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
+            // Updated to include interest-cohort=() from vercel.json
+            value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
           },
           {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload',
           },
           {
+            // Default Cache-Control for most pages/assets not covered by more specific rules
             key: 'Cache-Control',
             value: 'public, max-age=3600, must-revalidate',
           },
         ],
       },
       {
-        source: '/api/(.*)',
+        source: '/api/(.*)', // Specific headers for API routes
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
-          { key: 'Access-Control-Allow-Origin', value: '*' },
+          { key: 'Access-Control-Allow-Origin', value: '*' }, // Adjust as needed for production
           { key: 'Access-Control-Allow-Methods', value: 'GET,OPTIONS,PATCH,DELETE,POST,PUT' },
           { key: 'Access-Control-Allow-Headers', value: 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version' },
+          // API routes should generally not be cached by browsers/CDNs unless explicitly intended
+          { key: 'Cache-Control', value: 'no-store, no-cache, must-revalidate, proxy-revalidate' },
         ],
       },
       {
-        source: '/_next/static/(.*)',
+        source: '/_next/static/(.*)', // Next.js static assets (JS, CSS chunks)
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: 'public, max-age=31536000, immutable', // Long-term cache for versioned assets
           },
         ],
       },
       {
-        source: '/optimized-assets/(.*)',
+        source: '/fonts/(.*)', // Cache policy for fonts (migrated from vercel.json)
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=86400, must-revalidate',
+            value: 'public, max-age=31536000, immutable', // Fonts are generally static
           },
         ],
       },
+      {
+        source: '/optimized-assets/(.*)', // Your optimized images
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, must-revalidate', // Cache for 1 day, then revalidate
+          },
+        ],
+      },
+      // Add other specific path-based header configurations here if needed
     ];
   },
   // Redirects and rewrites configuration (example)
@@ -131,24 +145,6 @@ const createConfig = async () => ({
       },
     ];
   },
-  // Static assets cache headers configuration
-  // NOTE: Static cache configuration should be done in the web server (e.g., Nginx, Apache)
-  // or in the hosting platform (Vercel, Netlify, etc.)
-  // Example for Vercel: add a vercel.json file in the project root
-  // Example for Nginx: configure directly in the web server
-  // {
-  //   "headers": [
-  //     {
-  //       "source": "/_next/static/(.*)",
-  //       "headers": [
-  //         {
-  //           "key": "Cache-Control",
-  //           "value": "public, max-age=31536000, immutable"
-  //         }
-  //       ]
-  //     }
-  //   ]
-  // }
 });
 
 // Export the configuration with bundle analyzer if needed
