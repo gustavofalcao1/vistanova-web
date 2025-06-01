@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import WebVitals from "@/components/analytics/web-vitals";
+import GoogleAnalytics from "@/components/analytics/google-analytics";
+import VercelAnalytics from "@/components/analytics/vercel-analytics";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
 import { Toaster } from "@/components/ui/toaster";
 import Providers from "@/components/providers/Providers";
 import { ScrollProvider } from "@/components/providers/ScrollProvider";
 import { getFaviconMetadata } from "@/components/seo";
-import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   ...getFaviconMetadata(),
@@ -87,10 +88,13 @@ export default function RootLayout({
               <Toaster />
               {/* Performance monitoring - only active in production */}
               <WebVitals />
+              {/* Google Analytics - only active in production */}
+              <GoogleAnalytics />
+              {/* Vercel Analytics - only active in production */}
+              <VercelAnalytics />
             </div>
           </ScrollProvider>
-        </Providers>        
-        <Analytics />
+        </Providers>
       </body>
     </html>
   );

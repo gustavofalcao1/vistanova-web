@@ -114,6 +114,14 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [x] **Revisão de `useEffect`**: Garantir que os arrays de dependências estão corretos e otimizados.
 * [x] **Revisão do sistema de Estilos**: Clarificar organização entre tokens, `tailwind.config.mjs`, `globals.css` e `tailwind.d.ts`.
 
+### Analytics e Monitoramento
+* [x] **Google Analytics**: Implementar Google Analytics 4 (GA4) com dois códigos de medição:
+  * `G-CKS904F0K4` para o domínio principal (vistanova.pt)
+  * `G-WN7H6JW57C` para o URL de deploy do Vercel
+  * Detecção automática do domínio para usar o código apropriado
+* [x] **Web Vitals**: Monitorar métricas de performance com o componente `WebVitals` integrado ao Next.js.
+* [x] **Vercel Analytics**: Manter a integração com Vercel Analytics para métricas complementares.
+
 ### Performance
 * [ ] **LazyLoad Component**: Se o componente `LazyLoad` atual for um placeholder, implementar lazy loading real para componentes (e.g., com Intersection Observer) ou usar funcionalidades do React 19.
 * [ ] **Bundle Analysis**: Executar `yarn analyze` periodicamente.
