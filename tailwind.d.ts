@@ -1,4 +1,5 @@
-import { Theme } from './src/styles/theme';
+// Import the ThemeConfig interface specifically for type usage
+import type { ThemeConfig } from './src/styles/theme';
 
 declare module 'tailwindcss/colors' {
   export * from 'tailwindcss/colors';
@@ -72,5 +73,6 @@ declare module 'tailwindcss/colors' {
 }
 
 declare module 'tailwindcss/defaultTheme' {
-  export interface DefaultTheme extends Theme {}
+  // Extend Tailwind's defaultTheme to include your full ThemeConfig structure
+  export interface DefaultTheme extends ThemeConfig {} // Use ThemeConfig here
 }
