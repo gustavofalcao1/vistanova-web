@@ -80,7 +80,7 @@ export default function ServicosSection({ services }: ServicosSectionProps) {
               }}
               whileHover={{ 
                 y: -5,
-                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
+                boxShadow: "var(--shadow-card-hover-services)",
                 transition: { duration: 0.3 }
               }}
             >

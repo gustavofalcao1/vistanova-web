@@ -123,7 +123,7 @@ export default function Partners({ partners }: PartnersProps) {
               }}
               whileHover={{ 
                 y: -5,
-                boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
+                boxShadow: "var(--shadow-card-hover-partners)",
                 transition: { duration: 0.3 }
               }}
             >

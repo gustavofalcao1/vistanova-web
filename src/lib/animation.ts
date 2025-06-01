@@ -82,11 +82,11 @@ export const rotateAnimation: Variants = {
 export const cardHoverAnimation: Variants = {
   initial: {
     y: 0,
-    boxShadow: "0 1px 3px rgba(0,0,0,0.1)"
+    boxShadow: "var(--shadow-card-initial)"
   },
   hover: {
     y: -5,
-    boxShadow: "0 10px 20px rgba(0,0,0,0.1)",
+    boxShadow: "var(--shadow-card-hover-animated)",
     transition: {
       duration: 0.3
     }

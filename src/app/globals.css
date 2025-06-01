@@ -47,6 +47,14 @@
   --header-bg: 187 72% 18%; /* #0E454E */
   --footer-bg: 187 72% 18%; /* #0E454E */
   --section-alt-bg: 0 0% 100%; /* #FFFFFF from colors.background.alt */
+
+  /* Box-shadow */
+  --shadow-card-hover-partners: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover-services: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --shadow-whatsapp-button: 0 4px 12px rgba(0,0,0,0.15);
+  --shadow-whatsapp-bubble: 0 2px 8px rgba(0,0,0,0.1);
+  --shadow-card-initial: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-card-hover-animated: 0 10px 20px rgba(0,0,0,0.1); 
 }
 
 .dark {
