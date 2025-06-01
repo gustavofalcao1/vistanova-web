@@ -31,12 +31,13 @@
 - `/public`: Static assets (optimized images, fonts)
 
 ## Coding Standards
-- Use camelCase for variables/functions, PascalCase for components/classes
-- All components must be functional components with TypeScript types
-- Prefer named exports over default exports
-- Use destructuring for props and state
-- Implement proper error boundaries and loading states
-- Follow accessibility best practices (WCAG 2.1 AA)
+- Use camelCase for variables/functions, PascalCase for components/classes.
+- All components must be functional components with TypeScript types.
+- Prefer named exports over default exports.
+- Use destructuring for props and state.
+- Implement proper error boundaries and loading states.
+- Follow accessibility best practices (WCAG 2.1 AA).
+- Document complex functions, components with many props, and critical business logic using JSDoc/TSDoc (in English).
 
 ## Workflow
 - **New Features**: 
@@ -57,13 +58,13 @@ Protected zones (never change without `/request-access`):
 - Configuration files (next.config.mjs, tailwind.config.js)
 
 ## Quality Gates
-| Metric         | Limit    | Tool         | Notes                        |
-|----------------|----------|--------------|------------------------------|
-| Complexity     | CC < 15  | SonarQube    | Per function/component       |
-| Coverage       | >85%     | Jest/Cypress | Priority on critical paths   |
-| Tech Debt      | <120min  | CodeClimate  | Resolve within sprint        |
-| Accessibility  | WCAG AA  | axe/Lighthouse| No critical issues          |
-| Performance    | >90      | Lighthouse   | Mobile & desktop scores      |
+| Metric          | Limit    | Tool           | Notes                        |
+|-----------------|----------|----------------|------------------------------|
+| Complexity      | CC < 15  | SonarQube      | Per function/component       |
+| Coverage        | >85%     | Jest/Cypress   | Priority on critical paths   |
+| Tech Debt       | <120min  | CodeClimate    | Resolve within sprint        |
+| Accessibility   | WCAG AA  | axe/Lighthouse | No critical issues           |
+| Performance     | >90      | Lighthouse     | Mobile & desktop scores      |
 
 ## Component Guidelines
 - All UI components must:

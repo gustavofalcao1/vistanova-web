@@ -108,8 +108,8 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [ ] (Opcional) Reativar linting no build de produção (`eslint.ignoreDuringBuilds: false`) antes do deploy final.
 
 ### Qualidade do Código e Convenções
-* [ ] **Hooks**: Remover duplicação do hook `use-toast.ts` (escolher uma localização: `/src/hooks` ou `/src/components/ui`).
-* [ ] **Documentação de Código**: Adicionar JSDoc/TSDoc (em inglês) a funções complexas, componentes com muitas props e lógica de negócio crítica.
+* [x] **Hooks**: Remover duplicação do hook `use-toast.ts` (escolher uma localização: `/src/hooks` ou `/src/components/ui`).
+* [x] **Documentação de Código**: Adicionar JSDoc/TSDoc (em inglês) a funções complexas, componentes com muitas props e lógica de negócio crítica.
 * [ ] **Consistência de Cores**: Executar regularmente `scripts/check-colors.ts` e garantir que todas as cores hardcoded não intencionais sejam substituídas por variáveis/classes do tema.
 * [ ] **Revisão de `useEffect`**: Garantir que os arrays de dependências estão corretos e otimizados.
 * [ ] **Revisão do sistema de Estilos**: Clarificar organização entre tokens, `tailwind.config.mjs`, `globals.css` e `tailwind.d.ts`.
