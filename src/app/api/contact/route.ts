@@ -65,6 +65,7 @@ export async function POST(request: Request) {
     });
 
     // Log the simulation result
+    // #DEV
     console.log('Resultado da simulação de envio:', {
       success: result.success,
       messageId: result.messageId,

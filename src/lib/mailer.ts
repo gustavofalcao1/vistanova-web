@@ -1,6 +1,7 @@
 // Simplified email module without actual SMTP connection
 // This version simulates email sending for development/testing
 
+// #DEV
 // Log that we're using the simulated email service
 console.log('Using simulated email service');
 console.log('No actual emails will be sent');
@@ -20,6 +21,7 @@ export async function sendEmail(options: SendEmailOptions) {
     const from = `"Vista Nova" <${process.env.EMAIL_FROM || 'noreply@vistanova.pt'}>`;
     const replyTo = process.env.EMAIL_REPLY_TO;
     
+    // #DEV
     console.log('Simulando envio de e-mail:', {
       from,
       to: options.to,
@@ -27,6 +29,7 @@ export async function sendEmail(options: SendEmailOptions) {
       replyTo,
     });
 
+    // #DEV
     // Log email content in development only
     if (process.env.NODE_ENV === 'development') {
       console.log('Conteúdo do e-mail (apenas em desenvolvimento):', {
@@ -35,6 +38,7 @@ export async function sendEmail(options: SendEmailOptions) {
       });
     }
     
+    // #DEV
     // Simulate successful email sending
     const mockMessageId = `simulated-${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
     
@@ -120,6 +124,7 @@ export async function sendContactFormEmail(data: {
     html,
   });
   
+  // #DEV
   // Log the result for debugging purposes
   console.log('Contact form email result:', {
     success: result.success,

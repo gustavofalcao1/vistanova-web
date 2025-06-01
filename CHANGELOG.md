@@ -5,12 +5,57 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.6] - 2025-05-31
+
+### Adicionado
+- Suporte a fontes locais otimizadas
+- Sistema de pré-carregamento de fontes
+- Título "Equipa" na seção WeAreHereSection
+- Padronização visual dos títulos de seção
+
+### Corrigido
+- Link "Fala Connosco" para navegação correta em todas as páginas
+- Exibição do iframe do mapa com bordas arredondadas em todos os lados
+- Inconsistências nas cores dos títulos de seção (agora usando text-primary)
+- Problemas de tipagem na função getColor para lidar com variantes e erros
+
+### Alterado
+- Responsividade do header para melhor visualização em tablets (menu móvel até xl)
+- Tamanho da logo no header para diferentes tamanhos de tela
+- Layout responsivo dos cards da equipe para centralizar em telas menores
+- Breakpoint customizado em 976px para a grid de contatos e equipe
+- Altura do mapa aumentada para 350px para melhor visualização
+
+---
+
+## [2.2.0] - 2025-05-27
+
+### Adicionado
+- ✅ Sistema de contato integrado
+  - Formulário com validação em tempo real
+  - Integração com Nodemailer
+  - Proteção com reCAPTCHA v3
+  - Limitação de taxa de requisições
+  - Template de e-mail profissional
+  - Documentação detalhada
+- [ ] Suporte a temas claros/escuros
+- [ ] Melhorias de acessibilidade
+
+### Corrigido
+- [ ] Estilos de hover em dispositivos móveis
+- [ ] Alinhamento do menu em telas pequenas
+- [ ] Desempenho de animações
+
+---
+
 ## [2.1.6] - 2025-05-31
 
 ### Corrigido
 - ✅ Configuração de build para Vercel
   - Adicionado script `build:vercel` para ignorar erros de linting durante o build
   - Atualizado `vercel.json` para usar o novo script de build
+
+---
 
 ## [2.1.5] - 2025-05-31
 
@@ -35,47 +80,6 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 - Desativada verificação de linting durante o build
 - Atualizada estrutura de tipagem para o sistema de tema
 - Adicionada biblioteca `styled-components` para estilização avançada
-
-## [2.2.0] - 2025-05-27
-
-### Adicionado
-- ✅ Sistema de contato integrado
-  - Formulário com validação em tempo real
-  - Integração com Nodemailer
-  - Proteção com reCAPTCHA v3
-  - Limitação de taxa de requisições
-  - Template de e-mail profissional
-  - Documentação detalhada
-- [ ] Suporte a temas claros/escuros
-- [ ] Melhorias de acessibilidade
-
-### Corrigido
-- [ ] Estilos de hover em dispositivos móveis
-- [ ] Alinhamento do menu em telas pequenas
-- [ ] Desempenho de animações
-
----
-
-## [2.2.6] - 2025-05-31
-
-### Adicionado
-- Suporte a fontes locais otimizadas
-- Sistema de pré-carregamento de fontes
-- Título "Equipa" na seção WeAreHereSection
-- Padronização visual dos títulos de seção
-
-### Corrigido
-- Link "Fala Connosco" para navegação correta em todas as páginas
-- Exibição do iframe do mapa com bordas arredondadas em todos os lados
-- Inconsistências nas cores dos títulos de seção (agora usando text-primary)
-- Problemas de tipagem na função getColor para lidar com variantes e erros
-
-### Alterado
-- Responsividade do header para melhor visualização em tablets (menu móvel até xl)
-- Tamanho da logo no header para diferentes tamanhos de tela
-- Layout responsivo dos cards da equipe para centralizar em telas menores
-- Breakpoint customizado em 976px para a grid de contatos e equipe
-- Altura do mapa aumentada para 350px para melhor visualização
 
 ---
 

@@ -37,6 +37,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
       // Get reCAPTCHA token for form verification
       const recaptchaToken = await getRecaptchaToken('contact_form');
       
+      // #DEV
       // Log the token for debugging purposes
       console.log('Contact form submission with reCAPTCHA token', { tokenReceived: !!recaptchaToken });
       

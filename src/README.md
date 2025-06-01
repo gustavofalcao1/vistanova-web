@@ -1,36 +1,87 @@
 # Project Structure
 
-This document outlines the project's directory structure and organization conventions.
+This document outlines the Vista Nova Web project's directory structure and organization conventions.
 
 ## Main Directories
 
 ### `/src`
-- Root source directory
+- Root source directory containing all application code
 
 ### `/src/app`
-- Next.js application routes and pages
+- Next.js App Router application routes and pages
 - Contains route groups and page components
+- Follows Next.js 15+ App Router conventions
+- Includes `/app/(pages)` for main site pages
+- Includes `/app/api` for API routes and serverless functions
 
 ### `/src/components`
-- Reusable UI components
-- Organized by feature
+- Reusable UI components organized by purpose
 - Follows PascalCase naming convention
+- Structured into subdirectories:
+  - `/components/ui`: Base UI components from shadcn/ui
+  - `/components/layouts`: Layout components for page structure
+  - `/components/sections`: Page-specific content sections
+  - `/components/providers`: Context providers for state management
+  - `/components/analytics`: Analytics tracking components
+  - `/components/seo`: SEO-related components
+  - `/components/theme`: Theme-related components
 
-### `/src/features`
-- Feature-based components and logic
-- Each feature has its own directory
-- Contains both UI and business logic
+### `/src/contexts`
+- React Context providers for application state
+- Includes ThemeProvider for theme management
 
 ### `/src/hooks`
-- Custom React hooks
+- Custom React hooks for shared logic
 - Follows camelCase naming convention
-- Should be prefixed with 'use'
+- All hooks are prefixed with 'use'
 
 ### `/src/lib`
-- External library integrations
-- Utility functions
-- Third-party configurations
+- Utility functions and external library integrations
+- Contains core functionality like:
+  - `animation.ts`: Animation utilities
+  - `mailer.ts`: Email functionality
+  - `queryClient.ts`: React Query configuration
+  - `schemas.ts`: Zod validation schemas
+  - `utils.ts`: General utility functions (protected zone)
 
+### `/src/middleware`
+- Next.js middleware for request processing
+- Handles authentication, redirects, and request modifications
+
+### `/src/styles`
+- Global styles and Tailwind CSS configurations
+- Contains theme variables and global style definitions
+
+### `/src/types`
+- TypeScript type definitions
+- Organized by domain:
+  - `auth.ts`: Authentication types (protected zone)
+  - `api.ts`: API-related types
+  - `theme.ts`: Theme-related types
+  - `utils.ts`: Utility types
+
+### `/src/config`
+- Configuration files for the application
+- Contains settings and constants
+
+## Naming Conventions
+
+- **Components**: PascalCase (e.g., `Button.tsx`, `HeroSection.tsx`)
+- **Hooks**: camelCase with 'use' prefix (e.g., `useMediaQuery.ts`)
+- **Utilities**: camelCase (e.g., `formatDate.ts`)
+- **Types**: PascalCase for interfaces and types (e.g., `User`, `ApiResponse`)
+- **Constants**: UPPER_SNAKE_CASE (e.g., `MAX_ITEMS`, `API_ENDPOINTS`)
+
+## Best Practices
+
+- Keep components focused on a single responsibility
+- Use TypeScript types for all props and function parameters
+- Leverage Tailwind CSS for styling
+- Follow shadcn/ui patterns for component design
+- Implement proper error boundaries and loading states
+- Ensure all components are responsive and accessible
+- Document complex logic with clear comments
+- Use named exports instead of default exports
 ### `/src/types`
 - TypeScript type definitions
 - Interfaces and types

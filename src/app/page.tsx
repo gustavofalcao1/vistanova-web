@@ -193,6 +193,7 @@ const faqs: FAQ[] = [
 
 const handleNewsletterSubmit = async (data: NewsletterFormData) => {
   try {
+    // #DEV
     // Simulate API call - here you would implement the actual API call
     console.log('Newsletter data:', {
       ...data,

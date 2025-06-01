@@ -111,7 +111,7 @@ const createConfig = async () => ({
         ],
       },
       {
-        source: '/img/(.*)',
+        source: '/optimized-assets/(.*)',
         headers: [
           {
             key: 'Cache-Control',

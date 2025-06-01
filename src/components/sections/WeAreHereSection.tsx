@@ -65,6 +65,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
         recaptchaToken: recaptchaToken || undefined // Convert null to undefined if token is null
       };
       
+      // #DEV
       // Log the token for debugging purposes
       console.log('Newsletter submission with reCAPTCHA token', { tokenReceived: !!recaptchaToken });
       
@@ -99,6 +100,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
       // Get reCAPTCHA token for contact form verification
       const recaptchaToken = await getRecaptchaToken('contact_form');
       
+      // #DEV
       // Log the token for debugging purposes
       console.log('Contact form submission with reCAPTCHA token', { tokenReceived: !!recaptchaToken });
       
