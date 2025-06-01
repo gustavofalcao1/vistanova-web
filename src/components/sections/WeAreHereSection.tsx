@@ -172,7 +172,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                 <div className="space-y-6">
                   {contacts.map((contact, index) => (
                     <div key={index} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
-                      <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden flex-shrink-0">
+                      <div className="relative w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden flex-shrink-0">
                         {contact.photo ? (
                           <Image 
                             src={contact.photo} 
@@ -246,7 +246,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                     <input 
                       type="email" 
                       id="newsletter-email" 
-                      className={`flex-1 px-4 py-2 rounded-t-lg sm:rounded-t-none sm:rounded-l-lg border ${errorsNewsletter.email ? 'border-red-500' : 'border-neutral-300'} focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary`} 
+                      className={`flex-1 px-4 py-2 rounded-t-lg sm:rounded-tl-lg sm:rounded-bl-lg sm:rounded-tr-none sm:rounded-br-none border ${errorsNewsletter.email ? 'border-red-500' : 'border-neutral-300'} focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary`} 
                       placeholder="Email *" 
                       {...registerNewsletter("email")}
                     />
