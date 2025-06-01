@@ -145,7 +145,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
   return (
     <section 
       id="contact" 
-      className={`py-20 px-4 sm:px-6 lg:px-14 bg-white ${isVisible ? 'section-visible' : 'section-hidden'}`}
+      className={`py-12 sm:py-20 px-4 sm:px-6 lg:px-8 bg-white ${isVisible ? 'section-visible' : 'section-hidden'}`}
       ref={ref}
     >
       <div className="max-w-7xl mx-auto">
@@ -158,7 +158,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
         </div>
         
-        <div className="grid grid-cols-1 [@media(min-width:976px)]:grid-cols-2 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
           <motion.div 
             className="bg-neutral-100 rounded-xl shadow-lg p-8"
             variants={{
@@ -169,8 +169,8 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
             <h3 className="text-2xl font-semibold text-primary mb-4">Equipa</h3>
             <div className="space-y-6">
               {contacts.map((contact, index) => (
-                <div key={index} className="flex items-center gap-8">
-                  <div className="relative w-24 h-24 rounded-full overflow-hidden flex-shrink-0">
+                <div key={index} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden flex-shrink-0">
                     {contact.photo ? (
                       <Image 
                         src={contact.photo} 
@@ -184,20 +184,20 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                       </div>
                     )}
                   </div>
-                  <div className="pt-2">
+                  <div className="pt-2 text-center sm:text-left">
                     <h4 className="font-semibold text-xl text-primary">{contact.name}</h4>
                     <p className="text-neutral-600 text-sm">{contact.role}</p>
                     <div className="mt-2 space-y-1">
                       <a 
                         href={`tel:${contact.phone}`} 
-                        className="flex items-center gap-2 text-neutral-700 hover:text-primary transition-colors"
+                        className="flex items-center justify-center sm:justify-start gap-2 text-neutral-700 hover:text-primary transition-colors"
                       >
                         <Phone className="h-4 w-4" />
                         <span>{contact.phone}</span>
                       </a>
                       <a 
                         href={`mailto:${contact.email}`} 
-                        className="flex items-center gap-2 text-neutral-700 hover:text-primary transition-colors"
+                        className="flex items-center justify-center sm:justify-start gap-2 text-neutral-700 hover:text-primary transition-colors"
                       >
                         <Mail className="h-4 w-4" />
                         <span>{contact.email}</span>
@@ -209,7 +209,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
             </div>
             <div className="mt-8 pt-6 border-t border-neutral-200">
               <h3 className="text-2xl font-semibold text-primary mb-4">Onde Estamos</h3>
-              <div className="w-full h-[350px] rounded-lg overflow-hidden">
+              <div className="w-full h-[250px] sm:h-[350px] rounded-lg overflow-hidden">
                 <iframe 
                   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Vista+Nova,+Lda.&zoom=16" 
                   className="w-full h-full rounded-lg" 
@@ -237,17 +237,17 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
               </p>
               <form className="space-y-3" onSubmit={handleSubmitNewsletter(onSubmitNewsletter)}>
                 <div>
-                  <div className="flex">
+                    <div className="flex flex-col sm:flex-row">
                     <input 
                       type="email" 
                       id="newsletter-email" 
-                      className={`flex-1 px-4 py-2 rounded-l-lg border-y border-l ${errorsNewsletter.email ? 'border-red-500' : 'border-neutral-300'} focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary`} 
+                      className={`flex-1 px-4 py-2 rounded-t-lg sm:rounded-t-none sm:rounded-l-lg border ${errorsNewsletter.email ? 'border-red-500' : 'border-neutral-300'} focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary`} 
                       placeholder="Email *" 
                       {...registerNewsletter("email")}
                     />
                     <motion.button 
                       type="submit" 
-                      className="bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-r-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-b-lg sm:rounded-b-none sm:rounded-r-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed border border-primary"
                       disabled={isSubmittingNewsletter}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
