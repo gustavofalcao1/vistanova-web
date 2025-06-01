@@ -1,32 +1,34 @@
 /** @type {import('tailwindcss').Config} */
-import colors from './src/styles/tokens/colors';
+import colors from './src/styles/tokens/colors.ts'; // Kept as .ts as per user confirmation
 
-// Flatten color tokens for Tailwind
-const flattenColors = (colors, prefix = '') => {
-  return Object.keys(colors).reduce((acc, key) => {
-    const value = colors[key];
+// Flatten color tokens for Tailwind, to be used under the 'vn' namespace
+const flattenColors = (colorObj, prefix = '') => {
+  return Object.keys(colorObj).reduce((acc, key) => {
+    const value = colorObj[key];
     const newKey = prefix ? `${prefix}-${key}` : key;
     
+    // If the value is an object and does not have a DEFAULT key, recurse
     if (typeof value === 'object' && value !== null && !('DEFAULT' in value)) {
       return { ...acc, ...flattenColors(value, newKey) };
     }
     
+    // Replace '-DEFAULT' suffix with an empty string for the key
     return { ...acc, [newKey.replace(/-DEFAULT$/, '')]: value };
   }, {});
 };
 
-// Get flattened colors for Tailwind
-const tailwindColors = flattenColors(colors);
+// Get flattened colors for Tailwind 'vn' namespace
+const vnTokenColors = flattenColors(colors);
 
 const config = {
   darkMode: ["class"],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}', // If using old pages dir
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}', // For App Router
   ],
   future: {
-    hoverOnlyWhenSupported: true, // Better performance on mobile
+    hoverOnlyWhenSupported: true,
     respectDefaultRingColorOpacity: true,
     disableColorOpacityUtilitiesByDefault: true,
     purgeLayersByDefault: true,
@@ -42,7 +44,8 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
-        // Using CSS variables for light/dark themes
+        // Themeable colors using CSS variables (defined in globals.css)
+        // These adapt to light/dark mode
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -56,12 +59,19 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          ...colors.primary,
+          // Option A: Make light/dark shades also themeable via CSS vars
+          // light: "hsl(var(--primary-light))", // Requires --primary-light in globals.css
+          // dark: "hsl(var(--primary-dark))",   // Requires --primary-dark in globals.css
+          // Option B: Use direct token values for specific shades (these won't change with theme vars)
+           light: colors.primary.light, // Fixed light shade
+           dark: colors.primary.dark,   // Fixed dark shade
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-          ...colors.secondary,
+          // Similar choice for light/dark shades as with primary
+           light: colors.secondary.light,
+           dark: colors.secondary.dark,
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -79,21 +89,11 @@ const config = {
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         
-        // Direct token colors for use without CSS variables
+        // Direct token colors, prefixed with 'vn-'
+        // These are fixed values from your tokens and do not use CSS variables for theming.
+        // Useful for specific, non-themeable color needs or for a gradual transition.
         vn: {
-          ...tailwindColors,
-          // Legacy support (to be deprecated)
-          primary: colors.primary.DEFAULT,
-          'primary-light': colors.primary.light,
-          'primary-dark': colors.primary.dark,
-          secondary: colors.secondary.DEFAULT,
-          'secondary-light': colors.secondary.light,
-          'secondary-dark': colors.secondary.dark,
-          text: colors.foreground.DEFAULT,
-          'text-light': colors.foreground.light,
-          'text-dark': colors.foreground.dark,
-          'text-on-dark': colors.foreground.onDark,
-          'text-muted': colors.foreground.muted,
+          ...vnTokenColors, // Spreads all your flattened color tokens
         },
       },
       keyframes: {

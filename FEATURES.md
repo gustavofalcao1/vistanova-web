@@ -97,7 +97,7 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [x] **Cabeçalhos de Segurança**: Unificar gestão de cabeçalhos de segurança (priorizar `next.config.mjs` sobre `vercel.json` se não houver especificidades Vercel).
 * [x] **Dependências**:
   * [x] Verificar necessidade da dependência `@azure/identity`. (removida)
-  * [ ] Documentar decisão e diretrizes de uso para `styled-components` vs. Tailwind CSS.
+  * [x] Documentar decisão e diretrizes de uso para `styled-components` vs. Tailwind CSS.
 * [ ] (Opcional) Reativar linting no build de produção (`eslint.ignoreDuringBuilds: false`) antes do deploy final.
 
 ### Qualidade do Código e Convenções
