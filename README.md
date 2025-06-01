@@ -4,21 +4,22 @@ Website institucional profissional para a Vista Nova, construído com tecnologia
 
 ## 📌 Status do Projeto
 
-**Versão Atual:** 2.2.6  
+**Versão Atual:** 2.2.8  
 **Status:** Em desenvolvimento ativo  
 **Próxima Versão Estável:** 2.3.X (Planejada para produção)
 
 ### Versionamento
 - **2.x.x**: Melhorias e manutenção do site atual
 - **x.2.x**: Versão em produção (versão estável)
-- **x.x.6**: Sexta iteração de desenvolvimento
+- **x.x.8**: Oitava iteração de desenvolvimento
 
-### Melhorias Recentes (v2.2.6)
-- Correção do link "Fala Connosco" para navegação correta em todas as páginas
-- Ajuste da responsividade no header para melhor visualização em tablets
-- Padronização das cores nos títulos de seção para maior consistência visual
-- Ajuste do tamanho da logo no header para diferentes tamanhos de tela
-- Melhoria na exibição do menu móvel em dispositivos de tamanho médio
+### Melhorias Recentes (v2.2.8)
+- Implementação do Google Analytics 4 com deteção automática de domínio para múltiplos códigos de medição
+- Migração para a integração oficial do Google Analytics via `@next/third-parties`
+- Consolidação e clarificação da estrutura de tipos TypeScript
+- Reorganização dos componentes de analytics para maior consistência
+- Atualização da documentação com estrutura de diretórios e organização de tipos
+- Otimização de `useEffect` em vários componentes para prevenir re-renders desnecessários
 
 ## 🛡️ Funcionalidades Avançadas
 
