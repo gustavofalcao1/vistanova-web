@@ -26,9 +26,10 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
 
 ### Desempenho e Otimização
 - **Lazy-loading** de componentes e imagens para carregamento otimizado
-- **Image Optimization** com Next.js para formatos modernos (WebP/AVIF)
+- **Image Optimization** com script personalizado para conversão para WebP
 - **Vercel Analytics** para monitoramento de performance em tempo real
-- **Caching inteligente** para recursos estáticos e dinâmicos
+- **Caching inteligente** para recursos estáticos e dinâmicos (via `/optimized-assets/`)
+- **Otimização manual** de imagens para maior controle sobre qualidade e tamanho
 
 ### Segurança e Proteção
 - **reCAPTCHA v3** para proteção contra bots nos formulários
@@ -75,7 +76,17 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
 
 #### Processamento de Imagens
 
-1. **Processar logos a partir dos arquivos SVG**:
+1. **Otimizar todas as imagens**:
+   ```bash
+   yarn ts-node scripts/optimize-images.ts
+   ```
+   Este script irá:
+   - Converter imagens JPG/JPEG/PNG para WebP com compressão otimizada
+   - Redimensionar imagens grandes para um máximo de 1920px de largura
+   - Manter a estrutura de diretórios original
+   - Gerar as versões otimizadas em `public/optimized-assets/`
+
+2. **Processar logos a partir dos arquivos SVG**:
    ```bash
    node scripts/process-logos-svg.js
    ```
@@ -84,16 +95,11 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
    - Processar o favicon a partir de `public/assets/brand/LOGO VISTA NOVA/Logo 1000 por 1000.svg`
    - Gerar as versões otimizadas em `public/assets/brand/processed/`
 
-2. **Verificar transparência de uma imagem**:
-   ```bash
-   node scripts/check-transparency.js
-   ```
-
 3. **Gerar favicon.ico**:
    ```bash
    node scripts/generate-favicon.js
    ```
-   Gera o arquivo `favicon.ico` na raiz do projeto.
+   Gera o diretório `public/icons` na raiz do projeto.
 
 #### Notas Importantes
 
@@ -102,6 +108,9 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
 - O arquivo `Logo 1000 por 1000.svg` é usado para gerar os favicons e ícones do site.
 - Sempre execute o script de processamento após alterar os arquivos de origem.
 - O diretório `public/assets/brand/processed/` é gerado automaticamente e não deve ser versionado.
+- O diretório `public/optimized-assets/` contém imagens otimizadas e deve ser gerado antes do deploy.
+- A otimização nativa do Next.js está desativada (`unoptimized: true` em `next.config.mjs`) em favor do nosso script personalizado.
+- As imagens otimizadas são referenciadas com o prefixo `/optimized-assets/` em vez de `/assets/`.
 
 - `dev`: Inicia o servidor de desenvolvimento
 - `build`: Cria uma build de produção
