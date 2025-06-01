@@ -4,6 +4,3 @@ Allow: /
 
 # Host
 Host: https://vistanova.pt
-
-# Sitemaps
-Sitemap: https://vistanova.pt/sitemap.xml
