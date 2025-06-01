@@ -158,7 +158,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
           <div className="w-20 h-1 bg-secondary mx-auto mt-4"></div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+        <div className="grid grid-cols-1 [@media(min-width:920px)]:grid-cols-2 gap-8 mt-12">
           <motion.div 
             className="bg-neutral-100 rounded-xl shadow-lg p-8"
             variants={{
