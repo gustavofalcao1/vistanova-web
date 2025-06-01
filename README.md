@@ -167,8 +167,15 @@ O projeto inclui utilitários que facilitam o uso consistente de cores e outros 
 
 ## 📝 Documentação Adicional
 
-- [Otimizações e Features](./FEATURES.md)
+### Documentação Principal
+- [Otimizações e Features](./FEATURES.md) - Lista de funcionalidades implementadas e pendentes
+- [Changelog](./CHANGELOG.md) - Histórico de alterações e versões
+
+### Documentação Técnica
+- [Estrutura do Projeto](./src/README.md) - Organização de diretórios e convenções
+- [Sistema de Estilização](./src/styles/README.md) - Guia de estilização e sistema de cores
+- [API de Contato](./src/app/api/contact/README.md) - Documentação da API de contato com Resend e reCAPTCHA v3
 
 ---
 
-Desenvolvido com ❤️ por [Seu Nome] para Vista Nova
+Desenvolvido com ❤️ por [Gustavo Falcão](https://github.com/gustavofalcao1) para [Vista Nova](https://vistanova.pt)

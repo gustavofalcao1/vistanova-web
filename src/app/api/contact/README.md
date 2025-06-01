@@ -1,6 +1,6 @@
 # Sistema de Contato
 
-Este diretório contém a implementação da API de contato do site Vista Nova.
+Este diretório contém a implementação da API de contato do site Vista Nova, utilizando Resend para envio de e-mails e reCAPTCHA v3 para proteção contra spam.
 
 ## Configuração
 
@@ -9,12 +9,8 @@ Este diretório contém a implementação da API de contato do site Vista Nova.
 Crie um arquivo `.env.local` na raiz do projeto com as seguintes variáveis:
 
 ```env
-# Configurações de E-mail
-EMAIL_SERVER_HOST=smtp.seu-provedor.com
-EMAIL_SERVER_PORT=587
-EMAIL_SERVER_SECURE=false
-EMAIL_SERVER_USER=seu-email@exemplo.com
-EMAIL_SERVER_PASSWORD=sua-senha
+# Configurações do Resend
+RESEND_API_KEY=sua_chave_api_resend
 EMAIL_FROM=noreply@vistanova.pt
 EMAIL_REPLY_TO=contato@vistanova.pt
 CONTACT_FORM_RECIPIENT=contato@vistanova.pt
@@ -23,6 +19,15 @@ CONTACT_FORM_RECIPIENT=contato@vistanova.pt
 NEXT_PUBLIC_RECAPTCHA_SITE_KEY=sua_chave_do_site_aqui
 RECAPTCHA_SECRET_KEY=sua_chave_secreta_aqui
 ```
+
+### Configuração do Resend
+
+1. Acesse o [Resend](https://resend.com)
+2. Crie uma conta ou faça login
+3. Navegue até a seção de API Keys
+4. Crie uma nova API Key
+5. Copie a chave gerada para a variável de ambiente `RESEND_API_KEY`
+6. Configure seu domínio para envio de e-mails (opcional, mas recomendado para produção)
 
 ### Configuração do reCAPTCHA
 
@@ -38,23 +43,55 @@ RECAPTCHA_SECRET_KEY=sua_chave_secreta_aqui
 
 ### Fluxo de Envio
 
-1. O usuário preenche o formulário de contato
+1. O utilizador preenche o formulário de contacto
 2. O frontend valida os campos obrigatórios
 3. O reCAPTCHA v3 é executado em segundo plano
 4. Os dados são enviados para a rota `/api/contact`
 5. O servidor valida o token do reCAPTCHA
 6. A limitação de taxa é verificada
-7. O e-mail é enviado usando o Nodemailer
-8. O usuário recebe feedback sobre o status do envio
+7. O e-mail é enviado usando a API do Resend
+8. O utilizador recebe feedback sobre o status do envio
 
 ### Limitações de Taxa
 
-- Máximo de 5 requisições a cada 15 minutos por endereço IP
+Para evitar abuso da API de contacto, implementamos limitações de taxa:
+
+- Máximo de 5 solicitações por endereço IP a cada 15 minutos
+- Máximo de 3 solicitações por endereço de e-mail a cada 30 minutos
 - Respostas com status 429 são retornadas quando o limite é excedido
+- Bloqueio temporário após exceder os limites
+
+## Implementação
+
+### Dependências
+
+```bash
+npm install resend @vercel/ratelimit
+# ou
+yarn add resend @vercel/ratelimit
+```
+
+### Código da API
+
+A implementação utiliza:
+
+- **Resend**: Para envio de e-mails confiável e rastreamento
+- **reCAPTCHA v3**: Para proteção contra bots
+- **Vercel Rate Limit**: Para limitação de taxa
+- **Zod**: Para validação de dados
+
+### Vantagens do Resend
+
+- **Confiabilidade**: Alta taxa de entrega
+- **Rastreamento**: Estatísticas de abertura e cliques
+- **Templates**: Suporte a templates HTML responsivos
+- **Webhooks**: Notificações de eventos (entrega, abertura, etc.)
+- **API Moderna**: Integração simples com Next.js
+- **Dashboard**: Interface para monitoramento de e-mails
 
 ## Testes
 
-Para testar o sistema de contato localmente:
+Para testar o sistema de contacto localmente:
 
 1. Inicie o servidor de desenvolvimento:
    ```bash
@@ -82,3 +119,7 @@ Para testar o sistema de contato localmente:
 
 - Aguarde 15 minutos ou altere o IP para continuar testando
 - Ajuste as configurações em `src/middleware/rateLimit.ts` se necessário
+
+---
+
+📅 *Última atualização: 01/06/2025*
