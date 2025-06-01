@@ -166,58 +166,63 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
               visible: { opacity: 1, x: 0 }
             }}
           >
-            <h3 className="text-2xl font-semibold text-primary mb-4">Equipa</h3>
-            <div className="space-y-6">
-              {contacts.map((contact, index) => (
-                <div key={index} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
-                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden flex-shrink-0">
-                    {contact.photo ? (
-                      <Image 
-                        src={contact.photo} 
-                        alt={contact.name}
-                        fill
-                        className="object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-neutral-200 flex items-center justify-center text-neutral-500">
-                        {contact.name.charAt(0)}
+            <div className="grid grid-cols-1 [@media(min-width:850px)_and_(max-width:920px)]:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-2xl font-semibold text-primary mb-4">Equipa</h3>
+                <div className="space-y-6">
+                  {contacts.map((contact, index) => (
+                    <div key={index} className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
+                      <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden flex-shrink-0">
+                        {contact.photo ? (
+                          <Image 
+                            src={contact.photo} 
+                            alt={contact.name}
+                            fill
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-neutral-200 flex items-center justify-center text-neutral-500">
+                            {contact.name.charAt(0)}
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                  <div className="pt-2 text-center sm:text-left">
-                    <h4 className="font-semibold text-xl text-primary">{contact.name}</h4>
-                    <p className="text-neutral-600 text-sm">{contact.role}</p>
-                    <div className="mt-2 space-y-1">
-                      <a 
-                        href={`tel:${contact.phone}`} 
-                        className="flex items-center justify-center sm:justify-start gap-2 text-neutral-700 hover:text-primary transition-colors"
-                      >
-                        <Phone className="h-4 w-4" />
-                        <span>{contact.phone}</span>
-                      </a>
-                      <a 
-                        href={`mailto:${contact.email}`} 
-                        className="flex items-center justify-center sm:justify-start gap-2 text-neutral-700 hover:text-primary transition-colors"
-                      >
-                        <Mail className="h-4 w-4" />
-                        <span>{contact.email}</span>
-                      </a>
+                      <div className="pt-2 text-center sm:text-left">
+                        <h4 className="font-semibold text-xl text-primary">{contact.name}</h4>
+                        <p className="text-neutral-600 text-sm">{contact.role}</p>
+                        <div className="mt-2 space-y-1">
+                          <a 
+                            href={`tel:${contact.phone}`} 
+                            className="flex items-center justify-center sm:justify-start gap-2 text-neutral-700 hover:text-primary transition-colors"
+                          >
+                            <Phone className="h-4 w-4" />
+                            <span>{contact.phone}</span>
+                          </a>
+                          <a 
+                            href={`mailto:${contact.email}`} 
+                            className="flex items-center justify-center sm:justify-start gap-2 text-neutral-700 hover:text-primary transition-colors"
+                          >
+                            <Mail className="h-4 w-4" />
+                            <span>{contact.email}</span>
+                          </a>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-            <div className="mt-8 pt-6 border-t border-neutral-200">
-              <h3 className="text-2xl font-semibold text-primary mb-4">Onde Estamos</h3>
-              <div className="w-full h-[250px] sm:h-[350px] rounded-lg overflow-hidden">
-                <iframe 
-                  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Vista+Nova,+Lda.&zoom=16" 
-                  className="w-full h-full rounded-lg" 
-                  style={{border:0}} 
-                  allowFullScreen 
-                  loading="lazy" 
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+              </div>
+              
+              <div className="mt-8 [@media(min-width:850px)_and_(max-width:920px)]:mt-0 pt-6 [@media(min-width:850px)_and_(max-width:920px)]:pt-0 border-t [@media(min-width:850px)_and_(max-width:920px)]:border-t-0 border-neutral-200">
+                <h3 className="text-2xl font-semibold text-primary mb-4">Onde Estamos</h3>
+                <div className="w-full h-[250px] sm:h-[350px] rounded-lg overflow-hidden">
+                  <iframe 
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Vista+Nova,+Lda.&zoom=16" 
+                    className="w-full h-full rounded-lg" 
+                    style={{border:0}} 
+                    allowFullScreen 
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
               </div>
             </div>
           </motion.div>
