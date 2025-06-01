@@ -49,7 +49,7 @@ export const PageLink: React.FC<PageLinkProps> = ({
     // Número máximo de tentativas
     const maxAttempts = 10;
     // Intervalo entre tentativas (ms)
-    const interval = 300;
+    const interval = 600;
     let attempts = 0;
     
     const tryScroll = () => {
