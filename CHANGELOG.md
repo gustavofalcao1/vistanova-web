@@ -5,6 +5,54 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.8] - 2025-06-01
+
+### Adicionado
+- **Documentação**:
+  - Adicionada documentação JSDoc/TSDoc (em inglês) a funções complexas, componentes e tipos críticos.
+  - Clarificada e documentada a estratégia de otimização de imagens no `README.md`.
+  - Atualizado o `src/README.md` com a estrutura de diretórios e a organização de tipos TypeScript.
+  - Documentada a decisão e diretrizes de uso para `styled-components` vs. Tailwind CSS.
+- **Analytics**:
+  - Implementado Google Analytics 4 (GA4) com deteção automática de domínio para múltiplos códigos de medição.
+
+### Alterado
+- **Configuração ESLint**:
+  - Consolidada toda a configuração ESLint para um único ficheiro `eslint.config.mjs`.
+  - Removidos ficheiros ESLint legados (`.eslintignore`, `.eslintrc.js`, `.eslintrc.json`) e a secção `eslintConfig` do `package.json`.
+  - Ajustada a regra `no-restricted-syntax` para cores hexadecimais, focando a validação no script `check-colors.ts`.
+- **Configuração Next.js (`next.config.mjs`)**:
+  - Unificada a gestão de cabeçalhos de segurança e cache, centralizando-os neste ficheiro.
+- **Configuração Vercel (`vercel.json`)**:
+  - Simplificado o ficheiro, removendo a secção `headers` (agora gerida pelo `next.config.mjs`).
+- **Configuração Tailwind CSS (`tailwind.config.mjs`)**:
+  - Convertido o ficheiro de configuração de `.js` para `.mjs`.
+  - Refatorada a secção de cores para maior clareza entre cores temáticas (variáveis CSS) e tokens diretos (namespace `vn:`).
+- **Configuração `next-sitemap` (`next-sitemap.config.mjs`)**:
+  - Convertido o ficheiro de configuração de `.js` para `.mjs`.
+  - Atualizado o script `generate-sitemap` no `package.json`.
+- **Qualidade de Código**:
+  - Revisadas e otimizadas as arrays de dependências de `useEffect` em vários componentes e hooks para prevenir re-renders desnecessários e stale closures (e.g., `use-toast.ts`, `FontProvider.tsx`).
+  - Melhorada a consistência de cores no projeto através da execução e ajustes baseados no script `check-colors.ts`, incluindo a correção de `boxShadow` para usar variáveis CSS.
+- **Organização de Tipos**:
+  - Consolidada e clarificada a estrutura de tipos TypeScript, distinguindo entre tipos de entidade (`src/types/entities.ts`), tipos de props (`src/types/props.ts`) e tipos específicos de `src/lib/types.ts`.
+- **Hooks**:
+  - Removida a duplicação do hook `use-toast.ts`, padronizando o uso para `src/components/ui/use-toast.ts`.
+
+### Removido
+- Dependência `@azure/identity` verificada como desnecessária e removida.
+- Regra `no-restricted-syntax` para cores hexadecimais do ESLint (a verificação é agora primariamente feita pelo script `check-colors.ts`).
+
+### Revisado
+- **`postcss.config.mjs`**: Configuração validada como standard e correta.
+- **`tsconfig.json`**: Configuração validada como robusta; sugestões opcionais de melhoria consideradas.
+- **`.npmrc`**: Analisado; aconselhada a remoção dado o uso exclusivo de `yarn`.
+- **`.prettierrc` e `.prettierignore`**: Configurações validadas como boas e standard.
+- **`tailwind.d.ts`**: Estrutura de tipagem do tema Tailwind validada.
+- **Sistema de Estilos**: Organização entre tokens, `tailwind.config.mjs`, `globals.css` e `tailwind.d.ts` clarificada.
+
+---
+
 ## [2.2.7] - 2025-06-01
 
 ### Alterado

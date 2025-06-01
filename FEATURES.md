@@ -87,7 +87,7 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 
 ### Estrutura e Organização
 * [x] Clarificar/Atualizar `src/README.md` sobre o diretório `/src/features` (se aplicável).
-* [ ] Consolidar ou documentar claramente a distinção entre `/src/types` e `/src/lib/types.ts`.
+* [x] Consolidar ou documentar claramente a distinção entre `/src/types` e `/src/lib/types.ts`.
 
 ### Configuração do Projeto
 * [x] **ESLint**:

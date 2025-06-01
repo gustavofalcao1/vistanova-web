@@ -29,6 +29,7 @@ This document outlines the Vista Nova Web project's directory structure and orga
 ### `/src/contexts`
 - React Context providers for application state
 - Includes ThemeProvider for theme management
+  *(Note: Consider if this directory is still needed if ThemeProvider moved to `/src/components/providers` or `/src/components/theme`)*
 
 ### `/src/hooks`
 - Custom React hooks for shared logic
@@ -43,136 +44,51 @@ This document outlines the Vista Nova Web project's directory structure and orga
   - `queryClient.ts`: React Query configuration
   - `schemas.ts`: Zod validation schemas
   - `utils.ts`: General utility functions (protected zone)
+  - `types.ts`: Contains types specifically related to the logic within the `/src/lib/` directory, such as Form data structures (e.g., `ContactFormData`, `NewsletterFormData`).
 
 ### `/src/middleware`
 - Next.js middleware for request processing
-- Handles authentication, redirects, and request modifications
+- Handles rate limiting and potentially other request modifications.
 
 ### `/src/styles`
 - Global styles and Tailwind CSS configurations
-- Contains theme variables and global style definitions
+- Contains theme variables, global style definitions, and token definitions.
+  - `/tokens`: Defines design tokens like colors and spacing.
+  - `/utils`: Utility functions related to styling and theme.
 
 ### `/src/types`
-- TypeScript type definitions
-- Organized by domain:
-  - `auth.ts`: Authentication types (protected zone)
-  - `api.ts`: API-related types
-  - `theme.ts`: Theme-related types
-  - `utils.ts`: Utility types
+- Centralized TypeScript type definitions for the application.
+- Organized by domain and purpose:
+  - `entities.ts`: Defines core data structures and domain entities (e.g., `Service`, `FAQ`, `ContactPerson`).
+  - `props.ts`: Defines props interfaces for React components (e.g., `SectionProps`, `ButtonProps`).
+  - `api.ts`: Types related to API request/response structures.
+  - `auth.ts`: Types for authentication context and user data (protected zone).
+  - `theme.ts`: Types for theme context and structure.
+  - `utils.ts`: Generic utility types (e.g., `DeepPartial`).
+  - `images.d.ts`: Module declarations for image asset imports.
+  - `index.ts`: (Optional) Barrel file re-exporting common types from `entities.ts` and `props.ts` for convenience.
 
 ### `/src/config`
 - Configuration files for the application
-- Contains settings and constants
+- Contains settings and constants (e.g., `env.ts`, `paths.ts`).
 
 ## Naming Conventions
 
 - **Components**: PascalCase (e.g., `Button.tsx`, `HeroSection.tsx`)
-- **Hooks**: camelCase with 'use' prefix (e.g., `useMediaQuery.ts`)
-- **Utilities**: camelCase (e.g., `formatDate.ts`)
-- **Types**: PascalCase for interfaces and types (e.g., `User`, `ApiResponse`)
-- **Constants**: UPPER_SNAKE_CASE (e.g., `MAX_ITEMS`, `API_ENDPOINTS`)
+- **Hooks**: camelCase with 'use' prefix (e.g., `useTheme.ts`, `useScrollReveal.ts`)
+- **Utilities**: camelCase (e.g., `formatDate.ts`, `cn.ts` in `lib/utils.ts`)
+- **Types**: PascalCase for interfaces and types (e.g., `User`, `ApiResponse`, `Service`, `SectionProps`)
+- **Constants**: UPPER_SNAKE_CASE (e.g., `MAX_ITEMS`, `API_ENDPOINTS` - as defined in `src/config/env.ts`)
 
 ## Best Practices
 
-- Keep components focused on a single responsibility
-- Use TypeScript types for all props and function parameters
-- Leverage Tailwind CSS for styling
-- Follow shadcn/ui patterns for component design
-- Implement proper error boundaries and loading states
-- Ensure all components are responsive and accessible
-- Document complex logic with clear comments
-- Use named exports instead of default exports
-### `/src/types`
-- TypeScript type definitions
-- Interfaces and types
-- Follows PascalCase naming convention
+- Keep components focused on a single responsibility.
+- Use TypeScript types for all props, function parameters, and return values.
+- Leverage Tailwind CSS for styling, using theme variables and utility classes.
+- Follow shadcn/ui patterns for component design when applicable.
+- Implement proper error boundaries and loading states for a robust user experience.
+- Ensure all components are responsive across different viewports and accessible (striving for WCAG 2.1 AA).
+- Document complex logic, components, and public APIs using JSDoc/TSDoc (in English).
+- Prefer named exports over default exports for better tree-shaking and clarity, unless it's a page component in Next.js App Router.
 
-### `/src/utils`
-- Helper functions
-- Utility classes
-- Follows camelCase naming convention
-
-### `/src/contexts`
-- React context providers
-- State management
-- Follows PascalCase naming convention
-
-### `/src/styles`
-- Global styles
-- CSS modules
-- Tailwind configurations
-
-### `/src/config`
-- Application configuration
-- Environment variables
-- API configurations
-
-## Naming Conventions
-
-### Components
-- Use PascalCase (e.g., `HeroSection`)
-- Include suffix for component type (e.g., `Header`, `Footer`)
-- Keep names descriptive but concise
-
-### Hooks
-- Prefix with 'use' (e.g., `useAuth`, `useFetch`)
-- Follow camelCase (e.g., `useUser`, `useCart`)
-
-### Types
-- Use PascalCase (e.g., `UserType`, `ProductType`)
-- Use 'Type' or 'Interface' suffix when appropriate
-
-### Utilities
-- Use camelCase (e.g., `formatDate`, `calculateTotal`)
-- Keep names descriptive
-
-### Contexts
-- Use PascalCase (e.g., `AuthContext`, `ThemeContext`)
-- Follow React context naming conventions
-
-## File Organization
-
-### Components
-```
-components/
-  ├── ui/              # Reusable UI components
-  │   ├── Button.tsx
-  │   ├── Card.tsx
-  │   └── Input.tsx
-  ├── sections/        # Page sections
-  │   ├── HeroSection.tsx
-  │   └── Footer.tsx
-  └── layouts/         # Layout components
-      └── MainLayout.tsx
-```
-
-### Features
-```
-features/
-  ├── auth/           # Authentication feature
-  │   ├── components/
-  │   ├── hooks/
-  │   └── types/
-  └── products/       # Product feature
-      ├── components/
-      ├── hooks/
-      └── types/
-```
-
-### Hooks
-```
-hooks/
-  ├── useAuth.ts
-  ├── useFetch.ts
-  └── useTheme.ts
-```
-
-## Best Practices
-
-1. Keep related files together
-2. Use consistent naming across the project
-3. Document complex components and hooks
-4. Follow TypeScript best practices
-5. Keep files small and focused
-6. Use meaningful names that describe functionality
-7. Follow React component best practices
+*(Note: Removi as secções duplicadas e a estrutura de exemplo para features/ que não existe no seu projeto atual, e ajustei a descrição de /src/types e /src/lib para refletir a nova organização de tipos.)*
