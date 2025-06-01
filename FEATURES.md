@@ -49,7 +49,7 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
   * [x] Rate limiting para API (`middleware.ts`)
   * [x] Proteção de formulários com reCAPTCHA v3
 * [x] **SEO (Base)** ✅
-  * [x] Geração de `sitemap.xml` e `robots.txt` (`next-sitemap.config.js`)
+  * [x] Geração de `sitemap.xml` e `robots.txt` (`next-sitemap.config.js` agora `.mjs`)
   * [x] Metadados base e por página (`layout.tsx`, `metadata.ts` específicos)
   * [x] Favicons e ícones configurados
   * [x] `humans.txt`
@@ -91,13 +91,20 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 
 ### Configuração do Projeto
 * [x] **ESLint**:
-  * [x] Consolidar configuração ESLint (`eslint.config.js` vs `eslint.config.mjs`).
-  * [x] Remover secção `eslintConfig` do `package.json`.
+  * [x] Consolidar configuração ESLint (convertido para `eslint.config.mjs`).
+  * [x] Remover secção `eslintConfig` do `package.json` e ficheiros ESLint legados.
 * [x] **Otimização de Imagens**: Clarificar e documentar a estratégia final (Next.js Image loader vs. script `optimize-images.ts` e `images.unoptimized: true`). Atualizar `README.md`.
-* [x] **Cabeçalhos de Segurança**: Unificar gestão de cabeçalhos de segurança (priorizar `next.config.mjs` sobre `vercel.json` se não houver especificidades Vercel).
+* [x] **Cabeçalhos de Segurança**: Unificar gestão de cabeçalhos de segurança (priorizar `next.config.mjs` sobre `vercel.json`).
 * [x] **Dependências**:
   * [x] Verificar necessidade da dependência `@azure/identity`. (removida)
   * [x] Documentar decisão e diretrizes de uso para `styled-components` vs. Tailwind CSS.
+* [x] **Padronização de Ficheiros de Configuração**:
+    * [x] Converter `tailwind.config.js` para `.mjs`.
+    * [x] Revisar `postcss.config.mjs` (confirmado como OK).
+    * [x] Converter `next-sitemap.config.js` para `.mjs` e atualizar script no `package.json`.
+* [x] **Revisão de `tsconfig.json`** (confirmado como bom, sugestões opcionais fornecidas).
+* [x] **Revisão de `.npmrc`** (aconselhado remover se `yarn` for exclusivo).
+* [x] **Revisão de `.prettierrc` e `.prettierignore`** (confirmados como bons).
 * [ ] (Opcional) Reativar linting no build de produção (`eslint.ignoreDuringBuilds: false`) antes do deploy final.
 
 ### Qualidade do Código e Convenções
@@ -105,6 +112,7 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [ ] **Documentação de Código**: Adicionar JSDoc/TSDoc (em inglês) a funções complexas, componentes com muitas props e lógica de negócio crítica.
 * [ ] **Consistência de Cores**: Executar regularmente `scripts/check-colors.ts` e garantir que todas as cores hardcoded não intencionais sejam substituídas por variáveis/classes do tema.
 * [ ] **Revisão de `useEffect`**: Garantir que os arrays de dependências estão corretos e otimizados.
+* [ ] **Revisão do sistema de Estilos**: Clarificar organização entre tokens, `tailwind.config.mjs`, `globals.css` e `tailwind.d.ts`.
 
 ### Performance
 * [ ] **LazyLoad Component**: Se o componente `LazyLoad` atual for um placeholder, implementar lazy loading real para componentes (e.g., com Intersection Observer) ou usar funcionalidades do React 19.
@@ -116,7 +124,7 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [ ] **Auditoria de Dependências**: Executar `yarn audit` regularmente.
 
 ### Documentação e Manutenção
-* [ ] **Changelog**: Reordenar e verificar consistência do `CHANGELOG.MD` (entradas mais recentes no topo).
+* [x] **Changelog**: Reordenar e verificar consistência do `CHANGELOG.MD` (entradas mais recentes no topo). *(Sugestão: Marcar como feito)*
 * [ ] **Scripts Customizados**: Documentar scripts em `scripts/` (e.g., `generateGlobalCSS.mjs`) no `README.md` principal.
 
 ### Error Handling e Logging

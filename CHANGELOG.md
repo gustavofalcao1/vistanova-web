@@ -5,6 +5,39 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.7] - 2025-06-01
+
+### Alterado
+- **Configuração ESLint**:
+  - Consolidada toda a configuração ESLint para um único ficheiro `eslint.config.mjs` utilizando o formato "flat config".
+  - Removidos ficheiros ESLint legados (`.eslintignore`, `.eslintrc.js`, `.eslintrc.json`) e a secção `eslintConfig` do `package.json`.
+  - Adicionado `eslint-plugin-tailwindcss` com regras recomendadas e personalizadas.
+  - Incluídas regras para desencorajar o uso direto de cores hexadecimais.
+- **Configuração Next.js (`next.config.mjs`)**:
+  - Unificada a gestão de cabeçalhos de segurança e cache, centralizando-os neste ficheiro.
+  - Atualizada a `Permissions-Policy` para incluir `interest-cohort=()`.
+  - Adicionada política de cache para a diretoria `/fonts/`.
+  - Adicionada política de `Cache-Control: no-store` para rotas API (`/api/*`).
+- **Configuração Vercel (`vercel.json`)**:
+  - Simplificado o ficheiro, removendo a secção `headers` (agora gerida pelo `next.config.mjs`).
+  - Mantidas as diretivas de build e framework.
+- **Configuração Tailwind CSS (`tailwind.config.js` -> `tailwind.config.mjs`)**:
+  - Convertido o ficheiro de configuração para o formato `.mjs` (`tailwind.config.mjs`).
+  - Refatorada a secção de cores para maior clareza entre cores temáticas (variáveis CSS) e cores de token diretas (namespace `vn:`).
+  - Removida redundância na secção "Legacy support" dentro do namespace `vn.colors`.
+- **Configuração `next-sitemap` (`next-sitemap.config.js` -> `next-sitemap.config.mjs`)**:
+  - Convertido o ficheiro de configuração para o formato `.mjs`.
+  - Atualizado o script `generate-sitemap` no `package.json` para usar o novo nome do ficheiro de configuração.
+
+### Revisado
+- **`tsconfig.json`**: Configuração validada como robusta e alinhada com as práticas modernas. Sugestões opcionais fornecidas para maior clareza e robustez (e.g., `forceConsistentCasingInFileNames`, `baseUrl`).
+- **`tailwind.d.ts`**: Validação da estrutura para tipagem do tema Tailwind. Sugerido o uso de `ThemeConfig` para maior clareza semântica na importação de tipos.
+- **`postcss.config.mjs`**: Configuração validada como standard e correta.
+- **`.npmrc`**: Analisado o conteúdo. Aconselhada a remoção se `yarn` for o gestor de pacotes exclusivo, pois as configurações `.npmrc` não teriam efeito.
+- **`.prettierrc` e `.prettierignore`**: Configurações validadas como boas e standard, sem necessidade de alterações.
+
+---
+
 ## [2.2.6] - 2025-05-31
 
 ### Adicionado
@@ -113,4 +146,4 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ---
 
-📅 *Última atualização: 31/05/2025*
+📅 *Última atualização: 01/06/2025*
