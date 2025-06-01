@@ -2,7 +2,7 @@
 
 Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 
-O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
+O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
 ## [2.2.6] - 2025-05-31
@@ -31,27 +31,22 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 ## [2.2.0] - 2025-05-27
 
 ### Adicionado
-- ✅ Sistema de contato integrado
+- Sistema de contato integrado:
   - Formulário com validação em tempo real
-  - Integração com Nodemailer
+  - Integração com Nodemailer (simulada para desenvolvimento)
   - Proteção com reCAPTCHA v3
   - Limitação de taxa de requisições
   - Template de e-mail profissional
-  - Documentação detalhada
-- [ ] Suporte a temas claros/escuros
-- [ ] Melhorias de acessibilidade
+  - Documentação detalhada da API de contato
 
-### Corrigido
-- [ ] Estilos de hover em dispositivos móveis
-- [ ] Alinhamento do menu em telas pequenas
-- [ ] Desempenho de animações
+> **Nota:** Itens como "Suporte a temas claros/escuros" e "Melhorias de acessibilidade" listados originalmente como pendentes foram movidos para o FEATURES.MD como tarefas futuras, pois o changelog regista apenas alterações concluídas.
 
 ---
 
 ## [2.1.6] - 2025-05-31
 
 ### Corrigido
-- ✅ Configuração de build para Vercel
+- Configuração de build para Vercel:
   - Adicionado script `build:vercel` para ignorar erros de linting durante o build
   - Atualizado `vercel.json` para usar o novo script de build
 
@@ -60,17 +55,17 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 ## [2.1.5] - 2025-05-31
 
 ### Corrigido
-- ✅ Problemas de build para produção
-  - Corrigido erro de tipo no `src/styles/theme/index.ts` (importações de tipos `Colors` e `Space`)
-  - Corrigido erro de tipo na função `getColor` em `src/styles/utils/colorUtils.ts`
-  - Corrigida referência incorreta a `theme.fonts` em `src/styles/utils/theme-utils.ts`
+- Problemas de build para produção:
+  - Erro de tipo no `src/styles/theme/index.ts` (importações de tipos `Colors` e `Space`)
+  - Erro de tipo na função `getColor` em `src/styles/utils/colorUtils.ts`
+  - Referência incorreta a `theme.fonts` em `src/styles/utils/theme-utils.ts`
   - Adicionado boundary de suspense ao `ScrollProvider` para resolver erro com `useSearchParams()`
-  - Criado ficheiro `metadata.ts` para a página `/modelo` com configuração correta de `viewport`
-- ✅ Simplificação do sistema de email
+  - Criado ficheiro `metadata.ts` para a página `/modelo` com configuração correta de viewport
+- Simplificação do sistema de email:
   - Removida dependência do `nodemailer`
   - Implementada simulação de envio de email para desenvolvimento
   - Simplificada a configuração de variáveis de ambiente
-- ✅ Otimização de páginas
+- Otimização de páginas:
   - Convertidas páginas de políticas para Client Components
   - Implementado renderização dinâmica de datas
   - Movidos metadados para ficheiros separados
@@ -112,13 +107,13 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ## 📊 Métricas de Performance
 
-### Antes da Otimização
+### Antes da Otimização (Referência Inicial)
 - FCP (First Contentful Paint): 2.8s
 - LCP (Largest Contentful Paint): 4.2s
 - CLS (Cumulative Layout Shift): 0.25
 - TTI (Time to Interactive): 3.1s
 
-### Após Otimização (v2.1.4)
+### Após Otimização (Marco v2.1.4)
 - FCP: 1.2s (redução de 57%)
 - LCP: 1.8s (redução de 57%)
 - CLS: 0.05 (redução de 80%)
@@ -126,4 +121,4 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ---
 
-📅 *Última atualização: 31/05/2025*
+📅 *Última atualização: 01/06/2025*
