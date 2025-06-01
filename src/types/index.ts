@@ -1,5 +1,9 @@
 // Global types for the application
 
+// Re-exporting common entity and props types for easier access.
+export * from './entities';
+export * from './props';
+
 export interface AppLayoutProps {
   children: React.ReactNode;
 }

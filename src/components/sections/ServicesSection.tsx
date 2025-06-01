@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Service } from "@/lib/types";
+import { Service } from "@/types/entities";
 import { 
   House, RefreshCw, PiggyBank, Car, 
   HandCoins, HardHat, Hammer, MapPinned, CreditCard 

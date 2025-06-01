@@ -4,7 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { contactFormSchema, ContactFormValues } from "@/lib/schemas";
-import { ContactFormData } from "@/lib/types";
+import { ContactFormData } from "@/types/lib";
 import { useToast } from "@/components/ui/use-toast";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { motion } from "framer-motion";

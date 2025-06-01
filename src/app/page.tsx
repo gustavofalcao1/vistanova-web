@@ -19,7 +19,7 @@ import ImpactSection from "@/components/sections/ImpactSection";
 
 // Types
 import { Service, FAQ, ContactPerson, PartnerLogo, Protocol } from "@/types";
-import { NewsletterFormData } from "@/lib/types";
+import { NewsletterFormData } from "@/types/lib";
 
 const services: Service[] = [
   {

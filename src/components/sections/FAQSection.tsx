@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { FAQ } from "@/lib/types";
+import { FAQ } from "@/types/entities";
 
 interface FAQSectionProps {
   faqs: FAQ[];
