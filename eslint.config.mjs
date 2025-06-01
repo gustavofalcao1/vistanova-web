@@ -72,7 +72,7 @@ const eslintConfig = [
       // Rules migrated from .eslintrc.json
       "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/no-explicit-any": "off",
-      "react-hooks/exhaustive-deps": "off", // Note: Disabling this can hide potential bugs. Re-evaluate if needed.
+      "react-hooks/exhaustive-deps": "warn", // Note: Disabling this can hide potential bugs. Re-evaluate if needed.
 
       // Custom rule from .eslintrc.js to discourage direct hex color usage
       "no-restricted-syntax": [

@@ -170,23 +170,30 @@ function toast({ ...props }: Toast) {
 }
 
 function useToast() {
-  const [state, setState] = React.useState<State>(memoryState)
+  const [state, setState] = React.useState<State>(memoryState);
 
   React.useEffect(() => {
-    listeners.push(setState)
+    // Function to update local state when global state changes
+    const handleStateChange = (newState: State) => {
+      setState(newState);
+    };
+
+    listeners.push(handleStateChange); // Subscribe with a stable handler
+    setState(memoryState); // Ensure initial state is fresh when component mounts or re-subscribes
+
     return () => {
-      const index = listeners.indexOf(setState)
+      const index = listeners.indexOf(handleStateChange);
       if (index > -1) {
-        listeners.splice(index, 1)
+        listeners.splice(index, 1);
       }
-    }
-  }, [state])
+    };
+  }, []); // Empty array: subscribe on mount, unsubscribe on unmount
 
   return {
     ...state,
     toast,
     dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
-  }
+  };
 }
 
 export { useToast, toast }
