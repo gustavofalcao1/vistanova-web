@@ -41,7 +41,8 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
 ## 🚀 Tecnologias Principais
 
 - **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
-- **Estilização**: [Tailwind CSS](https://tailwindcss.com/) com variáveis CSS
+- **Estilização Principal**: [Tailwind CSS](https://tailwindcss.com/) com variáveis CSS
+- **Estilização Avançada**: [styled-components](https://styled-components.com/) (casos específicos)
 - **Componentes UI**: [shadcn/ui](https://ui.shadcn.com/)
 - **Tipagem**: [TypeScript](https://www.typescriptlang.org/)
 - **Animações**: [Framer Motion](https://www.framer.com/motion/)
@@ -51,6 +52,43 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
 - **E-mails**: [Nodemailer](https://nodemailer.com/)
 - **Segurança**: [reCAPTCHA v3](https://www.google.com/recaptcha/intro/)
 - **Gerenciamento de Estado**: Context API
+
+## 🎨 Estratégia de Estilização
+
+O projeto Vista Nova Web utiliza uma abordagem híbrida de estilização, combinando as vantagens de diferentes tecnologias:
+
+### Tailwind CSS (Principal)
+
+O [Tailwind CSS](https://tailwindcss.com/) é a solução principal de estilização, utilizada para:
+
+- Layouts responsivos e componentes de UI padrão
+- Espaçamentos, tipografia e cores consistentes
+- Estilização rápida com classes utilitárias
+- Componentes shadcn/ui (baseados em Tailwind)
+
+### styled-components (Casos Específicos)
+
+O [styled-components](https://styled-components.com/) é utilizado em casos específicos onde o Tailwind CSS apresenta limitações:
+
+- Componentes com lógica de estilo complexa e dinâmica
+- Estilos que dependem de múltiplas props ou estados
+- Animações e transições avançadas
+- Acesso programático ao sistema de tema para manipulações complexas
+- Geração de CSS dinâmico baseado em lógica de negócio
+
+### Diretrizes de Uso
+
+1. **Priorize o Tailwind CSS** para a maioria dos componentes e layouts
+2. **Use styled-components apenas quando necessário** para casos que exigem lógica de estilo complexa
+3. **Mantenha a consistência** utilizando as mesmas variáveis de cores e espaçamentos em ambas as abordagens
+4. **Documente claramente** quando e por que styled-components foi escolhido para um componente específico
+
+### Utilitários de Integração
+
+O projeto inclui utilitários que facilitam o uso consistente de cores e outros tokens de design em ambas as abordagens:
+
+- `src/styles/utils/colors.ts`: Funções para acessar cores do tema em styled-components
+- `src/styles/theme`: Sistema de tema compartilhado entre Tailwind e styled-components
 
 ## 🛠️ Desenvolvimento
 

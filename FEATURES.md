@@ -86,7 +86,7 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 ## Tarefas Pós-Auditoria (Refatoração e Boas Práticas)
 
 ### Estrutura e Organização
-* [ ] Clarificar/Atualizar `src/README.md` sobre o diretório `/src/features` (se aplicável).
+* [x] Clarificar/Atualizar `src/README.md` sobre o diretório `/src/features` (se aplicável).
 * [ ] Consolidar ou documentar claramente a distinção entre `/src/types` e `/src/lib/types.ts`.
 
 ### Configuração do Projeto
@@ -94,9 +94,9 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
   * [x] Consolidar configuração ESLint (`eslint.config.js` vs `eslint.config.mjs`).
   * [x] Remover secção `eslintConfig` do `package.json`.
 * [x] **Otimização de Imagens**: Clarificar e documentar a estratégia final (Next.js Image loader vs. script `optimize-images.ts` e `images.unoptimized: true`). Atualizar `README.md`.
-* [ ] **Cabeçalhos de Segurança**: Unificar gestão de cabeçalhos de segurança (priorizar `next.config.mjs` sobre `vercel.json` se não houver especificidades Vercel).
-* [ ] **Dependências**:
-  * [ ] Verificar necessidade da dependência `@azure/identity`.
+* [x] **Cabeçalhos de Segurança**: Unificar gestão de cabeçalhos de segurança (priorizar `next.config.mjs` sobre `vercel.json` se não houver especificidades Vercel).
+* [x] **Dependências**:
+  * [x] Verificar necessidade da dependência `@azure/identity`. (removida)
   * [ ] Documentar decisão e diretrizes de uso para `styled-components` vs. Tailwind CSS.
 * [ ] (Opcional) Reativar linting no build de produção (`eslint.ignoreDuringBuilds: false`) antes do deploy final.
 
