@@ -90,10 +90,10 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [ ] Consolidar ou documentar claramente a distinção entre `/src/types` e `/src/lib/types.ts`.
 
 ### Configuração do Projeto
-* [ ] **ESLint**:
-  * [ ] Consolidar configuração ESLint (`eslint.config.js` vs `eslint.config.mjs`).
-  * [ ] Remover secção `eslintConfig` do `package.json`.
-* [ ] **Otimização de Imagens**: Clarificar e documentar a estratégia final (Next.js Image loader vs. script `optimize-images.ts` e `images.unoptimized: true`). Atualizar `README.md`.
+* [x] **ESLint**:
+  * [x] Consolidar configuração ESLint (`eslint.config.js` vs `eslint.config.mjs`).
+  * [x] Remover secção `eslintConfig` do `package.json`.
+* [x] **Otimização de Imagens**: Clarificar e documentar a estratégia final (Next.js Image loader vs. script `optimize-images.ts` e `images.unoptimized: true`). Atualizar `README.md`.
 * [ ] **Cabeçalhos de Segurança**: Unificar gestão de cabeçalhos de segurança (priorizar `next.config.mjs` sobre `vercel.json` se não houver especificidades Vercel).
 * [ ] **Dependências**:
   * [ ] Verificar necessidade da dependência `@azure/identity`.
