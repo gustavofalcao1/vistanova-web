@@ -63,21 +63,24 @@ export const PageLink: React.FC<PageLinkProps> = ({
         return;
       }
       
-      // Se já estiver na home ou navegando para outra página com hash
-      if (isHome || !to.startsWith('#')) {
-        // Se estiver na home e o link for para a mesma página
-        if (isHome && isHashLink) {
-          scrollToElement(targetId);
-          return;
-        }
-        
-        // Se for para outra página com hash
-        if (to.includes('#') && !isHashLink) {
-          const pagePath = to.split('#')[0];
-          sessionStorage.setItem('scrollToSection', targetId);
-          router.push(pagePath);
-          return;
-        }
+      // Se já estiver na home e o link for para a mesma página com hash
+      if (isHome && isHashLink) {
+        scrollToElement(targetId);
+        return;
+      }
+      
+      // Se estiver na home e o link for para a home com hash (formato /#section)
+      if (isHome && to.startsWith('/#')) {
+        scrollToElement(targetId);
+        return;
+      }
+      
+      // Se for para outra página com hash
+      if (to.includes('#') && !isHashLink) {
+        const pagePath = to.split('#')[0];
+        sessionStorage.setItem('scrollToSection', targetId);
+        router.push(pagePath);
+        return;
       }
     }
   };
