@@ -126,7 +126,7 @@ const HeroCarousel = () => {
     }, 8000);
     
     return () => clearTimeout(timer);
-  }, []); // Empty dependency array to run only once on mount
+  }, [currentIndex]); // Re-run when currentIndex changes to create continuous carousel
 
   const nextSlide = () => {
     // setDirection(1);
