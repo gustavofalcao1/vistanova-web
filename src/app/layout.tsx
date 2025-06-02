@@ -79,10 +79,14 @@ export default function RootLayout({
         {/* Humans */}
         <link rel="author" href="/humans.txt" type="text/plain" />
       </head>
+      {/* #DEV div and mt-12 */}
       <body className="antialiased relative">
+        <div className="fixed flex items-center justify-center top-0 left-0 right-0 h-12 w-full z-[99] bg-secondary">
+          <p className="text-primary font-bold text-xl">Web site em desenvolvimento</p>
+        </div>
         <Providers>
           <ScrollProvider>
-            <div style={{ minHeight: '100vh' }}>
+            <div style={{ minHeight: '100vh' }} className="mt-12">
               {children}
               <WhatsAppButton />
               <Toaster />
