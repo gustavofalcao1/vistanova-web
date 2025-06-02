@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import { OptimizedImage } from "@/components/ui";
-import { SmoothScrollLink } from "@/components/ui/SmoothScrollLink";
+import { SmoothScrollLink } from "@/components/ui/smooth-scroll-link";
 
 interface HeroSlide {
   id: number;

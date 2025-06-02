@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Logo } from "@/components/ui/logo";
-import { PageLink } from "@/components/ui/PageLink";
+import { PageLink } from "@/components/ui/page-link";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,9 +53,9 @@ export default function Header() {
             <PageLink to="#partners" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Parceiros
             </PageLink>
-            <a href="/trabalha-connosco" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
+            <PageLink to="/trabalha-connosco" className="text-neutral-800 hover:text-secondary font-medium text-[15px] xl:text-[16px] transition-colors whitespace-nowrap">
               Trabalha Connosco
-            </a>
+            </PageLink>
           </div>
           
           <div className="flex items-center space-x-2 sm:space-x-4">
@@ -127,13 +127,13 @@ export default function Header() {
               >
                 Contacto
               </PageLink>
-              <a 
-                href="/trabalha-connosco" 
+              <PageLink 
+                to="/trabalha-connosco" 
                 className="text-neutral-800 hover:text-primary font-medium p-2 transition-colors rounded-lg hover:bg-neutral-100 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Trabalha Connosco
-              </a>
+              </PageLink>
             </div>
           </motion.div>
         )}

@@ -3,7 +3,7 @@
 import React from "react";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
-import { PageLink } from "@/components/ui/PageLink";
+import { PageLink } from "@/components/ui/page-link";
 import { FaInstagram, FaTiktok, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 
 // Removed unused imports
