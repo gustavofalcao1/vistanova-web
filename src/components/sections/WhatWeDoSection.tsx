@@ -66,7 +66,7 @@ export default function WhatWeDoSection() {
                 visible: { opacity: 1, y: 0 }
               }}
             >
-              <span className="text-primary font-semibold">Nossa Abordagem</span>
+              <span className="text-primary font-semibold">Não somos um banco</span>
               <h2 className="text-3xl md:text-4xl font-bold mt-2 text-primary">O que fazemos</h2>
               <div className="w-20 h-1 bg-secondary mt-4"></div>
             </motion.div>
@@ -107,7 +107,7 @@ export default function WhatWeDoSection() {
                   <span className="text-primary font-bold">01</span>
                 </div>
                 <div className="text-center sm:text-left">
-                  <h3 className="text-xl font-semibold text-primary">Não vendendemos crédito</h3>
+                  <h3 className="text-xl font-semibold text-primary">Não vendemos crédito</h3>
                   <p className="mt-2 text-neutral-700">O nosso trabalho não é vender crédito, é analisar o teu perfil financeiro, perceber a tua capacidade de endividamento, e encontrar, junto dos nossos parceiros bancários, a melhor solução para ti, adaptada às tuas necessidades e condições.</p>
                 </div>
               </motion.div>

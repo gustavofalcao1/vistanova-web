@@ -81,7 +81,7 @@ export default function WhatsAppButton() {
 
   const handleClick = useCallback(() => {
     const phoneNumber = '351924967148';
-    const message = 'Olá, gostaria de mais informações sobre a Vista Nova';
+    const message = 'Olá, gostaria de mais informações sobre os vossos serviços';
     const encodedMessage = encodeURIComponent(message);
     window.open(
       `https://wa.me/${phoneNumber}?text=${encodedMessage}`, 
