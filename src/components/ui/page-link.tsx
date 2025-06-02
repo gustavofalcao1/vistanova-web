@@ -85,11 +85,11 @@ export const PageLink: React.FC<PageLinkProps> = ({
     }
   };
   
-  // Função para tentar rolar até um elemento com múltiplas tentativas
+  // Function to scroll to an element with multiple attempts
   const scrollToElement = (elementId: string) => {
-    // Número máximo de tentativas
+    // Maximum number of attempts
     const maxAttempts = 10;
-    // Intervalo entre tentativas (ms)
+    // Interval between attempts (ms)
     const interval = 300;
     let attempts = 0;
     
@@ -97,29 +97,39 @@ export const PageLink: React.FC<PageLinkProps> = ({
       const targetElement = document.getElementById(elementId);
       
       if (targetElement) {
-        // Elemento encontrado, rola até ele
+        // Element found, scroll to it
         setTimeout(() => {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start',
+          // Calculate scroll position with offset for contact section
+          const isContactSection = elementId === 'contact';
+          const offset = isContactSection ? -26 : 0;
+          
+          // Get element position
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.scrollY + offset;
+          
+          // Scroll to element with offset if needed
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
           });
-          // Remove o hash da URL sem rolagem
+          
+          // Remove hash from URL without scrolling
           window.history.replaceState(null, '', pathname);
         }, 100);
         return true;
       } else if (attempts < maxAttempts) {
-        // Elemento não encontrado, tenta novamente
+        // Element not found, try again
         attempts++;
         setTimeout(tryScroll, interval);
         return false;
       } else {
-        // Desiste após o número máximo de tentativas
-        console.warn(`Elemento #${elementId} não encontrado após ${maxAttempts} tentativas`);
+        // Give up after maximum attempts
+        console.warn(`Element #${elementId} not found after ${maxAttempts} attempts`);
         return false;
       }
     };
     
-    // Inicia a primeira tentativa
+    // Start first attempt
     tryScroll();
   };
 

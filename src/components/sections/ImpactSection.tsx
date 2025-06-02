@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ArrowRight } from "lucide-react";
+import { PageLink } from "@/components/ui/page-link";
 
 export default function ImpactSection() {
   const { ref, isVisible } = useScrollReveal();
@@ -50,15 +51,18 @@ export default function ImpactSection() {
             visible: { opacity: 1, y: 0 }
           }}
         >
-          <motion.a 
-            href="#contact" 
-            className="bg-secondary hover:bg-secondary/90 text-primary font-bold py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-xl inline-flex items-center gap-2"
+          <motion.div
             whileHover={{ scale: 1.05, x: 5 }}
             whileTap={{ scale: 0.95 }}
           >
-            <span>Conversa Connosco</span>
-            <ArrowRight className="h-5 w-5" />
-          </motion.a>
+            <PageLink 
+              to="#contact" 
+              className="bg-secondary hover:bg-secondary/90 text-primary font-bold py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-xl inline-flex items-center gap-2"
+            >
+              <span>Conversa Connosco</span>
+              <ArrowRight className="h-5 w-5" />
+            </PageLink>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>
