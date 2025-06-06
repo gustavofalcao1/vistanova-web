@@ -118,8 +118,8 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 
 ### Analytics e Monitoramento
 * [x] **Google Analytics**: Implementar Google Analytics 4 (GA4) com dois códigos de medição:
-  * `G-CKS904F0K4` para o domínio principal (vistanova.pt)
-  * `G-WN7H6JW57C` para o URL de deploy do Vercel
+  * Domínio principal (vistanova.pt)
+  * URL de deploy do Vercel
   * Detecção automática do domínio para usar o código apropriado
 * [x] **Web Vitals**: Monitorar métricas de performance com o componente `WebVitals` integrado ao Next.js.
 * [x] **Vercel Analytics**: Manter a integração com Vercel Analytics para métricas complementares.
