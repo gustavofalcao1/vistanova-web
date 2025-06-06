@@ -5,6 +5,17 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.9] - 2025-06-06
+
+### Melhorado
+- **Página 404 (`src/app/not-found.tsx`)**:
+  - Ajustada para ser um Client Component (`'use client';`) para permitir o uso de `framer-motion`.
+  - Removida a exportação `metadata` para resolver conflitos com o Client Component.
+  - Melhorias visuais e de design, alinhando-a com o tema do site.
+  - Adicionada animação com `framer-motion`.
+  - Incluída uma mensagem bem-humorada em Português de Portugal.
+  - Atualizado o estilo do botão para melhor coerência visual.
+
 ## [2.2.8] - 2025-06-01
 
 ### Adicionado
@@ -86,8 +97,6 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 - **`postcss.config.mjs`**: Configuração validada como standard e correta.
 - **`.npmrc`**: Analisado o conteúdo. Aconselhada a remoção se `yarn` for o gestor de pacotes exclusivo, pois as configurações `.npmrc` não teriam efeito.
 - **`.prettierrc` e `.prettierignore`**: Configurações validadas como boas e standard, sem necessidade de alterações.
-
----
 
 ## [2.2.6] - 2025-05-31
 
