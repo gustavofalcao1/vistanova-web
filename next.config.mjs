@@ -1,3 +1,5 @@
+import { withSentryConfig } from "@sentry/nextjs";
+
 /** @type {import('next').NextConfig} */
 const createConfig = async () => ({
   // Disable ESLint during build
@@ -151,10 +153,52 @@ const createConfig = async () => ({
 export default (async () => {
   const config = await createConfig();
   
+  // Wrap the config with Sentry
+  const sentryConfig = withSentryConfig(
+    config,
+    {
+      // For all available options, see:
+      // https://www.npmjs.com/package/@sentry/webpack-plugin#options
+
+      org: "vista-nova",
+      project: "vistanova-web",
+
+      // Only print logs for uploading source maps in CI
+      silent: !process.env.CI,
+
+      // For all available options, see:
+      // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+
+      // Upload a larger set of source maps for prettier stack traces (increases b
+      // uild time)
+      widenClientFileUpload: true,
+
+      // Route browser requests to Sentry through a Next.js rewrite to circumvent
+      // ad-blockers.
+      // This can increase your server load as well as your hosting bill.
+      // Note: Check that the configured route will not match with your Next.js mi
+      // ddleware, other
+      // wise reporting of client-
+      // side errors will fail.
+      tunnelRoute: "/monitoring",
+
+      // Automatically tree-shake Sentry logger statements to reduce bundle size
+      disableLogger: true,
+
+      // Enables automatic instrumentation of Vercel Cron Monitors. (Does not yet
+      // work with App R
+      // outer route handlers.)
+      // See the following for more information:
+      // https://docs.sentry.io/product/crons/
+      // https://vercel.com/docs/cron-jobs
+      automaticVercelMonitors: true,
+    }
+  );
+
   if (process.env.ANALYZE === 'true') {
     const withBundleAnalyzer = (await import('@next/bundle-analyzer')).default({ enabled: true });
-    return withBundleAnalyzer(config);
+    return withBundleAnalyzer(sentryConfig);
   }
   
-  return config;
+  return sentryConfig;
 })();
