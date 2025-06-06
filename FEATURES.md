@@ -2,7 +2,7 @@
 
 Este documento mantém o controle das funcionalidades implementadas e pendentes no projeto Vista Nova Web.
 
-## Funcionalidades Implementadas (v2.3.0)
+## Funcionalidades Implementadas (v2.2.6)
 
 * [x] **Componentes de UI Reutilizáveis** ✅
   * [x] Botões com variantes

@@ -15,6 +15,9 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
   - Documentada a decisão e diretrizes de uso para `styled-components` vs. Tailwind CSS.
 - **Analytics**:
   - Implementado Google Analytics 4 (GA4) com deteção automática de domínio para múltiplos códigos de medição.
+- **Monitoramento de Erros e Performance**:
+  - Integrado Sentry para rastreamento de erros e monitoramento de desempenho em tempo real.
+  - Configuração automática do Sentry SDK para Next.js (client, server e edge).
 
 ### Alterado
 - **Configuração ESLint**:
@@ -23,6 +26,7 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
   - Ajustada a regra `no-restricted-syntax` para cores hexadecimais, focando a validação no script `check-colors.ts`.
 - **Configuração Next.js (`next.config.mjs`)**:
   - Unificada a gestão de cabeçalhos de segurança e cache, centralizando-os neste ficheiro.
+  - Atualizado para incluir a configuração do Sentry.
 - **Configuração Vercel (`vercel.json`)**:
   - Simplificado o ficheiro, removendo a secção `headers` (agora gerida pelo `next.config.mjs`).
 - **Configuração Tailwind CSS (`tailwind.config.mjs`)**:
@@ -42,6 +46,7 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 ### Removido
 - Dependência `@azure/identity` verificada como desnecessária e removida.
 - Regra `no-restricted-syntax` para cores hexadecimais do ESLint (a verificação é agora primariamente feita pelo script `check-colors.ts`).
+- Páginas e rotas de API de exemplo do Sentry (`/sentry-example-page` e `/api/sentry-example-api`) após a validação da integração.
 
 ### Revisado
 - **`postcss.config.mjs`**: Configuração validada como standard e correta.
@@ -50,21 +55,6 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 - **`.prettierrc` e `.prettierignore`**: Configurações validadas como boas e standard.
 - **`tailwind.d.ts`**: Estrutura de tipagem do tema Tailwind validada.
 - **Sistema de Estilos**: Organização entre tokens, `tailwind.config.mjs`, `globals.css` e `tailwind.d.ts` clarificada.
-
-## [2.3.0] - 2025-06-06
-
-### Adicionado
-- **Monitoramento de Erros e Performance**:
-  - Integrado Sentry para rastreamento de erros e monitoramento de desempenho em tempo real.
-  - Configuração automática do Sentry SDK para Next.js (client, server e edge).
-
-### Removido
-- Páginas e rotas de API de exemplo do Sentry (`/sentry-example-page` e `/api/sentry-example-api`) após a validação da integração.
-
-### Alterado
-- `next.config.mjs`: Atualizado para incluir a configuração do Sentry.
-
----
 
 ## [2.2.7] - 2025-06-01
 
