@@ -1,27 +1,54 @@
-import { Metadata } from "next";
-import Link from "next/link";
+'use client';
 
-export const metadata: Metadata = {
-  title: "Página não encontrada",
-  description: "A página que tu estas procurando não existe.",
-};
+import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl mb-4">Página não encontrada</p>
-        <p className="text-gray-600 mb-8">
-          A página que tu estas procurando não existe.
-        </p>
-        <Link
-          href="/"
-          className="inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary/90 transition-colors"
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-8">
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-center"
+      >
+        <motion.h1
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 200, damping: 10, delay: 0.2 }}
+          className="text-7xl md:text-9xl font-extrabold text-primary mb-4"
         >
-          Voltar para a página inicial
-        </Link>
-      </div>
+          <p className="text-shadow-lg">404</p>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+          className="text-2xl md:text-3xl font-semibold mb-4"
+        >
+          Página não encontrada
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.5 }}
+          className="text-lg md:text-xl text-muted-foreground mb-8 max-w-md mx-auto"
+        >
+          Não encontramos a página que procuravas... Mas não te preocupes, a Vista Nova tem sempre soluções para te ajudar a encontrar o caminho de volta!
+        </motion.p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
+        >
+          <Link
+            href="/"
+            className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-lg hover:bg-secondary hover:text-primary transition-colors duration-300 shadow-lg"
+          >
+            Voltar para a página inicial
+          </Link>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
