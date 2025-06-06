@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
     // Sets the JavaScript language version for emitted JavaScript and includes compatible library declarations.
-    "target": "ES2017", 
+    "target": "ES2017",
+
     // Specifies a set of bundled library declaration files that describe the target runtime environment.
     "lib": ["dom", "dom.iterable", "esnext"],
+
     // Allow JavaScript files to be a part of your program. Use 'checkJS' to type check JS files.
     "allowJs": true,
+
     // Skip type checking all .d.ts files.
     "skipLibCheck": true,
+
     // Enable all strict type-checking options.
     "strict": true,
+
     // Ensure that casing is correct in imports.
     // "forceConsistentCasingInFileNames": true, // Recommended: Helps prevent subtle errors
     // Disallow features that require cross-file information for emit.
@@ -17,32 +22,52 @@
     // "noUnusedParameters": true, // Consider if ESLint is not handling this
     // Do not emit compiler output files like JavaScript, source maps, or declarations.
     "noEmit": true,
+
     // Emit additional JavaScript to simplify importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility.
     "esModuleInterop": true,
+
     // Specify what module code is generated.
     "module": "esnext",
+
     // Specifies how modules are resolved. 'bundler' is recommended for modern bundlers like Webpack/Next.js.
     "moduleResolution": "bundler",
+
     // Allow importing .json files.
     "resolveJsonModule": true,
+
     // Ensure that each file can be safely transpiled without relying on other imports.
     "isolatedModules": true,
+
     // Specify JSX code generation: 'preserve', 'react-native', 'react', 'react-jsx', 'react-jsxdev'.
     // 'preserve' keeps the JSX as part of the output to be further processed by another transform step (e.g., Babel).
     "jsx": "preserve",
+
     // Save .tsbuildinfo files to allow for incremental compilation.
     "incremental": true,
+
     // Specify a list of language service plugins to include.
     "plugins": [
       {
         "name": "next"
       }
     ],
+
     // "baseUrl": ".", // Recommended: Sets the base directory to resolve non-relative module names.
     // Specify path mapping to be computed relative to the 'baseUrl'.
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+
+    "sourceMap": true,
+    "inlineSources": true,
+
+    // Set `sourceRoot` to  "/" to strip the build path prefix
+    // from generated source code references.
+    // This improves issue grouping in Sentry.
+    // Set `sourceRoot` to  "/" to strip the build path prefix
+    // from generated source code references.
+    // This improves issue grouping in Sentry.
+    "sourceRoot": "/"
   },
   // Specifies a list of files to be included in the compilation.
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

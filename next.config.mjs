@@ -86,6 +86,10 @@ const createConfig = async () => ({
             value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
           },
           {
+            key: 'Document-Policy',
+            value: 'js-profiling',
+          },
+          {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload',
           },
