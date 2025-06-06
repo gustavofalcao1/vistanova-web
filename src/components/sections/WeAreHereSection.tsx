@@ -216,7 +216,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                 <h3 className="text-2xl font-semibold text-primary mb-4">Onde Estamos</h3>
                 <div className="w-full h-[250px] sm:h-[350px] rounded-lg overflow-hidden">
                   <iframe 
-                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Vista+Nova,+Lda.&zoom=16" 
+                    src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=Vista+Nova,+Lda.&zoom=16`} 
                     className="w-full h-full rounded-lg" 
                     style={{border:0}} 
                     allowFullScreen 
