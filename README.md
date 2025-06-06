@@ -38,6 +38,7 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
 - **File Route Path Protection** para controlo de acesso a recursos
 - **Verificação SSL** para comunicação segura
 - **Firewall** para filtragem de tráfego malicioso
+- **Monitoramento de Erros e Performance** com Sentry para identificar e resolver problemas em tempo real
 
 ## 🚀 Tecnologias Principais
 
@@ -53,6 +54,7 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
 - **E-mails**: [Nodemailer](https://nodemailer.com/)
 - **Segurança**: [reCAPTCHA v3](https://www.google.com/recaptcha/intro/)
 - **Gerenciamento de Estado**: Context API
+- **Gerenciamento de Erros e Performance**: [Sentry](https://sentry.io/)
 
 ## 🎨 Estratégia de Estilização
 

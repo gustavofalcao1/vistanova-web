@@ -2,7 +2,7 @@
 
 Este documento mantém o controle das funcionalidades implementadas e pendentes no projeto Vista Nova Web.
 
-## Funcionalidades Implementadas (v2.2.6)
+## Funcionalidades Implementadas (v2.3.0)
 
 * [x] **Componentes de UI Reutilizáveis** ✅
   * [x] Botões com variantes
@@ -53,6 +53,9 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
   * [x] Metadados base e por página (`layout.tsx`, `metadata.ts` específicos)
   * [x] Favicons e ícones configurados
   * [x] `humans.txt`
+* [x] **Monitoramento de Erros e Performance** ✅
+  * [x] Análise de erros do lado do cliente (Sentry)
+  * [x] Monitoramento de desempenho (Sentry)
 
 ## Melhorias Recentes (v2.2.6)
 
@@ -77,7 +80,6 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
   * [ ] Adicionar dados estruturados (Schema.org)
 * [ ] **Monitoramento Completo**
   * [ ] Métricas de performance em tempo real (Vercel Analytics já está, mas expandir se necessário)
-  * [ ] Análise de erros do lado do cliente (e.g., Sentry)
   * [ ] Monitoramento de disponibilidade
 * [ ] **Testes**
   * [ ] Adicionar testes unitários e de integração (Jest, RTL)
@@ -136,4 +138,3 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [ ] **Scripts Customizados**: Documentar scripts em `scripts/` (e.g., `generateGlobalCSS.mjs`) no `README.md` principal.
 
 ### Error Handling e Logging
-* [ ] Considerar integração de serviço de logging externo (e.g., Sentry) para produção.

@@ -51,6 +51,19 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 - **`tailwind.d.ts`**: Estrutura de tipagem do tema Tailwind validada.
 - **Sistema de Estilos**: Organização entre tokens, `tailwind.config.mjs`, `globals.css` e `tailwind.d.ts` clarificada.
 
+## [2.3.0] - 2025-06-06
+
+### Adicionado
+- **Monitoramento de Erros e Performance**:
+  - Integrado Sentry para rastreamento de erros e monitoramento de desempenho em tempo real.
+  - Configuração automática do Sentry SDK para Next.js (client, server e edge).
+
+### Removido
+- Páginas e rotas de API de exemplo do Sentry (`/sentry-example-page` e `/api/sentry-example-api`) após a validação da integração.
+
+### Alterado
+- `next.config.mjs`: Atualizado para incluir a configuração do Sentry.
+
 ---
 
 ## [2.2.7] - 2025-06-01
