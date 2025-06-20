@@ -1,132 +1,89 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { GoogleAnalytics as NextGoogleAnalytics } from '@next/third-parties/google';
+import { useEffect } from 'react';
+import Script from 'next/script';
 import { ENV } from '@/config/env';
 
-/**
- * Get Google Analytics Measurement IDs from environment variables
- * This function ensures the environment variables are properly accessed
- */
-function getGAMeasurementIds() {
-  return {
-    // ID for main domain (vistanova.pt)
-    MAIN_DOMAIN: process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID_MAIN,
-    // ID for Vercel deployment URL
-    VERCEL_DOMAIN: process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID_DEV
-  };
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    dataLayer: any[];
+  }
 }
 
-/**
- * GoogleAnalytics component
- * Implements Google Analytics 4 tracking for both main domain and Vercel deployment URL
- * Uses the official Next.js third-parties integration
- * Integrates with Cookiebot for GDPR compliance
- * Only loads in production environment and when consent is given
- */
-export function GoogleAnalytics() {
-  const [isProduction, setIsProduction] = useState(false);
-  const [currentHost, setCurrentHost] = useState('');
-  const [gaId, setGaId] = useState('');
-  const [hasStatisticsConsent, setHasStatisticsConsent] = useState(false);
-
+export default function GoogleAnalytics() {
   useEffect(() => {
-    // Only enable in production
-    setIsProduction(process.env.NODE_ENV === 'production');
-    
-    // Get current hostname to determine which GA ID to use
-    if (typeof window !== 'undefined') {
-      const hostname = window.location.hostname;
-      setCurrentHost(hostname);
+    // Listen for Usercentrics consent changes
+    const handleUsercentricsConsent = () => {
+      console.log('🍪 Google Analytics enabled via Usercentrics consent');
       
-      // Get measurement IDs from environment variables
-      const GA_IDS = getGAMeasurementIds();
-      
-      // Validate that environment variables are set
-      if (!GA_IDS.MAIN_DOMAIN || !GA_IDS.VERCEL_DOMAIN) {
-        console.warn('Google Analytics: Missing GA4 measurement IDs in environment variables');
-        return;
-      }
-      
-      // Determine which measurement ID to use based on the hostname
-      const isVercelDomain = hostname.includes('vercel.app');
-      const primaryId = isVercelDomain 
-        ? GA_IDS.VERCEL_DOMAIN 
-        : GA_IDS.MAIN_DOMAIN;
-      
-      setGaId(primaryId);
-    }
-  }, []);
-
-  useEffect(() => {
-    // Handle Cookiebot integration
-    const checkCookiebotConsent = () => {
-      if (typeof window !== 'undefined' && window.Cookiebot) {
-        // Check if statistics cookies are consented
-        const consent = window.Cookiebot.consent.statistics;
-        setHasStatisticsConsent(consent);
+      // Initialize Google Analytics when consent is given
+      if (typeof window !== 'undefined' && window.gtag && ENV.GOOGLE_ANALYTICS_ID) {
+        window.gtag('consent', 'update', {
+          analytics_storage: 'granted'
+        });
         
-        if (consent && isProduction && gaId) {
-          // Enable secondary tracking if consent is given
-          const GA_IDS = getGAMeasurementIds();
-          const isVercelDomain = currentHost.includes('vercel.app');
-          const secondaryId = isVercelDomain 
-            ? GA_IDS.MAIN_DOMAIN 
-            : GA_IDS.VERCEL_DOMAIN;
-            
-          if (secondaryId) {
-            // Add secondary tracking script manually
-            const existingScript = document.getElementById('google-analytics-secondary');
-            if (!existingScript) {
-              const script = document.createElement('script');
-              script.id = 'google-analytics-secondary';
-              script.innerHTML = `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('config', '${secondaryId}', {
-                  page_path: window.location.pathname,
-                  cookie_flags: 'SameSite=None;Secure',
-                  groups: 'secondary'
-                });
-              `;
-              script.async = true;
-              document.head.appendChild(script);
-            }
-          }
-        }
-      } else if (!ENV.COOKIEBOT_ENABLED) {
-        // If Cookiebot is disabled, enable analytics by default
-        setHasStatisticsConsent(true);
+        window.gtag('config', ENV.GOOGLE_ANALYTICS_ID, {
+          page_title: document.title,
+          page_location: window.location.href,
+        });
       }
     };
 
-    // Check consent on component mount
-    checkCookiebotConsent();
-
-    // Listen for Cookiebot consent changes
-    const handleConsentReady = () => {
-      checkCookiebotConsent();
-    };
-
-    const handleStatisticsEnabled = () => {
-      setHasStatisticsConsent(true);
-    };
-
-    window.addEventListener('CookiebotOnConsentReady', handleConsentReady);
-    window.addEventListener('cookiebot-statistics-enabled', handleStatisticsEnabled);
+    // Add event listener for Usercentrics analytics consent
+    window.addEventListener('usercentrics-analytics-enabled', handleUsercentricsConsent);
     
     return () => {
-      window.removeEventListener('CookiebotOnConsentReady', handleConsentReady);
-      window.removeEventListener('cookiebot-statistics-enabled', handleStatisticsEnabled);
+      window.removeEventListener('usercentrics-analytics-enabled', handleUsercentricsConsent);
     };
-  }, [isProduction, gaId, currentHost]);
+  }, []);
 
-  // Only render if we have production environment, GA ID, and proper consent
-  if (!isProduction || !gaId || (ENV.COOKIEBOT_ENABLED && !hasStatisticsConsent)) {
+  // Only render if we have a Google Analytics ID
+  if (!ENV.GOOGLE_ANALYTICS_ID) {
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('Google Analytics not loaded: Missing GOOGLE_ANALYTICS_ID');
+    }
     return null;
   }
 
-  return <NextGoogleAnalytics gaId={gaId} />;
-}
+  const handleGtagLoad = () => {
+    console.log('✅ Google Analytics script loaded');
+    
+    // Initialize with denied consent (Usercentrics will update when user consents)
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        wait_for_update: 500,
+      });
+    }
+  };
 
-export default GoogleAnalytics;
+  return (
+    <>
+      {/* Google Analytics gtag script */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${ENV.GOOGLE_ANALYTICS_ID}`}
+        strategy="afterInteractive"
+        onLoad={handleGtagLoad}
+      />
+      
+      {/* Google Analytics initialization */}
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          
+          // Initialize with denied consent - Usercentrics will update this
+          gtag('consent', 'default', {
+            analytics_storage: 'denied',
+            ad_storage: 'denied',
+            wait_for_update: 500,
+          });
+        `}
+      </Script>
+    </>
+  );
+}

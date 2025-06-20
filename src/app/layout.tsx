@@ -3,7 +3,7 @@ import "./globals.css";
 import WebVitals from "@/components/analytics/web-vitals";
 import GoogleAnalytics from "@/components/analytics/google-analytics";
 import VercelAnalytics from "@/components/analytics/vercel-analytics";
-import Cookiebot from "@/components/analytics/cookiebot";
+import Usercentrics from "@/components/analytics/usercentrics";
 import CookiebotDev from "@/components/analytics/cookiebot-dev";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
 import { Toaster } from "@/components/ui/toaster";
@@ -93,7 +93,7 @@ export default function RootLayout({
               <WhatsAppButton />
               <Toaster />
               {/* Cookie Consent Management - GDPR Compliance */}
-              <Cookiebot />
+              <Usercentrics />
               {/* Development Cookie Banner for localhost testing */}
               <CookiebotDev />
               {/* Performance monitoring - only active in production */}
