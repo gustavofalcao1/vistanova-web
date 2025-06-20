@@ -76,8 +76,8 @@ export default function PoliticaCookies() {
                 a análise da web, ajudando a perceber como é que os utilizadores interagem com o mesmo.
               </li>
               <li>
-                <strong><em>Cookies</em> de Segmentação/Publicidade</strong>: são <em>cookies</em> utilizados para personalizar conteúdos relativos a anúncios que possam ser do 
-                interesse do utilizador.
+                <strong><em>Cookies</em> de Funcionalidade</strong>: são <em>cookies</em> utilizados para melhorar a funcionalidade do website, como proteção contra spam, 
+                mapas incorporados e outras funcionalidades interativas.
               </li>
             </ol>
           </li>
@@ -141,22 +141,22 @@ export default function PoliticaCookies() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
+                        <td className="border border-gray-300 p-3 text-center">Usercentrics</td>
+                        <td className="border border-gray-300 p-3 text-center">uc_user_interaction</td>
+                        <td className="border border-gray-300 p-3 text-center">Armazena as preferências de consentimento do utilizador</td>
+                        <td className="border border-gray-300 p-3 text-center">1 ano</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
+                        <td className="border border-gray-300 p-3 text-center">Usercentrics</td>
+                        <td className="border border-gray-300 p-3 text-center">uc_settings</td>
+                        <td className="border border-gray-300 p-3 text-center">Configurações de cookies necessárias ao funcionamento</td>
+                        <td className="border border-gray-300 p-3 text-center">1 ano</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 p-3 text-center">&nbsp;</td>
-                        <td className="border border-gray-300 p-3 text-center">&nbsp;</td>
-                        <td className="border border-gray-300 p-3 text-center">&nbsp;</td>
-                        <td className="border border-gray-300 p-3 text-center">&nbsp;</td>
+                        <td className="border border-gray-300 p-3 text-center">Vista Nova</td>
+                        <td className="border border-gray-300 p-3 text-center">session</td>
+                        <td className="border border-gray-300 p-3 text-center">Identificação de sessão para funcionamento do website</td>
+                        <td className="border border-gray-300 p-3 text-center">Sessão</td>
                       </tr>
                     </tbody>
                   </table>
@@ -177,16 +177,16 @@ export default function PoliticaCookies() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
+                        <td className="border border-gray-300 p-3 text-center">Google Analytics</td>
+                        <td className="border border-gray-300 p-3 text-center">_ga</td>
+                        <td className="border border-gray-300 p-3 text-center">Distingue utilizadores únicos e recolhe estatísticas de uso</td>
+                        <td className="border border-gray-300 p-3 text-center">2 anos</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
+                        <td className="border border-gray-300 p-3 text-center">Google Analytics</td>
+                        <td className="border border-gray-300 p-3 text-center">_ga_*</td>
+                        <td className="border border-gray-300 p-3 text-center">Recolhe dados sobre interações dos utilizadores</td>
+                        <td className="border border-gray-300 p-3 text-center">2 anos</td>
                       </tr>
                     </tbody>
                   </table>
@@ -194,7 +194,7 @@ export default function PoliticaCookies() {
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-primary mb-4 text-center"><em>Cookies de Segmentação/Publicidade</em></h3>
+                <h3 className="text-lg font-bold text-primary mb-4 text-center"><em>Cookies de Funcionalidade</em></h3>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <table className="w-full text-sm border-collapse border border-gray-300">
                     <thead>
@@ -207,16 +207,16 @@ export default function PoliticaCookies() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
+                        <td className="border border-gray-300 p-3 text-center">Google reCAPTCHA</td>
+                        <td className="border border-gray-300 p-3 text-center">_GRECAPTCHA</td>
+                        <td className="border border-gray-300 p-3 text-center">Proteção contra spam e atividades maliciosas</td>
+                        <td className="border border-gray-300 p-3 text-center">6 meses</td>
                       </tr>
                       <tr>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
-                        <td className="border border-gray-300 p-3 text-center"><em>[INDICAR]</em></td>
+                        <td className="border border-gray-300 p-3 text-center">Google Maps</td>
+                        <td className="border border-gray-300 p-3 text-center">NID</td>
+                        <td className="border border-gray-300 p-3 text-center">Funcionalidade de mapas incorporados</td>
+                        <td className="border border-gray-300 p-3 text-center">6 meses</td>
                       </tr>
                     </tbody>
                   </table>

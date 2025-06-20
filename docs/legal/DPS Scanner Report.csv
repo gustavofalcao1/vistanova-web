@@ -1,0 +1,6 @@
+﻿Number,Status,Service,Target Domain,Source Url,Date
+1,DONE,Google Maps,https://www.google.com/maps/embed/v1/place,https://vistanova-web.vercel.app,"20.06.2025,23:40"
+2,DONE,reCAPTCHA,https://www.google.com/recaptcha/api.js,https://vistanova-web.vercel.app,"20.06.2025,23:40"
+3,DONE,Google Tag Manager,https://www.googletagmanager.com/gtag/js,https://vistanova-web.vercel.app,"20.06.2025,23:40"
+4,DONE,gstatic.com,https://www.gstatic.com/recaptcha/releases/GUGrl5YkSwpBsxsF3eY665Ye/recaptcha__en.js,https://vistanova-web.vercel.app,"20.06.2025,23:40"
+5,DONE,Google Analytics,https://www.google-analytics.com/g/collect,https://vistanova-web.vercel.app,"20.06.2025,23:40"
