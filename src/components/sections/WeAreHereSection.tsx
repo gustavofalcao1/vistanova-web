@@ -8,6 +8,7 @@ import { ContactPerson } from "@/types/entities";
 import { NewsletterFormData } from "@/types/lib";
 import { Phone, Mail } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { Input } from "@/components/ui/input";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -244,23 +245,24 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
               <form className="space-y-3" onSubmit={handleSubmitNewsletter(onSubmitNewsletter)}>
                 <div>
                     <div className="flex flex-col sm:flex-row">
-                    <input 
-                      type="email" 
-                      id="newsletter-email" 
-                      className={`flex-1 px-4 py-2 rounded-t-lg sm:rounded-tl-lg sm:rounded-bl-lg sm:rounded-tr-none sm:rounded-br-none border ${errorsNewsletter.email ? 'border-red-500' : 'border-neutral-300'} focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary`} 
-                      placeholder="Email *" 
-                      {...registerNewsletter("email")}
-                    />
-                    <motion.button 
-                      type="submit" 
-                      className="bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-b-lg sm:rounded-b-none sm:rounded-r-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed border border-primary"
-                      disabled={isSubmittingNewsletter}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      {isSubmittingNewsletter ? "..." : "Subscrever"}
-                    </motion.button>
-                  </div>
+                      <input 
+                        type="email" 
+                        id="newsletter-email" 
+                        autoComplete="email"
+                        className={`flex-1 px-4 py-2 rounded-t-lg sm:rounded-tl-lg sm:rounded-bl-lg sm:rounded-tr-none sm:rounded-br-none border ${errorsNewsletter.email ? 'border-red-500' : 'border-neutral-300'} focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary`} 
+                        placeholder="Email *" 
+                        {...registerNewsletter("email")}
+                      />
+                      <motion.button 
+                        type="submit" 
+                        className="bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-b-lg sm:rounded-b-none sm:rounded-r-lg transition-colors disabled:opacity-70 disabled:cursor-not-allowed border border-primary"
+                        disabled={isSubmittingNewsletter}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                      >
+                        {isSubmittingNewsletter ? "..." : "Subscrever"}
+                      </motion.button>
+                    </div>
                   {errorsNewsletter.email && (
                     <p className="text-red-500 text-xs mt-1">{errorsNewsletter.email.message}</p>
                   )}
@@ -270,7 +272,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                   <input 
                     type="checkbox" 
                     id="newsletter-consent" 
-                    className={`mt-1 h-4 w-4 text-primary focus:ring-primary ${errorsNewsletter.consent ? 'border-red-500' : 'border-neutral-300'} rounded`} 
+                    className={`mt-1 h-4 w-4 text-primary focus:ring-primary hover:cursor-pointer ${errorsNewsletter.consent ? 'border-red-500' : 'border-neutral-300'} rounded`} 
                     {...registerNewsletter("consent")}
                   />
                   <label htmlFor="newsletter-consent" className="ml-2 block text-xs text-neutral-700 mt-1">
@@ -295,9 +297,10 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
               </p>
               <form className="space-y-3" onSubmit={handleSubmitContact(onSubmitContact)}>
                 <div>
-                  <input 
-                    type="text" 
-                    id="contact-name" 
+                  <Input 
+                    type="name" 
+                    id="contact-name"
+                    autoComplete="name"
                     className={`w-full px-4 py-2 rounded-lg border ${errorsContact.name ? 'border-red-500' : 'border-neutral-300'} focus:outline-none focus:ring-1 focus:ring-primary`} 
                     placeholder="Nome *" 
                     {...registerContact("name")}
@@ -311,6 +314,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                   <input 
                     type="email" 
                     id="contact-email" 
+                    autoComplete="email"
                     className={`w-full px-4 py-2 rounded-lg border ${errorsContact.email ? 'border-red-500' : 'border-neutral-300'} focus:outline-none focus:ring-1 focus:ring-primary`} 
                     placeholder="Email *" 
                     {...registerContact("email")}
@@ -323,6 +327,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                 <div>
                   <textarea
                     id="contact-message"
+                    autoComplete="off"
                     className={`w-full px-4 py-2 rounded-lg border ${errorsContact.message ? 'border-red-500' : 'border-neutral-300'} focus:outline-none focus:ring-1 focus:ring-primary min-h-[80px]`}
                     placeholder="Mensagem *"
                     {...registerContact("message")}
@@ -336,7 +341,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                   <input 
                     type="checkbox" 
                     id="contact-consent" 
-                    className={`mt-1 h-4 w-4 text-primary focus:ring-primary ${errorsContact.consent ? 'border-red-500' : 'border-neutral-300'} rounded`}
+                    className={`mt-1 h-4 w-4 text-primary focus:ring-primary hover:cursor-pointer ${errorsContact.consent ? 'border-red-500' : 'border-neutral-300'} rounded`}
                     {...registerContact("consent")}
                   />
                   <label htmlFor="contact-consent" className="ml-2 block text-xs text-neutral-700 mt-1">
