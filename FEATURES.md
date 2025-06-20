@@ -68,7 +68,7 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 ## Próximos Passos (Funcionalidades e Melhorias Gerais)
 
 * [x] **Implementar Lógica de Envio de Emails** (com Resend) ✅
-* [ ] **Implementar Gestão de Cookies** (com Cookiebot)
+* [x] **Implementar Gestão de Cookies** (com Cookiebot) ✅
 * [ ] **Refatoração dos Componentes UI** 
   * [ ] Refatorar páginas em `@/(pages)` para usar componentes UI consistentemente
   * [ ] Substituir HTML básico por componentes reutilizáveis (`Card`, `Separator`, `Badge`, `Accordion`, etc.)

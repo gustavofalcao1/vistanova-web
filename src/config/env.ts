@@ -4,6 +4,13 @@ export const ENV = {
   VERSION: process.env.NEXT_PUBLIC_APP_VERSION || '2.2.10',
   THEME: process.env.NEXT_PUBLIC_THEME || 'light',
   DEFAULT_LOCALE: process.env.NEXT_PUBLIC_DEFAULT_LOCALE || 'pt',
+  
+  // Analytics and Tracking
+  GOOGLE_ANALYTICS_ID: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || '',
+  
+  // Cookiebot Configuration
+  COOKIEBOT_DOMAIN_ID: process.env.NEXT_PUBLIC_COOKIEBOT_DOMAIN_ID || '',
+  COOKIEBOT_ENABLED: process.env.NEXT_PUBLIC_COOKIEBOT_ENABLED === 'true',
 } as const;
 
 export type EnvConfig = typeof ENV;

@@ -3,6 +3,8 @@ import "./globals.css";
 import WebVitals from "@/components/analytics/web-vitals";
 import GoogleAnalytics from "@/components/analytics/google-analytics";
 import VercelAnalytics from "@/components/analytics/vercel-analytics";
+import Cookiebot from "@/components/analytics/cookiebot";
+import CookiebotDev from "@/components/analytics/cookiebot-dev";
 import WhatsAppButton from "@/components/ui/whatsapp-button";
 import { Toaster } from "@/components/ui/toaster";
 import Providers from "@/components/providers/Providers";
@@ -90,9 +92,13 @@ export default function RootLayout({
               {children}
               <WhatsAppButton />
               <Toaster />
+              {/* Cookie Consent Management - GDPR Compliance */}
+              <Cookiebot />
+              {/* Development Cookie Banner for localhost testing */}
+              <CookiebotDev />
               {/* Performance monitoring - only active in production */}
               <WebVitals />
-              {/* Google Analytics - only active in production */}
+              {/* Google Analytics - only active in production and with consent */}
               <GoogleAnalytics />
               {/* Vercel Analytics - only active in production */}
               <VercelAnalytics />

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { GoogleAnalytics as NextGoogleAnalytics } from '@next/third-parties/google';
+import { ENV } from '@/config/env';
 
 /**
  * Get Google Analytics Measurement IDs from environment variables
@@ -20,12 +21,14 @@ function getGAMeasurementIds() {
  * GoogleAnalytics component
  * Implements Google Analytics 4 tracking for both main domain and Vercel deployment URL
  * Uses the official Next.js third-parties integration
- * Only loads in production environment to avoid affecting development performance
+ * Integrates with Cookiebot for GDPR compliance
+ * Only loads in production environment and when consent is given
  */
 export function GoogleAnalytics() {
   const [isProduction, setIsProduction] = useState(false);
   const [currentHost, setCurrentHost] = useState('');
   const [gaId, setGaId] = useState('');
+  const [hasStatisticsConsent, setHasStatisticsConsent] = useState(false);
 
   useEffect(() => {
     // Only enable in production
@@ -52,41 +55,74 @@ export function GoogleAnalytics() {
         : GA_IDS.MAIN_DOMAIN;
       
       setGaId(primaryId);
-      
-      // For secondary tracking, we'll use a custom approach
-      // since the official component doesn't support multiple IDs directly
-      if (isProduction && typeof window !== 'undefined') {
-        const secondaryId = isVercelDomain 
-          ? GA_IDS.MAIN_DOMAIN 
-          : GA_IDS.VERCEL_DOMAIN;
-          
-        // Only add secondary tracking if we have a valid ID
-        if (secondaryId) {
-          // Add secondary tracking script manually
-          // This will run after the primary tracking is set up by the NextGoogleAnalytics component
-          const script = document.createElement('script');
-          script.id = 'google-analytics-secondary';
-          script.innerHTML = `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('config', '${secondaryId}', {
-              page_path: window.location.pathname,
-              cookie_flags: 'SameSite=None;Secure',
-              groups: 'secondary'
-            });
-          `;
-          script.async = true;
-          
-          // Add the script after a short delay to ensure the primary GA is loaded
-          setTimeout(() => {
-            document.head.appendChild(script);
-          }, 1000);
-        }
-      }
     }
-  }, [isProduction]);
+  }, []);
 
-  if (!isProduction || !gaId) {
+  useEffect(() => {
+    // Handle Cookiebot integration
+    const checkCookiebotConsent = () => {
+      if (typeof window !== 'undefined' && window.Cookiebot) {
+        // Check if statistics cookies are consented
+        const consent = window.Cookiebot.consent.statistics;
+        setHasStatisticsConsent(consent);
+        
+        if (consent && isProduction && gaId) {
+          // Enable secondary tracking if consent is given
+          const GA_IDS = getGAMeasurementIds();
+          const isVercelDomain = currentHost.includes('vercel.app');
+          const secondaryId = isVercelDomain 
+            ? GA_IDS.MAIN_DOMAIN 
+            : GA_IDS.VERCEL_DOMAIN;
+            
+          if (secondaryId) {
+            // Add secondary tracking script manually
+            const existingScript = document.getElementById('google-analytics-secondary');
+            if (!existingScript) {
+              const script = document.createElement('script');
+              script.id = 'google-analytics-secondary';
+              script.innerHTML = `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('config', '${secondaryId}', {
+                  page_path: window.location.pathname,
+                  cookie_flags: 'SameSite=None;Secure',
+                  groups: 'secondary'
+                });
+              `;
+              script.async = true;
+              document.head.appendChild(script);
+            }
+          }
+        }
+      } else if (!ENV.COOKIEBOT_ENABLED) {
+        // If Cookiebot is disabled, enable analytics by default
+        setHasStatisticsConsent(true);
+      }
+    };
+
+    // Check consent on component mount
+    checkCookiebotConsent();
+
+    // Listen for Cookiebot consent changes
+    const handleConsentReady = () => {
+      checkCookiebotConsent();
+    };
+
+    const handleStatisticsEnabled = () => {
+      setHasStatisticsConsent(true);
+    };
+
+    window.addEventListener('CookiebotOnConsentReady', handleConsentReady);
+    window.addEventListener('cookiebot-statistics-enabled', handleStatisticsEnabled);
+    
+    return () => {
+      window.removeEventListener('CookiebotOnConsentReady', handleConsentReady);
+      window.removeEventListener('cookiebot-statistics-enabled', handleStatisticsEnabled);
+    };
+  }, [isProduction, gaId, currentHost]);
+
+  // Only render if we have production environment, GA ID, and proper consent
+  if (!isProduction || !gaId || (ENV.COOKIEBOT_ENABLED && !hasStatisticsConsent)) {
     return null;
   }
 
