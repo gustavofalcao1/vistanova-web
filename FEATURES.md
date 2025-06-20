@@ -69,6 +69,12 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 
 * [x] **Implementar Lógica de Envio de Emails** (com Resend) ✅
 * [ ] **Implementar Gestão de Cookies** (com Cookiebot)
+* [ ] **Refatoração dos Componentes UI** 
+  * [ ] Refatorar páginas em `@/(pages)` para usar componentes UI consistentemente
+  * [ ] Substituir HTML básico por componentes reutilizáveis (`Card`, `Separator`, `Badge`, `Accordion`, etc.)
+  * [ ] Unificar uso de componentes de forma modular para evitar redundância
+  * [ ] Garantir que todas as páginas seguem o mesmo padrão de design system
+  * [ ] Remover componentes UI não utilizados após refatoração completa
 * [ ] **Acessibilidade (A11y) - Avançado**
   * [ ] Suporte a tema claro/escuro (funcionalidade completa e toggle)
   * [ ] Melhorias de contraste (auditoria e ajustes)
