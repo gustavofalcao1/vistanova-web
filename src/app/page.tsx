@@ -95,10 +95,6 @@ const partners: PartnerLogo[] = [
     logo: "/optimized-assets/partners/logo-cgd.webp"
   },
   {
-    name: "Cofidis",
-    logo: "/optimized-assets/partners/logo-cofidis.webp"
-  },
-  {
     name: "Credibom",
     logo: "/optimized-assets/partners/logo-credibom.webp"
   },
