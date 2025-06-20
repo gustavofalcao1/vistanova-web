@@ -8,7 +8,6 @@ import { ContactPerson } from "@/types/entities";
 import { NewsletterFormData } from "@/types/lib";
 import { Phone, Mail } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
-import { Input } from "@/components/ui/input";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -297,7 +296,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
               </p>
               <form className="space-y-3" onSubmit={handleSubmitContact(onSubmitContact)}>
                 <div>
-                  <Input 
+                  <input 
                     type="name" 
                     id="contact-name"
                     autoComplete="name"
