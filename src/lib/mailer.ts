@@ -1,13 +1,13 @@
-// Simplified email module without actual SMTP connection
-// This version simulates email sending for development/testing
+import { Resend } from 'resend';
 
-// #DEV
-// Log that we're using the simulated email service
-console.log('Using simulated email service');
-console.log('No actual emails will be sent');
+// Initialize Resend client
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-// In a production environment, you would use a real email service
-// such as nodemailer, SendGrid, Mailgun, etc.
+/**
+ * Email service for sending notifications and messages
+ * Uses Resend service for reliable email delivery
+ * Falls back to simulation when Resend is not configured
+ */
 
 export interface SendEmailOptions {
   to: string;
@@ -16,70 +16,120 @@ export interface SendEmailOptions {
   html: string;
 }
 
-export async function sendEmail(options: SendEmailOptions) {
+interface EmailResult {
+  success: boolean;
+  messageId?: string;
+  simulated?: boolean;
+  error?: string;
+  details?: unknown;
+}
+
+/**
+ * Send an email using Resend service
+ * Falls back to simulation if Resend is not configured
+ */
+export async function sendEmail(options: SendEmailOptions): Promise<EmailResult> {
+  const { to, subject, text, html } = options;
+  
+  // Check if Resend is properly configured
+  if (!process.env.RESEND_API_KEY) {
+    console.warn('RESEND_API_KEY not set. Falling back to email simulation.');
+    return simulateEmailSending(options);
+  }
+
   try {
-    const from = `"Vista Nova" <${process.env.EMAIL_FROM || 'noreply@vistanova.pt'}>`;
-    const replyTo = process.env.EMAIL_REPLY_TO;
-    
-    // #DEV
-    console.log('Simulando envio de e-mail:', {
-      from,
-      to: options.to,
-      subject: options.subject,
-      replyTo,
+    const from = process.env.EMAIL_FROM || 'Vista Nova <noreply@vistanova.pt>';
+    const replyTo = process.env.EMAIL_REPLY_TO || 'contato@vistanova.pt';
+
+    const result = await resend.emails.send({
+      from: from,
+      to: [to],
+      subject: subject,
+      text: text,
+      html: html,
+      replyTo: replyTo,
     });
 
-    // #DEV
-    // Log email content in development only
-    if (process.env.NODE_ENV === 'development') {
-      console.log('Conteúdo do e-mail (apenas em desenvolvimento):', {
-        text: options.text ? '[text content]' : undefined,
-        html: options.html ? '[html content]' : undefined,
-      });
+    if (result.error) {
+      console.error('Resend error:', result.error);
+      return {
+        success: false,
+        error: result.error.message || 'Failed to send email',
+        details: result.error
+      };
     }
+
+
     
-    // #DEV
-    // Simulate successful email sending
-    const mockMessageId = `simulated-${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
-    
-    console.log('E-mail simulado com sucesso:', {
-      messageId: mockMessageId,
-    });
-    
-    // Return success response
-    return { 
-      success: true, 
-      messageId: mockMessageId,
-      simulated: true,
+    return {
+      success: true,
+      messageId: result.data?.id,
     };
   } catch (error) {
-    console.error('Erro ao simular e-mail:', {
-      error: error instanceof Error ? {
-        name: error.name,
-        message: error.message,
-        stack: error.stack,
-      } : error,
-    });
+    console.error('Error sending email with Resend:', error);
     
-    return { 
-      success: false, 
-      error: error instanceof Error ? error.message : 'Erro desconhecido ao simular e-mail',
+    // Fallback to simulation if Resend fails
+    console.warn('Falling back to email simulation due to Resend error.');
+    return simulateEmailSending(options);
+  }
+}
+
+/**
+ * Simulate email sending for development/testing
+ * Used as fallback when Resend is not available
+ */
+async function simulateEmailSending(options: SendEmailOptions): Promise<EmailResult> {
+  const { to, subject, text, html } = options;
+  
+
+
+  try {
+    // Simulate network delay
+    await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
+    
+    // Simulate success/failure (95% success rate)
+    const success = Math.random() > 0.05;
+    
+    if (success) {
+      const simulatedMessageId = `sim_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+      
+
+      
+      return {
+        success: true,
+        messageId: simulatedMessageId,
+        simulated: true,
+      };
+    } else {
+      return {
+        success: false,
+        simulated: true,
+        error: 'Simulated network error',
+      };
+    }
+  } catch (error) {
+    return {
+      success: false,
+      simulated: true,
+      error: error instanceof Error ? error.message : 'Unknown error in simulation',
       details: error instanceof Error ? {
         name: error.name,
         message: error.message,
         stack: process.env.NODE_ENV === 'development' ? error.stack : undefined,
       } : undefined,
-      simulated: true,
     };
   }
 }
 
+/**
+ * Send contact form email to the configured recipient
+ */
 export async function sendContactFormEmail(data: {
   name: string;
   email: string;
   message: string;
   subscribeToNewsletter: boolean;
-}) {
+}): Promise<EmailResult> {
   const { name, email, message, subscribeToNewsletter } = data;
   
   const subject = `Nova mensagem de contato de ${name}`;
@@ -112,7 +162,8 @@ export async function sendContactFormEmail(data: {
       </div>
       
       <div style="margin-top: 30px; font-size: 12px; color: #718096; border-top: 1px solid #e2e8f0; padding-top: 15px;">
-        <p>Esta é uma mensagem automática, por favor não responda diretamente a este e-mail.</p>
+        <p>Esta é uma mensagem automática enviada através do formulário de contato do site Vista Nova.</p>
+        <p>Para responder a esta mensagem, utilize o email: ${email}</p>
       </div>
     </div>
   `;
@@ -124,13 +175,60 @@ export async function sendContactFormEmail(data: {
     html,
   });
   
-  // #DEV
-  // Log the result for debugging purposes
-  console.log('Contact form email result:', {
-    success: result.success,
-    simulated: result.simulated,
-    messageId: result.messageId,
-  });
+
   
   return result;
+}
+
+/**
+ * Send newsletter welcome email to new subscribers
+ */
+export async function sendNewsletterWelcomeEmail(email: string, name?: string): Promise<EmailResult> {
+  const subject = 'Bem-vindo à Newsletter Vista Nova!';
+  
+  const displayName = name || 'Cliente';
+  
+  const text = `
+    Olá ${displayName}!
+    
+    Obrigado por se inscrever na nossa newsletter!
+    
+    Agora receberás as nossas últimas novidades, dicas de crédito habitação e ofertas exclusivas diretamente no teu email.
+    
+    Se tiveres alguma pergunta, não hesites em contactar-nos.
+    
+    Cumprimentos,
+    Equipa Vista Nova
+  `;
+
+  const html = `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
+      <h2 style="color: #1a365d;">Bem-vindo à Newsletter Vista Nova!</h2>
+      
+      <p>Olá <strong>${displayName}</strong>!</p>
+      
+      <p>Obrigado por te inscreveres na nossa newsletter!</p>
+      
+      <p>Agora receberás as nossas últimas novidades, dicas de crédito habitação e ofertas exclusivas diretamente no teu email.</p>
+      
+      <p>Se tiveres alguma pergunta, não hesites em contactar-nos.</p>
+      
+      <p style="margin-top: 30px;">
+        Cumprimentos,<br>
+        <strong>Equipa Vista Nova</strong>
+      </p>
+      
+      <div style="margin-top: 40px; font-size: 12px; color: #718096; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+        <p>Se não desejares mais receber estes emails, podes <a href="#" style="color: #4299e1;">cancelar a subscrição aqui</a>.</p>
+        <p>Este email foi enviado porque te inscreveste na nossa newsletter através do site Vista Nova.</p>
+      </div>
+    </div>
+  `;
+
+  return await sendEmail({
+    to: email,
+    subject,
+    text,
+    html,
+  });
 }

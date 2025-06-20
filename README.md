@@ -4,22 +4,21 @@ Website institucional profissional para a Vista Nova, construído com tecnologia
 
 ## 📌 Status do Projeto
 
-**Versão Atual:** 2.2.8  
+**Versão Atual:** 2.2.10  
 **Status:** Em desenvolvimento ativo  
 **Próxima Versão Estável:** 2.3.X (Planejada para produção)
 
 ### Versionamento
 - **2.x.x**: Melhorias e manutenção do site atual
 - **x.2.x**: Versão em produção (versão estável)
-- **x.x.8**: Oitava iteração de desenvolvimento
+- **x.x.10**: Décima iteração de desenvolvimento
 
-### Melhorias Recentes (v2.2.8)
-- Implementação do Google Analytics 4 com deteção automática de domínio para múltiplos códigos de medição
-- Migração para a integração oficial do Google Analytics via `@next/third-parties`
-- Consolidação e clarificação da estrutura de tipos TypeScript
-- Reorganização dos componentes de analytics para maior consistência
-- Atualização da documentação com estrutura de diretórios e organização de tipos
-- Otimização de `useEffect` em vários componentes para prevenir re-renders desnecessários
+### Melhorias Recentes (v2.2.10)
+- **Sistema de Email Profissional**: Integração completa com Resend para envio real de emails com fallback automático
+- **LazyLoad Funcional**: Implementação real de lazy loading com Intersection Observer para melhor performance
+- **Validação Backend Robusta**: Implementação de validação com Zod na API de contato
+- **Qualidade de Código**: Linting reativado no build, auditoria de dependências e documentação de scripts
+- **Documentação Completa**: Scripts customizados documentados e funcionalidades atualizadas
 
 ## 🛡️ Funcionalidades Avançadas
 
@@ -142,6 +141,35 @@ O projeto inclui utilitários que facilitam o uso consistente de cores e outros 
    ```
    Gera o diretório `public/icons` na raiz do projeto.
 
+#### Scripts de Manutenção e Validação
+
+4. **Verificar uso de cores**:
+   ```bash
+   yarn ts-node scripts/check-colors.ts
+   ```
+   Este script irá:
+   - Verificar se cores hardcoded estão sendo usadas no código
+   - Validar se as cores estão de acordo com o sistema de design
+   - Reportar possíveis inconsistências de cor
+
+5. **Gerar ícones e favicons**:
+   ```bash
+   yarn ts-node scripts/generate-icons.ts
+   ```
+   Este script irá:
+   - Gerar todos os favicons em diferentes tamanhos a partir do SVG
+   - Criar ícones para Android, iOS e Windows
+   - Gerar o arquivo `site.webmanifest` para PWA
+
+6. **Baixar fontes locais**:
+   ```bash
+   yarn ts-node scripts/download-fonts.ts
+   ```
+   Este script irá:
+   - Baixar as fontes Inter em formato WOFF2 para hospedagem local
+   - Melhorar a performance eliminando requests externos
+   - Garantir controle total sobre o carregamento de fontes
+
 #### Notas Importantes
 
 - A logo principal deve ser fornecida em formato SVG para melhor qualidade.
@@ -152,6 +180,10 @@ O projeto inclui utilitários que facilitam o uso consistente de cores e outros 
 - O diretório `public/optimized-assets/` contém imagens otimizadas e deve ser gerado antes do deploy.
 - A otimização nativa do Next.js está desativada (`unoptimized: true` em `next.config.mjs`) em favor do nosso script personalizado.
 - As imagens otimizadas são referenciadas com o prefixo `/optimized-assets/` em vez de `/assets/`.
+- Execute regularmente o script `check-colors.ts` para manter a consistência visual
+- Os scripts de manutenção garantem qualidade do código e otimização de assets
+
+### Scripts Disponíveis
 
 - `dev`: Inicia o servidor de desenvolvimento
 - `build`: Cria uma build de produção
@@ -159,6 +191,7 @@ O projeto inclui utilitários que facilitam o uso consistente de cores e outros 
 - `lint`: Executa o ESLint
 - `check-types`: Verifica os tipos TypeScript
 - `format`: Formata o código com Prettier
+- `analyze`: Analisa o bundle de produção (requer build primeiro)
 
 ## 📂 Estrutura do Projeto
 

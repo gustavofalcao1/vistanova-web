@@ -39,7 +39,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
       
       // #DEV
       // Log the token for debugging purposes
-      console.log('Contact form submission with reCAPTCHA token', { tokenReceived: !!recaptchaToken });
+  
       
       // Send data to the server
       const result = await onSubmit({

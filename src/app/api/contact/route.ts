@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { sendContactFormEmail } from '@/lib/mailer';
+import { contactFormSchema } from '@/lib/schemas';
+import { ZodError } from 'zod';
 
 // Function to verify reCAPTCHA token
 async function verifyRecaptcha(token: string | null) {
@@ -30,13 +32,26 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     
-    // Basic validation
-    if (!body.name || !body.email || !body.message) {
+    // Validate request body with Zod schema
+    const validationResult = contactFormSchema.safeParse(body);
+    
+    if (!validationResult.success) {
+      const errors = validationResult.error.errors.map(err => ({
+        field: err.path.join('.'),
+        message: err.message
+      }));
+      
       return NextResponse.json(
-        { success: false, error: 'Nome, e-mail e mensagem são obrigatórios' },
+        { 
+          success: false, 
+          error: 'Dados inválidos enviados',
+          details: errors
+        },
         { status: 400 }
       );
     }
+
+    const validatedData = validationResult.data;
 
     // Verify reCAPTCHA
     const isRecaptchaValid = await verifyRecaptcha(body.recaptchaToken);
@@ -47,37 +62,34 @@ export async function POST(request: Request) {
       );
     }
 
-    // Simple email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(body.email)) {
-      return NextResponse.json(
-        { success: false, error: 'Por favor, insira um e-mail válido' },
-        { status: 400 }
-      );
-    }
-
-    // Simulate sending email (no actual email is sent)
+    // Email validation is now handled by Zod schema
+    // Send email with validated data
     const result = await sendContactFormEmail({
-      name: body.name,
-      email: body.email,
-      message: body.message,
+      name: validatedData.name,
+      email: validatedData.email,
+      message: validatedData.message,
       subscribeToNewsletter: body.subscribeToNewsletter !== false, // true by default
     });
 
-    // Log the simulation result
-    // #DEV
-    console.log('Resultado da simulação de envio:', {
-      success: result.success,
-      messageId: result.messageId,
-      simulated: true
-    });
+
     
-    // Always return success in production since we're just simulating
-    // In a real implementation, you would check result.success
+    // Check if email was sent successfully
+    if (!result.success) {
+      console.error('Falha no envio de email:', result.error);
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: 'Erro ao enviar a mensagem. Por favor, tente novamente mais tarde.',
+          details: process.env.NODE_ENV === 'development' ? result.error : undefined
+        },
+        { status: 500 }
+      );
+    }
 
     return NextResponse.json({ 
       success: true,
-      message: 'Mensagem enviada com sucesso!'
+      message: 'Mensagem enviada com sucesso!',
+      messageId: result.messageId
     });
 
   } catch (error) {

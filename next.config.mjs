@@ -2,10 +2,10 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 /** @type {import('next').NextConfig} */
 const createConfig = async () => ({
-  // Disable ESLint during build
+  // Enable ESLint during build for code quality
   eslint: {
-    // Only run ESLint during development, not during build
-    ignoreDuringBuilds: true,
+    // Run ESLint during build to ensure code quality
+    ignoreDuringBuilds: false,
   },
   reactStrictMode: true,
   poweredByHeader: false, // Remove X-Powered-By header for security

@@ -5,6 +5,52 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.10] - 2025-06-06
+
+### Adicionado
+- **Sistema de Email Melhorado**:
+  - Integração completa com [Resend](https://resend.com) para envio real de emails
+  - Fallback automático para simulação quando Resend não está configurado
+  - Suporte a emails de boas-vindas para newsletter
+  - Templates HTML melhorados e responsivos
+  - Logging detalhado para debugging e monitoramento
+- **Componente LazyLoad Funcional**:
+  - Implementação real de lazy loading com Intersection Observer
+  - Fallback para navegadores antigos que não suportam Intersection Observer
+  - Configuração flexível de thresholds e margens
+  - Suporte a renderização única ou contínua
+  - Componente de fallback customizável enquanto o conteúdo não é carregado
+- **Documentação de Scripts Customizados**:
+  - Documentação completa dos scripts em `/scripts` no README
+  - Instruções detalhadas para verificação de cores (`check-colors.ts`)
+  - Guia para geração de ícones e favicons (`generate-icons.ts`)
+  - Documentação do download de fontes locais (`download-fonts.ts`)
+
+### Melhorado
+- **Validação Backend**:
+  - Implementação de validação com Zod na API `/api/contact`
+  - Remoção de validação manual básica em favor do schema estruturado
+  - Melhor tratamento de erros com detalhes específicos por campo
+  - Resposta JSON mais informativa para debugging
+- **Qualidade do Código**:
+  - Linting reativado no build de produção para garantir qualidade
+  - Auditoria de dependências executada (6 vulnerabilidades de baixo risco identificadas)
+  - Bundle analysis configurado para monitoramento de tamanho
+- **Gestão de Segredos**:
+  - Confirmado que `.env.local` está corretamente no `.gitignore`
+  - Validação da configuração de segurança do projeto
+
+### Técnico
+- **Dependências**:
+  - Adicionado `resend@4.6.0` para serviço de email profissional
+  - Mantidas compatibilidades com dependências existentes
+- **Scripts**:
+  - Documentados todos os scripts customizados de manutenção
+  - Adicionado suporte ao `yarn analyze:browser` para análise de bundle
+- **Performance**:
+  - Lazy loading real implementado para melhor performance
+  - Redução do carregamento inicial através de renderização sob demanda
+
 ## [2.2.9] - 2025-06-06
 
 ### Melhorado

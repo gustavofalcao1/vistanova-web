@@ -67,7 +67,7 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 
 ## Próximos Passos (Funcionalidades e Melhorias Gerais)
 
-* [ ] **Implementar Lógica de Envio de Emails** (com Resend)
+* [x] **Implementar Lógica de Envio de Emails** (com Resend) ✅
 * [ ] **Implementar Gestão de Cookies** (com Cookiebot)
 * [ ] **Acessibilidade (A11y) - Avançado**
   * [ ] Suporte a tema claro/escuro (funcionalidade completa e toggle)
@@ -107,7 +107,7 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [x] **Revisão de `tsconfig.json`** (confirmado como bom, sugestões opcionais fornecidas).
 * [x] **Revisão de `.npmrc`** (aconselhado remover se `yarn` for exclusivo).
 * [x] **Revisão de `.prettierrc` e `.prettierignore`** (confirmados como bons).
-* [ ] (Opcional) Reativar linting no build de produção (`eslint.ignoreDuringBuilds: false`) antes do deploy final.
+* [x] **Reativar linting no build de produção** (`eslint.ignoreDuringBuilds: false`) ✅
 
 ### Qualidade do Código e Convenções
 * [x] **Hooks**: Remover duplicação do hook `use-toast.ts` (escolher uma localização: `/src/hooks` ou `/src/components/ui`).
@@ -125,16 +125,16 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [x] **Vercel Analytics**: Manter a integração com Vercel Analytics para métricas complementares.
 
 ### Performance
-* [ ] **LazyLoad Component**: Se o componente `LazyLoad` atual for um placeholder, implementar lazy loading real para componentes (e.g., com Intersection Observer) ou usar funcionalidades do React 19.
-* [ ] **Bundle Analysis**: Executar `yarn analyze` periodicamente.
+* [x] **LazyLoad Component**: Implementar lazy loading real para componentes com Intersection Observer ✅
+* [x] **Bundle Analysis**: Executar `yarn analyze` periodicamente ✅
 
 ### Segurança
-* [ ] **Validação Backend**: Implementar validação com Zod no backend para a rota `/api/contact`.
-* [ ] **Gestão de Segredos**: Confirmar que `.env.local` está no `.gitignore` e que os segredos são geridos de forma segura em produção.
-* [ ] **Auditoria de Dependências**: Executar `yarn audit` regularmente.
+* [x] **Validação Backend**: Implementar validação com Zod no backend para a rota `/api/contact` ✅
+* [x] **Gestão de Segredos**: Confirmar que `.env.local` está no `.gitignore` e que os segredos são geridos de forma segura em produção ✅
+* [x] **Auditoria de Dependências**: Executar `yarn audit` regularmente ✅
 
 ### Documentação e Manutenção
 * [x] **Changelog**: Reordenar e verificar consistência do `CHANGELOG.MD` (entradas mais recentes no topo). *(Sugestão: Marcar como feito)*
-* [ ] **Scripts Customizados**: Documentar scripts em `scripts/` (e.g., `generateGlobalCSS.mjs`) no `README.md` principal.
+* [x] **Scripts Customizados**: Documentar scripts em `scripts/` no `README.md` principal ✅
 
 ### Error Handling e Logging

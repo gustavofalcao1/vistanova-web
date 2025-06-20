@@ -4,7 +4,7 @@
 const config = {
   // The base URL of your site. Used to generate absolute URLs for sitemap entries.
   // It's good practice to use an environment variable for this.
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://vistanova.pt',
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL || 'https://vistanova.pt',
 
   // Whether to generate a robots.txt file.
   generateRobotsTxt: true,

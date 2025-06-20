@@ -193,12 +193,7 @@ const faqs: FAQ[] = [
 
 const handleNewsletterSubmit = async (data: NewsletterFormData) => {
   try {
-    // #DEV
     // Simulate API call - here you would implement the actual API call
-    console.log('Newsletter data:', {
-      ...data,
-      recaptchaTokenReceived: !!data.recaptchaToken
-    });
     
     // In a production environment, you would send the recaptchaToken for validation on the server
     // Example:

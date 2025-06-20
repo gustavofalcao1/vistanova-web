@@ -68,7 +68,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
       
       // #DEV
       // Log the token for debugging purposes
-      console.log('Newsletter submission with reCAPTCHA token', { tokenReceived: !!recaptchaToken });
+
       
       const result = await onNewsletterSubmit(newsletterData);
       
@@ -103,7 +103,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
       
       // #DEV
       // Log the token for debugging purposes
-      console.log('Contact form submission with reCAPTCHA token', { tokenReceived: !!recaptchaToken });
+
       
       // Send the contact form data to the API
       const response = await fetch('/api/contact', {
