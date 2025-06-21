@@ -100,7 +100,7 @@ export default function Partners({ partners }: PartnersProps) {
             <p className="text-md lg:text-sm text-neutral-500">
               Não somos um banco, mas trabalhamos com os principais bancos e instituições financeiras a operar em Portugal.
               <br />
-              A Vista Nova é independente e analisa cada caso com isenção, para encontrar a melhor solução de crédito para ti, dentro das condições e ofertas dos nossos parceiros.
+              A VISTA NOVA é independente e analisa cada caso com isenção, para encontrar a melhor solução de crédito para ti, dentro das condições e ofertas dos nossos parceiros.
             </p>
           </div>
         </motion.div>

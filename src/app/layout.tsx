@@ -12,26 +12,26 @@ import WhatsAppButton from "@/components/ui/whatsapp-button";
 
 export const metadata: Metadata = {
   ...getFaviconMetadata(),
-  title: "Vista Nova - Especialista em intermediação de crédito",
+  title: "VISTA NOVA - Especialista em intermediação de crédito",
   description: "Especialista em intermediação de crédito",
   metadataBase: new URL('https://vistanova.pt'),
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'Vista Nova',
+    title: 'VISTA NOVA',
   },
   // Configurações de favicon e tema movidas para getFaviconMetadata()
   openGraph: {
-    title: 'Vista Nova - Especialista em intermediação de crédito',
+    title: 'VISTA NOVA - Especialista em intermediação de crédito',
     description: 'Especialista em intermediação de crédito',
     url: 'https://vistanova.pt',
-    siteName: 'Vista Nova',
+    siteName: 'VISTA NOVA',
     locale: 'pt_PT',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Vista Nova - Especialista em intermediação de crédito',
+    title: 'VISTA NOVA - Especialista em intermediação de crédito',
     description: 'Especialista em intermediação de crédito',
   },
 };

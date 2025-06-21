@@ -166,7 +166,7 @@ const faqs: FAQ[] = [
     answer: "Não. O nosso serviço é totalmente gratuito para ti. Atuamos segundo o artigo 46.º do Decreto-Lei 81-C/2017."
   },
   {
-    question: "A Vista Nova é um banco?",
+    question: "A VISTA NOVA é um banco?",
     answer: "Não. Somos uma empresa de intermediação de crédito, registada e autorizada pelo Banco de Portugal com o nº 2543."
   },
   {
@@ -175,7 +175,7 @@ const faqs: FAQ[] = [
   },
   {
     question: "Sou obrigado a aceitar a proposta que me apresentarem?",
-    answer: "Não. A decisão é sempre tua. A Vista Nova apresenta, compara e aconselha, mas nunca pressiona."
+    answer: "Não. A decisão é sempre tua. A VISTA NOVA apresenta, compara e aconselha, mas nunca pressiona."
   },
   {
     question: "Ajudam mesmo depois da contratação do crédito?",

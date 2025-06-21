@@ -110,7 +110,7 @@ export default function TrabalhaConosco() {
         transition={{ duration: 0.5, delay: 0.1 }}
         className="bg-white rounded-lg shadow-md p-8 mb-12"
       >
-        <h2 className="text-2xl font-semibold text-primary mb-6">Por que trabalhar na Vista Nova?</h2>
+        <h2 className="text-2xl font-semibold text-primary mb-6">Por que trabalhar na VISTA NOVA?</h2>
         <div className="grid md:grid-cols-2 gap-8 mb-8">
           <div className="space-y-4">
             <div className="flex items-start space-x-4">

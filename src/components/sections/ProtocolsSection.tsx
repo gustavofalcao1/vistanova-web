@@ -45,7 +45,7 @@ export default function ProtocolsSection({ protocols }: ProtocolosSectionProps) 
             <p className="text-md lg:text-sm text-white/80">
               Se pertences a uma destas entidades, <strong>tens acesso a condições especiais.</strong>
               <br />
-              Estas instituições já confiam na Vista Nova.
+              Estas instituições já confiam na VISTA NOVA.
             </p>
           </div>
         </motion.div>

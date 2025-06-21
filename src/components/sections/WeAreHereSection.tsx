@@ -275,7 +275,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
                     {...registerNewsletter("consent")}
                   />
                   <label htmlFor="newsletter-consent" className="ml-2 block text-xs text-neutral-700 mt-1">
-                    Concordo em receber comunicações de marketing da Vista Nova. *
+                    Concordo em receber comunicações de marketing da VISTA NOVA. *
                   </label>
                 </div>
                 {errorsNewsletter.consent && (

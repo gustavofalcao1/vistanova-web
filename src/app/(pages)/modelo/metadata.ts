@@ -1,8 +1,8 @@
 import { Metadata, Viewport } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Página de Modelo | Vista Nova',
-  description: 'Modelo de página para o site da Vista Nova.',
+  title: 'Página de Modelo | VISTA NOVA',
+  description: 'Modelo de página para o site da VISTA NOVA.',
 };
 
 export const viewport: Viewport = {

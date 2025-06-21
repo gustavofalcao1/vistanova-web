@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Política de Cookies | Vista Nova',
+  title: 'Política de Cookies | VISTA NOVA',
   description: 'Saiba como utilizamos cookies e tecnologias semelhantes no nosso site.',
 };
 

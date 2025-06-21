@@ -47,7 +47,7 @@ export default function QuemSomosSection() {
           }}
         >
           <p className="text-lg text-neutral-800 text-center mb-2 font-bold">
-            Somos a Vista Nova.
+            Somos a VISTA NOVA.
           </p>
           <p className="text-lg text-neutral-800 text-center mb-2">
             Durante 17 anos, ajudámos centenas de pessoas a tomarem decisões com mais clareza. Somos Intermediários de Crédito Vinculados, registados no Banco de Portugal, com o n.º 0002543.

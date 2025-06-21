@@ -19,7 +19,7 @@ export function Logo({ variant = 'default', className = '', width = 180 }: LogoP
         <div className="flex items-center justify-center">
           <Image
             src={logoPath}
-            alt="Vista Nova - Especialista em intermediação de crédito"
+            alt="VISTA NOVA - Especialista em intermediação de crédito"
             width={width}
             height={width / 2}
             className="h-auto w-auto"

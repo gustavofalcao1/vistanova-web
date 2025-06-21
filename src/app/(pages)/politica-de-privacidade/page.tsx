@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Política de Privacidade | Vista Nova',
+  title: 'Política de Privacidade | VISTA NOVA',
   description: 'Conheça nossa política de privacidade e como protegemos seus dados pessoais.',
 };
 
@@ -17,7 +17,7 @@ export default function PoliticaPrivacidade() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-primary mb-4">1. Introdução</h2>
         <p className="mb-4">
-          A Vista Nova está comprometida em proteger a privacidade dos seus utilizadores. Esta Política de Privacidade explica como recolhemos, utilizamos, divulgamos e salvaguardamos as suas informações quando visita o nosso site.
+          A VISTA NOVA está comprometida em proteger a privacidade dos seus utilizadores. Esta Política de Privacidade explica como recolhemos, utilizamos, divulgamos e salvaguardamos as suas informações quando visita o nosso site.
         </p>
       </section>
 

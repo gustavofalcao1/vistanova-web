@@ -38,7 +38,7 @@ export async function sendEmail(options: SendEmailOptions): Promise<EmailResult>
   }
 
   try {
-    const from = process.env.EMAIL_FROM || 'Vista Nova <noreply@vistanova.pt>';
+    const from = process.env.EMAIL_FROM || 'VISTA NOVA <noreply@vistanova.pt>';
     const replyTo = process.env.EMAIL_REPLY_TO || 'contato@vistanova.pt';
 
     const result = await resend.emails.send({
@@ -162,7 +162,7 @@ export async function sendContactFormEmail(data: {
       </div>
       
       <div style="margin-top: 30px; font-size: 12px; color: #718096; border-top: 1px solid #e2e8f0; padding-top: 15px;">
-        <p>Esta é uma mensagem automática enviada através do formulário de contato do site Vista Nova.</p>
+        <p>Esta é uma mensagem automática enviada através do formulário de contato do site VISTA NOVA.</p>
         <p>Para responder a esta mensagem, utilize o email: ${email}</p>
       </div>
     </div>
@@ -184,7 +184,7 @@ export async function sendContactFormEmail(data: {
  * Send newsletter welcome email to new subscribers
  */
 export async function sendNewsletterWelcomeEmail(email: string, name?: string): Promise<EmailResult> {
-  const subject = 'Bem-vindo à Newsletter Vista Nova!';
+  const subject = 'Bem-vindo à Newsletter VISTA NOVA!';
   
   const displayName = name || 'Cliente';
   
@@ -198,12 +198,12 @@ export async function sendNewsletterWelcomeEmail(email: string, name?: string): 
     Se tiveres alguma pergunta, não hesites em contactar-nos.
     
     Cumprimentos,
-    Equipa Vista Nova
+    Equipa VISTA NOVA
   `;
 
   const html = `
     <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
-      <h2 style="color: #1a365d;">Bem-vindo à Newsletter Vista Nova!</h2>
+      <h2 style="color: #1a365d;">Bem-vindo à Newsletter VISTA NOVA!</h2>
       
       <p>Olá <strong>${displayName}</strong>!</p>
       
@@ -215,12 +215,12 @@ export async function sendNewsletterWelcomeEmail(email: string, name?: string): 
       
       <p style="margin-top: 30px;">
         Cumprimentos,<br>
-        <strong>Equipa Vista Nova</strong>
+        <strong>Equipa VISTA NOVA</strong>
       </p>
       
       <div style="margin-top: 40px; font-size: 12px; color: #718096; border-top: 1px solid #e2e8f0; padding-top: 15px;">
         <p>Se não desejares mais receber estes emails, podes <a href="#" style="color: #4299e1;">cancelar a subscrição aqui</a>.</p>
-        <p>Este email foi enviado porque te inscreveste na nossa newsletter através do site Vista Nova.</p>
+        <p>Este email foi enviado porque te inscreveste na nossa newsletter através do site VISTA NOVA.</p>
       </div>
     </div>
   `;

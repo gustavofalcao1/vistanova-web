@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Aviso de Privacidade | Vista Nova',
-  description: 'Informações sobre como a Vista Nova protege e gerencia seus dados pessoais.',
+  title: 'Aviso de Privacidade | VISTA NOVA',
+  description: 'Informações sobre como a VISTA NOVA protege e gerencia seus dados pessoais.',
 };
 
 export default function AvisoPrivacidade() {
@@ -17,7 +17,7 @@ export default function AvisoPrivacidade() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-primary mb-4">Responsável pelo Tratamento</h2>
         <p className="mb-4">
-          A Vista Nova, com sede em Rua da Bélgica, 3434–H, 4400-209 Vila Nova de Gaia, é a responsável pelo tratamento dos seus dados pessoais.
+          A VISTA NOVA, com sede em Rua da Bélgica, 3434–H, 4400-209 Vila Nova de Gaia, é a responsável pelo tratamento dos seus dados pessoais.
         </p>
       </section>
 
@@ -59,14 +59,14 @@ export default function AvisoPrivacidade() {
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-primary mb-4">Comunicações de Marketing</h2>
         <p className="mb-4">
-          Poderá receber comunicações de marketing da Vista Nova, desde que tenha dado o seu consentimento para tal. Em qualquer momento, pode optar por não receber estas comunicações através dos links de cancelamento de subscrição presentes em cada comunicação ou contactando-nos diretamente.
+          Poderá receber comunicações de marketing da VISTA NOVA, desde que tenha dado o seu consentimento para tal. Em qualquer momento, pode optar por não receber estas comunicações através dos links de cancelamento de subscrição presentes em cada comunicação ou contactando-nos diretamente.
         </p>
       </section>
 
       <section className="mb-8">
         <h2 className="text-2xl font-semibold text-primary mb-4">Alterações ao Aviso de Privacidade</h2>
         <p className="mb-4">
-          A Vista Nova reserva-se o direito de efetuar alterações ao presente Aviso de Privacidade, devendo estas alterações ser divulgadas através dos nossos canais de comunicação.
+          A VISTA NOVA reserva-se o direito de efetuar alterações ao presente Aviso de Privacidade, devendo estas alterações ser divulgadas através dos nossos canais de comunicação.
         </p>
       </section>
 

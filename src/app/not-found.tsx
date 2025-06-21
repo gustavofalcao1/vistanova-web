@@ -34,7 +34,7 @@ export default function NotFound() {
           transition={{ delay: 0.6, duration: 0.5 }}
           className="text-lg md:text-xl text-muted-foreground mb-8 max-w-md mx-auto"
         >
-          Não encontramos a página que procuravas... Mas não te preocupes, a Vista Nova tem sempre soluções para te ajudar a encontrar o caminho de volta!
+          Não encontramos a página que procuravas... Mas não te preocupes, a VISTA NOVA tem sempre soluções para te ajudar a encontrar o caminho de volta!
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

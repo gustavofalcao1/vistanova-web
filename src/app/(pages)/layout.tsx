@@ -4,7 +4,7 @@ import Footer from '@/components/layouts/Footer';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Vista Nova - Especialistas em Crédito',
+  title: 'VISTA NOVA - Especialistas em Crédito',
   description: 'Soluções financeiras personalizadas para suas necessidades de crédito.',
 };
 

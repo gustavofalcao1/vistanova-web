@@ -9,7 +9,7 @@ Este arquivo contém todas as variáveis de ambiente necessárias para o funcion
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 # Email de origem (remetente) - deve ser um domínio verificado no Resend
-EMAIL_FROM=Vista Nova <noreply@vistanova.pt>
+EMAIL_FROM=VISTA NOVA <noreply@vistanova.pt>
 
 # Email para respostas (opcional, mas recomendado)
 EMAIL_REPLY_TO=contato@vistanova.pt
