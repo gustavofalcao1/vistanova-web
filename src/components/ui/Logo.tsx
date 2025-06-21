@@ -26,6 +26,7 @@ export function Logo({ variant = 'default', className = '', width = 180 }: LogoP
             priority
             style={{
               maxWidth: '100%',
+              width: 'auto',
               height: 'auto',
               display: 'block',
               margin: '0 auto'
