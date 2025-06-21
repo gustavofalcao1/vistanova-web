@@ -9,7 +9,7 @@ import fs from 'fs-extra';
 import path from 'path';
 import chalk from 'chalk';
 
-import themeColorsDefinition from '../src/styles/tokens/colors';
+import themeColorsDefinition from '../src/styles/tokens/colors.js';
 
 const DIRECTORIES_TO_SCAN: string[] = [
   'src/app',

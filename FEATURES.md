@@ -2,7 +2,7 @@
 
 Este documento mantém o controle das funcionalidades implementadas e pendentes no projeto Vista Nova Web.
 
-## Funcionalidades Implementadas (v2.2.11)
+## Funcionalidades Implementadas (v2.2.13)
 
 * [x] **Componentes de UI Reutilizáveis** ✅
   * [x] Botões com variantes
@@ -56,8 +56,32 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [x] **Monitoramento de Erros e Performance** ✅
   * [x] Análise de erros do lado do cliente (Sentry)
   * [x] Monitoramento de desempenho (Sentry)
+* [x] **Layout Responsivo**: Design moderno e responsivo com breakpoints customizados ✅
+* [x] **Sistema de Cores**: Tokens de cores bem estruturados ✅
+* [x] **Tipografia**: Sistema tipográfico consistente com fonte Inter ✅
+* [x] **Animações**: Implementação com Framer Motion para animações suaves ✅
+* [x] **Componentes UI**: Biblioteca baseada em shadcn/ui com customizações ✅
+* [x] **Harmonização de Cores e Sombreamentos**: Sistema unificado de cores e sombras padronizadas (v2.2.11) ✅
+* [x] **Sistema de Cores Acessíveis**: Variações WCAG AA compliant da cor secundária (v2.2.13) ✅
 
-## Melhorias Recentes (v2.2.11)
+## Melhorias Recentes (v2.2.13)
+
+* [x] **Correções Críticas de Sistema** ✅
+  * [x] Resolução do bug de recursão infinita no Tailwind config (flattenShadows)
+  * [x] Build estável sem erros de "Maximum call stack size exceeded"
+  * [x] Performance de build melhorada (43.90s sem falhas)
+  * [x] Sistema de sombras robusto com mapeamento estático via CSS variables
+* [x] **Acessibilidade Visual Aprimorada** ✅
+  * [x] Cores secundárias com contraste WCAG AA compliant
+  * [x] secondary-accessible (#707E02) - contraste 4.49:1 vs branco
+  * [x] secondary-vibrant (#9DB002) - contraste intermediário
+  * [x] secondary-darker (#5A6602) - contraste máximo
+  * [x] secondary-onDark (#E5FC2A) - preservada para fundos escuros
+  * [x] Classes CSS automáticas para todas as variações
+  * [x] Suporte completo no Tailwind config
+  * [x] Identidade da marca preservada com flexibilidade de uso
+
+## Melhorias Anteriores (v2.2.11)
 
 * [x] **Limpeza e Otimização de Código** ✅
   * [x] Remoção de todos os logs de debug e console.log de produção
@@ -108,51 +132,4 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 
 ### Configuração do Projeto
 * [x] **ESLint**:
-  * [x] Consolidar configuração ESLint (convertido para `eslint.config.mjs`).
-  * [x] Remover secção `eslintConfig` do `package.json` e ficheiros ESLint legados.
-* [x] **Otimização de Imagens**: Clarificar e documentar a estratégia final (Next.js Image loader vs. script `optimize-images.ts` e `images.unoptimized: true`). Atualizar `README.md`.
-* [x] **Cabeçalhos de Segurança**: Unificar gestão de cabeçalhos de segurança (priorizar `next.config.mjs` sobre `vercel.json`).
-* [x] **Dependências**:
-  * [x] Verificar necessidade da dependência `@azure/identity`. (removida)
-  * [x] Documentar decisão e diretrizes de uso para `styled-components` vs. Tailwind CSS.
-* [x] **Padronização de Ficheiros de Configuração**:
-    * [x] Converter `tailwind.config.js` para `.mjs`.
-    * [x] Revisar `postcss.config.mjs` (confirmado como OK).
-    * [x] Converter `next-sitemap.config.js` para `.mjs` e atualizar script no `package.json`.
-* [x] **Revisão de `tsconfig.json`** (confirmado como bom, sugestões opcionais fornecidas).
-* [x] **Revisão de `.npmrc`** (aconselhado remover se `yarn` for exclusivo).
-* [x] **Revisão de `.prettierrc` e `.prettierignore`** (confirmados como bons).
-* [x] **Reativar linting no build de produção** (`eslint.ignoreDuringBuilds: false`) ✅
-
-### Qualidade do Código e Convenções
-* [x] **Hooks**: Remover duplicação do hook `use-toast.ts` (escolher uma localização: `/src/hooks` ou `/src/components/ui`).
-* [x] **Documentação de Código**: Adicionar JSDoc/TSDoc (em inglês) a funções complexas, componentes com muitas props e lógica de negócio crítica.
-* [x] **Consistência de Cores**: Executar regularmente `scripts/check-colors.ts` e garantir que todas as cores hardcoded não intencionais sejam substituídas por variáveis/classes do tema.
-* [x] **Revisão de `useEffect`**: Garantir que os arrays de dependências estão corretos e otimizados.
-* [x] **Revisão do sistema de Estilos**: Clarificar organização entre tokens, `tailwind.config.mjs`, `globals.css` e `tailwind.d.ts`.
-* [x] **Limpeza de Código de Produção**: Remover logs de debug, componentes obsoletos e código de desenvolvimento desnecessário ✅
-
-### Analytics e Monitoramento
-* [x] **Google Analytics**: Implementar Google Analytics 4 (GA4) com dois códigos de medição:
-  * Domínio principal (vistanova.pt)
-  * URL de deploy do Vercel
-  * Detecção automática do domínio para usar o código apropriado
-* [x] **Web Vitals**: Monitorar métricas de performance com o componente `WebVitals` integrado ao Next.js.
-* [x] **Vercel Analytics**: Manter a integração com Vercel Analytics para métricas complementares.
-
-### Performance
-* [x] **LazyLoad Component**: Implementar lazy loading real para componentes com Intersection Observer ✅
-* [x] **Bundle Analysis**: Executar `yarn analyze` periodicamente ✅
-
-### Segurança
-* [x] **Validação Backend**: Implementar validação com Zod no backend para a rota `/api/contact` ✅
-* [x] **Gestão de Segredos**: Confirmar que `.env.local` está no `.gitignore` e que os segredos são geridos de forma segura em produção ✅
-* [x] **Auditoria de Dependências**: Executar `yarn audit` regularmente ✅
-
-### Documentação e Manutenção
-* [x] **Changelog**: Reordenar e verificar consistência do `CHANGELOG.MD` (entradas mais recentes no topo). *(Sugestão: Marcar como feito)*
-* [x] **Scripts Customizados**: Documentar scripts em `scripts/` no `README.md` principal ✅
-
-### Error Handling e Logging
-* [x] **Limpeza de Logs**: Remover todos os logs de debug e console.log de código de produção ✅
-* [x] **Estrutura de Código Limpa**: Manter apenas código essencial para produção ✅
+  * [x] Consolidar configuração ESLint (convertido para `
