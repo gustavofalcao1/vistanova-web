@@ -21,30 +21,9 @@ declare global {
 }
 
 export default function Usercentrics() {
-  // Debug logs
-  useEffect(() => {
-    console.log('🍪 Usercentrics Debug Info:');
-    console.log('- Enabled:', ENV.COOKIEBOT_ENABLED);
-    console.log('- Settings ID:', ENV.COOKIEBOT_DOMAIN_ID);
-    console.log('- Settings ID Length:', ENV.COOKIEBOT_DOMAIN_ID?.length);
-    console.log('- Current hostname:', typeof window !== 'undefined' ? window.location.hostname : 'N/A');
-    console.log('- Environment:', process.env.NODE_ENV);
-    
-    // Check if Settings ID looks valid (Usercentrics uses longer IDs)
-    if (ENV.COOKIEBOT_DOMAIN_ID) {
-      const isValidFormat = /^[a-zA-Z0-9]{10,}$/.test(ENV.COOKIEBOT_DOMAIN_ID);
-      console.log('- Settings ID Format Valid:', isValidFormat);
-      if (!isValidFormat) {
-        console.warn('🚨 Usercentrics Settings ID should be 10+ alphanumeric characters. Current:', ENV.COOKIEBOT_DOMAIN_ID);
-      }
-    }
-  }, []);
-
   // Listen for Usercentrics consent changes
   useEffect(() => {
     const handleConsentChange = (event: any) => {
-      console.log('🍪 Usercentrics consent changed:', event);
-      
       // Check for specific services (Google Analytics, etc.)
       if (event.detail && event.detail.consents) {
         const consents = event.detail.consents;
@@ -69,34 +48,17 @@ export default function Usercentrics() {
   }, []);
 
   // Only render if enabled and we have a settings ID
-  if (!ENV.COOKIEBOT_ENABLED || !ENV.COOKIEBOT_DOMAIN_ID) {
-    console.warn('🍪 Usercentrics not loaded:', {
-      enabled: ENV.COOKIEBOT_ENABLED,
-      hasSettingsId: !!ENV.COOKIEBOT_DOMAIN_ID,
-      settingsId: ENV.COOKIEBOT_DOMAIN_ID || 'NOT_SET',
-      reason: !ENV.COOKIEBOT_ENABLED ? 'Disabled' : 'Missing Settings ID'
-    });
+  if (!ENV.USERCENTRICS_ENABLED || !ENV.USERCENTRICS_SETTINGS_ID) {
     return null;
   }
 
   const handleUsercentricsLoad = () => {
-    if (typeof window !== 'undefined' && window.UC_UI) {
-      console.info('✅ Usercentrics loaded successfully');
-    } else {
-      console.error('❌ Usercentrics script loaded but UC_UI not available');
-    }
+    // Usercentrics loaded successfully - no debug logs in production
   };
 
-  const handleUsercentricsError = (error: any) => {
-    console.error('❌ Failed to load Usercentrics:', error);
-    console.error('🔍 Debug info:', {
-      settingsId: ENV.COOKIEBOT_DOMAIN_ID,
-      hostname: typeof window !== 'undefined' ? window.location.hostname : 'N/A',
-      isLocalhost: typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
-    });
+  const handleUsercentricsError = () => {
+    // Handle error silently in production
   };
-
-  console.log('🍪 Loading Usercentrics with Settings ID:', ENV.COOKIEBOT_DOMAIN_ID);
 
   return (
     <>
@@ -111,7 +73,7 @@ export default function Usercentrics() {
       <Script
         id="usercentrics-cmp"
         src="https://web.cmp.usercentrics.eu/ui/loader.js"
-        data-settings-id={ENV.COOKIEBOT_DOMAIN_ID}
+        data-settings-id={ENV.USERCENTRICS_SETTINGS_ID}
         strategy="afterInteractive"
         async
         onLoad={handleUsercentricsLoad}

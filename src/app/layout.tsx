@@ -4,12 +4,11 @@ import WebVitals from "@/components/analytics/web-vitals";
 import GoogleAnalytics from "@/components/analytics/google-analytics";
 import VercelAnalytics from "@/components/analytics/vercel-analytics";
 import Usercentrics from "@/components/analytics/usercentrics";
-import CookiebotDev from "@/components/analytics/cookiebot-dev";
-import WhatsAppButton from "@/components/ui/whatsapp-button";
 import { Toaster } from "@/components/ui/toaster";
 import Providers from "@/components/providers/Providers";
 import { ScrollProvider } from "@/components/providers/ScrollProvider";
-import { getFaviconMetadata } from "@/components/seo";
+import { Favicon, getFaviconMetadata } from "@/components/seo";
+import WhatsAppButton from "@/components/ui/whatsapp-button";
 
 export const metadata: Metadata = {
   ...getFaviconMetadata(),
@@ -51,8 +50,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt" className="font-sans">
+    <html lang="pt" className="font-sans" suppressHydrationWarning>
       <head>
+        <Favicon />
         {/* Preload critical font weights */}
         <link
           rel="preload"
@@ -64,6 +64,20 @@ export default function RootLayout({
         <link
           rel="preload"
           href="/fonts/Inter-Medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Inter-SemiBold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Inter-Bold.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
@@ -94,8 +108,6 @@ export default function RootLayout({
               <Toaster />
               {/* Cookie Consent Management - GDPR Compliance */}
               <Usercentrics />
-              {/* Development Cookie Banner for localhost testing */}
-              <CookiebotDev />
               {/* Performance monitoring - only active in production */}
               <WebVitals />
               {/* Google Analytics - only active in production and with consent */}

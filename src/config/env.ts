@@ -8,9 +8,9 @@ export const ENV = {
   // Analytics and Tracking
   GOOGLE_ANALYTICS_ID: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID || '',
   
-  // Usercentrics Configuration (using COOKIEBOT variables for compatibility)
-  COOKIEBOT_DOMAIN_ID: process.env.NEXT_PUBLIC_COOKIEBOT_DOMAIN_ID || '', // Actually Usercentrics Settings ID
-  COOKIEBOT_ENABLED: process.env.NEXT_PUBLIC_COOKIEBOT_ENABLED === 'true',
+  // Usercentrics Configuration
+  USERCENTRICS_SETTINGS_ID: process.env.NEXT_PUBLIC_COOKIEBOT_DOMAIN_ID || '', // Using COOKIEBOT variable name for compatibility
+  USERCENTRICS_ENABLED: process.env.NEXT_PUBLIC_COOKIEBOT_ENABLED === 'true',
 } as const;
 
 export type EnvConfig = typeof ENV;

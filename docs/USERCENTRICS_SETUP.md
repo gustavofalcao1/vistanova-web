@@ -48,28 +48,15 @@ No **Vercel Dashboard**:
 
 ## 🧪 Desenvolvimento Local
 
-### **Limitações do Localhost**
+### **Funcionalidade em Localhost**
 - ✅ **Usercentrics funciona em localhost** (diferente do Cookiebot)
 - ✅ **Banner aparece normalmente**
-- ⚠️ **Algumas funcionalidades podem estar limitadas**
-
-### **Banner de Desenvolvimento**
-Para casos onde o Usercentrics não carrega localmente, mantemos um banner de desenvolvimento que simula a funcionalidade.
+- ✅ **Todas as funcionalidades disponíveis**
 
 ## 🚨 Troubleshooting
 
-### **Erro: Settings ID não válido**
-```
-Error: Cookie script tag ID U6pVKNVGxFbG1D is not a valid key.
-```
-
-**Soluções:**
-1. ✅ **Verificar Settings ID**: Deve ter 10+ caracteres alfanuméricos
-2. ✅ **Verificar no Dashboard**: Configuration → Implementation
-3. ✅ **Verificar Domínio**: Adicionar `vistanova-web.vercel.app` na lista
-
 ### **Banner não aparece**
-1. ✅ **Verificar variáveis**: Console logs mostram configuração
+1. ✅ **Verificar variáveis**: Confirmar se estão configuradas
 2. ✅ **Verificar domínio**: Deve estar registrado no Usercentrics
 3. ✅ **Verificar rede**: Bloqueadores podem interferir
 
@@ -78,26 +65,6 @@ Error: Cookie script tag ID U6pVKNVGxFbG1D is not a valid key.
 2. ✅ **Verificar integração**: Event listeners para Usercentrics
 3. ✅ **Verificar GA ID**: Deve estar configurado corretamente
 
-## 🔍 Debug
-
-### **Logs de Debug**
-No console do browser, procure por:
-```
-🍪 Usercentrics Debug Info:
-- Enabled: true
-- Settings ID: U6pVKNVGxFbG1D
-- Settings ID Length: 14
-- Settings ID Format Valid: true
-```
-
-### **Eventos do Usercentrics**
-```javascript
-// Escutar eventos de consentimento
-window.addEventListener('ucEvent', (event) => {
-  console.log('Usercentrics event:', event);
-});
-```
-
 ## 📊 Funcionalidades
 
 ### **✅ Implementado**
@@ -105,8 +72,7 @@ window.addEventListener('ucEvent', (event) => {
 - [x] Integração com Google Analytics
 - [x] Gestão de categorias de cookies
 - [x] Suporte a português
-- [x] Debug logs para desenvolvimento
-- [x] Fallback para desenvolvimento local
+- [x] Código limpo de produção
 
 ### **🔄 Integração com Google Analytics**
 - Carrega apenas após consentimento
@@ -133,11 +99,10 @@ NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
 ## 📞 Suporte
 
 Em caso de problemas:
-1. Verificar logs de debug no console
-2. Confirmar configuração no dashboard Usercentrics
-3. Testar em modo incógnito
-4. Verificar se não há bloqueadores de ads/cookies
+1. Verificar configuração no dashboard Usercentrics
+2. Testar em modo incógnito
+3. Verificar se não há bloqueadores de ads/cookies
 
 ---
 
-**Nota**: Esta implementação substitui a anterior do Cookiebot, mantendo compatibilidade com as variáveis de ambiente existentes. 
+**Nota**: Esta implementação mantém compatibilidade com as variáveis de ambiente existentes, mas o código interno foi limpo e otimizado para produção. 

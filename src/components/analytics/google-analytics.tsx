@@ -13,74 +13,54 @@ declare global {
 
 export default function GoogleAnalytics() {
   useEffect(() => {
-    // Listen for Usercentrics consent changes
-    const handleUsercentricsConsent = () => {
-      console.log('🍪 Google Analytics enabled via Usercentrics consent');
-      
-      // Initialize Google Analytics when consent is given
-      if (typeof window !== 'undefined' && window.gtag && ENV.GOOGLE_ANALYTICS_ID) {
+    const handleAnalyticsEnabled = () => {
+      // Enable Google Analytics when consent is given
+      if (typeof window !== 'undefined' && window.gtag) {
         window.gtag('consent', 'update', {
           analytics_storage: 'granted'
-        });
-        
-        window.gtag('config', ENV.GOOGLE_ANALYTICS_ID, {
-          page_title: document.title,
-          page_location: window.location.href,
         });
       }
     };
 
-    // Add event listener for Usercentrics analytics consent
-    window.addEventListener('usercentrics-analytics-enabled', handleUsercentricsConsent);
+    // Listen for Usercentrics consent events
+    window.addEventListener('usercentrics-analytics-enabled', handleAnalyticsEnabled);
     
     return () => {
-      window.removeEventListener('usercentrics-analytics-enabled', handleUsercentricsConsent);
+      window.removeEventListener('usercentrics-analytics-enabled', handleAnalyticsEnabled);
     };
   }, []);
 
-  // Only render if we have a Google Analytics ID
+  // Don't load Google Analytics if no ID is provided
   if (!ENV.GOOGLE_ANALYTICS_ID) {
-    if (process.env.NODE_ENV === 'development') {
-      console.warn('Google Analytics not loaded: Missing GOOGLE_ANALYTICS_ID');
-    }
     return null;
   }
 
-  const handleGtagLoad = () => {
-    console.log('✅ Google Analytics script loaded');
-    
-    // Initialize with denied consent (Usercentrics will update when user consents)
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('consent', 'default', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        wait_for_update: 500,
-      });
-    }
+  const handleGALoad = () => {
+    // Google Analytics loaded successfully
   };
 
   return (
     <>
-      {/* Google Analytics gtag script */}
+      {/* Google Analytics */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${ENV.GOOGLE_ANALYTICS_ID}`}
         strategy="afterInteractive"
-        onLoad={handleGtagLoad}
+        onLoad={handleGALoad}
       />
-      
-      {/* Google Analytics initialization */}
       <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
-          window.gtag = gtag;
           gtag('js', new Date());
-          
-          // Initialize with denied consent - Usercentrics will update this
+
+          // Initialize with denied consent (GDPR compliance)
           gtag('consent', 'default', {
-            analytics_storage: 'denied',
-            ad_storage: 'denied',
-            wait_for_update: 500,
+            analytics_storage: 'denied'
+          });
+
+          gtag('config', '${ENV.GOOGLE_ANALYTICS_ID}', {
+            page_title: document.title,
+            page_location: window.location.href,
           });
         `}
       </Script>

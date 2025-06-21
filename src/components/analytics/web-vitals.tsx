@@ -16,25 +16,12 @@ export function WebVitals() {
   }, []);
 
   // Only report web vitals in production
-  useReportWebVitals(metric => {
-    if (!isProduction) return;
-
-    // Send metrics to your analytics service
-    // This is a simple console log, but you can replace with your analytics service
-    console.log(metric);
-
-    // Example for sending to Google Analytics
-    // Destructuring commented out to avoid lint errors until actually used
-    // const { id, name, value, rating } = metric;
-    
-    // Send to analytics if you have a service set up
-    // window.gtag?.('event', name, {
-    //   event_category: 'Web Vitals',
-    //   event_label: id,
-    //   value: Math.round(name === 'CLS' ? value * 1000 : value),
-    //   non_interaction: true,
-    //   metric_rating: rating,
-    // });
+  useReportWebVitals((metric) => {
+    // Only report in production
+    if (process.env.NODE_ENV === 'production') {
+      // Send to analytics service
+      // You can integrate with your preferred analytics service here
+    }
   });
 
   // This component doesn't render anything
