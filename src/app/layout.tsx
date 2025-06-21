@@ -82,6 +82,8 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
+
+        <meta httpEquiv="Permissions-Policy" content="interest-cohort=()" />
         
         {/* Theme and color - Configurações de tema e cor */}
         <meta name="msapplication-TileColor" content="#E5FC2A" />

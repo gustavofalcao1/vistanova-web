@@ -10,6 +10,22 @@ interface PartnersProps {
   partners: PartnerLogo[];
 }
 
+// Official legal names as required by new regulations
+const OFFICIAL_PARTNER_NAMES: Record<string, string> = {
+  "cgd": "CAIXA GERAL DE DEPÓSITOS, S.A.",
+  "santander": "BANCO SANTANDER TOTTA, S.A.",
+  "credibom": "BANCO CREDIBOM, SA",
+  "bpi": "BANCO BPI S.A.",
+  "abanca": "ABANCA CORPORACIÓN BANCARIA, S.A., SUCURSAL EM PORTUGAL",
+  "bancoctt": "BANCO CTT, S.A.",
+  "bankinter": "BANKINTER, S.A. - SUCURSAL EM PORTUGAL",
+  "eurobic": "BANCO BIC PORTUGUÊS, SA",
+  "novobanco": "NOVO BANCO, S.A.",
+  "uci": "UNION DE CRÉDITOS INMOBILIÁRIOS, S.A., ESTABLECIMIENTO FINANCIERO DE CRÉDITO (SOCIEDAD UNIPERSONAL) - SUCURSAL EM PORTUGAL",
+  "unicre": "UNICRE - INSTITUIÇÃO FINANCEIRA DE CRÉDITO, S.A.",
+  "bbva": "BBVA, INSTITUIÇÃO FINANCEIRA DE CRÉDITO S.A."
+};
+
 export default function Partners({ partners }: PartnersProps) {
   const [mounted, setMounted] = useState(false);
   
@@ -18,6 +34,14 @@ export default function Partners({ partners }: PartnersProps) {
     setMounted(true);
   }, []); // Empty dependency array means this runs once on mount
   
+  // Function to get official name from logo path
+  const getOfficialName = (logoPath: string): string => {
+    const fileName = logoPath.split('/').pop()?.split('.')[0] || '';
+    // Remove 'logo-' prefix if present
+    const key = fileName.replace('logo-', '');
+    return OFFICIAL_PARTNER_NAMES[key] || '';
+  };
+
   // Function to determine the appropriate dimensions and style based on the logo filename
   const getLogoConfig = (logoPath: string) => {
     // Default configuration
@@ -106,48 +130,62 @@ export default function Partners({ partners }: PartnersProps) {
         </motion.div>
         
         <div className="flex flex-wrap justify-center gap-6 md:gap-8 mt-12 px-4">
-          {partners.map((partner, index) => (
-            <motion.div 
-              key={index}
-              className="flex items-center justify-center p-5 bg-gray-100 shadow-sm rounded-lg h-24 w-[calc(50%-12px)] sm:w-[calc(33.333%-22px)] md:w-[calc(25%-24px)] max-w-[180px] transition-all duration-300 hover:bg-gray-200"
-              variants={{
-                hidden: { opacity: 0, scale: 0.9 },
-                visible: { 
-                  opacity: 1, 
-                  scale: 1,
-                  transition: { 
-                    duration: 0.3,
-                    delay: index * 0.05
+          {partners.map((partner, index) => {
+            const officialName = partner.logo ? getOfficialName(partner.logo) : '';
+            
+            return (
+              <motion.div 
+                key={index}
+                className="flex flex-col items-center justify-center p-4 bg-gray-100 shadow-sm rounded-lg min-h-[140px] w-[calc(50%-12px)] sm:w-[calc(50%-16px)] md:w-[calc(33.333%-20px)] lg:w-[calc(25%-24px)] xl:w-[calc(20%-26px)] max-w-[220px] transition-all duration-300 hover:bg-gray-200"
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9 },
+                  visible: { 
+                    opacity: 1, 
+                    scale: 1,
+                    transition: { 
+                      duration: 0.3,
+                      delay: index * 0.05
+                    }
                   }
-                }
-              }}
-              whileHover={{ 
-                y: -5,
-                boxShadow: "var(--shadow-card-hover-partners)",
-                transition: { duration: 0.3 }
-              }}
-            >
-              <div className="w-full h-full flex items-center justify-center p-2">
-                {partner.logo ? (
-                  <div className={getLogoConfig(partner.logo).containerClass}>
-                    <Image 
-                      src={partner.logo} 
-                      alt={partner.name} 
-                      fill
-                      sizes="(max-width: 768px) 160px, 200px"
-                      className={getLogoConfig(partner.logo).imageClass}
-                      quality={90}
-                      priority={getLogoConfig(partner.logo).priority}
-                    />
+                }}
+                whileHover={{ 
+                  y: -5,
+                  boxShadow: "var(--shadow-card-hover-partners)",
+                  transition: { duration: 0.3 }
+                }}
+              >
+                {/* Logo Container */}
+                <div className="w-full h-16 flex items-center justify-center mb-3">
+                  {partner.logo ? (
+                    <div className={getLogoConfig(partner.logo).containerClass}>
+                      <Image 
+                        src={partner.logo} 
+                        alt={partner.name} 
+                        fill
+                        sizes="(max-width: 768px) 160px, 200px"
+                        className={getLogoConfig(partner.logo).imageClass}
+                        quality={90}
+                        priority={getLogoConfig(partner.logo).priority}
+                      />
+                    </div>
+                  ) : (
+                    <span className="text-neutral-400 font-medium text-center">
+                      {partner.name}
+                    </span>
+                  )}
+                </div>
+                
+                {/* Official Name - Required by law */}
+                {officialName && (
+                  <div className="text-center px-1">
+                    <p className="text-xs text-neutral-600 font-medium leading-tight uppercase">
+                      {officialName}
+                    </p>
                   </div>
-                ) : (
-                  <span className="text-neutral-400 font-medium text-center">
-                    {partner.name}
-                  </span>
                 )}
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </motion.div>
     </section>
