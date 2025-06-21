@@ -13,18 +13,11 @@ export default function Footer() {
   
   return (
     <footer className="bg-primary text-white py-12 px-4">
-      <style jsx>{`
-        @media (min-width: 1024px) {
-          .footer-grid {
-            grid-template-columns: 40% 20% 20% 20%;
-          }
-        }
-      `}</style>
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 footer-grid gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <div className="lg:col-span-1">
-            <div className="mb-4 w-[250px]">
-              <Logo variant="white" width={250} />
+            <div className="mb-4 w-[200px]">
+              <Logo variant="white" width={200} />
             </div>
             <p className="text-white/80 mb-4">
               Especialista em Intermediação de Crédito.
@@ -88,7 +81,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-white/20">
           <div className="bg-white/5 rounded-lg p-6 mb-6">
             <h4 className="font-semibold mb-4 text-secondary">Informações Legais</h4>
-            <div className="text-white/80 text-xs leading-relaxed space-y-2">
+            <div className="text-white/80 text-sm leading-relaxed space-y-2">
               <p className="font-medium">Vista Nova, Unipessoal, Lda.</p>
               <p>Registado no Banco de Portugal n° 2543, como Intermediário de Crédito Vinculado.</p>
               <p>Associado n° 12 da ANICA - Associação Nacional Intermediários Crédito Autorizados.</p>
