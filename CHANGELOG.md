@@ -5,6 +5,41 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.11] - 2025-06-06
+
+### Removido
+- **Limpeza de Código de Produção**:
+  - Removidos todos os logs de debug (`console.log`, `console.warn`, `console.error`) do código de produção
+  - Excluído componente obsoleto `src/components/analytics/cookiebot.tsx`
+  - Excluído banner de desenvolvimento `src/components/analytics/cookiebot-dev.tsx`
+  - Removida documentação desatualizada `docs/COOKIEBOT_SETUP.md`
+  - Limpeza dos logs de debug no componente `web-vitals.tsx`
+
+### Alterado
+- **Renomeação e Consistência**:
+  - Renomeadas variáveis internas de `COOKIEBOT_*` para `USERCENTRICS_*` para melhor clareza
+  - Atualizado `cookie-declaration.tsx` para usar Usercentrics em vez de Cookiebot
+  - Ajustado `google-analytics.tsx` removendo logs de debug e simplificando código
+  - Atualizado `layout.tsx` removendo referências aos componentes deletados
+- **Documentação**:
+  - Atualizado `USERCENTRICS_SETUP.md` removendo seções de debug e desenvolvimento
+  - Atualizado `FEATURES.md` marcando limpeza de código como concluída
+  - Atualizado `README.md` para versão 2.2.11 com melhorias de limpeza
+
+### Melhorado
+- **Otimização de Produção**:
+  - Código agora otimizado para produção sem elementos de desenvolvimento
+  - Estrutura mais limpa e maintível
+  - Handlers de erro silenciosos em produção
+  - Compatibilidade mantida com variáveis de ambiente existentes
+
+### Técnico
+- **Build e Performance**:
+  - Build bem-sucedido sem erros após limpeza
+  - Código TypeScript válido e consistente
+  - Integração Sentry mantida e funcional
+  - Todas as funcionalidades essenciais preservadas
+
 ## [2.2.10] - 2025-06-06
 
 ### Adicionado

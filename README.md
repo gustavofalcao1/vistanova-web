@@ -4,16 +4,23 @@ Website institucional profissional para a Vista Nova, construído com tecnologia
 
 ## 📌 Status do Projeto
 
-**Versão Atual:** 2.2.10  
+**Versão Atual:** 2.2.11  
 **Status:** Em desenvolvimento ativo  
 **Próxima Versão Estável:** 2.3.X (Planejada para produção)
 
 ### Versionamento
 - **2.x.x**: Melhorias e manutenção do site atual
 - **x.2.x**: Versão em produção (versão estável)
-- **x.x.10**: Décima iteração de desenvolvimento
+- **x.x.11**: Décima primeira iteração de desenvolvimento
 
-### Melhorias Recentes (v2.2.10)
+### Melhorias Recentes (v2.2.11)
+- **Limpeza e Otimização de Código**: Remoção completa de logs de debug, componentes obsoletos e código de desenvolvimento desnecessário
+- **Gestão de Cookies Profissional**: Implementação limpa do Usercentrics com GDPR compliance total
+- **Código de Produção**: Estrutura otimizada e maintível, sem elementos de desenvolvimento
+- **Renomeação Consistente**: Variáveis internas ajustadas para refletir a tecnologia real (Usercentrics)
+- **Documentação Atualizada**: Remoção de documentação obsoleta e atualização para refletir implementação atual
+
+### Melhorias Anteriores (v2.2.10)
 - **Sistema de Email Profissional**: Integração completa com Resend para envio real de emails com fallback automático
 - **LazyLoad Funcional**: Implementação real de lazy loading com Intersection Observer para melhor performance
 - **Validação Backend Robusta**: Implementação de validação com Zod na API de contato
@@ -30,6 +37,7 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
 - **Vercel Analytics** para monitoramento de performance em tempo real
 - **Caching inteligente** para recursos estáticos e dinâmicos (via `/optimized-assets/`)
 - **Otimização manual** de imagens para maior controle sobre qualidade e tamanho
+- **Código limpo de produção** sem logs de debug ou elementos de desenvolvimento
 
 ### Segurança e Proteção
 - **reCAPTCHA v3** para proteção contra bots nos formulários
@@ -38,6 +46,12 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
 - **Verificação SSL** para comunicação segura
 - **Firewall** para filtragem de tráfego malicioso
 - **Monitoramento de Erros e Performance** com Sentry para identificar e resolver problemas em tempo real
+
+### Compliance e Privacidade
+- **Gestão de Cookies GDPR** com Usercentrics para compliance total
+- **Banner de consentimento** em português com categorização adequada
+- **Política de cookies** completa baseada em análise técnica real
+- **Integração respeitosa** com Google Analytics baseada em consentimento
 
 ## 🚀 Tecnologias Principais
 
@@ -50,7 +64,8 @@ O site da Vista Nova implementa diversas funcionalidades avançadas para garanti
 - **Ícones**: [Lucide Icons](https://lucide.dev/)
 - **Formulários**: [React Hook Form](https://react-hook-form.com/)
 - **Validação**: [Zod](https://zod.dev/)
-- **E-mails**: [Nodemailer](https://nodemailer.com/)
+- **E-mails**: [Resend](https://resend.com/) (com fallback Nodemailer)
+- **Cookies/GDPR**: [Usercentrics](https://usercentrics.com/)
 - **Segurança**: [reCAPTCHA v3](https://www.google.com/recaptcha/intro/)
 - **Gerenciamento de Estado**: Context API
 - **Gerenciamento de Erros e Performance**: [Sentry](https://sentry.io/)
