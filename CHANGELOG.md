@@ -5,6 +5,23 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.14] - 2025-01-19
+
+### ✨ Adicionado
+- **Informações Legais Obrigatórias no Footer**:
+  - Seção dedicada com informações do Banco de Portugal (Registro n° 2543)
+  - Dados da ANICA - Associação Nacional Intermediários Crédito Autorizados
+  - Detalhamento completo dos serviços de crédito hipotecário e ao consumo
+  - Números de autorização AP atualizados (2024-2025)
+  - Design responsivo com fundo destacado e tipografia legível (12px mínimo)
+
+### 🎨 Melhorado
+- **Footer Design**:
+  - Nova seção de informações legais com destaque visual
+  - Fundo semi-transparente para melhor legibilidade
+  - Estrutura hierárquica clara com títulos e listas organizadas
+  - Layout responsivo adaptado para diferentes tamanhos de tela
+
 ## [2.2.13] - 2025-01-19
 
 ### 🛠️ Corrigido

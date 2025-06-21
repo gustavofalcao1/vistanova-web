@@ -84,7 +84,36 @@ export default function Footer() {
           </div>
         </div>
         
-        <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center">
+        {/* Legal Information Section */}
+        <div className="pt-8 border-t border-white/20">
+          <div className="bg-white/5 rounded-lg p-6 mb-6">
+            <h4 className="font-semibold mb-4 text-secondary">Informações Legais</h4>
+            <div className="text-white/80 text-xs leading-relaxed space-y-2">
+              <p className="font-medium">Vista Nova, Unipessoal, Lda.</p>
+              <p>Registado no Banco de Portugal n° 2543, como Intermediário de Crédito Vinculado.</p>
+              <p>Associado n° 12 da ANICA - Associação Nacional Intermediários Crédito Autorizados.</p>
+              
+              <div className="mt-3">
+                <p className="font-medium mb-2">Serviços relacionados com Crédito Hipotecário e com Crédito a Consumidores, nomeadamente:</p>
+                <ul className="list-disc list-inside space-y-1 ml-2">
+                  <li>Apresentação ou proposta de contratos a crédito a consumidores;</li>
+                  <li>Assistência a consumidores, mediante a realização de atos preparatórios ou de outros trabalhos de gestão pré-contratual relativamente a contratos de crédito que não tenham sido por si apresentados ou propostos;</li>
+                  <li>Celebração de contratos de crédito com consumidores em nome de mutuantes;</li>
+                </ul>
+              </div>
+              
+              <p className="mt-3">Serviços de Consultoria.</p>
+              <p>Regime de exclusividade: Não.</p>
+              
+              <div className="mt-3 flex flex-col sm:flex-row sm:gap-6 gap-1">
+                <p>AP 2511954 - Crédito Habitação - de 20/10/2024 a 19/10/2025</p>
+                <p>AP 2511955 - Crédito ao Consumo - de 20/10/2024 a 19/10/2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="pt-4 border-t border-white/20 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/60 text-sm mb-4 md:mb-0">&copy; {new Date().getFullYear()} VISTA NOVA. Todos os direitos reservados.</p>
         </div>
       </div>
