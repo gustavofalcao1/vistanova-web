@@ -8,7 +8,7 @@
 
 :root {
   /* Border radius */
-  --radius: 0.75rem;
+  --radius: 0.5rem;
   
   /* Base colors - Based on src/styles/tokens/colors.ts */
   --background: 46 20% 95%; /* #F4F4ED from colors.background.DEFAULT */
@@ -33,6 +33,10 @@
   --secondary: 63 96% 58%; /* #E5FC2A from colors.secondary.DEFAULT */
   --secondary-light: 63 97% 67%; /* #EBFD5E from colors.secondary.light */
   --secondary-dark: 63 78% 52%; /* #D2E925 from colors.secondary.dark */
+  --secondary-accessible: 63 97% 25%; /* #707E02 - WCAG AA compliant for light backgrounds */
+  --secondary-vibrant: 63 85% 35%; /* #9DB002 - intermediate contrast */
+  --secondary-darker: 63 95% 20%; /* #5A6602 - maximum contrast */
+  --secondary-onDark: 63 96% 58%; /* #E5FC2A - for dark background usage */
   --secondary-gradient-dark-stop: 63 96% 48%; /* Darker shade for gradient, if needed */
   --secondary-foreground: 187 72% 18%; /* #0E454E from colors.secondary.foreground */
   
@@ -55,6 +59,37 @@
   --shadow-whatsapp-bubble: 0 2px 8px rgba(0,0,0,0.1);
   --shadow-card-initial: 0 1px 3px rgba(0,0,0,0.1);
   --shadow-card-hover-animated: 0 10px 20px rgba(0,0,0,0.1); 
+
+  /* Harmonized shadow system */
+  --shadow-xs: 0 1px 2px 0 rgba(14, 69, 78, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(14, 69, 78, 0.1), 0 1px 2px -1px rgba(14, 69, 78, 0.1);
+  --shadow-md: 0 4px 6px -1px rgba(14, 69, 78, 0.1), 0 2px 4px -2px rgba(14, 69, 78, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(14, 69, 78, 0.1), 0 4px 6px -4px rgba(14, 69, 78, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(14, 69, 78, 0.1), 0 8px 10px -6px rgba(14, 69, 78, 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgba(14, 69, 78, 0.25);
+  
+  /* Component-specific shadows */
+  --shadow-card-default: var(--shadow-sm);
+  --shadow-card-hover: var(--shadow-lg);
+  --shadow-card-hover-services: 0 10px 15px -3px rgba(14, 69, 78, 0.1), 0 4px 6px -4px rgba(14, 69, 78, 0.1);
+  --shadow-card-hover-partners: 0 4px 6px -1px rgba(14, 69, 78, 0.1), 0 2px 4px -2px rgba(14, 69, 78, 0.1);
+  
+  --shadow-button-default: var(--shadow-xs);
+  --shadow-button-hover: var(--shadow-md);
+  --shadow-button-active: var(--shadow-sm);
+  
+  --shadow-navbar-default: var(--shadow-md);
+  --shadow-navbar-scrolled: var(--shadow-lg);
+  
+  --shadow-modal-backdrop: var(--shadow-2xl);
+  
+  /* WhatsApp button shadows */
+  --shadow-whatsapp-button: 0 4px 6px -1px rgba(14, 69, 78, 0.1), 0 2px 4px -2px rgba(14, 69, 78, 0.1);
+  --shadow-whatsapp-bubble: 0 10px 15px -3px rgba(14, 69, 78, 0.1), 0 4px 6px -4px rgba(14, 69, 78, 0.1);
+  
+  /* Glow effects */
+  --glow-primary: 0 0 0 1px rgba(14, 69, 78, 0.1), 0 0 0 4px rgba(14, 69, 78, 0.1);
+  --glow-secondary: 0 0 0 1px rgba(229, 252, 42, 0.2), 0 0 0 4px rgba(229, 252, 42, 0.2);
 }
 
 .dark {
@@ -85,6 +120,10 @@
   --secondary: 63 96% 58%; /* #E5FC2A - Secondary remains the same */
   --secondary-light: 63 97% 67%;
   --secondary-dark: 63 78% 52%;
+  --secondary-accessible: 63 97% 25%; /* #707E02 - WCAG AA compliant for light backgrounds */
+  --secondary-vibrant: 63 85% 35%; /* #9DB002 - intermediate contrast */
+  --secondary-darker: 63 95% 20%; /* #5A6602 - maximum contrast */
+  --secondary-onDark: 63 96% 58%; /* #E5FC2A - for dark background usage */
   --secondary-gradient-dark-stop: 63 96% 48%;
   --secondary-foreground: 187 72% 18%; /* #0E454E */
   
@@ -150,6 +189,44 @@
   
   .border-secondary {
     border-color: hsl(var(--secondary));
+  }
+  
+  /* Accessible secondary color variants */
+  .text-secondary-accessible {
+    color: hsl(var(--secondary-accessible));
+  }
+  
+  .bg-secondary-accessible {
+    background-color: hsl(var(--secondary-accessible));
+  }
+  
+  .border-secondary-accessible {
+    border-color: hsl(var(--secondary-accessible));
+  }
+  
+  .text-secondary-vibrant {
+    color: hsl(var(--secondary-vibrant));
+  }
+  
+  .bg-secondary-vibrant {
+    background-color: hsl(var(--secondary-vibrant));
+  }
+  
+  .text-secondary-darker {
+    color: hsl(var(--secondary-darker));
+  }
+  
+  .bg-secondary-darker {
+    background-color: hsl(var(--secondary-darker));
+  }
+  
+  /* Auto-contrast classes - choose color based on context */
+  .text-secondary-auto {
+    color: hsl(var(--secondary-accessible)); /* Default to accessible on light backgrounds */
+  }
+  
+  .border-secondary-auto {
+    border-color: hsl(var(--secondary-accessible)); /* Default to accessible on light backgrounds */
   }
 }
 

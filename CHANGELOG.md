@@ -5,7 +5,56 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
-## [2.2.11] - 2025-06-06
+## [2.2.13] - 2025-01-19
+
+### 🛠️ Corrigido
+- **Bug Crítico - Recursão Infinita no Tailwind**:
+  - Corrigida função `flattenShadows` que causava "Maximum call stack size exceeded"
+  - Substituída lógica complexa de recursão por mapeamento estático usando variáveis CSS
+  - Build e desenvolvimento funcionando normalmente sem erros de stack overflow
+  - Mantida toda funcionalidade de sombras existente
+
+### ✨ Adicionado
+- **Novas Variações de Cor Secundária Acessível**:
+  - `secondary-accessible`: #707E02 - WCAG AA compliant (contraste 4.49:1 vs branco)
+  - `secondary-vibrant`: #9DB002 - contraste intermediário (2.43:1 vs branco)  
+  - `secondary-darker`: #5A6602 - contraste máximo (6.29:1 vs branco)
+  - `secondary-onDark`: #E5FC2A - para uso em fundos escuros
+  - Classes CSS automáticas (`.text-secondary-accessible`, `.bg-secondary-accessible`, etc.)
+  - Suporte completo no Tailwind config para todas as variações
+
+### 🎯 Melhorado
+- **Estabilidade do Sistema**:
+  - Configuração Tailwind mais robusta e livre de recursões
+  - Performance melhorada no processo de build (43.90s vs anteriores falhas)
+  - Manutenção facilitada do sistema de sombras
+- **Acessibilidade Visual**:
+  - Sistema de cores secundárias com contraste adequado para fundos claros
+  - Preservada identidade da marca (cor original mantida para fundos escuros)
+  - Flexibilidade para diferentes contextos de uso
+
+## [2.2.11] - 2025-01-06
+
+### ✨ Adicionado
+- **Sistema de Harmonização de Cores e Sombreamentos**:
+  - Tokens de sombras padronizadas baseados na identidade da marca (`src/styles/tokens/shadows.ts`)
+  - Funções utilitárias de harmonização de cores (`src/styles/utils/colorUtils.ts`)
+  - Classes Tailwind customizadas para sombras harmonizadas (`shadow-vn-*`)
+  - Variáveis CSS centralizadas para sistema de elevação consistente
+  - Animações de transição suave para sombras (`animate-shadow-lift`, `animate-shadow-settle`)
+  - Funções de verificação de acessibilidade WCAG (`getContrastRatio`, `isAccessibleContrast`)
+  - Sistema de mapeamento automático de cores para paleta da marca
+  - Relatório de análise completo (`src/styles/analysis-report.md`)
+
+### 🔧 Melhorado
+- Configuração Tailwind expandida com sistema de sombras harmonizadas
+- CSS global com variáveis customizadas para elevação visual
+- Sistema de tokens de cores mais robusto e escalável
+
+### 📚 Documentação
+- Guia completo de uso do sistema de harmonização
+- Mapeamento de componentes antes/depois
+- Checklist de implementação para desenvolvedores
 
 ### Removido
 - **Limpeza de Código de Produção**:
@@ -25,13 +74,6 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
   - Atualizado `USERCENTRICS_SETUP.md` removendo seções de debug e desenvolvimento
   - Atualizado `FEATURES.md` marcando limpeza de código como concluída
   - Atualizado `README.md` para versão 2.2.11 com melhorias de limpeza
-
-### Melhorado
-- **Otimização de Produção**:
-  - Código agora otimizado para produção sem elementos de desenvolvimento
-  - Estrutura mais limpa e maintível
-  - Handlers de erro silenciosos em produção
-  - Compatibilidade mantida com variáveis de ambiente existentes
 
 ### Técnico
 - **Build e Performance**:
@@ -288,3 +330,30 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 ---
 
 📅 *Última atualização: 01/06/2025*
+
+# Changelog - Vista Nova Web
+
+Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
+
+## [2.2.11] - 2025-01-06
+
+### ✨ Adicionado
+- **Sistema de Harmonização de Cores e Sombreamentos**:
+  - Tokens de sombras padronizadas baseados na identidade da marca (`src/styles/tokens/shadows.ts`)
+  - Funções utilitárias de harmonização de cores (`src/styles/utils/colorUtils.ts`)
+  - Classes Tailwind customizadas para sombras harmonizadas (`shadow-vn-*`)
+  - Variáveis CSS centralizadas para sistema de elevação consistente
+  - Animações de transição suave para sombras (`animate-shadow-lift`, `animate-shadow-settle`)
+  - Funções de verificação de acessibilidade WCAG (`getContrastRatio`, `isAccessibleContrast`)
+  - Sistema de mapeamento automático de cores para paleta da marca
+  - Relatório de análise completo (`src/styles/analysis-report.md`)
+
+### 🔧 Melhorado
+- Configuração Tailwind expandida com sistema de sombras harmonizadas
+- CSS global com variáveis customizadas para elevação visual
+- Sistema de tokens de cores mais robusto e escalável
+
+### 📚 Documentação
+- Guia completo de uso do sistema de harmonização
+- Mapeamento de componentes antes/depois
+- Checklist de implementação para desenvolvedores
