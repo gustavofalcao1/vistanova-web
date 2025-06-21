@@ -60,7 +60,7 @@ const heroSlides: HeroSlide[] = [
     id: 3,
     title: "Crédito Habitação - Garantia Pública",
     highlight: "100% financiado para jovens",
-    description: "Agora podes comprar casa sem entrada inicial: o Estado garante até 15% do valor do imóvel para jovens até 35 anos. Válido para imóveis até 450.000€. Medida válida até 31 de dezembro de 2026. Sem entrada inicial, sem IMT, sem Imposto de Selo ao estado, tudo com apoio.",
+    description: "Jovens até 35 anos podem agora financiar até 100% do valor do imóvel, o Estado garante até 15%. Sem entrada, sem IMT e Imposto de Selo na aquisição. Válido para casas até 450.000€ e em vigor até 31 de dezembro de 2026.  Fala connosco e vê se tens direto.",
     ctaPrimary: "Simular Crédito",
     ctaSecondary: "Tire suas Dúvidas",
     ctaPrimaryLink: "#simulator",

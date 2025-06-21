@@ -78,9 +78,7 @@ export default function WhatWeDoSection() {
                 visible: { opacity: 1, y: 0 }
               }}
             >
-              Estamos aqui para te ouvir, analisar o teu perfil financeiro, perceber a tua capacidade de endividamento, e encontrar, junto dos nossos parceiros bancários, a melhor solução para ti, adaptada às tuas necessidades e condições.
-              <br /> <br />
-              Comparamos, aconselhamos e negociamos por ti. Mas mais do que isso: acompanhamos-te em cada passo, desde o primeiro contacto até muito depois da escritura.
+              Na me – VISTA NOVA começamos por ouvir-te. Queremos conhecer a tua realidade, compreender os teus objetivos e analisar o teu equilíbrio financeiro. Só depois comparamos opções disponíveis nos nossos bancos parceiros, sempre com o compromisso de te apresentar a solução mais justa, sustentável e alinhada contigo.
 
             </motion.p>
             
