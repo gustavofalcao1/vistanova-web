@@ -53,7 +53,7 @@ export function ContactForm({ onSubmit }: ContactFormProps) {
       if (result.success) {
         toast({
           title: "Mensagem enviada com sucesso!",
-          description: "Obrigado pelo teu contacto! Contacta-mos em breve.",
+          description: "Obrigado pelo teu contacto! Falamos em breve.",
           variant: "default"
         });
         reset();

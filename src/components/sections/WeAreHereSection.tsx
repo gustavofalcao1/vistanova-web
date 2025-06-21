@@ -122,7 +122,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
       if (result.success) {
         toast({
           title: "Mensagem enviada com sucesso!",
-          description: "Obrigado pelo teu contacto! Contacta-mos em breve.",
+          description: "Obrigado pelo teu contacto! Falamos em breve.",
           variant: "default"
         });
         resetContact();
