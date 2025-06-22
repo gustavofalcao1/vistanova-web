@@ -5,6 +5,33 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.15] - 2025-01-19
+
+### ✨ Adicionado
+- **Política de Privacidade Oficial Completa**:
+  - Implementação do documento legal oficial elaborado por advogado
+  - 19 seções legais obrigatórias conforme legislação portuguesa e GDPR
+  - Tabela detalhada de finalidades, fundamentos e prazos de conservação de dados
+  - Informações específicas da Microsoft Ireland Operations Limited (NIPC 980152267)
+  - Endereço completo do fornecedor de serviços de dados em Dublin, Irlanda
+  - Todos os direitos do utilizador detalhados (acesso, retificação, apagamento, etc.)
+  - Links funcionais para dadospessoais@vistanova.pt e CNPD
+
+### 🎨 Melhorado
+- **Estrutura Legal**:
+  - Links internos automáticos para "Política de Cookies" quando mencionada
+  - Formatação profissional com numeração ordenada e tabelas responsivas
+  - Data dinâmica de última atualização em formato português
+  - Contactos telefónicos com links funcionais (tel:)
+  - Estrutura hierárquica clara com títulos e subtítulos organizados
+
+### 🔧 Corrigido
+- **Informações de Fornecedor**:
+  - Removidos placeholders genéricos ([DENOMINAÇÃO SOCIAL], [EMPRESA 2])
+  - Implementadas informações reais da Microsoft Ireland Operations Limited
+  - Corrigida estrutura do ponto 12 sobre comunicação de dados a terceiros
+  - Alinhamento completo com documento legal sem alterações não autorizadas
+
 ## [2.2.14] - 2025-01-19
 
 ### ✨ Adicionado
@@ -346,7 +373,7 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
 
 ---
 
-📅 *Última atualização: 01/06/2025*
+📅 *Última atualização: 19/01/2025*
 
 # Changelog - Vista Nova Web
 

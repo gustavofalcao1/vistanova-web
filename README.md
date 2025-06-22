@@ -4,16 +4,23 @@ Website institucional profissional para a Vista Nova, construído com tecnologia
 
 ## 📌 Status do Projeto
 
-**Versão Atual:** 2.2.11  
+**Versão Atual:** 2.2.15  
 **Status:** Em desenvolvimento ativo  
 **Próxima Versão Estável:** 2.3.X (Planejada para produção)
 
 ### Versionamento
 - **2.x.x**: Melhorias e manutenção do site atual
 - **x.2.x**: Versão em produção (versão estável)
-- **x.x.11**: Décima primeira iteração de desenvolvimento
+- **x.x.15**: Décima quinta iteração de desenvolvimento
 
-### Melhorias Recentes (v2.2.11)
+### Melhorias Recentes (v2.2.15)
+- **Política de Privacidade Oficial**: Implementação completa do documento legal elaborado por advogado com todas as informações obrigatórias
+- **Compliance GDPR Total**: 19 seções legais implementadas com informações específicas da Microsoft Ireland Operations Limited
+- **Links Internos Funcionais**: Navegação adequada entre política de privacidade e política de cookies
+- **Data Dinâmica**: Formatação automática da data de atualização em português
+- **Estrutura Legal Completa**: Tabela detalhada de tratamento de dados e todos os direitos do utilizador
+
+### Melhorias Anteriores (v2.2.11)
 - **Limpeza e Otimização de Código**: Remoção completa de logs de debug, componentes obsoletos e código de desenvolvimento desnecessário
 - **Gestão de Cookies Profissional**: Implementação limpa do Usercentrics com GDPR compliance total
 - **Código de Produção**: Estrutura otimizada e maintível, sem elementos de desenvolvimento
