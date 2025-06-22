@@ -16,6 +16,11 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
   - Endereço completo do fornecedor de serviços de dados em Dublin, Irlanda
   - Todos os direitos do utilizador detalhados (acesso, retificação, apagamento, etc.)
   - Links funcionais para dadospessoais@vistanova.pt e CNPD
+- **Sistema de Email Aprimorado**:
+  - Nova API dedicada `/api/newsletter` separada da API de contacto
+  - Notificação automática para `marketing@vistanova.pt` em novas inscrições na newsletter
+  - Email de boas-vindas duplo: utilizador + notificação interna
+  - Separação completa entre formulário de contacto e newsletter
 
 ### 🎨 Melhorado
 - **Estrutura Legal**:
@@ -24,6 +29,11 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
   - Data dinâmica de última atualização em formato português
   - Contactos telefónicos com links funcionais (tel:)
   - Estrutura hierárquica clara com títulos e subtítulos organizados
+- **Sistema de Emails**:
+  - Todas as respostas de email agora direcionadas para `geral@vistanova.pt`
+  - Links de contacto nos emails atualizados para o endereço correto
+  - Separação clara entre APIs de contacto e newsletter
+  - Melhor organização do código com funções específicas para cada tipo de email
 
 ### 🔧 Corrigido
 - **Informações de Fornecedor**:
@@ -31,6 +41,10 @@ e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.
   - Implementadas informações reais da Microsoft Ireland Operations Limited
   - Corrigida estrutura do ponto 12 sobre comunicação de dados a terceiros
   - Alinhamento completo com documento legal sem alterações não autorizadas
+- **Configuração de Emails**:
+  - Corrigido reply-to de `contato@vistanova.pt` para `geral@vistanova.pt`
+  - Removida mistura de dados entre formulário de contacto e newsletter
+  - Corrigidos templates de email para direcionar respostas ao endereço correto
 
 ## [2.2.14] - 2025-01-19
 

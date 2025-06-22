@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { ContactPerson } from "@/types/entities";
-import { NewsletterFormData } from "@/types/lib";
 import { Phone, Mail } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { useRecaptcha } from "@/hooks/useRecaptcha";
@@ -15,10 +14,9 @@ import { newsletterFormSchema, contactFormSchema, NewsletterFormValues, ContactF
 
 interface WeAreHereSectionProps {
   contacts: ContactPerson[];
-  onNewsletterSubmit: (data: NewsletterFormData) => Promise<{ success: boolean; error?: unknown }>;
 }
 
-export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAreHereSectionProps) {
+export default function WeAreHereSection({ contacts }: WeAreHereSectionProps) {
   const { ref, isVisible } = useScrollReveal();
   const { toast } = useToast();
   const { getRecaptchaToken } = useRecaptcha();
@@ -58,19 +56,21 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
       // Get reCAPTCHA token for newsletter form verification
       const recaptchaToken = await getRecaptchaToken('newsletter_form');
       
-      // Convert form values to NewsletterFormData type
-      const newsletterData: NewsletterFormData = {
-        name: "", // We no longer use name for newsletter
-        email: data.email,
-        consent: data.consent,
-        recaptchaToken: recaptchaToken || undefined // Convert null to undefined if token is null
-      };
+      // Send the newsletter data to the dedicated API
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: data.email,
+          name: data.name,
+          consent: data.consent,
+          recaptchaToken: recaptchaToken || undefined
+        }),
+      });
       
-      // #DEV
-      // Log the token for debugging purposes
-
-      
-      const result = await onNewsletterSubmit(newsletterData);
+      const result = await response.json();
       
       if (result.success) {
         toast({
@@ -82,7 +82,7 @@ export default function WeAreHereSection({ contacts, onNewsletterSubmit }: WeAre
       } else {
         toast({
           title: "Erro na inscrição",
-          description: String(result.error) || "Ocorreu um erro ao processar a tua inscrição. Tenta novamente.",
+          description: result.error || "Ocorreu um erro ao processar a tua inscrição. Tenta novamente.",
           variant: "destructive"
         });
       }

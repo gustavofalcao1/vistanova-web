@@ -19,7 +19,7 @@ import ImpactSection from "@/components/sections/ImpactSection";
 
 // Types
 import { Service, FAQ, ContactPerson, PartnerLogo, Protocol } from "@/types";
-import { NewsletterFormData } from "@/types/lib";
+
 
 const services: Service[] = [
   {
@@ -187,27 +187,8 @@ const faqs: FAQ[] = [
   }
 ];
 
-const handleNewsletterSubmit = async (data: NewsletterFormData) => {
-  try {
-    // Simulate API call - here you would implement the actual API call
-    
-    // In a production environment, you would send the recaptchaToken for validation on the server
-    // Example:
-    // const response = await fetch('/api/newsletter', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data),
-    // });
-    // const result = await response.json();
-    // return result;
-    
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    return { success: true };
-  } catch (error) {
-    console.error('Error sending newsletter:', error);
-    return { success: false, error: "Falha ao enviar a tua inscrição na newsletter" };
-  }
-};
+// Newsletter subscription is now handled directly in the WeAreHereSection component
+// via the dedicated /api/newsletter endpoint
 
 export default function Home() {
   // Função para verificar e processar o scrollToSection do sessionStorage
@@ -269,7 +250,7 @@ export default function Home() {
       <ServicesSection services={services} />
       <PartnersSection partners={partners} />
       <ProtocolsSection protocols={protocols} />
-      <WeAreHereSection contacts={contacts} onNewsletterSubmit={handleNewsletterSubmit} />
+              <WeAreHereSection contacts={contacts} />
       <FAQSection faqs={faqs} />
       <ImpactSection />
       <Footer />

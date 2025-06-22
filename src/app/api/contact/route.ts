@@ -63,12 +63,11 @@ export async function POST(request: Request) {
     }
 
     // Email validation is now handled by Zod schema
-    // Send email with validated data
+    // Send email with validated data (newsletter subscription is handled separately)
     const result = await sendContactFormEmail({
       name: validatedData.name,
       email: validatedData.email,
       message: validatedData.message,
-      subscribeToNewsletter: body.subscribeToNewsletter !== false, // true by default
     });
 
 

@@ -39,7 +39,7 @@ export async function sendEmail(options: SendEmailOptions): Promise<EmailResult>
 
   try {
     const from = process.env.EMAIL_FROM || 'VISTA NOVA <noreply@vistanova.pt>';
-    const replyTo = process.env.EMAIL_REPLY_TO || 'contato@vistanova.pt';
+    const replyTo = process.env.EMAIL_REPLY_TO || 'geral@vistanova.pt';
 
     const result = await resend.emails.send({
       from: from,
@@ -128,9 +128,8 @@ export async function sendContactFormEmail(data: {
   name: string;
   email: string;
   message: string;
-  subscribeToNewsletter: boolean;
 }): Promise<EmailResult> {
-  const { name, email, message, subscribeToNewsletter } = data;
+  const { name, email, message } = data;
   
   const subject = `Nova mensagem de contato de ${name}`;
   
@@ -138,8 +137,6 @@ export async function sendContactFormEmail(data: {
     Nome: ${name}
     Email: ${email}
     Mensagem: ${message}
-    
-    Newsletter: ${subscribeToNewsletter ? 'Sim' : 'Não'}
   `;
 
   const html = `
@@ -153,23 +150,17 @@ export async function sendContactFormEmail(data: {
         <div style="background-color: white; padding: 15px; border-radius: 4px; margin-top: 10px; border-left: 4px solid #4299e1;">
           ${message.replace(/\n/g, '<br>')}
         </div>
-        <p style="margin-top: 15px;">
-          <strong>Deseja receber a newsletter:</strong> 
-          <span style="color: ${subscribeToNewsletter ? '#38a169' : '#e53e3e'};">
-            ${subscribeToNewsletter ? 'Sim' : 'Não'}
-          </span>
-        </p>
       </div>
       
       <div style="margin-top: 30px; font-size: 12px; color: #718096; border-top: 1px solid #e2e8f0; padding-top: 15px;">
         <p>Esta é uma mensagem automática enviada através do formulário de contato do site VISTA NOVA.</p>
-        <p>Para responder a esta mensagem, utilize o email: ${email}</p>
+        <p>Para responder a esta mensagem, utilize o email: geral@vistanova.pt</p>
       </div>
     </div>
   `;
 
   const result = await sendEmail({
-    to: process.env.CONTACT_FORM_RECIPIENT || process.env.EMAIL_FROM || 'contato@vistanova.pt',
+    to: process.env.CONTACT_FORM_RECIPIENT || process.env.EMAIL_FROM || 'geral@vistanova.pt',
     subject,
     text,
     html,
@@ -178,6 +169,52 @@ export async function sendContactFormEmail(data: {
 
   
   return result;
+}
+
+/**
+ * Send newsletter subscription notification to marketing team
+ */
+export async function sendNewsletterNotificationEmail(data: {
+  email: string;
+  name?: string;
+}): Promise<EmailResult> {
+  const { email, name } = data;
+  
+  const displayName = name || 'Cliente';
+  const subject = `Nova inscrição na newsletter de ${displayName}`;
+  
+  const text = `
+    Nome: ${displayName}
+    Email: ${email}
+    Mensagem: Deseja receber a newsletter: Sim
+  `;
+
+  const html = `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
+      <h2 style="color: #1a365d;">Nova inscrição na newsletter</h2>
+      
+      <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <p><strong>Nome:</strong> ${displayName}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Mensagem:</strong></p>
+        <div style="background-color: white; padding: 15px; border-radius: 4px; margin-top: 10px; border-left: 4px solid #4299e1;">
+          Deseja receber a newsletter: Sim
+        </div>
+      </div>
+      
+      <div style="margin-top: 30px; font-size: 12px; color: #718096; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+        <p>Esta é uma notificação automática de nova inscrição na newsletter do site VISTA NOVA.</p>
+        <p>Para responder a esta mensagem, utilize o email: geral@vistanova.pt</p>
+      </div>
+    </div>
+  `;
+
+  return await sendEmail({
+    to: 'marketing@vistanova.pt',
+    subject,
+    text,
+    html,
+  });
 }
 
 /**
@@ -211,7 +248,7 @@ export async function sendNewsletterWelcomeEmail(email: string, name?: string): 
       
       <p>Agora receberás as nossas últimas novidades, dicas de crédito habitação e ofertas exclusivas diretamente no teu email.</p>
       
-      <p>Se tiveres alguma pergunta, não hesites em contactar-nos.</p>
+      <p>Se tiveres alguma pergunta, não hesites em contactar-nos em <a href="mailto:geral@vistanova.pt">geral@vistanova.pt</a></p>
       
       <p style="margin-top: 30px;">
         Cumprimentos,<br>
