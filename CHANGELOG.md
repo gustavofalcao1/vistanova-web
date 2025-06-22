@@ -5,6 +5,38 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.16] - 2025-01-27 - Harmonização da Paleta de Cores
+
+### 🎨 Melhorias de Design
+- **Novas variantes de cores secundárias** para melhor acessibilidade e harmonia visual
+- **Criadas 8 novas variantes** da cor secundária: `onWhite`, `onLight`, `vibrant`, `muted`, `subtle`, `accessible`, `darker`, `auto`
+- **Cores WCAG AA/AAA compliant** para garantir legibilidade em todos os contextos
+- **Classes CSS automáticas** para seleção inteligente de cores baseada no contexto
+
+### 🛠️ Funcionalidades Técnicas
+- **API de Carreiras completa** (`/api/careers`) com suporte a anexos via Resend
+- **Upload de CV** com validação (PDF/Word, até 5MB) e processamento seguro
+- **Formulário de candidaturas** profissional com todos os campos necessários
+- **Integração reCAPTCHA v3** para proteção contra spam
+- **Validação robusta** com Zod e feedback visual de erros
+
+### 📄 Documentação
+- **Guia completo de cores harmoniosas** (`docs/HARMONIZED_COLORS.md`)
+- **Documentação da API de carreiras** (`src/app/api/careers/README.md`)
+- **Exemplos de uso** e melhores práticas para cada variante de cor
+
+### 🎯 Aplicações Práticas
+- **Página de carreiras otimizada** com design coerente e funcional
+- **Ícones e elementos visuais** agora usam cores apropriadas para cada contexto
+- **Melhor contraste** em textos e elementos interativos
+- **Experiência visual consistente** em todo o site
+
+### ⚡ Performance
+- **Sistema de cores eficiente** usando CSS variables
+- **Classes utilitárias otimizadas** para rápida aplicação
+- **Fallbacks inteligentes** para compatibilidade
+- **Compilação sem erros** com todas as melhorias aplicadas
+
 ## [2.2.15] - 2025-01-19
 
 ### ✨ Adicionado

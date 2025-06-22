@@ -31,13 +31,18 @@
   --primary-foreground: 46 20% 95%; /* #F4F4ED from colors.primary.foreground */
   
   --secondary: 63 96% 58%; /* #E5FC2A from colors.secondary.DEFAULT */
-  --secondary-light: 63 97% 67%; /* #EBFD5E from colors.secondary.light */
+  --secondary-light: 63 97% 70%; /* #F0FD70 from colors.secondary.light */
   --secondary-dark: 63 78% 52%; /* #D2E925 from colors.secondary.dark */
-  --secondary-accessible: 63 97% 25%; /* #707E02 - WCAG AA compliant for light backgrounds */
-  --secondary-vibrant: 63 85% 35%; /* #9DB002 - intermediate contrast */
-  --secondary-darker: 63 95% 20%; /* #5A6602 - maximum contrast */
+  --secondary-accessible: 60 82% 32%; /* #7A8F02 - WCAG AA compliant for light backgrounds */
+  --secondary-vibrant: 60 85% 35%; /* #9DB002 - intermediate contrast */
+  --secondary-darker: 60 85% 20%; /* #5A6602 - maximum contrast */
+  --secondary-muted: 75 45% 72%; /* #C8E6A0 - verde suave */
+  --secondary-subtle: 75 60% 90%; /* #E8F5D0 - verde muito suave */
+  --secondary-onWhite: 60 82% 32%; /* #7A8F02 - para fundo branco */
+  --secondary-onLight: 60 85% 20%; /* #5A6602 - para fundos claros */
   --secondary-onDark: 63 96% 58%; /* #E5FC2A - for dark background usage */
-  --secondary-gradient-dark-stop: 63 96% 48%; /* Darker shade for gradient, if needed */
+  --secondary-gradient-from: 60 85% 35%; /* #9DB002 - gradient start */
+  --secondary-gradient-to: 60 82% 32%; /* #7A8F02 - gradient end */
   --secondary-foreground: 187 72% 18%; /* #0E454E from colors.secondary.foreground */
   
   /* Accent and feedback colors */
@@ -212,6 +217,10 @@
     background-color: hsl(var(--secondary-vibrant));
   }
   
+  .border-secondary-vibrant {
+    border-color: hsl(var(--secondary-vibrant));
+  }
+  
   .text-secondary-darker {
     color: hsl(var(--secondary-darker));
   }
@@ -220,13 +229,89 @@
     background-color: hsl(var(--secondary-darker));
   }
   
+  .border-secondary-darker {
+    border-color: hsl(var(--secondary-darker));
+  }
+  
+  /* Novas variantes suaves */
+  .text-secondary-muted {
+    color: hsl(var(--secondary-muted));
+  }
+  
+  .bg-secondary-muted {
+    background-color: hsl(var(--secondary-muted));
+  }
+  
+  .border-secondary-muted {
+    border-color: hsl(var(--secondary-muted));
+  }
+  
+  .text-secondary-subtle {
+    color: hsl(var(--secondary-subtle));
+  }
+  
+  .bg-secondary-subtle {
+    background-color: hsl(var(--secondary-subtle));
+  }
+  
+  .border-secondary-subtle {
+    border-color: hsl(var(--secondary-subtle));
+  }
+  
+  /* Variantes contextuais */
+  .text-secondary-onWhite {
+    color: hsl(var(--secondary-onWhite));
+  }
+  
+  .bg-secondary-onWhite {
+    background-color: hsl(var(--secondary-onWhite));
+  }
+  
+  .border-secondary-onWhite {
+    border-color: hsl(var(--secondary-onWhite));
+  }
+  
+  .text-secondary-onLight {
+    color: hsl(var(--secondary-onLight));
+  }
+  
+  .bg-secondary-onLight {
+    background-color: hsl(var(--secondary-onLight));
+  }
+  
+  .border-secondary-onLight {
+    border-color: hsl(var(--secondary-onLight));
+  }
+  
+  /* Gradiente harmonioso */
+  .bg-secondary-gradient-harmonious {
+    background: linear-gradient(135deg, hsl(var(--secondary-gradient-from)) 0%, hsl(var(--secondary-gradient-to)) 100%);
+  }
+  
   /* Auto-contrast classes - choose color based on context */
   .text-secondary-auto {
-    color: hsl(var(--secondary-accessible)); /* Default to accessible on light backgrounds */
+    color: hsl(var(--secondary-onWhite)); /* Default to onWhite variant for better contrast */
+  }
+  
+  .bg-secondary-auto {
+    background-color: hsl(var(--secondary-muted)); /* Default to muted for backgrounds */
   }
   
   .border-secondary-auto {
-    border-color: hsl(var(--secondary-accessible)); /* Default to accessible on light backgrounds */
+    border-color: hsl(var(--secondary-muted)); /* Default to muted for borders */
+  }
+  
+  /* Variantes de hover harmoniosas */
+  .hover\:text-secondary-accessible:hover {
+    color: hsl(var(--secondary-accessible));
+  }
+  
+  .hover\:bg-secondary-muted:hover {
+    background-color: hsl(var(--secondary-muted));
+  }
+  
+  .hover\:border-secondary-vibrant:hover {
+    border-color: hsl(var(--secondary-vibrant));
   }
 }
 

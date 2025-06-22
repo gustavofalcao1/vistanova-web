@@ -218,6 +218,124 @@ export async function sendNewsletterNotificationEmail(data: {
 }
 
 /**
+ * Send career application email with CV attachment
+ */
+export async function sendCareerApplicationEmail(data: {
+  name: string;
+  email: string;
+  phone: string;
+  position: string;
+  experience: string;
+  motivation: string;
+  availability: string;
+  linkedin?: string;
+}, cvFile: { name: string; content: Buffer }): Promise<EmailResult> {
+  const { name, email, phone, position, experience, motivation, availability, linkedin } = data;
+  
+  const subject = `Nova Candidatura: ${name} - ${position}`;
+  
+  const text = `
+    Nova Candidatura de Emprego
+    
+    Dados Pessoais:
+    Nome: ${name}
+    Email: ${email}
+    Telefone: ${phone}
+    ${linkedin ? `LinkedIn: ${linkedin}` : ''}
+    
+    Informações Profissionais:
+    Posição de Interesse: ${position}
+    Experiência em Crédito: ${experience}
+    Disponibilidade: ${availability}
+    
+    Carta de Motivação:
+    ${motivation}
+    
+    CV em anexo: ${cvFile.name}
+  `;
+
+  const html = `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto;">
+      <h2 style="color: #1a365d; border-bottom: 2px solid #4299e1; padding-bottom: 10px;">Nova Candidatura de Emprego</h2>
+      
+      <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #1a365d; margin-top: 0;">Dados Pessoais</h3>
+        <p><strong>Nome:</strong> ${name}</p>
+        <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+        <p><strong>Telefone:</strong> ${phone}</p>
+        ${linkedin ? `<p><strong>LinkedIn:</strong> <a href="${linkedin}" target="_blank">${linkedin}</a></p>` : ''}
+      </div>
+
+      <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #1a365d; margin-top: 0;">Informações Profissionais</h3>
+        <p><strong>Posição de Interesse:</strong> ${position}</p>
+        <p><strong>Experiência em Crédito:</strong> ${experience}</p>
+        <p><strong>Disponibilidade:</strong> ${availability}</p>
+      </div>
+
+      <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <h3 style="color: #1a365d; margin-top: 0;">Carta de Motivação</h3>
+        <div style="background-color: white; padding: 15px; border-radius: 4px; border-left: 4px solid #4299e1;">
+          ${motivation.replace(/\n/g, '<br>')}
+        </div>
+      </div>
+      
+      <div style="margin-top: 30px; font-size: 12px; color: #718096; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+        <p>Esta é uma candidatura automática enviada através do formulário de carreiras do site VISTA NOVA.</p>
+        <p>CV em anexo: ${cvFile.name}</p>
+        <p>Para responder a esta candidatura, utilize o email: ${email}</p>
+      </div>
+    </div>
+  `;
+
+  // Check if Resend is properly configured
+  if (!process.env.RESEND_API_KEY) {
+    console.warn('RESEND_API_KEY not set. Falling back to email simulation for career application.');
+    return simulateEmailSending({ to: email, subject, text, html });
+  }
+
+  try {
+    const from = process.env.EMAIL_FROM || 'VISTA NOVA <noreply@vistanova.pt>';
+    const to = process.env.CONTACT_FORM_RECIPIENT || process.env.EMAIL_FROM || 'geral@vistanova.pt';
+
+    const result = await resend.emails.send({
+      from: from,
+      to: [to],
+      replyTo: email,
+      subject: subject,
+      text: text,
+      html: html,
+      attachments: [
+        {
+          filename: cvFile.name,
+          content: cvFile.content,
+        },
+      ],
+    });
+
+    if (result.error) {
+      console.error('Resend error (career application):', result.error);
+      return {
+        success: false,
+        error: result.error.message || 'Failed to send career application email',
+        details: result.error
+      };
+    }
+
+    return {
+      success: true,
+      messageId: result.data?.id,
+    };
+  } catch (error) {
+    console.error('Error sending career application email with Resend:', error);
+    
+    // Fallback to simulation if Resend fails
+    console.warn('Falling back to email simulation due to Resend error.');
+    return simulateEmailSending({ to: email, subject, text, html });
+  }
+}
+
+/**
  * Send newsletter welcome email to new subscribers
  */
 export async function sendNewsletterWelcomeEmail(email: string, name?: string): Promise<EmailResult> {

@@ -116,7 +116,15 @@ const config = {
           accessible: "hsl(var(--secondary-accessible))",
           vibrant: "hsl(var(--secondary-vibrant))",
           darker: "hsl(var(--secondary-darker))",
+          // Novas variantes suaves
+          muted: "hsl(var(--secondary-muted))",
+          subtle: "hsl(var(--secondary-subtle))",
+          // Variantes contextuais
+          onWhite: "hsl(var(--secondary-onWhite))",
+          onLight: "hsl(var(--secondary-onLight))",
           onDark: "hsl(var(--secondary-onDark))",
+          // Variantes auto
+          auto: "hsl(var(--secondary-onWhite))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
