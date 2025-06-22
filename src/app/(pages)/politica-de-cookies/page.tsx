@@ -299,6 +299,7 @@ export default function PoliticaCookies() {
         <h2 className="text-2xl font-bold text-primary mb-4">11. ÚLTIMA VERSÃO.</h2>
         <ol className="list-decimal pl-6 space-y-4">
           <li>
+            {/* #DEV Finish this DATA*/}
             <div className="bg-primary/5 p-6 rounded-lg">
               <p className="text-gray-700">
                 [{new Date().getDate().toString().padStart(2, '0')}] [{(new Date().getMonth() + 1).toString().padStart(2, '0')}], 2025, Vila Nova de Gaia (Portugal).
