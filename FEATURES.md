@@ -115,6 +115,10 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
 * [x] **Implementar Lógica de Envio de Emails** (com Resend) ✅
 * [x] **Implementar Gestão de Cookies** (com Usercentrics) ✅
 * [x] **Limpeza e Otimização de Código** ✅
+* [x] **Monitoramento Completo** ✅
+  * [x] Métricas de performance em tempo real (Vercel Analytics)
+  * [x] Monitoramento de erros e performance (Sentry)
+  * [x] Monitoramento de disponibilidade (Vercel)
 * [ ] **Refatoração dos Componentes UI** 
   * [ ] Refatorar páginas em `@/(pages)` para usar componentes UI consistentemente
   * [ ] Substituir HTML básico por componentes reutilizáveis (`Card`, `Separator`, `Badge`, `Accordion`, etc.)
@@ -126,13 +130,24 @@ Este documento mantém o controle das funcionalidades implementadas e pendentes 
   * [ ] Melhorias de contraste (auditoria e ajustes)
   * [ ] Navegação por teclado (testes exaustivos e correções)
   * [ ] Suporte a leitores de tela (ARIA, semântica)
-* [ ] **SEO - Avançado**
-  * [ ] Adicionar metadados para SEO em imagens (`alt text` já é obrigatório, mas rever a qualidade)
-  * [ ] Garantir sitemap dinâmico para futuras páginas (blog, etc.)
-  * [ ] Adicionar dados estruturados (Schema.org)
-* [ ] **Monitoramento Completo**
-  * [ ] Métricas de performance em tempo real (Vercel Analytics já está, mas expandir se necessário)
-  * [ ] Monitoramento de disponibilidade
+* [x] **SEO - Finalizações para Produção** ✅
+  * [x] Auditoria e melhoria de metadados para SEO em imagens (alt text quality review)
+  * [x] Verificar sitemap dinâmico para todas as páginas existentes
+  * [x] Validação final de meta tags e Open Graph
+* [ ] **SEO - Melhorias Pós-Produção (Schema.org e Otimizações Avançadas)**
+  * [ ] **Dados Estruturados - Prioridade CRÍTICA**
+    * [ ] Implementar Schema.org LocalBusiness para dados da empresa Vista Nova
+    * [ ] Adicionar Schema.org FinancialService para serviços de intermediação de crédito
+    * [ ] Implementar Schema.org Person para equipa de contacto (Jorge Veríssimo e Ágatha Santos)
+    * [ ] Criar Schema.org FAQPage para perguntas frequentes com rich snippets
+  * [ ] **Metadados Expandidos - Prioridade MÉDIA**
+    * [ ] Adicionar og:image específica para todas as páginas (1200x630px)
+    * [ ] Configurar metadados robots específicos por página quando necessário
+    * [ ] Implementar Canonical URLs explícitas para evitar conteúdo duplicado
+  * [ ] **Otimização de Conteúdo - Prioridade BAIXA**
+    * [ ] Auditar e otimizar hierarquia H1 único por página
+    * [ ] Estruturar hierarquia H2-H6 consistente em todas as páginas
+    * [ ] Implementar Rich Snippets para FAQ combinado com Schema.org
 * [ ] **Testes**
   * [ ] Adicionar testes unitários e de integração (Jest, RTL)
 * [ ] **Blog e CMS** (funcionalidade futura, sem planos claros ainda)

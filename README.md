@@ -4,21 +4,21 @@ Website institucional profissional para a Vista Nova, construído com tecnologia
 
 ## 📌 Status do Projeto
 
-**Versão Atual:** 2.2.15  
-**Status:** Em desenvolvimento ativo  
-**Próxima Versão Estável:** 2.3.X (Planejada para produção)
+**Versão Atual:** 2.2.17  
+**Status:** Pronto para produção  
+**Próxima Versão Estável:** 2.3.X (Melhorias futuras)
 
 ### Versionamento
 - **2.x.x**: Melhorias e manutenção do site atual
 - **x.2.x**: Versão em produção (versão estável)
-- **x.x.15**: Décima quinta iteração de desenvolvimento
+- **x.x.17**: Décima sétima iteração de desenvolvimento
 
-### Melhorias Recentes (v2.2.15)
-- **Política de Privacidade Oficial**: Implementação completa do documento legal elaborado por advogado com todas as informações obrigatórias
-- **Compliance GDPR Total**: 19 seções legais implementadas com informações específicas da Microsoft Ireland Operations Limited
-- **Links Internos Funcionais**: Navegação adequada entre política de privacidade e política de cookies
-- **Data Dinâmica**: Formatação automática da data de atualização em português
-- **Estrutura Legal Completa**: Tabela detalhada de tratamento de dados e todos os direitos do utilizador
+### Melhorias Recentes (v2.2.17)
+- **Sistema de Envio de Currículos Otimizado**: Integração completa com Resend usando Base64 encoding conforme documentação oficial
+- **SEO Finalizado para Produção**: Alt texts melhorados, metadados otimizados e Open Graph configurado
+- **Limitação a PDF Único**: Sistema de upload restrito a PDFs para maior segurança
+- **Remoção de Elementos de Desenvolvimento**: Banner de desenvolvimento removido, projeto pronto para produção
+- **Validação Robusta**: Verificação de tamanho total de email respeitando limite de 40MB do Resend
 
 ### Melhorias Anteriores (v2.2.11)
 - **Limpeza e Otimização de Código**: Remoção completa de logs de debug, componentes obsoletos e código de desenvolvimento desnecessário

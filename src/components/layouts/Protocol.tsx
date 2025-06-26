@@ -14,7 +14,7 @@ export default function ProtocolItem({ protocol }: ProtocolItemProps) {
         <div className="relative w-full h-full max-w-[128px] max-h-12">
           <Image 
             src={protocol.logo} 
-            alt={protocol.name} 
+            alt={`${protocol.name} - Protocolo profissional da Vista Nova para especialistas de crédito`}
             fill
             sizes="(max-width: 768px) 100vw, 128px"
             className="object-contain w-auto h-auto"

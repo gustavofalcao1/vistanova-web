@@ -37,7 +37,7 @@ export default function WhatWeDoSection() {
           >
             <img
               src="/optimized-assets/images/do.webp" 
-              alt="Nossa equipe em ação" 
+              alt="Equipa profissional da Vista Nova prestando consultoria especializada em intermediação de crédito" 
               className="
                 hidden
                 lg:block

@@ -13,8 +13,19 @@ import WhatsAppButton from "@/components/ui/whatsapp-button";
 export const metadata: Metadata = {
   ...getFaviconMetadata(),
   title: "VISTA NOVA - Especialista em intermediação de crédito",
-  description: "Especialista em intermediação de crédito",
+  description: "Intermediação de crédito com ética e transparência. Crédito habitação, pessoal e empresarial com 98% de satisfação. Licença Banco de Portugal nº 2543.",
   metadataBase: new URL('https://vistanova.pt'),
+  keywords: [
+    'intermediação de crédito',
+    'crédito habitação',
+    'crédito pessoal',
+    'crédito empresarial',
+    'Vista Nova',
+    'Banco de Portugal',
+    'especialista crédito',
+    'consultoria financeira',
+    'literacia financeira'
+  ],
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
@@ -23,16 +34,24 @@ export const metadata: Metadata = {
   // Configurações de favicon e tema movidas para getFaviconMetadata()
   openGraph: {
     title: 'VISTA NOVA - Especialista em intermediação de crédito',
-    description: 'Especialista em intermediação de crédito',
+    description: 'Intermediação de crédito com ética e transparência. Crédito habitação, pessoal e empresarial com 98% de satisfação. Licença Banco de Portugal nº 2543.',
     url: 'https://vistanova.pt',
     siteName: 'VISTA NOVA',
     locale: 'pt_PT',
     type: 'website',
+    images: [
+      {
+        url: 'https://vistanova.pt/optimized-assets/images/hero.avif',
+        width: 1200,
+        height: 630,
+        alt: 'Vista Nova - Especialista em intermediação de crédito',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'VISTA NOVA - Especialista em intermediação de crédito',
-    description: 'Especialista em intermediação de crédito',
+    description: 'Intermediação de crédito com ética e transparência. Crédito habitação, pessoal e empresarial com 98% de satisfação.',
   },
 };
 

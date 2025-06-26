@@ -161,6 +161,21 @@ const HeroCarousel = () => {
     }
   };
 
+  // Function to generate SEO-optimized alt text based on slide content
+  const generateAltText = (slide: HeroSlide): string => {
+    const baseAlt = "Vista Nova - ";
+    switch (slide.id) {
+      case 1:
+        return `${baseAlt}Especialista em intermediação de crédito com 98% de satisfação dos clientes`;
+      case 2:
+        return `${baseAlt}Atendimento personalizado e humano para intermediação de crédito`;
+      case 3:
+        return `${baseAlt}Crédito habitação 100% financiado para jovens até 35 anos com garantia pública`;
+      default:
+        return `${baseAlt}${slide.title} ${slide.highlight}`;
+    }
+  };
+
   return (
     <section className="relative pt-32 pb-20 px-4 bg-gradient-to-br from-primary to-primary/90 text-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -256,7 +271,7 @@ const HeroCarousel = () => {
               <div className="relative rounded-2xl shadow-2xl w-full aspect-[4/3] overflow-hidden bg-primary/40">
                 <OptimizedImage 
                   src={slide.imagePath}
-                  alt={slide.title}
+                  alt={generateAltText(slide)}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   className="object-cover"

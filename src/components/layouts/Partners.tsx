@@ -160,7 +160,7 @@ export default function Partners({ partners }: PartnersProps) {
                     <div className={getLogoConfig(partner.logo).containerClass}>
                       <Image 
                         src={partner.logo} 
-                        alt={partner.name} 
+                        alt={`${partner.name} - Parceiro bancário da Vista Nova para intermediação de crédito`}
                         fill
                         sizes="(max-width: 768px) 160px, 200px"
                         className={getLogoConfig(partner.logo).imageClass}
