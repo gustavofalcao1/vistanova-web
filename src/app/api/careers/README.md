@@ -42,13 +42,13 @@ formData.append('recaptchaToken', 'token_recaptcha_v3');
 - **motivation**: Mínimo 50 caracteres
 - **availability**: Disponibilidade
 - **consent**: Deve ser 'true'
-- **cv**: Ficheiro PDF ou Word, máximo 5MB
+- **cv**: Ficheiro PDF, máximo 5MB
 
 ### Campos Opcionais
 - **linkedin**: URL do LinkedIn (opcional)
 
 ### Validação de Ficheiros
-- **Formatos aceites**: PDF (.pdf), Word (.doc, .docx)
+- **Formatos aceites**: PDF (.pdf)
 - **Tamanho máximo**: 5MB
 - **Obrigatório**: Sim
 
@@ -79,9 +79,10 @@ formData.append('recaptchaToken', 'token_recaptcha_v3');
 
 ## Funcionalidades Especiais
 
-### Suporte a Anexos
-- Converte ficheiros para Buffer para compatibilidade com Resend
-- Valida tipo MIME e tamanho do ficheiro
+### Suporte a Anexos (Conforme Documentação Resend)
+- Converte ficheiros para Base64 para compatibilidade com Resend
+- Valida tamanho total do email (limite Resend: 40MB)
+- Aceita apenas ficheiros PDF para currículos
 - Inclui informações do ficheiro no email
 
 ### Email Profissional

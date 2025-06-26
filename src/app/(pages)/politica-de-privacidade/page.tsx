@@ -200,7 +200,7 @@ export default function PoliticaPrivacidade() {
             Para proteger os seus dados pessoais só recorremos a fornecedores de centros de dados que nos ofereçam medidas de segurança adequadas e documentadas, nomeadamente, garantias que os seus dados pessoais são armazenados em servidores que são mantidos em ambientes controlados com acessos limitados.
           </li>
           <li>
-            Os dados pessoais são mantidos em servidores seguros junto à Microsoft Ireland Operations Limited (adiante, "Microsoft") com NIPC 980152267 e sede na One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, D18 P521, Ireland, a qual nos oferece as garantias de segurança adequadas à proteção dos dados pessoais contra a sua difusão, perda, uso indevido, alteração, tratamento ou acesso não autorizado bem como, contra qualquer outra forma de tratamento ilícito.
+            Os dados pessoais são mantidos em servidores seguros junto à Microsoft Ireland Operations Limited (adiante, &quot;Microsoft&quot;) com NIPC 980152267 e sede na One Microsoft Place, South County Business Park, Leopardstown, Dublin 18, D18 P521, Ireland, a qual nos oferece as garantias de segurança adequadas à proteção dos dados pessoais contra a sua difusão, perda, uso indevido, alteração, tratamento ou acesso não autorizado bem como, contra qualquer outra forma de tratamento ilícito.
           </li>
           <li>
             Embora tomemos os cuidados e as precauções que entendemos adequadas para proteger os dados pessoais que nos fornece e recolhemos, é preciso ter consciência que nenhum sistema de segurança é impenetrável.

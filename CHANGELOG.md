@@ -5,6 +5,38 @@ Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
 O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/),
 e este projeto adere ao [Versionamento Semântico](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.17] - 2025-01-27 - Otimização Sistema de Envio de Currículos
+
+### 🚀 Melhorias de Integração Resend
+- **Encoding Base64** conforme documentação oficial do Resend para anexos locais
+- **Validação de tamanho total de email** respeitando limite de 40MB do Resend
+- **Processamento otimizado** de arquivos para garantir compatibilidade total
+- **Tratamento de erros aprimorado** com mensagens específicas para anexos
+
+### 🔒 Restrições de Segurança
+- **Limitação a PDF único** - removido suporte para arquivos Word (.doc/.docx)
+- **Validação rigorosa** de tipo MIME para aceitar apenas PDFs
+- **Mensagens de erro específicas** para formato e tamanho de arquivo
+- **Proteção contra uploads maliciosos** com validação dupla (frontend + backend)
+
+### 📋 Funcionalidades Aprimoradas
+- **API de carreiras** (`/api/careers`) otimizada para Resend
+- **Formulário de upload** simplificado com accept=".pdf" exclusivo
+- **Validação em tempo real** com feedback visual melhorado
+- **Documentação atualizada** refletindo mudanças de formato aceito
+
+### ⚡ Performance e Confiabilidade
+- **Conversão Base64 eficiente** para compatibilidade total com Resend
+- **Verificação preventiva** de tamanho antes do envio
+- **Fallback inteligente** em caso de falhas do serviço
+- **Logs detalhados** para debugging e monitoramento
+
+### 📚 Documentação Técnica
+- **README da API atualizado** (`src/app/api/careers/README.md`)
+- **Especificações claras** de formatos aceitos e limitações
+- **Exemplos de uso** alinhados com a documentação do Resend
+- **Melhores práticas** para envio de anexos por email
+
 ## [2.2.16] - 2025-01-27 - Harmonização da Paleta de Cores
 
 ### 🎨 Melhorias de Design

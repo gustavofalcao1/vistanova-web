@@ -96,12 +96,13 @@ export async function POST(request: Request) {
       );
     }
 
-    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    // Only PDF files allowed as per requirements
+    const allowedTypes = ['application/pdf'];
     const maxSize = 5 * 1024 * 1024; // 5MB
 
     if (!allowedTypes.includes(cvFile.type)) {
       return NextResponse.json(
-        { success: false, error: 'Formato de CV inválido. Use apenas PDF ou Word.' },
+        { success: false, error: 'Formato de CV inválido. Use apenas PDF.' },
         { status: 400 }
       );
     }

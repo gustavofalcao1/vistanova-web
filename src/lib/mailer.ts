@@ -298,6 +298,22 @@ export async function sendCareerApplicationEmail(data: {
     const from = process.env.EMAIL_FROM || 'VISTA NOVA <noreply@vistanova.pt>';
     const to = process.env.CONTACT_FORM_RECIPIENT || process.env.EMAIL_FROM || 'geral@vistanova.pt';
 
+    // Convert Buffer to Base64 as per Resend documentation for local file attachments
+    const cvBase64 = cvFile.content.toString('base64');
+    
+    // Verify file size after Base64 encoding (Resend limit: 40MB total)
+    const base64Size = Buffer.byteLength(cvBase64, 'base64');
+    const maxEmailSize = 40 * 1024 * 1024; // 40MB
+    
+    if (base64Size > maxEmailSize) {
+      console.error('CV file too large after Base64 encoding:', base64Size / 1024 / 1024, 'MB');
+      return {
+        success: false,
+        error: 'CV file is too large for email delivery. Please use a smaller file.',
+        details: { fileSize: base64Size, maxSize: maxEmailSize }
+      };
+    }
+
     const result = await resend.emails.send({
       from: from,
       to: [to],
@@ -308,7 +324,7 @@ export async function sendCareerApplicationEmail(data: {
       attachments: [
         {
           filename: cvFile.name,
-          content: cvFile.content,
+          content: cvBase64, // Base64 encoded content as per Resend docs
         },
       ],
     });

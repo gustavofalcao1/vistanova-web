@@ -42,14 +42,14 @@ export function CareerForm({ onSubmit }: CareerFormProps) {
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      // Validate file type and size
-      const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-      const maxSize = 5 * 1024 * 1024; // 5MB
+      // Validate file type and size - ONLY PDF allowed as per requirements
+      const allowedTypes = ['application/pdf'];
+      const maxSize = 5 * 1024 * 1024; // 5MB (well under Resend's 40MB limit after Base64)
 
       if (!allowedTypes.includes(file.type)) {
         toast({
           title: "Formato inválido",
-          description: "Por favor, carrega apenas ficheiros PDF ou Word.",
+          description: "Por favor, carrega apenas ficheiros PDF.",
           variant: "destructive"
         });
         return;
@@ -58,7 +58,7 @@ export function CareerForm({ onSubmit }: CareerFormProps) {
       if (file.size > maxSize) {
         toast({
           title: "Ficheiro muito grande",
-          description: "O ficheiro deve ter no máximo 5MB.",
+          description: "O ficheiro PDF deve ter no máximo 5MB.",
           variant: "destructive"
         });
         return;
@@ -248,10 +248,10 @@ export function CareerForm({ onSubmit }: CareerFormProps) {
             <div>
               <Upload className="h-12 w-12 text-white/50 mx-auto mb-4" />
               <p className="text-white/70 mb-2">Carrega o teu CV</p>
-              <p className="text-white/50 text-sm mb-4">PDF ou Word, máximo 5MB</p>
+              <p className="text-white/50 text-sm mb-4">PDF, máximo 5MB</p>
               <input
                 type="file"
-                accept=".pdf,.doc,.docx"
+                accept=".pdf"
                 onChange={handleFileUpload}
                 className="hidden"
                 id="cv-upload"
